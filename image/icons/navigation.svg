@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 40 40' display='none' width='0' height='0'>
+  <symbol id='chevron_down' viewBox='0 0 24 24'><path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id='chevron_up' viewBox='0 0 24 24'><path d="M5 16L12 9L19 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id='chevron_left' viewBox='0 0 24 24'><path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id='chevron_right' viewBox='0 0 24 24'><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>

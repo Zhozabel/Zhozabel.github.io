@@ -23,6 +23,13 @@
 
 body {
   background-color: var(--background);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 ul {
@@ -32,6 +39,24 @@ ul {
 a {
   text-decoration: none;
 }
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+  padding: 30px 0 60px 0;
+}
+
+.footer_copyright {
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  color: var(--primary);
+}
+
+/* ========================================
+   MAIN
+======================================== */
 
 .header {
   padding-block: 30px;
@@ -49,7 +74,7 @@ a {
 
 }
 
-.header_container, .hero_container, .navigation_container, .footer_container {
+.header_container, .hero_container, .navigation_container, .footer_container, .art-archive_container {
   max-width: 1500px;
   margin-inline: auto;
 }
@@ -133,7 +158,6 @@ a {
 .hero_description {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
-  letter-spacing: -0.63px;
   line-height: 30px;
   color: var(--secondary_text);
   margin-top: 15px;
@@ -205,7 +229,7 @@ a {
   font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 50px;
-  letter-spacing: -2.5px;
+  letter-spacing: -0.63px;
   color: var(--primary_text);
   margin-bottom: 30px;
 }
@@ -216,7 +240,6 @@ a {
   gap: 20px;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
-  letter-spacing: -0.63px;
   line-height: 30px;
   color: var(--secondary_text);
   margin-top: 15px;
@@ -267,16 +290,268 @@ a {
   }
 }
 
-.footer_container {
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
-  align-items: center;
-  padding: 30px 0 60px 0;
-}
+/* ========================================
+   ART
+======================================== */
 
-.footer_copyright {
+.art-archive_category {
   font-family: "Nunito", sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 700;
   color: var(--primary);
 }
+
+.art-archive_title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: -2.5px;
+  color: var(--primary_text);
+}
+
+.art-archive_desc {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.63px;
+  line-height: 30px;
+  color: var(--secondary_text);
+  margin-bottom: 30px;
+}
+
+
+.timeline {
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline::before {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--primary);
+}
+
+
+.year {
+  position: relative;
+}
+
+
+.year_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 0 0 20px;
+  border: solid 1px var(--card);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: color 0.3s;
+}
+
+.year_header:hover {
+  color: var(--primary);
+}
+
+
+.year_toggle {
+  transition: transform 0.3s ease;
+}
+
+.year:not(.collapsed) .year_toggle {
+  transform: rotate(180deg);
+}
+
+
+.year_chevron {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+}
+
+
+.year:not(.collapsed)::before {
+  background: var(--primary);
+}
+
+.year:not(.collapsed) .year_header {
+  color: var(--primary);
+}
+
+
+.year::before {
+  margin-top: 16px;
+  content: "";
+  position: absolute;
+  left: -47px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  background: var(--background);
+  z-index: 2;
+  transition: background 0.25s ease;
+}
+
+
+.year_content {
+  display: grid;
+  grid-template-rows: 1fr;
+  max-height: 10000px;
+  overflow: hidden;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.year.collapsed .year_content {
+  max-height: 0;
+  opacity: 0;
+}
+
+
+.year_gallery {
+  columns: 4 260px;
+  column-gap: 18px;
+  margin-bottom: 20px;
+}
+
+
+.art_card {
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+
+.art_card_link {
+  display: block;
+}
+
+
+.art_card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: filter 0.3s ease;
+}
+
+
+/* =========================
+   BLURRED ARTWORK
+   ========================= */
+
+.art_card.is_blurred img {
+  filter: blur(20px);
+}
+
+
+/* =========================
+   REVEAL BUTTON
+   ========================= */
+
+.art_reveal {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 20px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: transparent;
+
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+
+  cursor: pointer;
+}
+
+
+/* Затемнение поверх заблюренной картинки */
+
+.art_card.is_blurred .art_reveal {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   CONTENT WARNING
+   ========================= */
+
+.art_warning {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+.art_warning_title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.art_warning_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+.art_warning_list li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 14px;
+}
+
+
+.art_reveal_action {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--primary_text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.art_reveal_action:hover {
+  background: var(--card_hover);
+  color: var(--secondary_text);
+}
+
