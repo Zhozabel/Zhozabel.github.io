@@ -555,3 +555,23 @@ a {
   color: var(--secondary_text);
 }
 
+.art_card_video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.art_card.is_blurred img,
+.art_card.is_blurred video {
+  filter: blur(20px);
+}
+
+/* ========================================
+   FOR ME
+======================================== */
+
+.gifts_gallery {
+  columns: 4 260px;
+  column-gap: 18px;
+}
