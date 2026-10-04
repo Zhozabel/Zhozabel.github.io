@@ -125,7 +125,7 @@ function renderArtworks(artworks) {
       artCard.innerHTML = `
         <a
           class="art_card_link"
-          href="artwork.html?id=${artwork.id}"
+          href="viewer.html?source=artworks&id=${artwork.id}"
         >
 
           <img

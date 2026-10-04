@@ -375,7 +375,7 @@ a {
 }
 
 
-.year_chevron {
+.year_chevron, .close_cross {
   display: block;
   width: 24px;
   height: 24px;

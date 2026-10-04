@@ -88,9 +88,9 @@ function renderGifts(gifts) {
 
     card.innerHTML = `
       <a
-        class="art_card_link"
-        href="gift.html?id=${gift.id}"
-      >
+    class="art_card_link"
+    href="viewer.html?source=gifts&id=${gift.id}"
+  >
 
         ${renderMedia(gift)}
 
