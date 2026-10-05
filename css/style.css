@@ -74,7 +74,7 @@ a {
 
 }
 
-.header_container, .hero_container, .navigation_container, .footer_container, .art-archive_container {
+.header_container, .hero_container, .navigation_container, .footer_container, .archive_container {
   max-width: 1500px;
   margin-inline: auto;
 }
@@ -294,14 +294,14 @@ a {
    ART
 ======================================== */
 
-.art-archive_category {
+.archive_category {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--primary);
 }
 
-.art-archive_title {
+.archive_title {
   font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 50px;
@@ -309,7 +309,7 @@ a {
   color: var(--primary_text);
 }
 
-.art-archive_desc {
+.archive_desc {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   letter-spacing: -0.63px;

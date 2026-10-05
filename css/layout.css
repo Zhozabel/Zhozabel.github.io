@@ -1,0 +1,8 @@
+.container {
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+.hero_container {
+  position: relative;
+}

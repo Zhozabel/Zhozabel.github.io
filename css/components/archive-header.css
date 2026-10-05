@@ -1,0 +1,23 @@
+.archive_category {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.archive_title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: -2.5px;
+  color: var(--primary_text);
+}
+
+.archive_desc {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.63px;
+  line-height: 30px;
+  color: var(--secondary_text);
+  margin-bottom: 30px;
+}

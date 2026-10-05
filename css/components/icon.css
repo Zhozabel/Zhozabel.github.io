@@ -1,0 +1,8 @@
+.close_cross,
+.year_chevron,
+.leftchevron {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+}

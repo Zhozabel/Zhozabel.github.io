@@ -1,0 +1,43 @@
+/*Основные цвета*/
+:root {
+  --background: #2B2022;
+  --surface: #332529;
+  --card: #3D2B30;
+  --card_hover: #4A3339;
+  --primary: #D76975;
+  --primary_hover: #E27C87;
+  --primary_text: #F1D28B;
+  --secondary_text: #C9AFA0;
+  --accent: #9BC8B7;
+
+  --success: #79B49B;
+  --warning: #E8B95F;
+  --error: #C85C68;
+  --info: #88B7C4;
+}
+
+/*Основные стили*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

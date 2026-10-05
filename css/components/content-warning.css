@@ -1,0 +1,75 @@
+.art_card.is_blurred img {
+  filter: blur(20px);
+}
+
+.art_card.is_blurred video {
+  filter: blur(20px);
+}
+
+.art_reveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+}
+
+.art_card.is_blurred .art_reveal {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.art_warning {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.art_warning_title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.art_warning_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.art_warning_list li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 14px;
+}
+
+.art_reveal_action {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--primary_text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.art_reveal_action:hover {
+  background: var(--card_hover);
+  color: var(--secondary_text);
+}

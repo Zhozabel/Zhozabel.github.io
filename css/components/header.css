@@ -1,0 +1,52 @@
+/*Настройки хэдера*/
+.header {
+  padding-block: 30px;
+}
+
+.container, header_container, .hero_container, .navigation_container, .footer_container, .archive_container {
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_list {
+  display: flex;
+  gap: 50px;
+  padding: 19px 0;
+}
+
+.header_list-link {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--primary_text);
+  transition: color 0.3s;
+}
+
+.header_list-link.active {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 8px;
+}
+
+.header_list-link:hover {
+  color: var(--primary);
+}
+
+.header_button {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--background);
+  padding: 19px 59px;
+  background: linear-gradient(to right, var(--primary), var(--primary_text));
+  border-radius: 50px;
+}
+
+.header_button:hover {
+  color: white;
+}

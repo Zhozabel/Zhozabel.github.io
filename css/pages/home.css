@@ -1,0 +1,116 @@
+.hero {
+  padding: 0;
+}
+
+.hero_container {
+  position: relative;
+}
+
+.hero_content {
+  max-width: 450px;
+}
+
+.hero_eyebrow {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.hero_title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+  letter-spacing: -2.5px;
+  color: var(--primary_text);
+}
+
+.hero_description {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--secondary_text);
+  margin-top: 15px;
+}
+
+.hero_visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.hero_link-container {
+  position: relative;
+  top: auto;
+  right: 0;
+}
+
+.hero_image {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 950px;
+  height: auto;
+  border-radius: 50px 50px 0 0;
+  margin-bottom: -2px;
+}
+
+.hero_panel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  margin-top: -2px;
+  background-color: var(--card);
+  border-radius: 0 0 20px 20px;
+}
+
+.hero_panel-link {
+  color: var(--primary_text);
+}
+
+.hero_panel-link:hover {
+  color: var(--primary);
+}
+
+.hero_panel-icon {
+  fill: currentColor;
+  transition: color 0.3s;
+}
+
+.navigation_header {
+  padding-top: 216px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.navigation_kicker {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.navigation_title {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: -0.63px;
+  color: var(--primary_text);
+  margin-bottom: 30px;
+}
+
+.navigation_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--secondary_text);
+  margin-top: 15px;
+}

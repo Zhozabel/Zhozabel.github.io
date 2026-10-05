@@ -1,0 +1,26 @@
+.art_card {
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.art_card_link {
+  display: block;
+}
+
+.art_card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: filter 0.3s ease;
+}
+
+.art_card_video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}

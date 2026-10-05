@@ -1,0 +1,44 @@
+.category_grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  position: relative;
+  overflow: hidden;
+
+
+  border-radius: 20px;
+  background-color: var(--card);
+  padding: 25px;
+  transition: background-color 1s;
+}
+
+.category_grid:hover {
+  background-color: var(--card_hover);
+}
+
+.category_no {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.category_title {
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--primary_text);
+}
+
+.category_desc {
+  max-width: 350px;
+  font-size: 20px;
+  color: var(--secondary_text);
+  padding: 15px 0;
+}
+
+.arrow {
+  align-self: flex-end;
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 900;
+}
