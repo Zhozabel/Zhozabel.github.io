@@ -1,0 +1,131 @@
+.story_timeline .year_header {
+  width: 700px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.story_timeline {
+  width: 700px;
+  max-width: 100%;
+}
+
+.story_list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.story_card {
+  display: flex;
+  align-items: stretch;
+  width: 700px;
+  max-width: 100%;
+  gap: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  border: 1px solid var(--card);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--primary_text);
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.story_card_cover {
+  display: block;
+  width: 140px;
+  height: 210px;
+  flex: 0 0 140px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.story_card_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 5px 10px 5px 0;
+}
+
+
+.story_card_title {
+  margin: 0 0 8px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+
+.story_card_meta {
+  margin-bottom: 12px;
+
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+.story_card_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-bottom: 14px;
+}
+
+
+.story_card_tags span {
+  padding: 5px 11px;
+
+  border-radius: 999px;
+
+  background: var(--background);
+
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.story_card_status {
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+
+  .story_card {
+    gap: 15px;
+    padding: 12px;
+  }
+
+
+  .story_card_cover {
+    width: 100px;
+  }
+
+
+  .story_card_title {
+    font-size: 20px;
+  }
+
+
+  .story_card_tags {
+    gap: 5px;
+  }
+
+}

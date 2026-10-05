@@ -1,0 +1,38 @@
+[
+  {
+    "id": "keep-the-promise",
+    "title": "Обещай мне",
+    "type": "fanfiction",
+    "fandom": "Perfect World",
+    "date": "2015-06-08",
+    "banner": "image/illustrations/illustration-KakashiHajoka.png",
+    "cover": "image/illustrations/illustration-KakashiHajoka.png",
+    "description": "Однажды Бог Пань Гу создал Идеальный Мир и населил живыми существами, веря что они наполнят его творение высокими идеалами, любовью, честью и состраданием.\nСпустя много лет Бог воды Гун Гун без ведома и согласия Пань Гу тоже создал разумных существ, которых Пань Гу не смог принять.\nЧто случится, когда дети Гун Гуна заявят о себе остальному миру?\nВо времена, когда уже трудно понять, где друг, а где враг, только любящее сердце способно указать верный путь к спасению мира.",
+    "status": "abandoned",
+    "chapters": 55,
+    "genres": [
+      "Romance",
+      "Drama",
+      "Wuxia / Xianxia",
+      "Fantasy",
+      "Action"
+    ],
+    "rating": "NC-17",
+    "warnings": [
+      "Resurrection",
+      "Temporary character death",
+      "Violence",
+      "Slow-paced narrative",
+      "Canon-compliant",
+      "Battles",
+      "Happy ending",
+      "References to violence",
+      "References to religion",
+      "References to death",
+      "References to murder",
+      "Melee weapons"
+    ],
+    "blur": false,
+    "author": "Zhozabel"
+  }
+]

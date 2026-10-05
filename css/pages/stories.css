@@ -1,0 +1,565 @@
+/* ========================================
+   STORIES
+======================================== */
+
+.story_timeline {
+  width: min(100% - 40px, 1100px);
+  margin-inline: auto;
+}
+
+
+/* ========================================
+   STORY LIST
+======================================== */
+
+.story_list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+
+/* ========================================
+   STORY CARD
+======================================== */
+
+.story_card {
+  display: flex;
+  width: 100%;
+  min-height: 220px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: var(--card);
+  color: inherit;
+
+  transition: background-color 0.3s ease,
+  transform 0.3s ease;
+}
+
+.story_card:hover {
+  background-color: var(--card_hover);
+  /*transform: translateY(-2px);*/
+}
+
+
+/* ========================================
+   COVER
+======================================== */
+
+.story_card_cover {
+  position: relative;
+  width: 280px;
+  height: 220px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.story_card_cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story_status {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  background: var(--card);
+  color: var(--primary_text);
+}
+
+.story_status--completed {
+  background: var(--success);
+  color: var(--background);
+}
+
+.story_status--in-progress {
+  background: var(--warning);
+  color: var(--background);;
+}
+
+.story_status--hiatus {
+  background: var(--info);
+  color: var(--background);;
+}
+
+.story_status--abandoned {
+  background: var(--error);
+  color: var(--background);;
+}
+
+
+/* ========================================
+   INFO
+======================================== */
+
+.story_card_info {
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px 30px;
+}
+
+
+.story_card_title {
+  margin: 0 0 8px;
+
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+.story_card_meta {
+  margin-bottom: 18px;
+
+  color: var(--primary);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.story_card_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: auto;
+}
+
+
+.story_card_tags span {
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: var(--background);
+
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.story_card_chapters {
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.story_card_status {
+  margin-top: 20px;
+
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+  .story_timeline {
+    width: min(100% - 30px, 1100px);
+  }
+
+  .story_card {
+    min-height: 0;
+  }
+
+  .story_card_cover {
+    width: 140px;
+    height: 180px;
+  }
+
+  .story_card_cover-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .story_card_info {
+    padding: 20px;
+  }
+
+  .story_card_title {
+    font-size: 22px;
+  }
+
+  .story_card_meta {
+    margin-bottom: 12px;
+  }
+}
+/* ========================================
+   STORY PAGE
+======================================== */
+
+.story_page {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  gap: 40px;
+
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+
+/* ========================================
+   LEFT COLUMN
+======================================== */
+
+.story_main {
+  min-width: 0;
+}
+
+
+/* ========================================
+   BANNER
+======================================== */
+
+.story_banner {
+  position: relative;
+
+  width: 100%;
+  height: 260px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+}
+
+.story_banner-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.story_banner-genres {
+  position: absolute;
+  left: 225px;
+  right: 20px;
+  bottom: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  z-index: 3;
+}
+
+.story_banner-genres span {
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  background: var(--card);
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   STORY COVER
+======================================== */
+
+.story_cover {
+  display: block;
+
+  position: relative;
+  z-index: 2;
+
+  width: 180px;
+  height: 270px;
+
+  margin-top: -135px;
+  margin-left: 25px;
+
+  padding: 0;
+  border: 0;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background: var(--card);
+
+  cursor: pointer;
+}
+
+.story_cover-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ========================================
+   CHAPTERS
+======================================== */
+
+.story_chapters {
+  margin-top: 40px;
+}
+
+.story_section-title {
+  margin-bottom: 18px;
+
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.story_chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story_chapter {
+  display: flex;
+
+  min-height: 90px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: var(--card);
+  color: inherit;
+
+  transition: background-color 0.3s ease;
+}
+
+.story_chapter:hover {
+  background: var(--card_hover);
+}
+
+.story_chapter-cover {
+  width: 90px;
+  height: 90px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+}
+
+.story_chapter-cover img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.story_chapter-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 12px 18px;
+}
+
+.story_chapter-title {
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.story_chapter-date {
+  margin-top: 5px;
+
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+}
+
+
+/* ========================================
+   RIGHT COLUMN
+======================================== */
+
+.story_sidebar {
+  min-width: 0;
+}
+
+.story_description {
+  padding: 25px;
+
+  border-radius: 20px;
+
+  background: var(--card);
+}
+
+.story_title {
+  margin-bottom: 18px;
+
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.story_description-text {
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.story_description-text p + p {
+  margin-top: 14px;
+}
+
+
+/* ========================================
+   STORY META
+======================================== */
+
+.story_meta {
+  margin-top: 25px;
+}
+
+.story_meta-title {
+  margin-bottom: 10px;
+
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.story_genres,
+.story_warnings {
+  color: var(--card);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story_genres span,
+.story_warnings span {
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: var(--card);
+  color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.story_rating {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* G */
+.story_rating--G {
+  background: var(--success);
+  color: var(--background);
+}
+
+/* PG */
+.story_rating--PG {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* PG-13 */
+.story_rating--PG-13 {
+  background: var(--warning);
+  color: var(--background);
+}
+
+/* R */
+.story_rating--R {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* NC-17 */
+.story_rating--NC-17 {
+  background: var(--error);
+  color: var(--background);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .story_page {
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    width: min(100% - 30px, 700px);
+    margin: 30px auto;
+  }
+
+  .story_banner {
+    height: 220px;
+  }
+
+  .story_cover {
+    width: 140px;
+    height: 210px;
+
+    margin-top: -105px;
+    margin-left: 20px;
+  }
+
+}

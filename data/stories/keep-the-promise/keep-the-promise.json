@@ -1,0 +1,30 @@
+[
+  {
+    "id": "chapter-01",
+    "title": "Глава 55",
+    "date": "2025-06-08",
+    "cover": "image/illustrations/illustration-KakashiHajoka.png",
+    "file": "data/stories/keep-the-promise/chapters/chapter-01.md",
+    "illustrations": [
+      {
+        "src": "image/illustrations/illustration-KakashiHajoka.png",
+        "caption": "Какаши и Хаджока",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "id": "chapter-02",
+    "title": "Глава 54",
+    "date": "2025-05-20",
+    "cover": "image/illustrations/illustration-KakashiHajoka.png",
+    "file": "chapters/chapter-01.md"
+  },
+  {
+    "id": "chapter-03",
+    "title": "Глава 53",
+    "date": "2025-04-12",
+    "cover": "image/illustrations/illustration-KakashiHajoka.png",
+    "file": "chapters/chapter-01.md"
+  }
+]
