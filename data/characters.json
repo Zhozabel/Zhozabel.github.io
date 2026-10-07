@@ -1,0 +1,16 @@
+[
+  {
+    "id": "hajoka-butsukaru",
+    "name": "Hajoka Butsukaru",
+    "fandom": "Naruto",
+    "portrait": "images/illustrations/illustration-KakashiHajoka.png",
+    "file": "characters/hajoka.json"
+  },
+  {
+    "id": "zhozabel-de-lee",
+    "name": "Zhozabel' de'Lee",
+    "fandom": "original",
+    "portrait": "images/wiki/characters/character-02/portrait.png",
+    "file": "characters/zhozabel.json"
+  }
+]

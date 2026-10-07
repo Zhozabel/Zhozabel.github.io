@@ -1,0 +1,175 @@
+{
+  "basic": {
+    "gender": "Женщина",
+    "birthDate": "12 мая",
+    "birthPlace": "Страна Огня",
+    "clan": "Бутцукурау",
+    "affiliation": "Конохагакуре",
+    "natureElements": [
+      "Огонь",
+      "Молния"
+    ],
+    "kekkeiGenkai": "—",
+    "summoning": "—"
+  },
+
+  "connections": {
+    "team": "Команда №7",
+    "comrades": [
+      "Какаши Хатаке",
+      "Наруто Узумаки",
+      "Сакура Харуно"
+    ],
+    "clan": "Бутцукурау",
+    "relatives": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+
+  "forms": [
+    {
+      "id": "season-1",
+      "name": "Первый сезон",
+      "portrait": "images/illustrations/illustration-KakashiHajoka.png",
+
+      "basic": {
+        "age": "23 года",
+        "height": "168 см",
+        "weight": "55 кг",
+        "status": "Жива",
+        "residence": "Коноха",
+        "occupation": "Шиноби",
+        "rank": "Джонин"
+      },
+
+      "personality": [
+        "Описание личности Хадзёки в первом сезоне."
+      ],
+
+      "appearance": [
+        "Описание внешности Хадзёки в первом сезоне."
+      ],
+
+      "story": {
+        "past": [
+          "Предыстория персонажа."
+        ],
+        "season1": [
+          "События первого сезона."
+        ],
+        "season2": [
+          "События второго сезона."
+        ],
+        "blankPeriod": [
+          "События пустого периода."
+        ],
+        "boruto": [
+          "События эпохи Боруто."
+        ]
+      },
+
+      "abilities": [
+        "Описание способностей."
+      ],
+
+      "weapons": [
+        "Описание оружия."
+      ]
+    },
+
+    {
+      "id": "season-2",
+      "name": "Второй сезон",
+      "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+
+      "basic": {
+        "age": "24 года",
+        "height": "169 см",
+        "weight": "56 кг",
+        "status": "Жива",
+        "residence": "Коноха",
+        "occupation": "Шиноби",
+        "rank": "Джонин"
+      },
+
+      "personality": [
+        "Личность во втором сезоне."
+      ],
+
+      "appearance": [
+        "Внешность во втором сезоне."
+      ]
+    },
+    {
+      "id": "blank-period",
+      "name": "Пустой период",
+      "portrait": "images/illustrations/illustration-KakashiHajoka.png",
+
+      "basic": {
+        "age": "26 лет",
+        "height": "170 см",
+        "weight": "57 кг",
+        "status": "Жива",
+        "residence": "Коноха",
+        "occupation": "Шиноби",
+        "rank": "Джонин"
+      }
+    },
+
+    {
+      "id": "boruto",
+      "name": "Эпоха Боруто",
+      "portrait": "images/illustrations/illustration-KakashiHajoka.png",
+
+      "basic": {
+        "age": "..."
+      }
+    }
+  ],
+
+  "relationships": [
+    {
+      "character": "kakashi",
+      "name": "Какаши Хатаке",
+      "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+      "rating": 6,
+      "description": "Описание их отношений."
+    },
+    {
+      "character": "kakashi",
+      "name": "Какаши Хатаке",
+      "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+      "rating": 6,
+      "description": "Описание их отношений."
+    },
+    {
+      "character": "kakashi",
+      "name": "Какаши Хатаке",
+      "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+      "rating": 6,
+      "description": "Описание их отношений."
+    },
+    {
+      "character": "kakashi",
+      "name": "Какаши Хатаке",
+      "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+      "rating": 6,
+      "description": "Описание их отношений."
+    }
+  ],
+
+  "gallery": [
+    {
+      "src": "images/illustrations/illustration-KakashiHajoka.png",
+      "alt": "Хадзёка"
+    },
+    {
+      "src": "images/illustrations/illustration-KakashiHajoka.png",
+      "alt": "Хадзёка в первом сезоне"
+    }
+  ]
+}

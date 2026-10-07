@@ -1,0 +1,253 @@
+/* ========================================
+   WIKI PAGE
+======================================== */
+
+.wiki_page {
+  width: min(100% - 40px, 1100px);
+  margin: 60px auto 80px;
+}
+
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.wiki_header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.wiki_title {
+  margin: 0;
+  color: var(--primary_text);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.wiki_description {
+  margin: 10px 0 0;
+  color: var(--secondary_text);
+  font-size: 16px;
+}
+
+
+/* ========================================
+   FANDOM
+======================================== */
+
+.wiki_fandom {
+  margin-bottom: 55px;
+}
+
+.wiki_fandom:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ========================================
+   FANDOM TITLE
+======================================== */
+
+.wiki_fandom-title {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 58px;
+
+  margin: 0 0 25px;
+  padding: 0 25px;
+
+  box-sizing: border-box;
+
+  background: var(--card);
+  border-radius: 16px;
+
+  color: var(--primary_text);
+
+  font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* ========================================
+   CHARACTERS
+======================================== */
+
+.wiki_characters {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+
+/* ========================================
+   CHARACTER CARD
+======================================== */
+
+.wiki_character {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: var(--card);
+  border-radius: 20px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.wiki_character:hover {
+  background: var(--card_hover);
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   CHARACTER IMAGE
+======================================== */
+
+.wiki_character-image {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+  object-position: center top;
+}
+
+
+/* ========================================
+   CHARACTER INFO
+======================================== */
+
+.wiki_character-info {
+  padding: 18px 20px 20px;
+
+  text-align: center;
+}
+
+.wiki_character-name {
+  margin: 0;
+
+  color: var(--primary_text);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.wiki_character-description {
+  margin: 6px 0 0;
+
+  color: var(--secondary_text);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .wiki_characters {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+  .wiki_page {
+    width: min(100% - 30px, 500px);
+
+    margin-top: 40px;
+  }
+
+  .wiki_header {
+    margin-bottom: 40px;
+  }
+
+  .wiki_title {
+    font-size: 30px;
+  }
+
+  .wiki_fandom {
+    margin-bottom: 40px;
+  }
+
+  .wiki_fandom-title {
+    min-height: 52px;
+
+    margin-bottom: 18px;
+    padding: 0 18px;
+
+    border-radius: 14px;
+
+    font-size: 18px;
+  }
+
+  .wiki_characters {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+  }
+
+  .wiki_character {
+    border-radius: 16px;
+  }
+
+  .wiki_character-info {
+    padding: 14px 10px 16px;
+  }
+
+  .wiki_character-name {
+    font-size: 16px;
+  }
+
+  .wiki_character-description {
+    font-size: 12px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+
+  .wiki_characters {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki_character-image {
+    aspect-ratio: 4 / 5;
+  }
+
+}
