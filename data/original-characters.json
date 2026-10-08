@@ -1,0 +1,535 @@
+[
+  {
+    "id": "amedama-sarutobi",
+    "name": {
+      "en": "Amedama Sarutobi",
+      "ru": "Амедама Сарутоби"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "chanoi-sevazuki",
+    "name": {
+      "en": "Chanoi Sevazuki",
+      "ru": "Чанои Севазуки"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kazura-sarutobi",
+    "name": {
+      "en": "Kazura Sarutobi",
+      "ru": "Казура Сарутоби"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kizunari-sarutobi",
+    "name": {
+      "en": "Kizunari Sarutobi",
+      "ru": "Кизунари Сарутоби"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "serishi-butsukaru",
+    "name": {
+      "en": "Serishi Butsukaru",
+      "ru": "Сёриши Бутцукару"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "xia-feng",
+    "name": {
+      "en": "Xia Feng",
+      "ru": "Ся Фень"
+    },
+    "fandom": {
+      "en": "Centennial Winter © RUT1RUT",
+      "ru": "Столетняя зима © RUT1RUT"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yoko-yogan",
+    "name": {
+      "en": "Yoko Yogan",
+      "ru": "Йоко Йоган"
+    },
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dezuko-uchiha",
+    "name": {
+      "en": "Dezuko Uchiha",
+      "ru": "Дезуко Учиха"
+    },
+    "fandom": {
+      "en": "Kai © bad blonde",
+      "ru": "Kai © bad blonde"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "autumn-princess",
+    "name": {
+      "en": "Autumn Princess",
+      "ru": "Осенняя принцесса"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "spring-princess",
+    "name": {
+      "en": "Spring Princess",
+      "ru": "Весенняя принцесса"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "summer-princess",
+    "name": {
+      "en": "Summer Princess",
+      "ru": "Летняя принцесса"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "winter-princess",
+    "name": {
+      "en": "Winter Princess",
+      "ru": "Зимняя принцесса"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yoko-dios",
+    "name": {
+      "en": "Yoko Dios",
+      "ru": "Йоко Диос"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "burado-ivugaka",
+    "name": {
+      "en": "Burado Ivugaka",
+      "ru": "Бурадо Ивугака"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hajoka-butsukaru",
+    "name": {
+      "en": "Hajoka Butsukaru",
+      "ru": "Хадзёка Бутцукару"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "joshiko-butsukaru",
+    "name": {
+      "en": "Joshiko Butsukaru",
+      "ru": "Дзёшико Бутцукару"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kichiro-sarutobi",
+    "name": {
+      "en": "Kichiro Sarutobi",
+      "ru": "Кичиро Сарутоби"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kimiko-sarutobi",
+    "name": {
+      "en": "Kimiko Sarutobi",
+      "ru": "Кимико Сарутоби"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kurumi",
+    "name": {
+      "en": "Kurumi",
+      "ru": "Куруми"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nagusame-uchiha",
+    "name": {
+      "en": "Nagusame Uchiha",
+      "ru": "Нагусаме Учиха"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "shijen-butsukaru",
+    "name": {
+      "en": "Shijen Butsukaru",
+      "ru": "Шидзэн Бутцукару"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sonkei-butsukaru",
+    "name": {
+      "en": "Sonkei Butsukaru",
+      "ru": "Сонкэй Бутцукару"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tsuki-shuuki",
+    "name": {
+      "en": "Tsuki Shuuki",
+      "ru": "Цуки Шууки"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "umari-butsukaru",
+    "name": {
+      "en": "Umari Butsukaru",
+      "ru": "Умари Бутцукару"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "bifina-fierce",
+    "name": {
+      "en": "Bifina Fierce",
+      "ru": "Бифина Фиерс"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "juliette-de-plume",
+    "name": {
+      "en": "Juliette de'Plume",
+      "ru": "Джульетта де Плюм"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "julia-yuri",
+    "name": {
+      "en": "Julia (Yuri)",
+      "ru": "Джулия (Юри)"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nickolas-kori",
+    "name": {
+      "en": "Nikolas (Kori)",
+      "ru": "Николас (Кори)"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zhozabel-de-lee",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "venomancer",
+    "name": {
+      "en": "Venomancer",
+      "ru": "Друид"
+    },
+    "fandom": {
+      "en": "Perfect World",
+      "ru": "Perfect World"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "chelsea-tailor",
+    "name": {
+      "en": "Chelsea Tailor",
+      "ru": "Челси Тэйлор"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "limevert-the-platypus",
+    "name": {
+      "en": "Limevert",
+      "ru": "Лаймверт"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "adaez",
+    "name": {
+      "en": "Adaez",
+      "ru": "Адаез"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "alice-sokolova",
+    "name": {
+      "en": "Alice Sokolova",
+      "ru": "Алиса Соколова"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "andrey-sokolov",
+    "name": {
+      "en": "Andrey Sokolov",
+      "ru": "Андрей Соколов"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "chiumbo",
+    "name": {
+      "en": "Chiumbo",
+      "ru": "Чиумбо"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ekaterina-sokolova",
+    "name": {
+      "en": "Ekaterina Sokolova",
+      "ru": "Екатерина Соколова"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rita",
+    "name": {
+      "en": "Rita",
+      "ru": "Рита"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "white-lion",
+    "name": {
+      "en": "White Lion",
+      "ru": "Белый Лев"
+    },
+    "fandom": {
+      "en": "Ring of the White Lion © Zhozabel",
+      "ru": "Кольцо Белого льва © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "massao-yamaguchi",
+    "name": {
+      "en": "Massao Yamaguchi",
+      "ru": "Массао Ямагучи"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "murasaki-yamaguchi",
+    "name": {
+      "en": "Murasaki Yamaguchi",
+      "ru": "Мурасаки Ямагучи"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  }
+]

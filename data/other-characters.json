@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "customer-oc",
+    "name": {
+      "en": "Customer's OC",
+      "ru": "Персонаж заказчика"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "customer-ocs",
+    "name": {
+      "en": "Customer's OCs",
+      "ru": "Персонажи заказчика"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "fanfic-character",
+    "name": {
+      "en": "Fanfic character",
+      "ru": "Персонаж фанфика"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "fanfic-characters",
+    "name": {
+      "en": "Fanfic characters",
+      "ru": "Персонажи фанфика"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "oc-by-paprikali",
+    "name": {
+      "en": "OC © PaprikaLi",
+      "ru": "OC © PaprikaLi"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "unknown-oc",
+    "name": {
+      "en": "Unknown OC",
+      "ru": "Unknown OC"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mingzhu-by-ardi",
+    "name": {
+      "en": "Mingzhu © Ardi",
+      "ru": "Минчжу © Ardi"
+    },
+    "fandom": {
+      "en": "A Hundred Lotus Petals © RUT1RUT",
+      "ru": "Сто Лепестков Лотоса © RUT1RUT"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yan-qin-yuyin-by-rut1rut",
+    "name": {
+      "en": "Янь Цинь Юинь © RUT1RUT",
+      "ru": "Yan Qin Yuyin © RUT1RUT"
+    },
+    "fandom": {
+      "en": "A Hundred Lotus Petals © RUT1RUT",
+      "ru": "Сто Лепестков Лотоса © RUT1RUT"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "akarui-boyashoture-by-anastasiya-boyashova",
+    "name": {
+      "en": "Akarui Boyashoture © Anastasiya Boyashova",
+      "ru": "Акаруи Бояшотуре © Анастасия Бояшова"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "azuki-senju-by-bad-blonde",
+    "name": {
+      "en": "Azuki Senju © bad blonde",
+      "ru": "Азуки Сенджу © bad blonde"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kai-otsutsuki-by-bad-blonde",
+    "name": {
+      "en": "Kai Otsutsuki © bad blonde",
+      "ru": "Кай Оцуцуки © bad blonde"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kayao-uzumaki-by-verde",
+    "name": {
+      "en": "Kayao Uzumaki © VERDE",
+      "ru": "Каяо Узумаки © VERDE"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mina-hatake-by-pung-lone-wolf",
+    "name": {
+      "en": "Mina Hatake © Pung Lone Wolf",
+      "ru": "Мина Хатаке © Pung Lone Wolf"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "momo-otsutsuki-by-bad-blonde",
+    "name": {
+      "en": "Momo Otsutsuki © bad blonde",
+      "ru": "Момо Оцуцуки © bad blonde"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nana-otsutsuki-by-bad-blonde",
+    "name": {
+      "en": "Nana Otsutsuki © bad blonde",
+      "ru": "Нана Оцуцуки © bad blonde"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "raiden-gao-by-rut1rut-and-tsuki-shuuki-mix",
+    "name": {
+      "en": "Raiden Gao © RUT1RUT and Tsuki Shuuki mix",
+      "ru": "Гибрид Рейдена Гао © RUT1RUT и Цуки Шууки"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ril-hatake-by-anya",
+    "name": {
+      "en": "Ril Hatake © anya",
+      "ru": "Рил Хатаке © anya"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tsurashiki-otsutsuki-by-bad-blonde",
+    "name": {
+      "en": "Tsurashiki Otsutsuki © bad blonde",
+      "ru": "Цурашики Оцуцуки © bad blonde"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dan-persson-by-dawn",
+    "name": {
+      "en": "Dan Persson © DAWN",
+      "ru": "Дэн Перссон © DAWN"
+    },
+    "fandom": {
+      "en": "Dawn of the world © DAWN",
+      "ru": "Dawn of the world © DAWN"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hannah-by-dawn",
+    "name": {
+      "en": "Hannah © DAWN",
+      "ru": "Ханна © DAWN"
+    },
+    "fandom": {
+      "en": "Dawn of the world © DAWN",
+      "ru": "Dawn of the world © DAWN"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lin-persson-by-dawn",
+    "name": {
+      "en": "Lin Persson © DAWN",
+      "ru": "Лин Перссон © DAWN"
+    },
+    "fandom": {
+      "en": "Dawn of the world © DAWN",
+      "ru": "Dawn of the world © DAWN"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "terry-persson-by-dawn",
+    "name": {
+      "en": "Terry Persson © DAWN",
+      "ru": "Терри Перссон © DAWN"
+    },
+    "fandom": {
+      "en": "Dawn of the world © DAWN",
+      "ru": "Dawn of the world © DAWN"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "bongo-cat",
+    "name": {
+      "en": "Bongo Cat",
+      "ru": "Bongo Cat"
+    },
+    "fandom": {
+      "en": "Flex Air © Quark doge",
+      "ru": "Flex Air © Quark doge"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ricardo-milos",
+    "name": {
+      "en": "Ricardo Milos",
+      "ru": "Рикардо Милос"
+    },
+    "fandom": {
+      "en": "Flex Air © Quark doge",
+      "ru": "Flex Air © Quark doge"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tomoe-kamo-by-rut1rut",
+    "name": {
+      "en": "Tomoe Kamo © RUT1RUT",
+      "ru": "Томое Камо © RUT1RUT"
+    },
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nexus",
+    "name": {
+      "en": "Nexus © Anatoly Gaivoronski",
+      "ru": "Nexus © Анатолий Гайворонский"
+    },
+    "fandom": {
+      "en": "Minecraft",
+      "ru": "Minecraft"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lotus-plaza-by-cuddlepug",
+    "name": {
+      "en": "Lotus Plaza © Cuddlepug",
+      "ru": "Лотос Плаза © Cuddlepug"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mirta-by-kejifox",
+    "name": {
+      "en": "Mirta © Sushi & Kejifox",
+      "ru": "Мирта © Sushi & Kejifox"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mooncatcher-by-moon-of-soul",
+    "name": {
+      "en": "Mooncatcher © MoonOfSoul",
+      "ru": "Мункетчер © MoonOfSoul"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "moonlight-blossom-by-moonlight-bloom",
+    "name": {
+      "en": "Moonlight Blossom © Moonlight Bloom",
+      "ru": "Мунлайт Блоссом © Moonlight Bloom"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "veter-by-duet-veter",
+    "name": {
+      "en": "Veter © Duet Veter",
+      "ru": "Ветер © Duet Veter"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "agaki-by-sawancan",
+    "name": {
+      "en": "Agaki © Sawancan",
+      "ru": "Агаки © Sawancan"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "fuvafumi-by-black-voron",
+    "name": {
+      "en": "Fuvafumi © Black Voron",
+      "ru": "Фувафуми © Black Voron"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "irene-by-nobody-does-it-like-you-do",
+    "name": {
+      "en": "Irene © nobody_does_it_like_you_do",
+      "ru": "Ирэн © nobody_does_it_like_you_do"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "karasy-by-diabolli",
+    "name": {
+      "en": "Karasy © Diabolli",
+      "ru": "Карасу © Diabolli"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kikyo-by-bad-blonde",
+    "name": {
+      "en": "Kikyo © bad blonde",
+      "ru": "Кикё © bad blonde"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "matatui-by-r-j-edison",
+    "name": {
+      "en": "Matatui © r.j.edison",
+      "ru": "Мататуи © r.j.edison"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mayoko-hatake-by-anata-no-doku",
+    "name": {
+      "en": "Mayoko Hatake © Anata no Doku",
+      "ru": "Майоко Хатаке © Anata no Doku"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mayomi-by-black-voron",
+    "name": {
+      "en": "Mayomi © Black Voron",
+      "ru": "Маёми © Black Voron"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "meigetsu-by-black-voron",
+    "name": {
+      "en": "Meigetsu © Black Voron",
+      "ru": "Мейгецу © Black Voron"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mikanashi-by-hyliganka",
+    "name": {
+      "en": "Mikanashi © HYLIGANKA",
+      "ru": "Миканаши © HYLIGANKA"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "miki-by-valeria-kolpakova",
+    "name": {
+      "en": "Miki © Valeria Kolpakova",
+      "ru": "Мики © Valeria Kolpakova"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "okabe-by-verde",
+    "name": {
+      "en": "Okabe © VERDE",
+      "ru": "Окабе © VERDE"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "raiden-gao-by-rut1rut",
+    "name": {
+      "en": "Raiden Gao © RUT1RUT",
+      "ru": "Рэйден Гао © RUT1RUT"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rem-by-cofi",
+    "name": {
+      "en": "Rem © Cofi",
+      "ru": "Рэм © Cofi"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ritoya-momochi-by-rut1rut",
+    "name": {
+      "en": "Ritoya Momochi © RUT1RUT",
+      "ru": "Ритоя Момочи © RUT1RUT"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "shimaru-izume-by-saphire",
+    "name": {
+      "en": "Shimaru Izume © Saphire",
+      "ru": "Шимару Изуме © Saphire"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "todoshi-rinzudoka-by-inisemuatimosss",
+    "name": {
+      "en": "Todoshi Rinzudoka © inisemuatimosss",
+      "ru": "Тодоши Ринзудока © inisemuatimosss"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tsubaki-by-n-pyn",
+    "name": {
+      "en": "Tsubaki © n.pyn",
+      "ru": "Цубаки © n.pyn"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tsutsura-by-bad-blonde",
+    "name": {
+      "en": "Tsutsura © bad blonde",
+      "ru": "Цуцура © bad blonde"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "udo-hatake-by-n-pyn",
+    "name": {
+      "en": "Udo Hatake © n.pyn",
+      "ru": "Удо Хатаке © n.pyn"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yahika-uzumaki-by-akatsuki2702tgk",
+    "name": {
+      "en": "Yahika Uzumaki © akatsuki2702tgk",
+      "ru": "Яхика Узумаки © akatsuki2702tgk"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yoshiko-by-verde",
+    "name": {
+      "en": "Yoshiko © VERDE",
+      "ru": "Ёшико © VERDE"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yuki-by-kitsukuri",
+    "name": {
+      "en": "Yuki © Kitsukuri",
+      "ru": "Юки © Kitsukuri"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yumi-yumi-kuro",
+    "name": {
+      "en": "Yumi © Yumi Kuro",
+      "ru": "Юми © Yumi Kuro"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zikura-by-sacerdos-solis",
+    "name": {
+      "en": "Zikura © Sacerdos Solis",
+      "ru": "Зикура © Sacerdos Solis"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "cofi-by-cofi",
+    "name": {
+      "en": "Alena Lebedeva",
+      "ru": "Алёна Лебедева"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "beatrice-by-shavurrr",
+    "name": {
+      "en": "Beatrice © Shavurrr",
+      "ru": "Беатрис © Shavurrr"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "daria-surf",
+    "name": {
+      "en": "Daria from Surf",
+      "ru": "Дарья из Surf"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ella-by-shavurrr",
+    "name": {
+      "en": "Ella © Shavurrr",
+      "ru": "Элла © Shavurrr"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "irina-kozlova",
+    "name": {
+      "en": "Irina Kozlova",
+      "ru": "Ирина Козлова"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kami-by-shavurrr",
+    "name": {
+      "en": "Kami Nakagami © Shavurrr",
+      "ru": "Ками Накагами © Shavurrr"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lin-yongzi-by-rarchan",
+    "name": {
+      "en": "Lin Yongzi © Rarchan",
+      "ru": "Лин Янцзы © Rarchan"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nami-by-shavurrr",
+    "name": {
+      "en": "Nami Nakagami © Shavurrr",
+      "ru": "Нами Накагами © Shavurrr"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nasuko-by-anastasia-boyashova",
+    "name": {
+      "en": "Nasuko © Anastasiya Boyashova",
+      "ru": "Насуко © Анастасия Бояшова"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "planarian",
+    "name": {
+      "en": "Planarian © Irina Kozlova",
+      "ru": "Планария © Ирина Козлова"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ruta-by-rut1rut",
+    "name": {
+      "en": "Ruta © RUT1RUT",
+      "ru": "Рута © RUT1RUT"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yujania-by-laudi",
+    "name": {
+      "en": "Yujania © LAUDI",
+      "ru": "Юджания © LAUDI"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "alina-by-ananastua-art",
+    "name": {
+      "en": "Alina © ananastua.art",
+      "ru": "Алина © ananastua.art"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dairry-the-platypus",
+    "name": {
+      "en": "Dairry © Ayuoshi",
+      "ru": "Дэйри © Ayuoshi"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dassy-the-platypus",
+    "name": {
+      "en": "Dassy © lawrush",
+      "ru": "Дэсси © lawrush"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dragon-by-dj",
+    "name": {
+      "en": "Dragon © Dj",
+      "ru": "Дрэгон © Dj"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "emy-the-platypus",
+    "name": {
+      "en": "Emy © EleanorTopsie",
+      "ru": "Эми © EleanorTopsie"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "jess-the-platypus",
+    "name": {
+      "en": "Jess © Leo",
+      "ru": "Джесс © Leo"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "antony-the-judge",
+    "name": {
+      "en": "Judge Anton",
+      "ru": "Судья Антон"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "karry-the-cat",
+    "name": {
+      "en": "Karry © LilyCrystal",
+      "ru": "Кэрри © LilyCrystal"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kiki-the-fox",
+    "name": {
+      "en": "Kiki © kiki-kit",
+      "ru": "Кики © kiki-kit"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lara-by-ladali",
+    "name": {
+      "en": "Lara © LadaLI",
+      "ru": "Лара © LadaLI"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mishty-the-platypus",
+    "name": {
+      "en": "Mishty © Mishti14",
+      "ru": "Мишти © Mishti14"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "penny-the-platypus",
+    "name": {
+      "en": "Penny © EleanorTopsie",
+      "ru": "Пенни © EleanorTopsie"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "philian-the-platypus",
+    "name": {
+      "en": "Philian © ShelbyArt19",
+      "ru": "Филиан © ShelbyArt19"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "roxel-by-ananastua-art",
+    "name": {
+      "en": "Roxel © ananastua.art",
+      "ru": "Роксель © ananastua.art"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mc-pokemon-go-by-bad-blonde",
+    "name": {
+      "en": "MC © bad blonde",
+      "ru": "MC © bad blonde"
+    },
+    "fandom": {
+      "en": "Pokemon GO",
+      "ru": "Pokemon GO"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tofu-saito-by-rut1rut",
+    "name": {
+      "en": "Tofu Saito © RUT1RUT",
+      "ru": "Тофу Сайто © RUT1RUT"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  }
+]

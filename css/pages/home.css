@@ -73,6 +73,7 @@
 
 .hero_panel-link:hover {
   color: var(--primary);
+  transform: translateY(-7%)
 }
 
 .hero_panel-icon {

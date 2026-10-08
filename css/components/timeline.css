@@ -84,17 +84,23 @@
 .year_content {
   display: grid;
   grid-template-rows: 1fr;
-  max-height: 10000px;
   overflow: hidden;
-  transition: max-height 0.35s ease,
-  opacity 0.25s ease;
+  transition:
+    grid-template-rows 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.year_content > .year_gallery {
+  min-height: 0;
 }
 
 .year.collapsed .year_content {
-  max-height: 0;
+  grid-template-rows: 0fr;
   opacity: 0;
 }
-
+.year.collapsed .year_gallery {
+  margin-bottom: 0;
+}
 .year_gallery {
   columns: 4 260px;
   column-gap: 18px;

@@ -1,0 +1,1601 @@
+[
+  {
+    "id": "hat-kid",
+    "name": {
+      "en": "Hat Kid",
+      "ru": "Шляподевочка"
+    },
+    "fandom": {
+      "en": "A Hat in Time",
+      "ru": "Шляпа во времени"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "green",
+    "name": {
+      "en": "Green",
+      "ru": "Зелёный"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "orange",
+    "name": {
+      "en": "Orange",
+      "ru": "Оранжевый"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "pink",
+    "name": {
+      "en": "Pink",
+      "ru": "Розовый"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "purple",
+    "name": {
+      "en": "Purple",
+      "ru": "Фиолетовый"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "white",
+    "name": {
+      "en": "White",
+      "ru": "Белый"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yellow",
+    "name": {
+      "en": "Yellow",
+      "ru": "Жёлтый"
+    },
+    "fandom": {
+      "en": "Among Us",
+      "ru": "Among Us"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "levi-ackerman",
+    "name": {
+      "en": "Levi Ackerman",
+      "ru": "Леви Акерман"
+    },
+    "fandom": {
+      "en": "Attack on Titan",
+      "ru": "Атака Титанов"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "barbie-anneliese",
+    "name": {
+      "en": "Anneliese",
+      "ru": "Анна-Луизза"
+    },
+    "fandom": {
+      "en": "Barbie",
+      "ru": "Барби"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "barbie-clara",
+    "name": {
+      "en": "Clara",
+      "ru": "Клара"
+    },
+    "fandom": {
+      "en": "Barbie",
+      "ru": "Барби"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "barbie-erika",
+    "name": {
+      "en": "Erika",
+      "ru": "Эрика"
+    },
+    "fandom": {
+      "en": "Barbie",
+      "ru": "Барби"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "barbie-odette",
+    "name": {
+      "en": "Odette",
+      "ru": "Одетта"
+    },
+    "fandom": {
+      "en": "Barbie",
+      "ru": "Барби"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "barbie-rapunzel",
+    "name": {
+      "en": "Rapunzel",
+      "ru": "Рапунцель"
+    },
+    "fandom": {
+      "en": "Barbie",
+      "ru": "Барби"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "byakuya-kuchiki",
+    "name": {
+      "en": "Byakuya Kuchiki",
+      "ru": "Бьякуя Кучики"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ichika-abarai",
+    "name": {
+      "en": "Ichika Abarai",
+      "ru": "Ичика Абарай"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "isshin-kurosaki",
+    "name": {
+      "en": "Isshin Kurosaki",
+      "ru": "Ишшин Куросаки"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "masaki-kurosaki",
+    "name": {
+      "en": "Masaki Kurosaki",
+      "ru": "Масаки Куросаки"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "orihime-inoue",
+    "name": {
+      "en": "Orihime Inoue",
+      "ru": "Орихиме Иноуэ"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sora-inoue",
+    "name": {
+      "en": "Sora Inoue",
+      "ru": "Сора Иноуэ"
+    },
+    "fandom": {
+      "en": "Bleach",
+      "ru": "Блич"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "boruto-uzumaki",
+    "name": {
+      "en": "Boruto Uzumaki",
+      "ru": "Боруто Узумаки"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hoki-taketori",
+    "name": {
+      "en": "Hoki Taketori",
+      "ru": "Хоки Такэтори"
+    },
+    "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "power",
+    "name": {
+      "en": "Power",
+      "ru": "Пауэр"
+    },
+    "fandom": {
+      "en": "Chainsaw Man",
+      "ru": "Человек-бензопила"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zero-two",
+    "name": {
+      "en": "Zero Two",
+      "ru": "Ноль Два"
+    },
+    "fandom": {
+      "en": "Darling in the Franxx",
+      "ru": "Милый во Франксе"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ariel",
+    "name": {
+      "en": "Ariel",
+      "ru": "Ариэль"
+    },
+    "fandom": {
+      "en": "Disney Princesses",
+      "ru": "Принцессы Disney"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "elsa",
+    "name": {
+      "en": "Elsa",
+      "ru": "Эльза"
+    },
+    "fandom": {
+      "en": "Disney Princesses",
+      "ru": "Принцессы Disney"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "alice-everlasting-summer",
+    "name": {
+      "en": "Alice",
+      "ru": "Алиса"
+    },
+    "fandom": {
+      "en": "Everlasting Summer",
+      "ru": "Бесконечное лето"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lena-everlasting-summer",
+    "name": {
+      "en": "Lena",
+      "ru": "Лена"
+    },
+    "fandom": {
+      "en": "Everlasting Summer",
+      "ru": "Бесконечное лето"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "semyon-everlasting-summer",
+    "name": {
+      "en": "Semyon",
+      "ru": "Семён"
+    },
+    "fandom": {
+      "en": "Everlasting Summer",
+      "ru": "Бесконечное лето"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ulyana-everlasting-summer",
+    "name": {
+      "en": "Ulyana",
+      "ru": "Ульяна"
+    },
+    "fandom": {
+      "en": "Everlasting Summer",
+      "ru": "Бесконечное лето"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dipper-pines",
+    "name": {
+      "en": "Dipper Pines",
+      "ru": "Диппер Пайнз"
+    },
+    "fandom": {
+      "en": "Gravity Falls",
+      "ru": "Гравити Фоллз"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mabel-pines",
+    "name": {
+      "en": "Mabel Pines",
+      "ru": "Мэйбл Пайнз"
+    },
+    "fandom": {
+      "en": "Gravity Falls",
+      "ru": "Гравити Фоллз"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "wendy-blerble-corduroy",
+    "name": {
+      "en": "Wendy Blerble Corduroy",
+      "ru": "Венди Блёрбл Кордрой"
+    },
+    "fandom": {
+      "en": "Gravity Falls",
+      "ru": "Гравити Фоллз"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "howl",
+    "name": {
+      "en": "Howl",
+      "ru": "Хаул"
+    },
+    "fandom": {
+      "en": "Howl's Moving Castle",
+      "ru": "Ходячий замок Хаула"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "satoru-gojo",
+    "name": {
+      "en": "Satoru Gojo",
+      "ru": "Сатору Годжо"
+    },
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sukuna-ryomen",
+    "name": {
+      "en": "Sukuna Ryomen",
+      "ru": "Сукуна Рёмен"
+    },
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ilya-prusikin",
+    "name": {
+      "en": "Ilya Prusikin",
+      "ru": "Илья Прусикин"
+    },
+    "fandom": {
+      "en": "Little Big",
+      "ru": "Little Big"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yuri-muzychenko",
+    "name": {
+      "en": "Yuri Muzychenko",
+      "ru": "Юрий Музиченко"
+    },
+    "fandom": {
+      "en": "Little Big",
+      "ru": "Little Big"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dot-barret",
+    "name": {
+      "en": "Dot Barret",
+      "ru": "Дот Баррет"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mash-burnedead",
+    "name": {
+      "en": "Mash Burnedead",
+      "ru": "Мэш Бёрндэд"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "orter-madl",
+    "name": {
+      "en": "Orter Madl",
+      "ru": "Ортер Мадл"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rayne-ames",
+    "name": {
+      "en": "Rayne Ames",
+      "ru": "Рэйн Эймс"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "marinette-dupain-cheng",
+    "name": {
+      "en": "Marinette Dupain-Cheng",
+      "ru": "Маринетт Дюпен-Чен"
+    },
+    "fandom": {
+      "en": "Miraculous Ladybug",
+      "ru": "Чудесная божья коровка"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "aria-blaze",
+    "name": {
+      "en": "Aria Blaze",
+      "ru": "Ария Блэйз"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "countess-coloratura",
+    "name": {
+      "en": "Countess Coloratura",
+      "ru": "Графиня Колоратура"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "nightmare-moon",
+    "name": {
+      "en": "Nightmare Moon",
+      "ru": "Лунная пони"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "pinkie-pie",
+    "name": {
+      "en": "Pinkie Pie",
+      "ru": "Пинки Пай"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "princess-celestia",
+    "name": {
+      "en": "Princess Celestia",
+      "ru": "Принцесса Селестия"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "princess-luna",
+    "name": {
+      "en": "Princess Luna",
+      "ru": "Принцесса Луна"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rara",
+    "name": {
+      "en": "Rara",
+      "ru": "Рара"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rarity",
+    "name": {
+      "en": "Rarity",
+      "ru": "Рарити"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "starlight-glimmer",
+    "name": {
+      "en": "Starlight Glimmer",
+      "ru": "Старлайт Глиммер"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sunset-shimmer",
+    "name": {
+      "en": "Sunset Shimmer",
+      "ru": "Сансет Шиммер"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "the-great-and-powerful-trixie",
+    "name": {
+      "en": "The Great and Powerful Trixie",
+      "ru": "Великая и могущественная Трикси"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mei",
+    "name": {
+      "en": "Mei",
+      "ru": "Мэй"
+    },
+    "fandom": {
+      "en": "My Neighbor Totoro",
+      "ru": "Мой Сосед Тоторо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "satsuki",
+    "name": {
+      "en": "Satsuki",
+      "ru": "Сацуки"
+    },
+    "fandom": {
+      "en": "My Neighbor Totoro",
+      "ru": "Мой Сосед Тоторо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "totoro",
+    "name": {
+      "en": "Totoro",
+      "ru": "Тоторо"
+    },
+    "fandom": {
+      "en": "My Neighbor Totoro",
+      "ru": "Мой Сосед Тоторо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "deidara",
+    "name": {
+      "en": "Deidara",
+      "ru": "Дейдара"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "gai-maito",
+    "name": {
+      "en": "Gai Maito",
+      "ru": "Гай Майто"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hanare",
+    "name": {
+      "en": "Hanare",
+      "ru": "Ханаре"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hinata-hyuga",
+    "name": {
+      "en": "Hinata Hyuga",
+      "ru": "Хината Хьюга"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "iruka-umino",
+    "name": {
+      "en": "Iruka Umino",
+      "ru": "Ирука Умино"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "jiraiya",
+    "name": {
+      "en": "Jiraiya",
+      "ru": "Джирайя"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kakashi-hatake",
+    "name": {
+      "en": "Kakashi Hatake",
+      "ru": "Какаши Хатаке"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kiba-inuzuka",
+    "name": {
+      "en": "Kiba Inuzuka",
+      "ru": "Киба Инузука"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "madara-uchiha",
+    "name": {
+      "en": "Madara Uchiha",
+      "ru": "Мадара Учиха"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "naruto-uzumaki",
+    "name": {
+      "en": "Naruto Uzumaki",
+      "ru": "Наруто Узумаки"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ryuuzetsu",
+    "name": {
+      "en": "Ryuuzetsu",
+      "ru": "Рьюзецу"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sai",
+    "name": {
+      "en": "Sai",
+      "ru": "Сай"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sakumo-hatake",
+    "name": {
+      "en": "Sakumo Hatake",
+      "ru": "Сакумо Хатаке"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sakura-haruno",
+    "name": {
+      "en": "Sakura Haruno",
+      "ru": "Сакура Харуно"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sasuke-uchiha",
+    "name": {
+      "en": "Sasuke Uchiha",
+      "ru": "Саске Учиха"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "shisui-uchiha",
+    "name": {
+      "en": "Shisui Uchiha",
+      "ru": "Шисуи Учиха"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sukea",
+    "name": {
+      "en": "Sukea",
+      "ru": "Сукэа"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tobi-obito-uchiha",
+    "name": {
+      "en": "Tobi/Obito Uchiha",
+      "ru": "Тоби/Обито Учиха"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yakidama-butsukaru",
+    "name": {
+      "en": "Yakidama Butsukaru (Prototype)",
+      "ru": "Якидама Бутцукару (Прототип)"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yamato",
+    "name": {
+      "en": "Yamato",
+      "ru": "Ямато"
+    },
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "haruhi-fujioka",
+    "name": {
+      "en": "Haruhi Fujioka",
+      "ru": "Харухи Фудзиока"
+    },
+    "fandom": {
+      "en": "Ouran Koukou Host Club",
+      "ru": "Клуб свиданий старшей школы Оран"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "baljeet-tjinder",
+    "name": {
+      "en": "Baljeet Tjinder",
+      "ru": "Балджит Тжиндер"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "buford-van-stomm",
+    "name": {
+      "en": "Buford Van Stomm",
+      "ru": "Бьюфорд Ван Стомм"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "candace-gertrude-flynn",
+    "name": {
+      "en": "Candace Gertrude Flynn",
+      "ru": "Кендэс Гертруда Флинн"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ferb-fletcher",
+    "name": {
+      "en": "Ferb Fletcher",
+      "ru": "Ферб Флетчер"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "isabella-garcia-shapiro",
+    "name": {
+      "en": "Isabella Garcia-Shapiro",
+      "ru": "Изабелла Гарсиа-Шапиро"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "perry-the-platypus",
+    "name": {
+      "en": "Perry",
+      "ru": "Перри"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "phineas-flynn",
+    "name": {
+      "en": "Phineas Flynn",
+      "ru": "Финес Флинн"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "vanessa-doofenshmirtz",
+    "name": {
+      "en": "Vanessa Doofenshmirtz",
+      "ru": "Ванесса Фуфелшмертц"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "pikachu",
+    "name": {
+      "en": "Pikachu",
+      "ru": "Пикачу"
+    },
+    "fandom": {
+      "en": "Pokemon",
+      "ru": "Pokemon"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sister-joy",
+    "name": {
+      "en": "Sister Joy",
+      "ru": "Сестра Джой"
+    },
+    "fandom": {
+      "en": "Pokemon",
+      "ru": "Pokemon"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sylveon",
+    "name": {
+      "en": "Sylveon",
+      "ru": "Сильвеон"
+    },
+    "fandom": {
+      "en": "Pokemon",
+      "ru": "Pokemon"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sailor-moon",
+    "name": {
+      "en": "Sailor Moon",
+      "ru": "Сейлор Мун"
+    },
+    "fandom": {
+      "en": "Pretty Guardian Sailor Moon",
+      "ru": "Красавица-воин Сейлор Мун"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "aria",
+    "name": {
+      "en": "Aria",
+      "ru": "Ария"
+    },
+    "fandom": {
+      "en": "Reborn",
+      "ru": "Реборн"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "genkishi",
+    "name": {
+      "en": "Genkishi",
+      "ru": "Генкиши"
+    },
+    "fandom": {
+      "en": "Reborn",
+      "ru": "Реборн"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rudolph-the-red-nosed-reindeer",
+    "name": {
+      "en": "Rudolph",
+      "ru": "Рудольф"
+    },
+    "fandom": {
+      "en": "Rudolph the Red-Nosed Reindeer",
+      "ru": "Оленёнок Рудольф"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dr-robotnik",
+    "name": {
+      "en": "Dr. Robotnik",
+      "ru": "Доктор Роботник"
+    },
+    "fandom": {
+      "en": "Sonic the Hedgehog",
+      "ru": "Sonic the Hedgehog"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "star-butterfly",
+    "name": {
+      "en": "Star Butterfly",
+      "ru": "Звёздочка Баттерфляй"
+    },
+    "fandom": {
+      "en": "Star vs. the Forces of Evil",
+      "ru": "Звёздная Принцесса и Силы Зла"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ryley-robinson",
+    "name": {
+      "en": "Ryley Robinson",
+      "ru": "Райли Робинсон"
+    },
+    "fandom": {
+      "en": "Subnautica",
+      "ru": "Subnautica"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "odette",
+    "name": {
+      "en": "Odette",
+      "ru": "Одетта"
+    },
+    "fandom": {
+      "en": "Swan Princess",
+      "ru": "Принцесса-лебедь"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "gumball-tristopher-watterson",
+    "name": {
+      "en": "Gumball Tristopher Watterson",
+      "ru": "Гамбол Тристофер Уоттерсон"
+    },
+    "fandom": {
+      "en": "The Amazing World of Gumball",
+      "ru": "Удивительный мир Гамбола"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "cicero",
+    "name": {
+      "en": "Cicero",
+      "ru": "Цицерон"
+    },
+    "fandom": {
+      "en": "The Elder Scrolls V: Skyrim",
+      "ru": "The Elder Scrolls V: Skyrim"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dovahkiin",
+    "name": {
+      "en": "Dovahkiin",
+      "ru": "Довакин"
+    },
+    "fandom": {
+      "en": "The Elder Scrolls V: Skyrim",
+      "ru": "The Elder Scrolls V: Skyrim"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sheogorath",
+    "name": {
+      "en": "Sheogorath",
+      "ru": "Шеогорат"
+    },
+    "fandom": {
+      "en": "The Elder Scrolls V: Skyrim",
+      "ru": "The Elder Scrolls V: Skyrim"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kopa",
+    "name": {
+      "en": "Kopa",
+      "ru": "Копа"
+    },
+    "fandom": {
+      "en": "The Lion King",
+      "ru": "Король Лев"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "vitani",
+    "name": {
+      "en": "Vitani",
+      "ru": "Витани"
+    },
+    "fandom": {
+      "en": "The Lion King",
+      "ru": "Король Лев"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "geralt",
+    "name": {
+      "en": "Geralt",
+      "ru": "Геральт"
+    },
+    "fandom": {
+      "en": "The Witcher",
+      "ru": "Ведьмак"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "shuji-hanma",
+    "name": {
+      "en": "Shuji Hanma",
+      "ru": "Шуджи Ханма"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "takashi-mitsuya",
+    "name": {
+      "en": "Takashi Mitsuya",
+      "ru": "Такаши Мицуя"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tetta-kisaki",
+    "name": {
+      "en": "Tetta Kisaki",
+      "ru": "Тетта Кисаки"
+    },
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "chara-undertale",
+    "name": {
+      "en": "Chara",
+      "ru": "Чара"
+    },
+    "fandom": {
+      "en": "Undertale",
+      "ru": "Undertale"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "frisk-undertale",
+    "name": {
+      "en": "Frisk",
+      "ru": "Фриск"
+    },
+    "fandom": {
+      "en": "Undertale",
+      "ru": "Undertale"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "sans-undertale",
+    "name": {
+      "en": "Sans",
+      "ru": "Санс"
+    },
+    "fandom": {
+      "en": "Undertale",
+      "ru": "Undertale"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "miku-hatsune",
+    "name": {
+      "en": "Miku Hatsune",
+      "ru": "Мику Хатсуне"
+    },
+    "fandom": {
+      "en": "Vocaloid",
+      "ru": "Вокалоиды"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "cornelia-hale",
+    "name": {
+      "en": "Cornelia Hale",
+      "ru": "Корнелия Хейл"
+    },
+    "fandom": {
+      "en": "W.I.T.C.H",
+      "ru": "Чародейки"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "hay-lin",
+    "name": {
+      "en": "Hay Lin",
+      "ru": "Хай Лин"
+    },
+    "fandom": {
+      "en": "W.I.T.C.H",
+      "ru": "Чародейки"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "irma-lair",
+    "name": {
+      "en": "Irma Lair",
+      "ru": "Ирма Лэр"
+    },
+    "fandom": {
+      "en": "W.I.T.C.H",
+      "ru": "Чародейки"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "taranee-cook",
+    "name": {
+      "en": "Taranee Cook",
+      "ru": "Тарани Кук"
+    },
+    "fandom": {
+      "en": "W.I.T.C.H",
+      "ru": "Чародейки"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "will-vandom",
+    "name": {
+      "en": "Will Vandom",
+      "ru": "Вилл Вандом"
+    },
+    "fandom": {
+      "en": "W.I.T.C.H",
+      "ru": "Чародейки"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "aisha",
+    "name": {
+      "en": "Aisha",
+      "ru": "Лейла"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "bloom",
+    "name": {
+      "en": "Bloom",
+      "ru": "Блум"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "flora",
+    "name": {
+      "en": "Flora",
+      "ru": "Флора"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "musa",
+    "name": {
+      "en": "Musa",
+      "ru": "Муза"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "princess-diaspro",
+    "name": {
+      "en": "Princess Diaspro",
+      "ru": "Принцесса Диаспро"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "roxy",
+    "name": {
+      "en": "Roxy",
+      "ru": "Рокси"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "stella",
+    "name": {
+      "en": "Stella",
+      "ru": "Стелла"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tecna",
+    "name": {
+      "en": "Tecna",
+      "ru": "Текна"
+    },
+    "fandom": {
+      "en": "Winx Club",
+      "ru": "Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  }
+]

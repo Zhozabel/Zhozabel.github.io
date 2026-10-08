@@ -1,6 +1,30 @@
 const timeline = document.querySelector('.timeline');
 
 
+// Язык сайта
+const currentLang = document.documentElement.lang || 'en';
+
+
+// Получение пути к изображению
+function getArtworkImage(artwork) {
+
+  // Старый формат: обычная строка
+  if (typeof artwork.image === 'string') {
+    return artwork.image;
+  }
+
+  // Новый формат: объект с языковыми версиями
+  if (artwork.image && typeof artwork.image === 'object') {
+    return artwork.image[currentLang]
+      || artwork.image.en
+      || artwork.image.ru
+      || '';
+  }
+
+  return '';
+}
+
+
 // Названия предупреждений
 const warningLabels = {
   ambiguity: 'Ambiguity',
@@ -17,8 +41,16 @@ const warningLabels = {
 
 
 // Загрузка данных
-fetch('data/artworks.json')
-  .then(response => response.json())
+fetch('../data/artworks.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(
+        `Не удалось загрузить artworks.json: ${response.status} ${response.url}`
+      );
+    }
+
+    return response.json();
+  })
   .then(artworks => {
     renderArtworks(artworks);
   })
@@ -39,10 +71,10 @@ function renderWarnings(warnings) {
     .join(', ');
 
   return `
-    <div class="art_warning">
+<div class="art_warning">
       ⚠ Content warning: ${warningText}
-    </div>
-  `;
+  </div>
+`;
 }
 
 
@@ -76,13 +108,13 @@ function renderArtworks(artworks) {
 
 
     yearSection.innerHTML = `
-      <button class="year_header" type="button">
+<button class="year_header" type="button">
 
-        <span class="year_title">
-          ${year}
-        </span>
+  <span class="year_title">
+  ${year}
+  </span>
 
-        <span class="year_toggle">
+<span class="year_toggle">
 
           <svg
             class="year_chevron"
@@ -91,20 +123,17 @@ function renderArtworks(artworks) {
             height="24"
             aria-hidden="true"
           >
-            <use href="image/icons/navigation.svg#chevron_down"></use>
+            <use href="../images/icons/navigation.svg#chevron_down"></use>
           </svg>
 
         </span>
 
-      </button>
+</button>
 
-
-      <div class="year_content">
-
-        <div class="year_gallery"></div>
-
-      </div>
-    `;
+<div class="year_content">
+  <div class="year_gallery"></div>
+</div>
+  `;
 
 
     const yearGallery =
@@ -121,73 +150,76 @@ function renderArtworks(artworks) {
       artCard.dataset.id = artwork.id;
 
 
+      // Выбираем изображение для текущего языка
+      const imagePath = getArtworkImage(artwork);
+
+
       // Содержимое карточки
       artCard.innerHTML = `
-        <a
-          class="art_card_link"
-          href="viewer.html?source=artworks&id=${artwork.id}"
+<a
+class="art_card_link"
+href="viewer.html?source=artworks&id=${artwork.id}"
+  >
+
+  <img
+src="${imagePath ? `../${imagePath}` : ''}"
+alt="${artwork.characters.join(', ')}"
+loading="lazy"
+  >
+
+  </a>
+
+${
+  artwork.blur
+    ? `
+        <button
+          class="art_reveal"
+          type="button"
         >
 
-          <img
-            src="${artwork.image}"
-            alt="${artwork.characters.join(', ')}"
-            loading="lazy"
-          >
+          ${renderWarnings(artwork.warnings)}
 
-        </a>
+<span class="art_reveal_action">
+                    Click to reveal
+                  </span>
 
-
-        ${
-        artwork.blur
-          ? `
-              <button
-                class="art_reveal"
-                type="button"
-              >
-
-                ${renderWarnings(artwork.warnings)}
-
-                <span class="art_reveal_action">
-                  Click to reveal
-                </span>
-
-              </button>
-            `
-          : ''
-      }
+</button>
+`
+            : ''
+        }
       `;
 
 
-      // Если работа заблюрена —
-      // добавляем класс и обработчик кнопки
-      if (artwork.blur) {
+// Если работа заблюрена —
+// добавляем класс и обработчик кнопки
+if (artwork.blur) {
 
-        artCard.classList.add('is_blurred');
-
-
-        const revealButton =
-          artCard.querySelector('.art_reveal');
+  artCard.classList.add('is_blurred');
 
 
-        revealButton.addEventListener('click', () => {
-
-          artCard.classList.remove('is_blurred');
-
-          revealButton.remove();
-
-        });
-      }
+  const revealButton =
+    artCard.querySelector('.art_reveal');
 
 
-      yearGallery.appendChild(artCard);
-    });
+  revealButton.addEventListener('click', () => {
 
+    artCard.classList.remove('is_blurred');
 
-    timeline.appendChild(yearSection);
+    revealButton.remove();
+
   });
+}
 
 
-  setupYearToggles();
+yearGallery.appendChild(artCard);
+});
+
+
+timeline.appendChild(yearSection);
+});
+
+
+setupYearToggles();
 }
 
 

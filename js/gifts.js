@@ -16,7 +16,7 @@ const warningLabels = {
 
 
 // Загрузка данных
-fetch('data/gifts.json')
+fetch('../data/gifts.json')
   .then(response => response.json())
   .then(gifts => {
     renderGifts(gifts);
@@ -53,7 +53,7 @@ function renderMedia(gift) {
     return `
       <video
         class="art_card_video"
-        src="${gift.video}"
+        src="../${gift.video}"
         muted
         loop
         playsinline
@@ -66,7 +66,7 @@ function renderMedia(gift) {
 
   return `
     <img
-      src="${gift.image}"
+      src="../${gift.image}"
       alt="${gift.characters.join(', ')}"
       loading="lazy"
     >

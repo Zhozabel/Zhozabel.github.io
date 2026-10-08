@@ -2,12 +2,15 @@
   {
     "id": "for-me-129",
     "type": "image",
-    "image": "image/gifts/for-me-129.png",
+    "image": "images/gifts/for-me-129.png",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Julia (Yuri)"
+      "zhozabel-de-lee",
+      "julia-yuri"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -16,12 +19,15 @@
   {
     "id": "for-me-128",
     "type": "image",
-    "image": "image/gifts/for-me-128.png",
+    "image": "images/gifts/for-me-128.png",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Mash Burnedead"
+      "zhozabel-de-lee",
+      "mash-burnedead"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "DAWN",
     "rating": "G",
     "warnings": [],
@@ -30,12 +36,15 @@
   {
     "id": "for-me-127",
     "type": "image",
-    "image": "image/gifts/for-me-127.png",
+    "image": "images/gifts/for-me-127.png",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Mash Burnedead"
+      "zhozabel-de-lee",
+      "mash-burnedead"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "RIN4A",
     "rating": "G",
     "warnings": [],
@@ -44,12 +53,15 @@
   {
     "id": "for-me-126",
     "type": "image",
-    "image": "image/gifts/for-me-126.png",
+    "image": "images/gifts/for-me-126.png",
     "characters": [
-      "Mash Burnedead",
-      "Zhozabel' de'Lee"
+      "mash-burnedead",
+      "zhozabel-de-lee"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -58,11 +70,14 @@
   {
     "id": "for-me-125",
     "type": "image",
-    "image": "image/gifts/for-me-125.png",
+    "image": "images/gifts/for-me-125.png",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "Don Kalmios Place",
     "rating": "G",
     "warnings": [],
@@ -71,11 +86,14 @@
   {
     "id": "for-me-124",
     "type": "image",
-    "image": "image/gifts/for-me-124.png",
+    "image": "images/gifts/for-me-124.png",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -84,11 +102,14 @@
   {
     "id": "for-me-123",
     "type": "image",
-    "image": "image/gifts/for-me-123.png",
+    "image": "images/gifts/for-me-123.png",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "LAUDI",
     "rating": "G",
     "warnings": [],
@@ -97,11 +118,14 @@
   {
     "id": "for-me-122",
     "type": "image",
-    "image": "image/gifts/for-me-122.png",
+    "image": "images/gifts/for-me-122.png",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Mashle: Magic and Muscles",
+     "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -110,12 +134,15 @@
   {
     "id": "for-me-121",
     "type": "image",
-    "image": "image/gifts/for-me-121.png",
+    "image": "images/gifts/for-me-121.png",
     "characters": [
-      "Yoko Yogan",
-      "Sukuna Ryomen"
+      "yoko-yogan",
+      "sukuna-ryomen"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "RIN4A",
     "rating": "G",
     "warnings": [],
@@ -124,11 +151,14 @@
   {
     "id": "for-me-120",
     "type": "image",
-    "image": "image/gifts/for-me-120.jpg",
+    "image": "images/gifts/for-me-120.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -137,11 +167,14 @@
   {
     "id": "for-me-119",
     "type": "image",
-    "image": "image/gifts/for-me-119.jpg",
+    "image": "images/gifts/for-me-119.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Vsadnik_012",
     "rating": "G",
     "warnings": [],
@@ -150,11 +183,14 @@
   {
     "id": "for-me-118",
     "type": "image",
-    "image": "image/gifts/for-me-118.png",
+    "image": "images/gifts/for-me-118.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "akatsuki2702tgk",
     "rating": "G",
     "warnings": [],
@@ -163,11 +199,14 @@
   {
     "id": "for-me-117",
     "type": "image",
-    "image": "image/gifts/for-me-117.png",
+    "image": "images/gifts/for-me-117.png",
     "characters": [
-      "Julia (Yuri)"
+      "julia-yuri"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "damrnare",
     "rating": "G",
     "warnings": [],
@@ -176,11 +215,14 @@
   {
     "id": "for-me-116",
     "type": "image",
-    "image": "image/gifts/for-me-116.jpg",
+    "image": "images/gifts/for-me-116.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "froKi",
     "rating": "G",
     "warnings": [],
@@ -189,13 +231,16 @@
   {
     "id": "for-me-115",
     "type": "image",
-    "image": "image/gifts/for-me-115.JPG",
+    "image": "images/gifts/for-me-115.JPG",
     "characters": [
       "Rut-Rut",
       "Bad blonde",
       "Zhozabel"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -204,11 +249,14 @@
   {
     "id": "for-me-114",
     "type": "image",
-    "image": "image/gifts/for-me-114.png",
+    "image": "images/gifts/for-me-114.png",
     "characters": [
-      "Serishi Butsukaru"
+      "serishi-butsukaru"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -217,12 +265,15 @@
   {
     "id": "for-me-113",
     "type": "image",
-    "image": "image/gifts/for-me-113.png",
+    "image": "images/gifts/for-me-113.png",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -231,12 +282,15 @@
   {
     "id": "for-me-112",
     "type": "image",
-    "image": "image/gifts/for-me-112.png",
+    "image": "images/gifts/for-me-112.png",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -245,12 +299,15 @@
   {
     "id": "for-me-111",
     "type": "video",
-    "video": "image/gifts/for-me-111.mp4",
+    "video": "images/gifts/for-me-111.mp4",
     "characters": [
-      "Iruka Umino",
-      "Hajoka Butsukaru"
+      "iruka-umino",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "DAWN",
     "rating": "G",
     "warnings": [],
@@ -259,12 +316,15 @@
   {
     "id": "for-me-110",
     "type": "image",
-    "image": "image/gifts/for-me-110.jpg",
+    "image": "images/gifts/for-me-110.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Iruka Umino"
+      "hajoka-butsukaru",
+      "iruka-umino"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "saharochek",
     "rating": "G",
     "warnings": [],
@@ -273,11 +333,14 @@
   {
     "id": "for-me-109",
     "type": "image",
-    "image": "image/gifts/for-me-109.png",
+    "image": "images/gifts/for-me-109.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -286,11 +349,14 @@
   {
     "id": "for-me-108",
     "type": "image",
-    "image": "image/gifts/for-me-108.jpg",
+    "image": "images/gifts/for-me-108.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Yn4onok",
     "rating": "G",
     "warnings": [],
@@ -299,11 +365,14 @@
   {
     "id": "for-me-107",
     "type": "image",
-    "image": "image/gifts/for-me-107.png",
+    "image": "images/gifts/for-me-107.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "okkak31",
     "rating": "G",
     "warnings": [],
@@ -312,11 +381,14 @@
   {
     "id": "for-me-106",
     "type": "image",
-    "image": "image/gifts/for-me-106.png",
+    "image": "images/gifts/for-me-106.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "ArtAn4oys",
     "rating": "G",
     "warnings": [],
@@ -325,11 +397,14 @@
   {
     "id": "for-me-105",
     "type": "image",
-    "image": "image/gifts/for-me-105.png",
+    "image": "images/gifts/for-me-105.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ruinoma",
     "rating": "G",
     "warnings": [],
@@ -338,25 +413,31 @@
   {
     "id": "for-me-104",
     "type": "image",
-    "image": "image/gifts/for-me-104.png",
+    "image": "images/gifts/for-me-104.png",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "UntitledExpression",
-    "rating": "NC-18",
+    "rating": "NC-17",
     "warnings": ["sex"],
     "blur": true
   },
   {
     "id": "for-me-103",
     "type": "image",
-    "image": "image/gifts/for-me-103.png",
+    "image": "images/gifts/for-me-103.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -365,11 +446,14 @@
   {
     "id": "for-me-102",
     "type": "image",
-    "image": "image/gifts/for-me-102.png",
+    "image": "images/gifts/for-me-102.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "DAWN",
     "rating": "G",
     "warnings": [],
@@ -378,12 +462,15 @@
   {
     "id": "for-me-101",
     "type": "image",
-    "image": "image/gifts/for-me-101.png",
+    "image": "images/gifts/for-me-101.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -392,12 +479,15 @@
   {
     "id": "for-me-100",
     "type": "image",
-    "image": "image/gifts/for-me-100.png",
+    "image": "images/gifts/for-me-100.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "UntitledExpression",
     "rating": "PG-13",
     "warnings": ["nudity"],
@@ -406,12 +496,15 @@
   {
     "id": "for-me-99",
     "type": "image",
-    "image": "image/gifts/for-me-99.png",
+    "image": "images/gifts/for-me-99.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ardi",
     "rating": "G",
     "warnings": [],
@@ -420,12 +513,15 @@
   {
     "id": "for-me-98",
     "type": "image",
-    "image": "image/gifts/for-me-98.png",
+    "image": "images/gifts/for-me-98.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "UntitledExpression",
     "rating": "NC-17",
     "warnings": ["sex"],
@@ -434,11 +530,14 @@
   {
     "id": "for-me-97",
     "type": "image",
-    "image": "image/gifts/for-me-97.png",
+    "image": "images/gifts/for-me-97.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "akatsuki2702tgk",
     "rating": "G",
     "warnings": [],
@@ -447,11 +546,14 @@
   {
     "id": "for-me-96",
     "type": "image",
-    "image": "image/gifts/for-me-96.png",
+    "image": "images/gifts/for-me-96.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "DAWN",
     "rating": "G",
     "warnings": [],
@@ -460,11 +562,14 @@
   {
     "id": "for-me-95",
     "type": "image",
-    "image": "image/gifts/for-me-95.jpg",
+    "image": "images/gifts/for-me-95.jpg",
     "characters": [
-      "Venomancer"
+      "venomancer"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Perfect World",
+      "ru": "Perfect World"
+    },
     "author": "keenkatoo",
     "rating": "G",
     "warnings": [],
@@ -473,11 +578,14 @@
   {
     "id": "for-me-94",
     "type": "image",
-    "image": "image/gifts/for-me-94.PNG",
+    "image": "images/gifts/for-me-94.PNG",
     "characters": [
-      "Yoko Yogan"
+      "yoko-yogan"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "Dead Rat",
     "rating": "G",
     "warnings": [],
@@ -486,11 +594,14 @@
   {
     "id": "for-me-93",
     "type": "image",
-    "image": "image/gifts/for-me-93.png",
+    "image": "images/gifts/for-me-93.png",
     "characters": [
-      "Yoko Yogan"
+      "yoko-yogan"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "LordeSavEblan",
     "rating": "G",
     "warnings": [],
@@ -499,11 +610,14 @@
   {
     "id": "for-me-92",
     "type": "image",
-    "image": "image/gifts/for-me-92.PNG",
+    "image": "images/gifts/for-me-92.PNG",
     "characters": [
-      "Yoko Yogan"
+      "yoko-yogan"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "Nimko",
     "rating": "G",
     "warnings": [],
@@ -512,11 +626,14 @@
   {
     "id": "for-me-91",
     "type": "image",
-    "image": "image/gifts/for-me-91.PNG",
+    "image": "images/gifts/for-me-91.PNG",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "MyYensyy",
     "rating": "G",
     "warnings": [],
@@ -525,11 +642,14 @@
   {
     "id": "for-me-90",
     "type": "image",
-    "image": "image/gifts/for-me-90.jpg",
+    "image": "images/gifts/for-me-90.jpg",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Meizikinart",
     "rating": "G",
     "warnings": [],
@@ -538,11 +658,14 @@
   {
     "id": "for-me-89",
     "type": "image",
-    "image": "image/gifts/for-me-89.png",
+    "image": "images/gifts/for-me-89.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "DAWN",
     "rating": "G",
     "warnings": [],
@@ -551,11 +674,14 @@
   {
     "id": "for-me-88",
     "type": "image",
-    "image": "image/gifts/for-me-88.png",
+    "image": "images/gifts/for-me-88.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "LoonyMay",
     "rating": "G",
     "warnings": [],
@@ -564,11 +690,14 @@
   {
     "id": "for-me-87",
     "type": "image",
-    "image": "image/gifts/for-me-87.png",
+    "image": "images/gifts/for-me-87.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Miralin_ri",
     "rating": "G",
     "warnings": [],
@@ -577,11 +706,14 @@
   {
     "id": "for-me-86",
     "type": "image",
-    "image": "image/gifts/for-me-86.png",
+    "image": "images/gifts/for-me-86.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Aivi",
     "rating": "G",
     "warnings": [],
@@ -590,11 +722,14 @@
   {
     "id": "for-me-85",
     "type": "image",
-    "image": "image/gifts/for-me-85.JPG",
+    "image": "images/gifts/for-me-85.JPG",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "dandelion_asta",
     "rating": "G",
     "warnings": [],
@@ -603,11 +738,14 @@
   {
     "id": "for-me-84",
     "type": "image",
-    "image": "image/gifts/for-me-84.png",
+    "image": "images/gifts/for-me-84.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Rarchan",
     "rating": "G",
     "warnings": [],
@@ -616,11 +754,14 @@
   {
     "id": "for-me-83",
     "type": "image",
-    "image": "image/gifts/for-me-83.jpg",
+    "image": "images/gifts/for-me-83.jpg",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Bee",
     "rating": "G",
     "warnings": [],
@@ -629,11 +770,14 @@
   {
     "id": "for-me-82",
     "type": "image",
-    "image": "image/gifts/for-me-82.png",
+    "image": "images/gifts/for-me-82.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "DeltAshi",
     "rating": "G",
     "warnings": [],
@@ -642,11 +786,14 @@
   {
     "id": "for-me-81",
     "type": "image",
-    "image": "image/gifts/for-me-81.png",
+    "image": "images/gifts/for-me-81.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Dead Rat",
     "rating": "G",
     "warnings": [],
@@ -655,11 +802,14 @@
   {
     "id": "for-me-80",
     "type": "image",
-    "image": "image/gifts/for-me-80.png",
+    "image": "images/gifts/for-me-80.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Mavi",
     "rating": "G",
     "warnings": [],
@@ -668,11 +818,14 @@
   {
     "id": "for-me-79",
     "type": "image",
-    "image": "image/gifts/for-me-79.png",
+    "image": "images/gifts/for-me-79.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Purple Cat",
     "rating": "G",
     "warnings": [],
@@ -681,11 +834,14 @@
   {
     "id": "for-me-78",
     "type": "image",
-    "image": "image/gifts/for-me-78.PNG",
+    "image": "images/gifts/for-me-78.PNG",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Belyash_brat",
     "rating": "G",
     "warnings": [],
@@ -694,11 +850,14 @@
   {
     "id": "for-me-77",
     "type": "image",
-    "image": "image/gifts/for-me-77.png",
+    "image": "images/gifts/for-me-77.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Kumy",
     "rating": "G",
     "warnings": [],
@@ -707,11 +866,14 @@
   {
     "id": "for-me-76",
     "type": "image",
-    "image": "image/gifts/for-me-76.png",
+    "image": "images/gifts/for-me-76.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "EvE-Singularity",
     "rating": "G",
     "warnings": [],
@@ -720,11 +882,14 @@
   {
     "id": "for-me-75",
     "type": "image",
-    "image": "image/gifts/for-me-75.png",
+    "image": "images/gifts/for-me-75.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Ebanyynasvayblyat",
     "rating": "G",
     "warnings": [],
@@ -733,11 +898,14 @@
   {
     "id": "for-me-74",
     "type": "image",
-    "image": "image/gifts/for-me-74.jpg",
+    "image": "images/gifts/for-me-74.jpg",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Aks",
     "rating": "G",
     "warnings": [],
@@ -746,11 +914,14 @@
   {
     "id": "for-me-73",
     "type": "image",
-    "image": "image/gifts/for-me-73.png",
+    "image": "images/gifts/for-me-73.png",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -759,11 +930,14 @@
   {
     "id": "for-me-72",
     "type": "image",
-    "image": "image/gifts/for-me-72.png",
+    "image": "images/gifts/for-me-72.png",
     "characters": [
-      "Nagusame Uchiha"
+      "nagusame-uchiha"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -772,11 +946,14 @@
   {
     "id": "for-me-71",
     "type": "image",
-    "image": "image/gifts/for-me-71.jpg",
+    "image": "images/gifts/for-me-71.jpg",
     "characters": [
-      "Yoko Yogan"
+      "yoko-yogan"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "MrPurramu",
     "rating": "G",
     "warnings": [],
@@ -785,11 +962,14 @@
   {
     "id": "for-me-70",
     "type": "image",
-    "image": "image/gifts/for-me-70.png",
+    "image": "images/gifts/for-me-70.png",
     "characters": [
-      "Yoko Yogan"
+      "yoko-yogan"
     ],
-    "fandom": "Jujutsu Kaisen",
+    "fandom": {
+      "en": "Jujutsu Kaisen",
+      "ru": "Магическая Битва"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -798,11 +978,14 @@
   {
     "id": "for-me-69",
     "type": "image",
-    "image": "image/gifts/for-me-69.jpg",
+    "image": "images/gifts/for-me-69.jpg",
     "characters": [
-      "Kizunari Sarutobi"
+      "kizunari-sarutobi"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -811,12 +994,15 @@
   {
     "id": "for-me-68",
     "type": "image",
-    "image": "image/gifts/for-me-68.PNG",
+    "image": "images/gifts/for-me-68.PNG",
     "characters": [
-      "Sonkei Butsukaru",
-      "Hajoka Butsukaru"
+      "sonkei-butsukaru",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "bajojda",
     "rating": "G",
     "warnings": [],
@@ -825,11 +1011,14 @@
   {
     "id": "for-me-67",
     "type": "image",
-    "image": "image/gifts/for-me-67.jpg",
+    "image": "images/gifts/for-me-67.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -838,12 +1027,15 @@
   {
     "id": "for-me-66",
     "type": "image",
-    "image": "image/gifts/for-me-66.jpg",
+    "image": "images/gifts/for-me-66.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Yuri"
+      "hajoka-butsukaru",
+      "julia-yuri"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto x Original",
+      "ru": "Наруто x Ориджинал"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -852,11 +1044,14 @@
   {
     "id": "for-me-65",
     "type": "image",
-    "image": "image/gifts/for-me-65.jpg",
+    "image": "images/gifts/for-me-65.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -865,11 +1060,14 @@
   {
     "id": "for-me-64",
     "type": "image",
-    "image": "image/gifts/for-me-64.jpg",
+    "image": "images/gifts/for-me-64.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "PODSOLNUKH",
     "rating": "G",
     "warnings": [],
@@ -878,11 +1076,14 @@
   {
     "id": "for-me-63",
     "type": "image",
-    "image": "image/gifts/for-me-63.jpg",
+    "image": "images/gifts/for-me-63.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Vagon Durakov",
     "rating": "G",
     "warnings": [],
@@ -891,11 +1092,14 @@
   {
     "id": "for-me-62",
     "type": "image",
-    "image": "image/gifts/for-me-62.jpg",
+    "image": "images/gifts/for-me-62.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -904,11 +1108,14 @@
   {
     "id": "for-me-61",
     "type": "image",
-    "image": "image/gifts/for-me-61.jpg",
+    "image": "images/gifts/for-me-61.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "mactavish",
     "rating": "G",
     "warnings": [],
@@ -917,12 +1124,15 @@
   {
     "id": "for-me-60",
     "type": "image",
-    "image": "image/gifts/for-me-60.jpg",
+    "image": "images/gifts/for-me-60.jpg",
     "characters": [
-      "Massao Yamaguchi",
-      "Murasaki Yamaguchi"
+      "massao-yamaguchi",
+      "murasaki-yamaguchi"
     ],
-    "fandom": "Tokyo Revengers",
+    "fandom": {
+      "en": "Tokyo Revengers",
+      "ru": "Токийские Мстители"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -931,11 +1141,14 @@
   {
     "id": "for-me-59",
     "type": "image",
-    "image": "image/gifts/for-me-59.jpg",
+    "image": "images/gifts/for-me-59.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -944,13 +1157,16 @@
   {
     "id": "for-me-58",
     "type": "image",
-    "image": "image/gifts/for-me-58.jpg",
+    "image": "images/gifts/for-me-58.jpg",
     "characters": [
-      "Kichiro Sarutobi",
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "kichiro-sarutobi",
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -959,11 +1175,14 @@
   {
     "id": "for-me-57",
     "type": "image",
-    "image": "image/gifts/for-me-57.png",
+    "image": "images/gifts/for-me-57.png",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "bad blonde",
     "rating": "G",
     "warnings": [],
@@ -972,12 +1191,15 @@
   {
     "id": "for-me-56",
     "type": "image",
-    "image": "image/gifts/for-me-56.jpg",
+    "image": "images/gifts/for-me-56.jpg",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto/Boruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Sanslao",
     "rating": "G",
     "warnings": [],
@@ -986,11 +1208,14 @@
   {
     "id": "for-me-55",
     "type": "image",
-    "image": "image/gifts/for-me-55.jpg",
+    "image": "images/gifts/for-me-55.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "VERDE",
     "rating": "G",
     "warnings": [],
@@ -999,11 +1224,14 @@
   {
     "id": "for-me-54",
     "type": "image",
-    "image": "image/gifts/for-me-54.jpg",
+    "image": "images/gifts/for-me-54.jpg",
     "characters": [
-      "Joshiko Butsukaru"
+      "joshiko-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "VERDE",
     "rating": "G",
     "warnings": [],
@@ -1012,12 +1240,15 @@
   {
     "id": "for-me-53",
     "type": "image",
-    "image": "image/gifts/for-me-53.jpg",
+    "image": "images/gifts/for-me-53.jpg",
     "characters": [
-      "Sonkei Butsukaru",
-      "Hajoka Butsukaru"
+      "sonkei-butsukaru",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1026,12 +1257,15 @@
   {
     "id": "for-me-52",
     "type": "image",
-    "image": "image/gifts/for-me-52.jpg",
+    "image": "images/gifts/for-me-52.jpg",
     "characters": [
-      "Raiden Gao © RUT1RUT",
-      "Tsuki Shuuki"
+      "raiden-gao-by-rut1rut",
+      "tsuki-shuuki"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1040,11 +1274,14 @@
   {
     "id": "for-me-51",
     "type": "image",
-    "image": "image/gifts/for-me-51.jpg",
+    "image": "images/gifts/for-me-51.jpg",
     "characters": [
-      "Tsuki Shuuki"
+      "tsuki-shuuki"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1053,12 +1290,15 @@
   {
     "id": "for-me-50",
     "type": "image",
-    "image": "image/gifts/for-me-50.png",
+    "image": "images/gifts/for-me-50.png",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakshi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "bad blonde",
     "rating": "G",
     "warnings": [],
@@ -1067,18 +1307,21 @@
   {
     "id": "for-me-49",
     "type": "image",
-    "image": "image/gifts/for-me-49.jpg",
+    "image": "images/gifts/for-me-49.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Ril Hatake ©",
-      "Mina Hatake ©",
-      "Kayao © VERDE",
-      "Karasy © Diabolli",
-      "Tsurashiki © bad blonde",
-      "Unknown OC",
-      "Meigetsu © Black Voron"
+      "hajoka-butsukaru",
+      "ril-hatake-by-anya",
+      "mina-hatake-by-pung-lone-wolf",
+      "kayao-uzumaki-by-verde",
+      "karasy-by-diabolli",
+      "tsutsura-by-bad-blonde",
+      "unknown-oc",
+      "meigetsu-by-black-voron"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1087,13 +1330,16 @@
   {
     "id": "for-me-48",
     "type": "image",
-    "image": "image/gifts/for-me-48.jpg",
+    "image": "images/gifts/for-me-48.jpg",
     "characters": [
-      "Ritoya © RUT1RUT",
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "ritoya-momochi-by-rut1rut",
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1102,12 +1348,15 @@
   {
     "id": "for-me-47",
     "type": "image",
-    "image": "image/gifts/for-me-47.jpg",
+    "image": "images/gifts/for-me-47.jpg",
     "characters": [
-      "Ruta © RUT1RUT",
-      "Yuri"
+      "ruta-by-rut1rut",
+      "julia-yuri"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1116,12 +1365,15 @@
   {
     "id": "for-me-46",
     "type": "image",
-    "image": "image/gifts/for-me-46.jpg",
+    "image": "images/gifts/for-me-46.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Joshiko Butsukaru"
+      "hajoka-butsukaru",
+      "joshiko-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1130,11 +1382,14 @@
   {
     "id": "for-me-45",
     "type": "image",
-    "image": "image/gifts/for-me-45.jpg",
+    "image": "images/gifts/for-me-45.jpg",
     "characters": [
-      "Kichiro Sarutobi"
+      "kichiro-sarutobi"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1143,11 +1398,14 @@
   {
     "id": "for-me-44",
     "type": "image",
-    "image": "image/gifts/for-me-44.jpg",
+    "image": "images/gifts/for-me-44.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Petrichor",
     "rating": "G",
     "warnings": [],
@@ -1156,11 +1414,14 @@
   {
     "id": "for-me-43",
     "type": "image",
-    "image": "image/gifts/for-me-43.jpg",
+    "image": "images/gifts/for-me-43.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "RUT1RUT",
     "rating": "G",
     "warnings": [],
@@ -1169,11 +1430,14 @@
   {
     "id": "for-me-42",
     "type": "image",
-    "image": "image/gifts/for-me-42.jpg",
+    "image": "images/gifts/for-me-42.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Tokage",
     "rating": "G",
     "warnings": [],
@@ -1182,11 +1446,14 @@
   {
     "id": "for-me-41",
     "type": "image",
-    "image": "image/gifts/for-me-41.jpg",
+    "image": "images/gifts/for-me-41.jpg",
     "characters": [
-      "Sonkei Butsukaru"
+      "sonkei-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Sawancan",
     "rating": "G",
     "warnings": [],
@@ -1195,13 +1462,16 @@
   {
     "id": "for-me-40",
     "type": "image",
-    "image": "image/gifts/for-me-40.jpg",
+    "image": "images/gifts/for-me-40.jpg",
     "characters": [
-      "Serishi Butsukaru",
-      "Udo Hatake © n.pyn",
-      "Mayoko Hatake © Anata no Doku"
+      "serishi-butsukaru",
+      "udo-hatake-by-n-pyn",
+      "mayoko-hatake-by-anata-no-doku"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "n.pyn",
     "rating": "G",
     "warnings": [],
@@ -1210,13 +1480,16 @@
   {
     "id": "for-me-39",
     "type": "image",
-    "image": "image/gifts/for-me-39.jpg",
+    "image": "images/gifts/for-me-39.jpg",
     "characters": [
-      "Serishi Butsukaru",
-      "Mayoko Hatake © Anata no Doku",
-      "Udo Hatake © n.pyn"
+      "serishi-butsukaru",
+      "mayoko-hatake-by-anata-no-doku",
+      "udo-hatake-by-n-pyn"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "Anata no Doku",
     "rating": "G",
     "warnings": [],
@@ -1225,11 +1498,14 @@
   {
     "id": "for-me-38",
     "type": "image",
-    "image": "image/gifts/for-me-38.jpg",
+    "image": "images/gifts/for-me-38.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Sawancan",
     "rating": "G",
     "warnings": [],
@@ -1238,12 +1514,15 @@
   {
     "id": "for-me-37",
     "type": "image",
-    "image": "image/gifts/for-me-37.jpg",
+    "image": "images/gifts/for-me-37.jpg",
     "characters": [
-      "Sonkei Butsukaru",
-      "Nagusame Uchiha"
+      "sonkei-butsukaru",
+      "nagusame-uchiha"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Anata no Doku",
     "rating": "G",
     "warnings": [],
@@ -1252,12 +1531,15 @@
   {
     "id": "for-me-36",
     "type": "image",
-    "image": "image/gifts/for-me-36.png",
+    "image": "images/gifts/for-me-36.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Tina Shibitskaya",
     "rating": "G",
     "warnings": [],
@@ -1266,12 +1548,15 @@
   {
     "id": "for-me-35",
     "type": "image",
-    "image": "image/gifts/for-me-35.png",
+    "image": "images/gifts/for-me-35.png",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Tina Shibitskaya",
     "rating": "G",
     "warnings": [],
@@ -1280,15 +1565,18 @@
   {
     "id": "for-me-34",
     "type": "image",
-    "image": "image/gifts/for-me-34.jpg",
+    "image": "images/gifts/for-me-34.jpg",
     "characters": [
-      "Mikanashi © HYLIGANKA",
-      "Yoshiko © VERDE",
-      "Yuki © Kitsukuri",
-      "Hajoka Butsikaru",
-      "Matatui © r.j.edison"
+      "mikanashi-by-hyliganka",
+      "yoshiko-by-verde",
+      "yuki-by-kitsukuri",
+      "hajoka-butsukaru",
+      "matatui-by-r-j-edison"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Black Voron",
     "rating": "G",
     "warnings": [],
@@ -1297,11 +1585,14 @@
   {
     "id": "for-me-33",
     "type": "image",
-    "image": "image/gifts/for-me-33.jpg",
+    "image": "images/gifts/for-me-33.jpg",
     "characters": [
-      "Kizunari Sarutobi"
+      "kizunari-sarutobi"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -1310,12 +1601,15 @@
   {
     "id": "for-me-32",
     "type": "image",
-    "image": "image/gifts/for-me-32.jpg",
+    "image": "images/gifts/for-me-32.jpg",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Riru Arbuzya",
     "rating": "G",
     "warnings": [],
@@ -1324,12 +1618,15 @@
   {
     "id": "for-me-31",
     "type": "image",
-    "image": "image/gifts/for-me-31.jpg",
+    "image": "images/gifts/for-me-31.jpg",
     "characters": [
-      "Kakashi Hatake",
-      "Hajoka Butsukaru"
+      "kakashi-hatake",
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "n.pyn",
     "rating": "G",
     "warnings": [],
@@ -1338,13 +1635,16 @@
   {
     "id": "for-me-30",
     "type": "image",
-    "image": "image/gifts/for-me-30.jpg",
+    "image": "images/gifts/for-me-30.jpg",
     "characters": [
-      "Serishi Butsukaru",
-      "Mayoko Hatake © Anata no Doku",
-      "Udo Hatake © n.pyn"
+      "serishi-butsukaru",
+      "mayoko-hatake-by-anata-no-doku",
+      "udo-hatake-by-n-pyn"
     ],
-    "fandom": "Boruto",
+     "fandom": {
+      "en": "Boruto",
+      "ru": "Боруто"
+    },
     "author": "n.pyn",
     "rating": "G",
     "warnings": [],
@@ -1353,11 +1653,14 @@
   {
     "id": "for-me-29",
     "type": "image",
-    "image": "image/gifts/for-me-29.jpg",
+    "image": "images/gifts/for-me-29.jpg",
     "characters": [
-      "Serishi Butsukaru"
+      "serishi-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Sooko",
     "rating": "G",
     "warnings": [],
@@ -1366,11 +1669,14 @@
   {
     "id": "for-me-28",
     "type": "image",
-    "image": "image/gifts/for-me-28.jpg",
+    "image": "images/gifts/for-me-28.jpg",
     "characters": [
-      "Serishi Butsukaru"
+      "serishi-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -1379,12 +1685,15 @@
   {
     "id": "for-me-27",
     "type": "image",
-    "image": "image/gifts/for-me-27.jpg",
+    "image": "images/gifts/for-me-27.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Anastasia Volkova",
     "rating": "G",
     "warnings": [],
@@ -1393,11 +1702,14 @@
   {
     "id": "for-me-26",
     "type": "image",
-    "image": "image/gifts/for-me-26.jpg",
+    "image": "images/gifts/for-me-26.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "VERDE",
     "rating": "G",
     "warnings": [],
@@ -1406,11 +1718,14 @@
   {
     "id": "for-me-25",
     "type": "image",
-    "image": "image/gifts/for-me-25.jpg",
+    "image": "images/gifts/for-me-25.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Sawancan",
     "rating": "G",
     "warnings": [],
@@ -1419,11 +1734,14 @@
   {
     "id": "for-me-24",
     "type": "image",
-    "image": "image/gifts/for-me-24.jpg",
+    "image": "images/gifts/for-me-24.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "VERDE",
     "rating": "G",
     "warnings": [],
@@ -1432,11 +1750,14 @@
   {
     "id": "for-me-23",
     "type": "image",
-    "image": "image/gifts/for-me-23.jpg",
+    "image": "images/gifts/for-me-23.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -1445,11 +1766,14 @@
   {
     "id": "for-me-22",
     "type": "image",
-    "image": "image/gifts/for-me-22.jpg",
+    "image": "images/gifts/for-me-22.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Amy Fire",
     "rating": "G",
     "warnings": [],
@@ -1458,12 +1782,15 @@
   {
     "id": "for-me-21",
     "type": "image",
-    "image": "image/gifts/for-me-21.jpg",
+    "image": "images/gifts/for-me-21.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Tokage",
     "rating": "G",
     "warnings": [],
@@ -1472,11 +1799,14 @@
   {
     "id": "for-me-20",
     "type": "image",
-    "image": "image/gifts/for-me-20.jpg",
+    "image": "images/gifts/for-me-20.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "IRIS",
     "rating": "G",
     "warnings": [],
@@ -1485,11 +1815,14 @@
   {
     "id": "for-me-19",
     "type": "image",
-    "image": "image/gifts/for-me-19.jpg",
+    "image": "images/gifts/for-me-19.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Secret Santa",
     "rating": "G",
     "warnings": [],
@@ -1498,13 +1831,16 @@
   {
     "id": "for-me-18",
     "type": "image",
-    "image": "image/gifts/for-me-18.jpg",
+    "image": "images/gifts/for-me-18.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Azuki Senju © bad blonde",
-      "Fuvafumi © Black Voron"
+      "hajoka-butsukaru",
+      "azuki-senju-by-bad-blonde",
+      "fuvafumi-by-black-voron"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "VERDE",
     "rating": "G",
     "warnings": [],
@@ -1513,12 +1849,15 @@
   {
     "id": "for-me-17",
     "type": "image",
-    "image": "image/gifts/for-me-17.jpg",
+    "image": "images/gifts/for-me-17.jpg",
     "characters": [
-      "Hajoka Butsukaru",
-      "Kakashi Hatake"
+      "hajoka-butsukaru",
+      "kakashi-hatake"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -1527,11 +1866,14 @@
   {
     "id": "for-me-16",
     "type": "image",
-    "image": "image/gifts/for-me-16.jpg",
+    "image": "images/gifts/for-me-16.jpg",
     "characters": [
-      "Hajoka Butsukaru"
+      "hajoka-butsukaru"
     ],
-    "fandom": "Naruto",
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
     "author": "c_53_painter",
     "rating": "G",
     "warnings": [],
@@ -1540,11 +1882,14 @@
   {
     "id": "for-me-15",
     "type": "image",
-    "image": "image/gifts/for-me-15.jpg",
+    "image": "images/gifts/for-me-15.jpg",
     "characters": [
-      "Bifina Fierce"
+      "bifina-fierce"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "Cofi",
     "rating": "G",
     "warnings": [],
@@ -1553,11 +1898,14 @@
   {
     "id": "for-me-14",
     "type": "image",
-    "image": "image/gifts/for-me-14.jpg",
+    "image": "images/gifts/for-me-14.jpg",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "nexylazaart",
     "rating": "G",
     "warnings": [],
@@ -1566,12 +1914,15 @@
   {
     "id": "for-me-13",
     "type": "image",
-    "image": "image/gifts/for-me-13.jpg",
+    "image": "images/gifts/for-me-13.jpg",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Kami Nakagami © Shavurrr"
+      "zhozabel-de-lee",
+      "kami-by-shavurrr"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "Shavurrr",
     "rating": "G",
     "warnings": [],
@@ -1580,11 +1931,14 @@
   {
     "id": "for-me-12",
     "type": "image",
-    "image": "image/gifts/for-me-12.jpg",
+    "image": "images/gifts/for-me-12.jpg",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Phineas & Ferb",
+      "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
     "author": "Svetlana Shuvalova and ananastua.art",
     "rating": "G",
     "warnings": [],
@@ -1593,11 +1947,14 @@
   {
     "id": "for-me-11",
     "type": "image",
-    "image": "image/gifts/for-me-11.jpg",
+    "image": "images/gifts/for-me-11.jpg",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Sailor Moon",
+    "fandom": {
+      "en": "Pretty Guardian Sailor Moon",
+      "ru": "Красавица-воин Сейлор Мун"
+    },
     "author": "Osuva",
     "rating": "G",
     "warnings": [],
@@ -1606,13 +1963,32 @@
   {
     "id": "for-me-10",
     "type": "image",
-    "image": "image/gifts/for-me-10.jpg",
+    "image": "images/gifts/for-me-10.jpg",
     "characters": [
-      "Ferb Fletcher",
-      "Isabella Garcia Shapiro"
+      "ferb-fletcher",
+      "isabella-garcia-shapiro"
     ],
-    "fandom": "Phineas & Ferb: Searching for the Keys to Hatred © Zhozabel",
+    "fandom": {
+      "en": "Phineas & Ferb: Searching for the Keys to Hatred © Zhozabel",
+      "ru": "Финес и Ферб: Подбирая ключи к ненависти © Zhozabel"
+    },
     "author": "LerArt",
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
+    "id": "for-me-09",
+    "type": "image",
+    "image": "images/gifts/for-me-09.jpg",
+    "characters": [
+      "zhozabel-de-lee"
+    ],
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "author": "lawrush",
     "rating": "G",
     "warnings": [],
     "blur": false
@@ -1620,12 +1996,15 @@
   {
     "id": "for-me-08",
     "type": "image",
-    "image": "image/gifts/for-me-08.jpg",
+    "image": "images/gifts/for-me-08.jpg",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Kami Nakagami © Shavurrr"
+      "zhozabel-de-lee",
+      "kami-by-shavurrr"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "ayuni_tyan",
     "rating": "G",
     "warnings": [],
@@ -1634,11 +2013,14 @@
   {
     "id": "for-me-07",
     "type": "image",
-    "image": "image/gifts/for-me-07.jpg",
+    "image": "images/gifts/for-me-07.jpg",
     "characters": [
-      "Bifina Fierce"
+      "bifina-fierce"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "MonkeySiu",
     "rating": "G",
     "warnings": [],
@@ -1647,12 +2029,15 @@
   {
     "id": "for-me-06",
     "type": "image",
-    "image": "image/gifts/for-me-06.jpg",
+    "image": "images/gifts/for-me-06.jpg",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Kami Nakagami © Shavurrr"
+      "zhozabel-de-lee",
+      "kami-by-shavurrr"
     ],
-    "fandom": null,
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
     "author": "MonkeySiu",
     "rating": "G",
     "warnings": [],
@@ -1661,12 +2046,15 @@
   {
     "id": "for-me-05",
     "type": "image",
-    "image": "image/gifts/for-me-05.jpg",
+    "image": "images/gifts/for-me-05.jpg",
     "characters": [
-      "Alina © ananastua.art",
-      "Zhozabel' de'Lee"
+      "alina-by-ananastua-art",
+      "zhozabel-de-lee"
     ],
-    "fandom": "Phineas & Ferb",
+      "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
     "author": "ananastua.art",
     "rating": "G",
     "warnings": [],
@@ -1675,13 +2063,16 @@
   {
     "id": "for-me-04",
     "type": "image",
-    "image": "image/gifts/for-me-04.jpg",
+    "image": "images/gifts/for-me-04.jpg",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Alina © ananastua.art",
-      "Roxel © ananastua.art"
+      "zhozabel-de-lee",
+      "alina-by-ananastua-art",
+      "roxel-by-ananastua-art"
     ],
-    "fandom": "Phineas & Ferb",
+      "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
     "author": "ananastua.art",
     "rating": "G",
     "warnings": [],
@@ -1690,12 +2081,15 @@
   {
     "id": "for-me-03",
     "type": "image",
-    "image": "image/gifts/for-me-03.jpg",
+    "image": "images/gifts/for-me-03.jpg",
     "characters": [
-      "Zhozabel' de'Lee",
-      "Alina © ananastua.art"
+      "zhozabel-de-lee",
+      "alina-by-ananastua-art"
     ],
-    "fandom": "Phineas & Ferb",
+      "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
     "author": "ananastua.art",
     "rating": "G",
     "warnings": [],
@@ -1704,11 +2098,14 @@
   {
     "id": "for-me-02",
     "type": "image",
-    "image": "image/gifts/for-me-02.jpg",
+    "image": "images/gifts/for-me-02.jpg",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Phineas & Ferb",
+      "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
     "author": "lawrush",
     "rating": "G",
     "warnings": [],
@@ -1717,11 +2114,14 @@
   {
     "id": "for-me-01",
     "type": "image",
-    "image": "image/gifts/for-me-01.jpg",
+    "image": "images/gifts/for-me-01.jpg",
     "characters": [
-      "Zhozabel' de'Lee"
+      "zhozabel-de-lee"
     ],
-    "fandom": "Sailor Moon",
+    "fandom": {
+      "en": "Pretty Guardian Sailor Moon",
+      "ru": "Красавица-воин Сейлор Мун"
+    },
     "author": "Daria Koshkarova",
     "rating": "G",
     "warnings": [],
