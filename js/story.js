@@ -1,308 +1,311 @@
-async function loadStory() {
-  try {
-    const storyId = getStoryId();
+const DATA_FILES = {
+  comic: "../data/comics.json",
+  fanfic: "../data/fanfics.json",
+  original: "../data/originals.json"
+};
 
-    console.log("Story ID:", storyId);
+let currentStory = null;
+let currentChapters = [];
+let currentLanguage = "en";
 
-    const response = await fetch("../data/stories.json");
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to load stories.json: ${response.status}`
-      );
-    }
-
-    const stories = await response.json();
-
-    console.log("Stories:", stories);
-
-    const story = stories.find(
-      story => story.id === storyId
-    );
-
-    if (!story) {
-      throw new Error(
-        `Story "${storyId}" not found`
-      );
-    }
-
-    console.log("Found story:", story);
-
-    renderStory(story);
-
-    await loadChapters(story.id);
-
-  } catch (error) {
-    console.error(
-      "Failed to load story:",
-      error
-    );
-  }
-}
+const params = new URLSearchParams(window.location.search);
+const storyType = params.get("type");
+const storyId = params.get("id");
 
 
-function getStoryId() {
-  const fileName =
-    window.location.pathname
-      .split("/")
-      .pop();
+function getLanguage() {
+  const savedLanguage = localStorage.getItem("zhozabel-language");
 
-  return fileName.replace(".html", "");
-}
-
-
-function renderStory(story) {
-
-  document.title =
-    `${story.title} — Zhozabel`;
-
-
-  // TITLE
-
-  document.querySelector(
-    ".story_title"
-  ).textContent =
-    story.title;
-
-
-  // BANNER
-
-  const bannerImage =
-    document.querySelector(
-      ".story_banner-image"
-    );
-
-  if (story.banner) {
-
-    bannerImage.src =
-      `../${story.banner}`;
-
-    bannerImage.alt =
-      story.title;
-
+  if (savedLanguage === "ru" || savedLanguage === "en") {
+    return savedLanguage;
   }
 
-
-  // BANNER GENRES
-
-  const bannerGenres =
-    document.querySelector(
-      ".story_banner-genres"
-    );
-
-  renderChips(
-    bannerGenres,
-    story.genres.slice(0, 3)
-  );
-
-
-  // COVER
-
-  const coverImage =
-    document.querySelector(
-      ".story_cover-image"
-    );
-
-  coverImage.src =
-    `../${story.cover}`;
-
-  coverImage.alt =
-    story.title;
-
-
-  // DESCRIPTION
-
-  const description =
-    document.querySelector(
-      ".story_description-text"
-    );
-
-  description.innerHTML = "";
-
-  story.description
-    .split("\n")
-    .filter(Boolean)
-    .forEach(text => {
-
-      const paragraph =
-        document.createElement("p");
-
-      paragraph.textContent =
-        text;
-
-      description.appendChild(
-        paragraph
-      );
-
-    });
-
-
-  // GENRES
-
-  const genres =
-    document.querySelector(
-      ".story_genres"
-    );
-
-  renderChips(
-    genres,
-    story.genres
-  );
-
-
-  // RATING
-
-  const rating =
-    document.querySelector(
-      ".story_rating"
-    );
-
-  rating.textContent =
-    story.rating;
-
-  rating.className =
-    `story_rating story_rating--${story.rating}`;
-
-
-  // WARNINGS
-
-  const warnings =
-    document.querySelector(
-      ".story_warnings"
-    );
-
-  renderChips(
-    warnings,
-    story.warnings
-  );
-
+  return document.documentElement.lang === "ru" ? "ru" : "en";
 }
 
 
-async function loadChapters(storyId) {
+function getLocalized(value) {
+  if (typeof value === "string") {
+    return value;
+  }
 
-  const response =
-    await fetch(
-      `../data/stories/${storyId}.json`
-    );
+  if (!value || typeof value !== "object") {
+    return "";
+  }
+
+  return value[currentLanguage] || value.en || value.ru || "";
+}
+
+
+function getAssetPath(path) {
+  if (!path) return "";
+
+  // Внешние URL оставляем без изменений.
+  if (/^(?:[a-z]+:)?\/\//i.test(path)) {
+    return path;
+  }
+
+  // Абсолютные и уже относительные пути не меняем.
+  if (
+    path.startsWith("../") ||
+    path.startsWith("./") ||
+    path.startsWith("/")
+  ) {
+    return path;
+  }
+
+  // Пути из JSON отсчитываем от корня проекта.
+  return `../${path.replace(/^\/+/, "")}`;
+}
+
+
+async function fetchJSON(path) {
+  const response = await fetch(path);
 
   if (!response.ok) {
-
-    throw new Error(
-      `Failed to load chapters: ${response.status}`
-    );
-
+    throw new Error(`Не удалось загрузить ${path}: ${response.status}`);
   }
 
-  const chapters =
-    await response.json();
+  return response.json();
+}
 
-  console.log(
-    "Chapters:",
-    chapters
+
+async function loadStory() {
+  currentLanguage = getLanguage();
+
+  try {
+    if (!storyType || !storyId || !DATA_FILES[storyType]) {
+      throw new Error("Неверный адрес произведения: проверьте type и id.");
+    }
+
+    const stories = await fetchJSON(DATA_FILES[storyType]);
+
+    currentStory = stories.find(
+      item => item.id === storyId && item.type === storyType
+    );
+
+    if (!currentStory) {
+      throw new Error(`Произведение "${storyId}" не найдено.`);
+    }
+
+    currentChapters = currentStory.chaptersFile
+      ? await fetchJSON(getAssetPath(currentStory.chaptersFile))
+      : [];
+
+    renderStory();
+  } catch (error) {
+    console.error("Ошибка загрузки произведения:", error);
+
+    document.querySelector(".story_title").textContent =
+      currentLanguage === "ru"
+        ? "Не удалось загрузить произведение"
+        : "Unable to load this story";
+
+    document.querySelector(".story_description-text").textContent =
+      currentLanguage === "ru"
+        ? "Проверьте адрес страницы и JSON-файлы."
+        : "Please check the page URL and JSON files.";
+  }
+}
+
+
+function renderStory() {
+  if (!currentStory) return;
+
+  const title = getLocalized(currentStory.title);
+
+  document.title = title ? `${title} — Zhozabel` : "Zhozabel";
+  document.querySelector(".story_title").textContent = title;
+
+  // Баннер
+  const bannerImage = document.querySelector(".story_banner-image");
+  const bannerPath = getLocalized(currentStory.banner);
+
+  if (bannerPath) {
+    bannerImage.src = getAssetPath(bannerPath);
+    bannerImage.alt = title;
+    bannerImage.hidden = false;
+  } else {
+    bannerImage.removeAttribute("src");
+    bannerImage.alt = "";
+    bannerImage.hidden = true;
+  }
+
+  // Обложка
+  const coverImage = document.querySelector(".story_cover-image");
+  const coverPath = getLocalized(currentStory.cover);
+
+  if (coverPath) {
+    coverImage.src = getAssetPath(coverPath);
+    coverImage.alt = title;
+    coverImage.hidden = false;
+  } else {
+    coverImage.removeAttribute("src");
+    coverImage.alt = "";
+    coverImage.hidden = true;
+  }
+
+  // Описание
+  const description = document.querySelector(".story_description-text");
+  description.replaceChildren();
+
+  const descriptionText = getLocalized(currentStory.description);
+
+  descriptionText
+    .split(/\n+/)
+    .map(text => text.trim())
+    .filter(Boolean)
+    .forEach(text => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = text;
+      description.appendChild(paragraph);
+    });
+
+  // Жанры
+  renderChips(
+    document.querySelector(".story_genres"),
+    (currentStory.genres || []).map(genre => {
+      const value = getLocalized(genre);
+      return getLocalizedGenre(value);
+    })
   );
 
-  renderChapters(chapters);
+  // Рейтинг
+  const ratingElement = document.querySelector(".story_rating");
+  const rating = getLocalized(currentStory.rating);
+
+  ratingElement.textContent = rating;
+
+// Убираем предыдущий класс рейтинга.
+  ratingElement.classList.remove(
+    "story_rating--G",
+    "story_rating--PG",
+    "story_rating--PG-13",
+    "story_rating--R",
+    "story_rating--NC-17"
+  );
+
+// Добавляем класс для текущего рейтинга.
+  const ratingClass = `story_rating--${rating}`;
+
+  if (
+    ["G", "PG", "PG-13", "R", "NC-17"].includes(rating)
+  ) {
+    ratingElement.classList.add(ratingClass);
+  }
+
+  // Предупреждения
+  renderChips(
+    document.querySelector(".story_warnings"),
+    (currentStory.warnings || []).map(getLocalizedWarning)
+  );
+
+  // Список глав
+  renderChapters(currentChapters);
+}
+
+function getLocalizedGenre(genre) {
+  return window.siteTranslations?.story?.genresList?.[genre] || genre;
+}
+
+function getLocalizedWarning(warning) {
+  return window.siteTranslations?.story?.warningsList?.[warning] || warning;
+}
+
+
+function renderChips(container, items) {
+  container.replaceChildren();
+
+  items
+    .filter(Boolean)
+    .forEach(item => {
+      const chip = document.createElement("span");
+      chip.textContent = item;
+      container.appendChild(chip);
+    });
 }
 
 
 function renderChapters(chapters) {
-
-  const container =
-    document.querySelector(
-      ".story_chapter-list"
-    );
-
-  container.innerHTML = "";
-
+  const container = document.querySelector(".story_chapter-list");
+  container.replaceChildren();
 
   chapters.forEach(chapter => {
+    const chapterElement = document.createElement("a");
+    chapterElement.className = "story_chapter";
 
-    const chapterElement =
-      document.createElement("a");
+    if (storyType === "comic") {
+      chapterElement.href =
+        `comic.html?comic=${encodeURIComponent(storyId)}`;
+    } else {
+      chapterElement.href = "#";
+      chapterElement.addEventListener("click", event => {
+        event.preventDefault();
+      });
+    }
 
-    chapterElement.className =
-      "story_chapter";
+    const coverContainer = document.createElement("div");
+    coverContainer.className = "story_chapter-cover";
 
-    chapterElement.href =
-      `chapter.html?id=${chapter.id}`;
+    const image = document.createElement("img");
+    const coverPath = getLocalized(chapter.cover);
 
+    if (coverPath) {
+      image.src = getAssetPath(coverPath);
+    }
 
-    chapterElement.innerHTML = `
+    image.alt = getLocalized(chapter.title);
+    image.loading = "lazy";
 
-      <div class="story_chapter-cover">
+    coverContainer.appendChild(image);
 
-        <img
-          src="../${chapter.cover}"
-          alt="${chapter.title}"
-        >
+    const info = document.createElement("div");
+    info.className = "story_chapter-info";
 
-      </div>
+    const chapterTitle = document.createElement("div");
+    chapterTitle.className = "story_chapter-title";
+    chapterTitle.textContent = getLocalized(chapter.title);
 
+    const chapterDate = document.createElement("div");
+    chapterDate.className = "story_chapter-date";
+    chapterDate.textContent = formatDate(chapter.date);
 
-      <div class="story_chapter-info">
-
-        <div class="story_chapter-title">
-          ${chapter.title}
-        </div>
-
-        <div class="story_chapter-date">
-          ${formatDate(chapter.date)}
-        </div>
-
-      </div>
-
-    `;
-
-
-    container.appendChild(
-      chapterElement
-    );
-
+    info.append(chapterTitle, chapterDate);
+    chapterElement.append(coverContainer, info);
+    container.appendChild(chapterElement);
   });
-
-}
-
-
-function renderChips(
-  container,
-  items
-) {
-
-  container.innerHTML = "";
-
-  items.forEach(item => {
-
-    const chip =
-      document.createElement(
-        "span"
-      );
-
-    chip.textContent =
-      item;
-
-    container.appendChild(
-      chip
-    );
-
-  });
-
 }
 
 
 function formatDate(date) {
+  if (!date) return "";
 
-  return new Date(date)
-    .toLocaleDateString(
-      "en-US",
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }
-    );
+  const parsedDate = new Date(`${date}T00:00:00`);
 
+  if (Number.isNaN(parsedDate.getTime())) {
+    return date;
+  }
+
+  return parsedDate.toLocaleDateString(
+    currentLanguage === "ru" ? "ru-RU" : "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }
+  );
 }
+
+
+// Переключение языка
+document.addEventListener("languageChanged", event => {
+  const language = event.detail?.language;
+
+  if (language !== "ru" && language !== "en") return;
+
+  currentLanguage = language;
+  renderStory();
+});
 
 
 loadStory();

@@ -1,0 +1,64 @@
+{
+  "pages": [
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-01-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-01-ru.png"
+      },
+      "alt": {
+        "en": "Page 1",
+        "ru": "Страница 1"
+      }
+    },
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-02-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-02-ru.png"
+      },
+      "alt": {
+        "en": "Page 2",
+        "ru": "Страница 2"
+      }
+    },
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-03-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-03-ru.png"
+      },
+      "alt": {
+        "en": "Page 3",
+        "ru": "Страница 3"
+      }
+    },
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-04-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-04-ru.png"
+      },
+      "alt": {
+        "en": "Page 4",
+        "ru": "Страница 4"
+      }
+    },
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-05-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-05-ru.png"
+      },
+      "alt": {
+        "en": "Page 5",
+        "ru": "Страница 5"
+      }
+    },
+    {
+      "src": {
+        "en": "images/webtoons/the-witch-and-the-pastry-chef/ENG/page-06-en.png",
+        "ru": "images/webtoons/the-witch-and-the-pastry-chef/RUS/page-06-ru.png"
+      },
+      "alt": {
+        "en": "Page 6",
+        "ru": "Страница 6"
+      }
+    }
+  ]
+}

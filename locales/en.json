@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "Zhozabel"
+  },
+  "nav": {
+    "about": "About",
+    "wiki": "Wiki",
+    "contact": "Contact",
+    "commissions": "Commissions"
+  },
+  "hero": {
+    "eyebrow": "Artist · Storyteller · Maker",
+    "description1": "My name is Julia, but most people online know me as Zhozabel. I draw comics and illustrations as a hobby, just for fun and love for the process.",
+    "description2": "I also sometimes write stories, build little worlds of my own, and spend far too much time developing my original characters.",
+    "description3": "This website is a place to bring all of these interests together — a little home for my comics, art, stories, characters, and whatever else I feel like creating."
+  },
+  "shelves": {
+    "eyebrow": "The shelves",
+    "title": "Pick a rabbit hole"
+  },
+  "categories": {
+    "visual": "01 · Visual",
+    "words": "02 · Words",
+    "words03": "03 · Words",
+    "sequential": "04 · Sequential",
+    "visual05": "05 · Visual",
+    "misc": "06 · Misc",
+    "art": "Art",
+    "artDescription": "Illustrations, character art, sketches and finished pieces.",
+    "fanfiction": "Fanfiction",
+    "fanfictionDescription": "Stories inspired by characters and worlds I can't stop thinking about.",
+    "fiction": "Fiction",
+    "fictionDescription": "Original stories, characters, fragments and worldbuilding.",
+    "comics": "Comics",
+    "comicsDescription": "Panels, pages and ongoing comic projects.",
+    "gifts": "For me",
+    "giftsDescription": "Little treasures featuring my characters, lovingly made by other artists and collected by me.",
+    "other": "Other",
+    "otherDescription": "Experiments, design bits and things that don't fit neatly anywhere else."
+  },
+  "footer": {
+    "copyright": "Copyright Zhozabel",
+    "language": "Choose language"
+  },
+  "art": {
+    "category": "01 · Visual",
+    "title": "Art",
+    "description": "Illustrations, character art, sketches and finished pieces.",
+    "contentWarning": "Content warning",
+    "reveal": "Click to reveal",
+    "warningLabels": {
+      "ambiguity": "Ambiguity",
+      "problematic": "Problematic themes",
+      "kissing": "Passionate kiss",
+      "blood": "Blood",
+      "violence": "Violence",
+      "gore": "Gore",
+      "nudity": "Nudity",
+      "risque": "Risqué humor",
+      "sex": "Sexual content",
+      "death": "Death"
+    }
+  },
+  "gifts": {
+    "category": "05 · Visual",
+    "title": "For me",
+    "description": "Little treasures featuring my characters, lovingly made by other artists and collected by me.",
+    "mediaMissing": "Media file not specified",
+    "mediaError": "Failed to load media",
+    "loadError": "Unable to load gifts. Please refresh the page.",
+    "openGift": "Open gift"
+  },
+
+  "story": {
+    "chapters": "Chapters",
+    "genres": "Genres",
+    "rating": "Rating",
+    "warnings": "Warnings",
+    "warningsList": {
+      "Battles": "Battles",
+      "Temporary character death": "Temporary character death",
+      "References to violence": "References to violence",
+      "References to religion": "References to religion",
+      "References to death": "References to death"
+    },
+    "genresList": {
+      "Adventure": "Adventure",
+      "Action": "Action",
+      "Comedy": "Comedy",
+      "Drama": "Drama",
+      "Fantasy": "Fantasy",
+      "Romance": "Romance",
+      "Angst": "Angst",
+      "Fluff": "Fluff",
+      "Hurt/Comfort": "Hurt/Comfort"
+    }
+  },
+
+  "comics": {
+    "contents": "Contents",
+    "noPages": "There are no pages in this chapter yet.",
+    "loadError": "Unable to load comics. Please refresh the page.",
+    "missingId": "No comic was specified.",
+    "notFound": "Comic not found.",
+    "chapterLoadError": "Unable to load this comic chapter."
+  }
+}
+

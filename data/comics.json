@@ -1,9 +1,44 @@
 [
   {
     "id": "the-witch-and-the-pastry-chef",
-    "title": "Глава 1",
-    "date": "2025-06-08",
-    "cover": "image/comics/comic-01-cover.png",
-    "file": "comics/the-witch-and-the-pastry-chef/the-witch-and-the-pastry-chef.json"
+    "type": "comic",
+    "title": {
+      "en": "The Witch and the Pastry Chef",
+      "ru": "Ведьма и Патисье"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "date": "2026-11-03",
+    "cover": {
+      "en": "images/webtoons/the-witch-and-the-pastry-chef/cover/the-witch-and-the-pastry-chef-en.png",
+      "ru": "images/webtoons/the-witch-and-the-pastry-chef/cover/the-witch-and-the-pastry-chef-ru.png"
+    },
+    "banner": "",
+    "description": {
+      "en": "During the exam, Zhozabel’ doesn’t remember the monster. She remembers his hands. From that moment, her body reacts faster than her thoughts and feelings appear before understanding.\nHe’s a strange boy without magic. She’s someone who refuses to be perfect.\nThis is not a story about battles, adventures or confessions. It’s a story about admitting the truth to yourself.\n────── ⋆⋅☆⋅⋆ ──────\nArt & story: Zhozabel.\nMashle: Hajime Komoto.\nThe Witch and the Pastry Chef is a fan-made, non-comercial project.",
+      "ru": "Во время отборочного экзамена Жозабель запоминает не монстра. Она запоминает руки. С этого момента её тело реагирует быстрее мыслей, а чувства — раньше осознания. Он — странный парень без магии. Она — та, кто не хочет жить по навязанным правилам. Это история не о сражениях, приключениях и признаниях, а о том, что иногда самое сложное сражение — это сражение с самим собой.\n\n────── ⋆⋅☆⋅⋆ ──────\nИстория и иллюстрации: Zhozabel.\n\"Mashle: Магия и Мускулы\": Hajime Komoto.\n\"Ведьма и Патисье\" - это фанатский некоммерческий проект."
+    },
+    "genres": [
+      "Fantasy",
+      "Romance",
+      "Drama",
+      "Magic Academy",
+      "Action"
+    ],
+    "status": "in-progress",
+    "chapters": 1,
+    "rating": "PG-13",
+    "warnings": [
+      "Battles",
+      "Temporary character death",
+      "References to violence",
+      "References to religion",
+      "References to death"
+    ],
+    "file": "comics/the-witch-and-the-pastry-chef-01.json",
+    "chaptersFile": "data/comics/the-witch-and-the-pastry-chef-chapters.json"
   }
 ]
+

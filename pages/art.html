@@ -1,18 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Zhozabel</title>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components/icon.css">
+
   <link
-    rel="stylesheet"
-    href="../css/main.css">
-  <link
-    rel="stylesheet"
-    href="../css/components/icon.css"
+    rel="shortcut icon"
+    href="../images/icons/brandicons/icon-peach.svg"
+    type="image/svg+xml"
   >
-  <link rel="shortcut icon" href="../images/icons/brandicons/icon-peach.svg" type="images/x-icon">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,19 +28,30 @@
 <header class="header">
   <div class="container">
     <nav class="header_nav">
-      <img src="../images/logos/logo_color_horizontal_without_outline.svg" alt="">
+      <img
+        src="../images/logos/logo_color_horizontal_without_outline.svg"
+        alt="Zhozabel"
+      >
+
       <ul class="header_list">
         <li class="header_list-item">
-          <a class="header_list-link" href="../index.html">About</a>
+          <a
+            class="header_list-link"
+            href="../index.html"
+            data-i18n="nav.about"
+          >About</a>
         </li>
+
         <li class="header_list-item">
-          <a class="header_list-link" href="/">Wiki</a>
+          <a class="header_list-link" href="/" data-i18n="nav.wiki">Wiki</a>
         </li>
+
         <li class="header_list-item">
-          <a class="header_list-link" href="/">Contact</a>
+          <a class="header_list-link" href="/" data-i18n="nav.contact">Contact</a>
         </li>
+
         <li class="header_list-item">
-          <a class="header_button" href="/">Commissions</a>
+          <a class="header_button" href="/" data-i18n="nav.commissions">Commissions</a>
         </li>
       </ul>
     </nav>
@@ -49,37 +63,63 @@
     <div class="container">
       <div class="archive_content">
         <div class="archive_text">
-          <span class="archive_category">01 · Visual</span>
-          <h2 class="archive_title">
-            Art
-          </h2>
-          <p class="archive_desc">
+            <span class="archive_category" data-i18n="art.category">
+              01 · Visual
+            </span>
+
+          <h2 class="archive_title" data-i18n="art.title">Art</h2>
+
+          <p class="archive_desc" data-i18n="art.description">
             Illustrations, character art, sketches and finished pieces.
           </p>
         </div>
       </div>
+
       <div class="timeline"></div>
     </div>
   </section>
 </main>
 
-<script src="../js/art.js"></script>
-
 <footer>
   <div class="footer_container">
     <div class="footer_content">
       <div class="footer_copyright">
-        ©
-        <span id="copyright-year"></span>
-        <script>
-          document.getElementById('copyright-year').textContent = new Date().getFullYear();
-        </script>
-        Copyright Zhozabel
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
       </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN</button>
+
+      <span class="footer_language-divider" aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU</button>
     </div>
   </div>
 </footer>
 
-</body>
+<script>
+  document.getElementById("copyright-year").textContent =
+    new Date().getFullYear();
+</script>
 
+<script src="../js/art.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
 </html>

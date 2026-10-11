@@ -1,172 +1,459 @@
-const giftsGallery = document.querySelector('.gifts_gallery');
+
+const giftsGallery = document.querySelector(".gifts_gallery");
+
+let giftsData = [];
+let characterNames = new Map();
+
+const characterFiles = [
+  "../data/canon-characters.json",
+  "../data/other-characters.json",
+  "../data/original-characters.json"
+];
 
 
-const warningLabels = {
-  ambiguity: 'Ambiguity',
-  problematic: 'Problematic',
-  kissing: 'Passionate kiss',
-  blood: 'Blood',
-  violence: 'Violence',
-  gore: 'Gore',
-  nudity: 'Nudity',
-  risque: 'Risqué humor',
-  sex: 'Sexual content',
-  death: 'Death'
-};
+// ========================================
+// ЛОКАЛИЗАЦИЯ
+// ========================================
+
+function getTranslation(key) {
+  return key.split(".").reduce((value, part) => {
+    return value?.[part];
+  }, window.siteTranslations || {});
+}
+
+function getCurrentLanguage() {
+  return document.documentElement.lang || "en";
+}
+
+function translate(key, fallback = key) {
+  const value = getTranslation(key);
+
+  return typeof value === "string" ? value : fallback;
+}
+
+function getLocalizedValue(value, fallback = "") {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value && typeof value === "object") {
+    const language = getCurrentLanguage();
+
+    return value[language] || value.en || value.ru || fallback;
+  }
+
+  return fallback;
+}
 
 
-// Загрузка данных
-fetch('../data/gifts.json')
-  .then(response => response.json())
-  .then(gifts => {
-    renderGifts(gifts);
-  })
-  .catch(error => {
-    console.error('Failed to load gifts:', error);
+// ========================================
+// ПУТИ К ФАЙЛАМ
+// ========================================
+
+function getMediaUrl(path) {
+  if (!path || typeof path !== "string") {
+    return "";
+  }
+
+  if (/^(https?:|data:|blob:|\/)/i.test(path)) {
+    return path;
+  }
+
+  const relativePath = path.startsWith("../")
+    ? path
+    : `../${path}`;
+
+  return new URL(relativePath, document.baseURI).href;
+}
+
+
+// ========================================
+// ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
+// ========================================
+
+function createTextElement(tag, className, text) {
+  const element = document.createElement(tag);
+
+  element.className = className;
+  element.textContent = text;
+
+  return element;
+}
+
+
+// ========================================
+// ПЕРСОНАЖИ
+// ========================================
+
+async function loadCharacterNames() {
+  characterNames = new Map();
+
+  const results = await Promise.allSettled(
+    characterFiles.map(async path => {
+      const response = await fetch(path);
+
+      if (!response.ok) {
+        throw new Error(
+          `Не удалось загрузить ${path}: ${response.status}`
+        );
+      }
+
+      const characters = await response.json();
+
+      if (!Array.isArray(characters)) {
+        throw new Error(`${path} должен содержать массив персонажей.`);
+      }
+
+      return characters;
+    })
+  );
+
+  results.forEach((result, index) => {
+    if (result.status === "rejected") {
+      console.error(
+        `Ошибка загрузки справочника ${characterFiles[index]}:`,
+        result.reason
+      );
+
+      return;
+    }
+
+    result.value.forEach(character => {
+      if (character?.id && character.name) {
+        characterNames.set(character.id, character.name);
+      }
+    });
   });
+}
+
+function getCharacterName(character) {
+  const id = typeof character === "string"
+    ? character
+    : character?.id;
+
+  if (!id) {
+    return "";
+  }
+
+  const name = characterNames.get(id);
+
+  if (name) {
+    return getLocalizedValue(name, id);
+  }
+
+  if (typeof character === "object" && character?.name) {
+    return getLocalizedValue(character.name, id);
+  }
+
+  console.warn(`Персонаж "${id}" не найден в справочниках.`);
+
+  return id;
+}
+
+function getCharactersText(characters) {
+  if (!Array.isArray(characters)) {
+    return "";
+  }
+
+  return characters
+    .map(getCharacterName)
+    .filter(Boolean)
+    .join(", ");
+}
 
 
-// Создание блока предупреждений
+// ========================================
+// ПРЕДУПРЕЖДЕНИЯ
+// ========================================
+
 function renderWarnings(warnings) {
-
-  if (!warnings || warnings.length === 0) {
-    return '';
+  if (!Array.isArray(warnings) || warnings.length === 0) {
+    return null;
   }
 
-  const warningText = warnings
-    .map(warning => warningLabels[warning] ?? warning)
-    .join(', ');
+  const warning = document.createElement("div");
+  warning.className = "art_warning";
 
-  return `
-    <div class="art_warning">
-      ⚠ Content warning: ${warningText}
-    </div>
-  `;
-}
+  const title = translate(
+    "art.contentWarning",
+    getCurrentLanguage() === "ru"
+      ? "Предупреждение о содержании"
+      : "Content warning"
+  );
 
-
-// Создание медиа
-function renderMedia(gift) {
-
-  if (gift.type === 'video') {
-
-    return `
-      <video
-        class="art_card_video"
-        src="../${gift.video}"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      ></video>
-    `;
-
-  }
-
-
-  return `
-    <img
-      src="../${gift.image}"
-      alt="${gift.characters.join(', ')}"
-      loading="lazy"
-    >
-  `;
-}
-
-
-// Отрисовка всех гифтов
-function renderGifts(gifts) {
-
-  gifts.forEach(gift => {
-
-    const card = document.createElement('article');
-
-    card.className = 'art_card';
-
-    card.dataset.id = gift.id;
-
-
-    card.innerHTML = `
-      <a
-    class="art_card_link"
-    href="viewer.html?source=gifts&id=${gift.id}"
-  >
-
-        ${renderMedia(gift)}
-
-      </a>
-
-
-      ${
-      gift.blur
-        ? `
-            <button
-              class="art_reveal"
-              type="button"
-            >
-
-              ${renderWarnings(gift.warnings)}
-
-              <span class="art_reveal_action">
-                Click to reveal
-              </span>
-
-            </button>
-          `
-        : ''
-    }
-    `;
-
-
-    // Если рисунок заблюрен
-    if (gift.blur) {
-
-      card.classList.add('is_blurred');
-
-
-      const revealButton =
-        card.querySelector('.art_reveal');
-
-
-      revealButton.addEventListener('click', () => {
-
-        card.classList.remove('is_blurred');
-
-        revealButton.remove();
-
-      });
-    }
-
-
-    giftsGallery.appendChild(card);
+  const labels = warnings.map(item => {
+    return translate(
+      `art.warningLabels.${item}`,
+      item
+    );
   });
 
+  warning.textContent = `${title}: ${labels.join(", ")}`;
+
+  return warning;
+}
+
+
+// ========================================
+// МЕДИА
+// ========================================
+
+function createGiftMedia(gift) {
+  const isVideo = gift.type === "video" || Boolean(gift.video);
+
+  const mediaPath = isVideo ? gift.video : gift.image;
+  const mediaUrl = getMediaUrl(mediaPath);
+
+  if (!mediaUrl) {
+    return createTextElement(
+      "span",
+      "gifts_media_error",
+      translate(
+        "gifts.mediaMissing",
+        getCurrentLanguage() === "ru"
+          ? "Файл не указан"
+          : "Media file not specified"
+      )
+    );
+  }
+
+  const media = document.createElement(isVideo ? "video" : "img");
+
+  media.className = isVideo
+    ? "art_card_video"
+    : "art_card_image";
+
+  if (isVideo) {
+    media.muted = true;
+    media.loop = true;
+    media.playsInline = true;
+    media.preload = "metadata";
+
+    const poster = getMediaUrl(gift.poster);
+
+    if (poster) {
+      media.poster = poster;
+    }
+  } else {
+    media.alt = getCharactersText(gift.characters);
+    media.loading = "lazy";
+    media.decoding = "async";
+  }
+
+  media.addEventListener("error", () => {
+    if (!media.isConnected) {
+      return;
+    }
+
+    console.error("Не удалось загрузить медиа:", mediaUrl);
+
+    const error = createTextElement(
+      "span",
+      "gifts_media_error",
+      translate(
+        "gifts.mediaError",
+        getCurrentLanguage() === "ru"
+          ? "Не удалось загрузить файл"
+          : "Failed to load media"
+      )
+    );
+
+    media.replaceWith(error);
+  });
+
+  media.src = mediaUrl;
+
+  return media;
+}
+
+
+// ========================================
+// РАСКРЫТИЕ РАБОТЫ
+// ========================================
+
+function createRevealButton(gift, card) {
+  const button = document.createElement("button");
+
+  button.className = "art_reveal";
+  button.type = "button";
+
+  button.setAttribute(
+    "aria-label",
+    translate(
+      "art.reveal",
+      getCurrentLanguage() === "ru"
+        ? "Нажмите, чтобы открыть"
+        : "Click to reveal"
+    )
+  );
+
+  const warning = renderWarnings(gift.warnings);
+
+  if (warning) {
+    button.appendChild(warning);
+  }
+
+  button.appendChild(
+    createTextElement(
+      "span",
+      "art_reveal_action",
+      translate(
+        "art.reveal",
+        getCurrentLanguage() === "ru"
+          ? "Нажмите, чтобы открыть"
+          : "Click to reveal"
+      )
+    )
+  );
+
+  button.addEventListener("click", () => {
+    card.classList.remove("is_blurred");
+    button.remove();
+  });
+
+  return button;
+}
+
+
+// ========================================
+// КАРТОЧКА ПОДАРКА
+// ========================================
+
+function createGiftCard(gift) {
+  const card = document.createElement("article");
+
+  card.className = "art_card";
+  card.dataset.id = gift.id;
+
+  const link = document.createElement("a");
+
+  link.className = "art_card_link";
+  link.href =
+    `viewer.html?source=gifts&id=${encodeURIComponent(gift.id)}`;
+
+  link.setAttribute(
+    "aria-label",
+    getCharactersText(gift.characters) ||
+    translate(
+      "gifts.openGift",
+      getCurrentLanguage() === "ru" ? "Открыть подарок" : "Open gift"
+    )
+  );
+
+  link.appendChild(createGiftMedia(gift));
+  card.appendChild(link);
+
+  if (gift.blur) {
+    card.classList.add("is_blurred");
+    card.appendChild(createRevealButton(gift, card));
+  }
+
+  return card;
+}
+
+
+// ========================================
+// ГАЛЕРЕЯ
+// ========================================
+
+function renderGifts() {
+  if (!giftsGallery) {
+    return;
+  }
+
+  giftsGallery.replaceChildren();
+
+  giftsData.forEach(gift => {
+    giftsGallery.appendChild(createGiftCard(gift));
+  });
 
   setupVideoPreviews();
 }
 
 
-// Управление превью видео
+// ========================================
+// ПРЕВЬЮ ВИДЕО
+// ========================================
+
 function setupVideoPreviews() {
-
-  const videos =
-    document.querySelectorAll('.art_card_video');
-
+  const videos = giftsGallery.querySelectorAll(".art_card_video");
 
   videos.forEach(video => {
+    video.addEventListener("mouseenter", () => {
+      const result = video.play();
 
-    video.addEventListener('mouseenter', () => {
-
-      video.play();
-
+      if (result && typeof result.catch === "function") {
+        result.catch(() => {});
+      }
     });
 
-
-    video.addEventListener('mouseleave', () => {
-
+    video.addEventListener("mouseleave", () => {
       video.pause();
-
+      video.currentTime = 0;
     });
 
+    // На сенсорных устройствах нет hover.
+    video.addEventListener("click", event => {
+      event.preventDefault();
+    });
   });
 }
+
+
+// ========================================
+// ЗАГРУЗКА ДАННЫХ
+// ========================================
+
+async function loadGifts() {
+  if (!giftsGallery) {
+    return;
+  }
+
+  try {
+    const [response] = await Promise.all([
+      fetch("../data/gifts.json"),
+      loadCharacterNames()
+    ]);
+
+    if (!response.ok) {
+      throw new Error(
+        `Не удалось загрузить gifts.json: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("gifts.json должен содержать массив подарков.");
+    }
+
+    giftsData = data.filter(gift => gift && gift.id != null);
+
+    renderGifts();
+  } catch (error) {
+    console.error("Ошибка загрузки подарков:", error);
+
+    giftsGallery.textContent = translate(
+      "gifts.loadError",
+      getCurrentLanguage() === "ru"
+        ? "Не удалось загрузить подарки. Попробуйте обновить страницу."
+        : "Unable to load gifts. Please refresh the page."
+    );
+  }
+}
+
+
+// ========================================
+// СМЕНА ЯЗЫКА
+// ========================================
+
+document.addEventListener("languageChanged", () => {
+  renderGifts();
+});
+
+
+// ========================================
+// ЗАПУСК
+// ========================================
+
+loadGifts();

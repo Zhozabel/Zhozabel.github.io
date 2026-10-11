@@ -1,243 +1,302 @@
-const timeline = document.querySelector('.timeline');
 
+const timeline = document.querySelector(".timeline");
 
-// Язык сайта
-const currentLang = document.documentElement.lang || 'en';
+let artworksData = [];
 
+// Возвращает перевод по ключу.
+// Например: getTranslation("art.reveal")
+function getTranslation(key) {
+  return key.split(".").reduce((value, part) => {
+    return value?.[part];
+  }, window.siteTranslations || {});
+}
 
-// Получение пути к изображению
+// Получаем язык сайта
+function getCurrentLanguage() {
+  return document.documentElement.lang || "en";
+}
+
+// Получаем перевод из локализации с запасным значением
+function translate(key, fallback = key) {
+  const value = getTranslation(key);
+
+  return typeof value === "string" ? value : fallback;
+}
+
+// Выбираем изображение для текущего языка
 function getArtworkImage(artwork) {
+  const image = artwork.image;
+  const language = getCurrentLanguage();
 
-  // Старый формат: обычная строка
-  if (typeof artwork.image === 'string') {
-    return artwork.image;
+  // Старый формат: строка с путём
+  if (typeof image === "string") {
+    return image;
   }
 
   // Новый формат: объект с языковыми версиями
-  if (artwork.image && typeof artwork.image === 'object') {
-    return artwork.image[currentLang]
-      || artwork.image.en
-      || artwork.image.ru
-      || '';
+  if (image && typeof image === "object") {
+    return image[language] || image.en || image.ru || "";
   }
 
-  return '';
+  return "";
 }
 
+// Преобразуем путь к изображению в URL относительно страницы
+function getImageUrl(imagePath) {
+  if (!imagePath) {
+    return "";
+  }
 
-// Названия предупреждений
-const warningLabels = {
-  ambiguity: 'Ambiguity',
-  problematic: 'Problematic',
-  kissing: 'Passionate kiss',
-  blood: 'Blood',
-  violence: 'Violence',
-  gore: 'Gore',
-  nudity: 'Nudity',
-  risque: 'Risqué humor',
-  sex: 'Sexual content',
-  death: 'Death'
-};
+  return new URL(`../${imagePath}`, document.baseURI).href;
+}
 
+// Создаём текстовый элемент
+function createTextElement(tag, className, text) {
+  const element = document.createElement(tag);
 
-// Загрузка данных
-fetch('../data/artworks.json')
-  .then(response => {
+  element.className = className;
+  element.textContent = text;
+
+  return element;
+}
+
+// Создаём предупреждение о содержании
+function renderWarnings(warnings) {
+  if (!Array.isArray(warnings) || warnings.length === 0) {
+    return null;
+  }
+
+  const warning = document.createElement("div");
+  warning.className = "art_warning";
+
+  const title = translate(
+    "art.contentWarning",
+    "Content warning"
+  );
+
+  const labels = warnings.map((item) => {
+    return translate(
+      `art.warningLabels.${item}`,
+      item
+    );
+  });
+
+  warning.textContent = `${title}: ${labels.join(", ")}`;
+
+  return warning;
+}
+
+// Создаём карточку работы
+function createArtworkCard(artwork) {
+  const card = document.createElement("article");
+
+  card.className = "art_card";
+  card.dataset.id = artwork.id;
+
+  const link = document.createElement("a");
+
+  link.className = "art_card_link";
+  link.href =
+    `viewer.html?source=artworks&id=${encodeURIComponent(artwork.id)}`;
+
+  const image = document.createElement("img");
+  const imagePath = getArtworkImage(artwork);
+
+  image.alt = Array.isArray(artwork.characters)
+    ? artwork.characters.join(", ")
+    : "";
+
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  if (imagePath) {
+    image.src = getImageUrl(imagePath);
+  }
+
+  link.appendChild(image);
+  card.appendChild(link);
+
+  // Размытие и кнопка раскрытия
+  if (artwork.blur) {
+    card.classList.add("is_blurred");
+
+    const revealButton = document.createElement("button");
+
+    revealButton.className = "art_reveal";
+    revealButton.type = "button";
+
+    const warning = renderWarnings(artwork.warnings);
+
+    if (warning) {
+      revealButton.appendChild(warning);
+    }
+
+    const revealAction = createTextElement(
+      "span",
+      "art_reveal_action",
+      translate("art.reveal", "Click to reveal")
+    );
+
+    revealButton.appendChild(revealAction);
+
+    revealButton.addEventListener("click", () => {
+      card.classList.remove("is_blurred");
+      revealButton.remove();
+    });
+
+    card.appendChild(revealButton);
+  }
+
+  return card;
+}
+
+// Группируем работы по годам
+function groupArtworksByYear(artworks) {
+  return artworks.reduce((groups, artwork) => {
+    const year = artwork.year;
+
+    if (!groups[year]) {
+      groups[year] = [];
+    }
+
+    groups[year].push(artwork);
+
+    return groups;
+  }, {});
+}
+
+// Создаём секцию одного года
+function createYearSection(year, artworks) {
+  const section = document.createElement("section");
+
+  section.className = "year collapsed";
+
+  const header = document.createElement("button");
+
+  header.className = "year_header";
+  header.type = "button";
+  header.setAttribute("aria-expanded", "false");
+
+  const title = createTextElement(
+    "span",
+    "year_title",
+    String(year)
+  );
+
+  const toggle = document.createElement("span");
+  toggle.className = "year_toggle";
+
+  const chevron = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg"
+  );
+
+  chevron.classList.add("year_chevron");
+  chevron.setAttribute("viewBox", "0 0 24 24");
+  chevron.setAttribute("width", "24");
+  chevron.setAttribute("height", "24");
+  chevron.setAttribute("aria-hidden", "true");
+
+  const use = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "use"
+  );
+
+  use.setAttribute(
+    "href",
+    "../images/icons/navigation.svg#chevron_down"
+  );
+
+  chevron.appendChild(use);
+  toggle.appendChild(chevron);
+
+  header.append(title, toggle);
+
+  const content = document.createElement("div");
+  content.className = "year_content";
+
+  const gallery = document.createElement("div");
+  gallery.className = "year_gallery";
+
+  artworks.forEach((artwork) => {
+    gallery.appendChild(createArtworkCard(artwork));
+  });
+
+  content.appendChild(gallery);
+  section.append(header, content);
+
+  header.addEventListener("click", () => {
+    const isCollapsed = section.classList.toggle("collapsed");
+
+    header.setAttribute(
+      "aria-expanded",
+      String(!isCollapsed)
+    );
+  });
+
+  return section;
+}
+
+// Отрисовываем таймлайн
+function renderArtworks() {
+  if (!timeline) {
+    return;
+  }
+
+  // Не допускаем дублирования карточек
+  timeline.replaceChildren();
+
+  const artworksByYear = groupArtworksByYear(artworksData);
+
+  const sortedYears = Object.keys(artworksByYear)
+    .sort((a, b) => Number(b) - Number(a));
+
+  sortedYears.forEach((year) => {
+    const section = createYearSection(
+      year,
+      artworksByYear[year]
+    );
+
+    timeline.appendChild(section);
+  });
+}
+
+// Загружаем JSON
+async function loadArtworks() {
+  if (!timeline) {
+    return;
+  }
+
+  try {
+    const response = await fetch("../data/artworks.json");
+
     if (!response.ok) {
       throw new Error(
-        `Не удалось загрузить artworks.json: ${response.status} ${response.url}`
+        `Не удалось загрузить artworks.json: ${response.status}`
       );
     }
 
-    return response.json();
-  })
-  .then(artworks => {
-    renderArtworks(artworks);
-  })
-  .catch(error => {
-    console.error('Failed to load artworks:', error);
-  });
+    const data = await response.json();
 
-
-// Создание блока предупреждений
-function renderWarnings(warnings) {
-
-  if (!warnings || warnings.length === 0) {
-    return '';
-  }
-
-  const warningText = warnings
-    .map(warning => warningLabels[warning] ?? warning)
-    .join(', ');
-
-  return `
-<div class="art_warning">
-      ⚠ Content warning: ${warningText}
-  </div>
-`;
-}
-
-
-// Отрисовка всех работ
-function renderArtworks(artworks) {
-
-  const artworksByYear = {};
-
-
-  // Группируем работы по годам
-  artworks.forEach(artwork => {
-
-    if (!artworksByYear[artwork.year]) {
-      artworksByYear[artwork.year] = [];
+    if (!Array.isArray(data)) {
+      throw new Error("artworks.json должен содержать массив работ");
     }
 
-    artworksByYear[artwork.year].push(artwork);
-  });
+    artworksData = data;
 
+    renderArtworks();
+  } catch (error) {
+    console.error("Ошибка загрузки работ:", error);
 
-  // Новые годы сверху
-  const sortedYears = Object.keys(artworksByYear)
-    .sort((a, b) => b - a);
-
-
-  sortedYears.forEach(year => {
-
-    const yearSection = document.createElement('section');
-
-    yearSection.className = 'year collapsed';
-
-
-    yearSection.innerHTML = `
-<button class="year_header" type="button">
-
-  <span class="year_title">
-  ${year}
-  </span>
-
-<span class="year_toggle">
-
-          <svg
-            class="year_chevron"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          >
-            <use href="../images/icons/navigation.svg#chevron_down"></use>
-          </svg>
-
-        </span>
-
-</button>
-
-<div class="year_content">
-  <div class="year_gallery"></div>
-</div>
-  `;
-
-
-    const yearGallery =
-      yearSection.querySelector('.year_gallery');
-
-
-    // Создаём карточки работ
-    artworksByYear[year].forEach(artwork => {
-
-      const artCard = document.createElement('article');
-
-      artCard.className = 'art_card';
-
-      artCard.dataset.id = artwork.id;
-
-
-      // Выбираем изображение для текущего языка
-      const imagePath = getArtworkImage(artwork);
-
-
-      // Содержимое карточки
-      artCard.innerHTML = `
-<a
-class="art_card_link"
-href="viewer.html?source=artworks&id=${artwork.id}"
-  >
-
-  <img
-src="${imagePath ? `../${imagePath}` : ''}"
-alt="${artwork.characters.join(', ')}"
-loading="lazy"
-  >
-
-  </a>
-
-${
-  artwork.blur
-    ? `
-        <button
-          class="art_reveal"
-          type="button"
-        >
-
-          ${renderWarnings(artwork.warnings)}
-
-<span class="art_reveal_action">
-                    Click to reveal
-                  </span>
-
-</button>
-`
-            : ''
-        }
-      `;
-
-
-// Если работа заблюрена —
-// добавляем класс и обработчик кнопки
-if (artwork.blur) {
-
-  artCard.classList.add('is_blurred');
-
-
-  const revealButton =
-    artCard.querySelector('.art_reveal');
-
-
-  revealButton.addEventListener('click', () => {
-
-    artCard.classList.remove('is_blurred');
-
-    revealButton.remove();
-
-  });
+    timeline.textContent =
+      "Не удалось загрузить работы. Попробуйте обновить страницу.";
+  }
 }
 
-
-yearGallery.appendChild(artCard);
+// Перерисовываем карточки после смены языка
+document.addEventListener("languageChanged", () => {
+  renderArtworks();
 });
 
-
-timeline.appendChild(yearSection);
-});
-
-
-setupYearToggles();
-}
-
-
-// Раскрытие годов
-function setupYearToggles() {
-
-  document
-    .querySelectorAll('.year_header')
-    .forEach(yearHeader => {
-
-      yearHeader.addEventListener('click', () => {
-
-        const yearSection =
-          yearHeader.closest('.year');
-
-        yearSection.classList.toggle('collapsed');
-
-      });
-
-    });
-}
+// Начальная загрузка
+loadArtworks();

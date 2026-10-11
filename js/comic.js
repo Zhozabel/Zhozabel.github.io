@@ -1,3 +1,4 @@
+
 /* ========================================
    COMIC PAGE
 ======================================== */
@@ -10,34 +11,94 @@ const navigationBlocks = document.querySelectorAll(
   ".comic_navigation"
 );
 
+// const CONTENTS_URL = "../story.html";
+const COMICS_URL = "comic.html?comic=";
+
+let comicsList = [];
+let currentComic = null;
+let currentComicIndex = -1;
+
+
+/* ========================================
+   TRANSLATIONS
+======================================== */
+
+function getCurrentLanguage() {
+  return document.documentElement.lang === "ru" ? "ru" : "en";
+}
+
+function getLocalizedValue(value, language) {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (value && typeof value === "object") {
+    return value[language] || value.en || value.ru || "";
+  }
+
+  return "";
+}
+
+function getComicTranslation(key, fallback) {
+  const translations = window.siteTranslations || {};
+
+  const value = key
+    .split(".")
+    .reduce((result, part) => result?.[part], translations);
+
+  return typeof value === "string" ? value : fallback;
+}
+
+
+/* ========================================
+   ERROR MESSAGES
+======================================== */
+
+function showMessage(message) {
+  const paragraph = document.createElement("p");
+
+  paragraph.className = "comic_message";
+  paragraph.textContent = message;
+
+  comicContent.replaceChildren(paragraph);
+}
+
+function clearComicPage() {
+  comicTitle.textContent = "";
+  comicDate.textContent = "";
+  comicDate.removeAttribute("datetime");
+  comicContent.replaceChildren();
+
+  navigationBlocks.forEach((navigation) => {
+    navigation.querySelectorAll(".comic_navigation-link").forEach((link) => {
+      link.removeAttribute("href");
+      link.textContent = "";
+      link.style.visibility = "hidden";
+    });
+  });
+}
+
 
 /* ========================================
    LOAD COMICS LIST
 ======================================== */
 
 async function loadComics() {
-  try {
-    const response = await fetch("../data/comics.json");
+  const response = await fetch("../data/comics.json");
 
-    if (!response.ok) {
-      throw new Error(
-        `Could not load comics.json: ${response.status}`
-      );
-    }
-
-    return await response.json();
-
-  } catch (error) {
-    console.error("COMICS ERROR:", error);
-
-    comicContent.innerHTML = `
-      <p>
-        Не удалось загрузить список комиксов.
-      </p>
-    `;
-
-    return null;
+  if (!response.ok) {
+    throw new Error(
+      `Could not load comics.json: ${response.status}`
+    );
   }
+
+  const comics = await response.json();
+
+  if (!Array.isArray(comics)) {
+    throw new Error("comics.json must contain an array.");
+  }
+
+  return comics;
 }
 
 
@@ -46,8 +107,7 @@ async function loadComics() {
 ======================================== */
 
 function getComicId() {
-  const params =
-    new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
 
   return params.get("comic");
 }
@@ -57,14 +117,20 @@ function getComicId() {
    FORMAT DATE
 ======================================== */
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
+function formatDate(dateString, language) {
+  const date = new Date(`${dateString}T00:00:00`);
 
-  return date.toLocaleDateString("en-US", {
+  if (Number.isNaN(date.getTime())) {
+    return dateString || "";
+  }
+
+  const locale = language === "ru" ? "ru-RU" : "en-US";
+
+  return new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "long",
     day: "numeric"
-  });
+  }).format(date);
 }
 
 
@@ -73,16 +139,25 @@ function formatDate(dateString) {
 ======================================== */
 
 async function loadComicFile(file) {
-  const response =
-    await fetch(`../data/${file}`);
+  if (typeof file !== "string" || !file) {
+    throw new Error("Comic file path is missing.");
+  }
+
+  const response = await fetch(`../data/${file}`);
 
   if (!response.ok) {
     throw new Error(
-      `Could not load comic file: ${file}`
+      `Could not load comic file: ${file} (${response.status})`
     );
   }
 
-  return await response.json();
+  const comicData = await response.json();
+
+  if (!comicData || !Array.isArray(comicData.pages)) {
+    throw new Error("Comic JSON must contain a pages array.");
+  }
+
+  return comicData;
 }
 
 
@@ -91,39 +166,61 @@ async function loadComicFile(file) {
 ======================================== */
 
 function renderPages(pages) {
+  const language = getCurrentLanguage();
 
-  comicContent.innerHTML = "";
+  comicContent.replaceChildren();
 
-  if (!pages || pages.length === 0) {
-    comicContent.innerHTML = `
-      <p>
-        В этом комиксе пока нет страниц.
-      </p>
-    `;
+  if (!Array.isArray(pages) || pages.length === 0) {
+    showMessage(
+      getComicTranslation(
+        "comics.noPages",
+        language === "ru"
+          ? "В этой главе пока нет страниц."
+          : "There are no pages in this chapter yet."
+      )
+    );
 
     return;
   }
 
-
   pages.forEach((page, index) => {
+    const imagePath = getLocalizedValue(page.src, language);
+
+    if (!imagePath) {
+      const message = document.createElement("p");
+
+      message.className = "comic_message";
+      message.textContent = language === "ru"
+        ? `Не указан файл страницы ${index + 1}.`
+        : `Image file missing for page ${index + 1}.`;
+
+      comicContent.appendChild(message);
+      return;
+    }
 
     const image = document.createElement("img");
 
     image.className = "comic_page-image";
+    image.src = `../${imagePath}`;
+    image.alt = getLocalizedValue(page.alt, language) ||
+      (language === "ru"
+        ? `Страница ${index + 1}`
+        : `Page ${index + 1}`);
 
-    image.src = `../${page.src}`;
+    image.loading = index === 0 ? "eager" : "lazy";
+    image.decoding = "async";
 
-    image.alt =
-      page.alt ||
-      `Страница ${index + 1}`;
+    image.addEventListener("error", () => {
+      console.error("Failed to load comic page:", image.src);
 
-    image.loading =
-      index === 0
-        ? "eager"
-        : "lazy";
+      image.alt = language === "ru"
+        ? `Не удалось загрузить страницу ${index + 1}`
+        : `Failed to load page ${index + 1}`;
+
+      image.classList.add("comic_page-image-error");
+    });
 
     comicContent.appendChild(image);
-
   });
 }
 
@@ -132,85 +229,71 @@ function renderPages(pages) {
    NAVIGATION
 ======================================== */
 
-function setupNavigation(
-  currentIndex,
-  comics
-) {
+function setupNavigation(currentIndex) {
+  const language = getCurrentLanguage();
 
-  navigationBlocks.forEach(navigation => {
+  const previousComic = comicsList[currentIndex - 1];
+  const nextComic = comicsList[currentIndex + 1];
 
-    const links =
-      navigation.querySelectorAll(
-        ".comic_navigation-link"
-      );
+  const contentsLabel = getComicTranslation(
+    "comics.contents",
+    language === "ru" ? "Содержание" : "Contents"
+  );
 
-    const previousLink = links[0];
-    const contentsLink = links[1];
-    const nextLink = links[2];
+  navigationBlocks.forEach((navigation) => {
+    const contentsLink = navigation.querySelector(
+      ".comic_navigation-contents"
+    );
 
+    const links = [
+      ...navigation.querySelectorAll(".comic_navigation-link")
+    ];
 
-    /* ---------- PREVIOUS ---------- */
+    const chapterLinks = links.filter(
+      (link) => !link.classList.contains("comic_navigation-contents")
+    );
 
-    if (currentIndex > 0) {
+    const previousLink = chapterLinks[0];
+    const nextLink = chapterLinks[1];
 
-      const previousComic =
-        comics[currentIndex - 1];
-
-      previousLink.href =
-        `comic.html?comic=${previousComic.id}`;
-
-      previousLink.textContent =
-        `← ${previousComic.title}`;
-
-      previousLink.style.visibility =
-        "visible";
-
-    } else {
-
-      previousLink.removeAttribute("href");
-
-      previousLink.textContent = "";
-
-      previousLink.style.visibility =
-        "hidden";
+    if (contentsLink) {
+      contentsLink.href =
+        `story.html?type=comic&id=${encodeURIComponent(currentComic.id)}`;
+      contentsLink.textContent = contentsLabel;
+      contentsLink.style.visibility = "visible";
     }
 
+    if (previousLink) {
+      if (previousComic) {
+        previousLink.href =
+          `${COMICS_URL}${encodeURIComponent(previousComic.id)}`;
 
-    /* ---------- CONTENTS ---------- */
+        previousLink.textContent =
+          `← ${getLocalizedValue(previousComic.title, language)}`;
 
-    contentsLink.href =
-      "../story.html";
-
-
-    /* ---------- NEXT ---------- */
-
-    if (
-      currentIndex <
-      comics.length - 1
-    ) {
-
-      const nextComic =
-        comics[currentIndex + 1];
-
-      nextLink.href =
-        `comic.html?comic=${nextComic.id}`;
-
-      nextLink.textContent =
-        `${nextComic.title} →`;
-
-      nextLink.style.visibility =
-        "visible";
-
-    } else {
-
-      nextLink.removeAttribute("href");
-
-      nextLink.textContent = "";
-
-      nextLink.style.visibility =
-        "hidden";
+        previousLink.style.visibility = "visible";
+      } else {
+        previousLink.removeAttribute("href");
+        previousLink.textContent = "";
+        previousLink.style.visibility = "hidden";
+      }
     }
 
+    if (nextLink) {
+      if (nextComic) {
+        nextLink.href =
+          `${COMICS_URL}${encodeURIComponent(nextComic.id)}`;
+
+        nextLink.textContent =
+          `${getLocalizedValue(nextComic.title, language)} →`;
+
+        nextLink.style.visibility = "visible";
+      } else {
+        nextLink.removeAttribute("href");
+        nextLink.textContent = "";
+        nextLink.style.visibility = "hidden";
+      }
+    }
   });
 }
 
@@ -219,78 +302,39 @@ function setupNavigation(
    DISPLAY COMIC
 ======================================== */
 
-async function displayComic(
-  comic,
-  comicIndex,
-  comics
-) {
+let currentComicData = null;
 
-  try {
-
-    /* ---------- HEADER ---------- */
-
-    comicTitle.textContent =
-      comic.title;
-
-    comicDate.textContent =
-      formatDate(comic.date);
-
-    comicDate.dateTime =
-      comic.date;
-
-
-    /* ---------- COMIC JSON ---------- */
-
-    const comicData =
-      await loadComicFile(
-        comic.file
-      );
-
-
-    /* ---------- PAGES ---------- */
-
-    renderPages(
-      comicData.pages
-    );
-
-
-    /* ---------- NAVIGATION ---------- */
-
-    setupNavigation(
-      comicIndex,
-      comics
-    );
-
-
-    /* ---------- PAGE TITLE ---------- */
-
-    document.title =
-      `${comic.title} — Zhozabel`;
-
-
-    console.log(
-      "COMIC LOADED:",
-      comic
-    );
-
-    console.log(
-      "PAGES LOADED:",
-      comicData.pages
-    );
-
-  } catch (error) {
-
-    console.error(
-      "COMIC ERROR:",
-      error
-    );
-
-    comicContent.innerHTML = `
-      <p>
-        Не удалось загрузить комикс.
-      </p>
-    `;
+function renderComicInfo() {
+  if (!currentComic) {
+    return;
   }
+
+  const language = getCurrentLanguage();
+
+  const title = getLocalizedValue(currentComic.title, language);
+
+  comicTitle.textContent = title;
+
+  comicDate.textContent = formatDate(
+    currentComic.date,
+    language
+  );
+
+  if (currentComic.date) {
+    comicDate.dateTime = currentComic.date;
+  } else {
+    comicDate.removeAttribute("datetime");
+  }
+
+  document.title = title
+    ? `${title} — Zhozabel`
+    : "Zhozabel";
+
+  if (currentComicData) {
+    renderPages(currentComicData.pages);
+  }
+
+  setupNavigation(currentComicIndex);
 }
 
 
@@ -299,85 +343,91 @@ async function displayComic(
 ======================================== */
 
 async function initComicPage() {
+  clearComicPage();
 
-  console.log(
-    "COMIC JS STARTED"
-  );
+  const language = getCurrentLanguage();
 
+  try {
+    comicsList = await loadComics();
+  } catch (error) {
+    console.error("COMICS ERROR:", error);
 
-  /* ---------- LOAD COMICS ---------- */
-
-  const comics =
-    await loadComics();
-
-  if (!comics) {
-    return;
-  }
-
-
-  console.log(
-    "COMICS LOADED:",
-    comics
-  );
-
-
-  /* ---------- GET ID ---------- */
-
-  const comicId =
-    getComicId();
-
-
-  if (!comicId) {
-
-    comicContent.innerHTML = `
-      <p>
-        Комикс не указан.
-      </p>
-    `;
-
-    return;
-  }
-
-
-  console.log(
-    "REQUESTED COMIC:",
-    comicId
-  );
-
-
-  /* ---------- FIND COMIC ---------- */
-
-  const comicIndex =
-    comics.findIndex(
-      comic =>
-        comic.id === comicId
+    showMessage(
+      getComicTranslation(
+        "comics.loadError",
+        language === "ru"
+          ? "Не удалось загрузить список комиксов. Попробуйте обновить страницу."
+          : "Unable to load comics. Please refresh the page."
+      )
     );
 
+    return;
+  }
 
-  if (comicIndex === -1) {
+  const comicId = getComicId();
 
-    comicContent.innerHTML = `
-      <p>
-        Комикс не найден.
-      </p>
-    `;
+  if (!comicId) {
+    showMessage(
+      getComicTranslation(
+        "comics.missingId",
+        language === "ru"
+          ? "Комикс не указан."
+          : "No comic was specified."
+      )
+    );
 
     return;
   }
 
-
-  /* ---------- DISPLAY ---------- */
-
-  const comic =
-    comics[comicIndex];
-
-
-  await displayComic(
-    comic,
-    comicIndex,
-    comics
+  currentComicIndex = comicsList.findIndex(
+    (comic) => comic.id === comicId
   );
+
+  if (currentComicIndex === -1) {
+    showMessage(
+      getComicTranslation(
+        "comics.notFound",
+        language === "ru"
+          ? "Комикс не найден."
+          : "Comic not found."
+      )
+    );
+
+    return;
+  }
+
+  currentComic = comicsList[currentComicIndex];
+
+  try {
+    currentComicData = await loadComicFile(currentComic.file);
+
+    renderComicInfo();
+  } catch (error) {
+    console.error("COMIC ERROR:", error);
+
+    renderComicInfo();
+
+    showMessage(
+      getComicTranslation(
+        "comics.chapterLoadError",
+        language === "ru"
+          ? "Не удалось загрузить главу комикса."
+          : "Unable to load this comic chapter."
+      )
+    );
+  }
 }
+
+
+/* ========================================
+   LANGUAGE CHANGE
+======================================== */
+
+document.addEventListener("languageChanged", () => {
+  if (currentComic && currentComicData) {
+    renderComicInfo();
+  }
+});
 
 
 /* ========================================

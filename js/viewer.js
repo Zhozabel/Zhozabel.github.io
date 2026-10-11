@@ -1,702 +1,696 @@
-const viewer =
-  document.querySelector('.viewer');
+// ========================================
+// VIEWER — просмотр работ и подарков
+// ========================================
 
-const viewerMedia =
-  document.querySelector('.viewer_media');
+// DOM
+const viewer = document.querySelector(".viewer");
+const viewerMedia = document.querySelector(".viewer_media");
+const viewerAuthor = document.querySelector(".viewer_author");
+const viewerTitle = document.querySelector(".viewer_title");
+const viewerCharacters = document.querySelector(".viewer_characters");
+const viewerFandom = document.querySelector(".viewer_fandom");
+const viewerYear = document.querySelector(".viewer_year");
+const viewerWarnings = document.querySelector(".viewer_warnings");
 
-const viewerAuthor =
-  document.querySelector('.viewer_author');
-
-const viewerTitle =
-  document.querySelector('.viewer_title');
-
-const viewerCharacters =
-  document.querySelector('.viewer_characters');
-
-const viewerFandom =
-  document.querySelector('.viewer_fandom');
-
-const viewerYear =
-  document.querySelector('.viewer_year');
-
-const viewerYearRow =
-  document.querySelector('.viewer_year_row');
-
-const viewerWarnings =
-  document.querySelector('.viewer_warnings');
-
-const closeButton =
-  document.querySelector('.viewer_close');
-
-const prevButton =
-  document.querySelector('.viewer_prev');
-
-const nextButton =
-  document.querySelector('.viewer_next');
-
-
-const warningLabels = {
-  ambiguity: 'Ambiguity',
-  problematic: 'Problematic',
-  kissing: 'Passionate kiss',
-  blood: 'Blood',
-  violence: 'Violence',
-  gore: 'Gore',
-  nudity: 'Nudity',
-  risque: 'Risqué humor',
-  sex: 'Sexual content',
-  death: 'Death'
-};
-
+const closeButton = document.querySelector(".viewer_close");
+const prevButton = document.querySelector(".viewer_prev");
+const nextButton = document.querySelector(".viewer_next");
 
 // Источники данных
 const dataSources = {
-  artworks: 'data/artworks.json',
-  gifts: 'data/gifts.json'
+  artworks: "../data/artworks.json",
+  gifts: "../data/gifts.json"
 };
 
+const characterFiles = [
+  "../data/canon-characters.json",
+  "../data/other-characters.json",
+  "../data/original-characters.json"
+];
 
-let items = [];
+// Состояние просмотрщика
+let currentSource = "artworks";
+let currentItems = [];
 let currentIndex = -1;
-let currentSource = '';
+let currentItem = null;
+let isLoading = false;
+
+let characterNames = new Map();
 
 
-// Получаем параметры из URL
-const params =
-  new URLSearchParams(
-    window.location.search
+// ========================================
+// ЛОКАЛИЗАЦИЯ
+// ========================================
+
+function getLanguage() {
+  return document.documentElement.lang || "en";
+}
+
+function getTranslation(key, fallback = key) {
+  const translations = window.siteTranslations || {};
+
+  const value = key.split(".").reduce(
+    (result, part) => result?.[part],
+    translations
   );
 
-const source =
-  params.get('source');
+  return typeof value === "string" ? value : fallback;
+}
 
-const id =
-  params.get('id');
+function getLabel(key, en, ru) {
+  const fallback = getLanguage() === "ru" ? ru : en;
 
+  return getTranslation(`viewer.${key}`, fallback);
+}
 
-// Запускаем viewer
-loadData();
-
-
-// ========================================
-// Загрузка данных
-// ========================================
-
-async function loadData() {
-
-  if (!source || !dataSources[source]) {
-
-    console.error(
-      'Unknown viewer source:',
-      source
-    );
-
-    return;
+function getLocalizedValue(value, fallback = "") {
+  if (typeof value === "string") {
+    return value;
   }
 
+  if (value && typeof value === "object") {
+    const language = getLanguage();
 
-  currentSource = source;
+    return value[language] || value.en || value.ru || fallback;
+  }
 
-
-  try {
-
-    const response =
-      await fetch(dataSources[source]);
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        `HTTP error: ${response.status}`
-      );
-
-    }
+  return fallback;
+}
 
 
-    items = await response.json();
+// ========================================
+// ПУТИ К МЕДИАФАЙЛАМ
+// ========================================
+
+function getLocalizedPath(path) {
+  return getLocalizedValue(path, "");
+}
+
+function getMediaUrl(path) {
+  if (!path || typeof path !== "string") {
+    return "";
+  }
+
+  // Абсолютные URL и пути от корня сайта.
+  if (/^(https?:|data:|blob:|\/)/i.test(path)) {
+    return path;
+  }
+
+  // JSON хранит пути относительно корня сайта.
+  const relativePath = path.startsWith("../")
+    ? path
+    : `../${path}`;
+
+  return new URL(relativePath, document.baseURI).href;
+}
 
 
-    currentIndex =
-      items.findIndex(
-        item => item.id === id
-      );
+// ========================================
+// ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
+// ========================================
+
+function createTextElement(tag, className, text) {
+  const element = document.createElement(tag);
+
+  element.className = className;
+  element.textContent = text;
+
+  return element;
+}
 
 
-    if (currentIndex === -1) {
+// ========================================
+// ПЕРСОНАЖИ
+// ========================================
 
+async function loadCharacterNames() {
+  characterNames = new Map();
+
+  const results = await Promise.allSettled(
+    characterFiles.map(async path => {
+      const response = await fetch(path);
+
+      if (!response.ok) {
+        throw new Error(
+          `Не удалось загрузить ${path}: ${response.status}`
+        );
+      }
+
+      const characters = await response.json();
+
+      if (!Array.isArray(characters)) {
+        throw new Error(`${path} должен содержать массив персонажей.`);
+      }
+
+      return characters;
+    })
+  );
+
+  results.forEach((result, index) => {
+    if (result.status === "rejected") {
       console.error(
-        'Item not found:',
-        id
+        `Ошибка загрузки справочника ${characterFiles[index]}:`,
+        result.reason
       );
 
       return;
     }
 
+    result.value.forEach(character => {
+      if (character?.id && character.name) {
+        characterNames.set(character.id, character.name);
+      }
+    });
+  });
+}
 
-    renderItem();
+function getCharacterName(character) {
+  const id = typeof character === "string"
+    ? character
+    : character?.id;
 
-    setupViewer();
-
-
-  } catch (error) {
-
-    console.error(
-      'Failed to load viewer data:',
-      error
-    );
-
+  if (!id) {
+    return "";
   }
 
+  const name = characterNames.get(id);
+
+  if (name) {
+    return getLocalizedValue(name, id);
+  }
+
+  // Поддерживаем объекты персонажей, если они уже содержат имя.
+  if (typeof character === "object" && character?.name) {
+    return getLocalizedValue(character.name, id);
+  }
+
+  console.warn(`Персонаж "${id}" не найден в справочниках.`);
+
+  return id;
+}
+
+function getCharactersText(characters) {
+  if (!Array.isArray(characters)) {
+    return "";
+  }
+
+  return characters
+    .map(getCharacterName)
+    .filter(Boolean)
+    .join(", ");
 }
 
 
 // ========================================
-// Отображение работы
+// ФАНДОМЫ И ПРЕДУПРЕЖДЕНИЯ
 // ========================================
 
-function renderItem() {
+function getFandomName(fandom) {
+  return getLocalizedValue(fandom, "");
+}
 
-  const item =
-    items[currentIndex];
+function getWarningLabel(warning) {
+  const labels = {
+    ambiguity: {
+      en: "Ambiguity",
+      ru: "Неоднозначность"
+    },
+    problematic: {
+      en: "Problematic themes",
+      ru: "Проблемные темы"
+    },
+    kissing: {
+      en: "Passionate kiss",
+      ru: "Страстный поцелуй"
+    },
+    blood: {
+      en: "Blood",
+      ru: "Кровь"
+    },
+    violence: {
+      en: "Violence",
+      ru: "Насилие"
+    },
+    gore: {
+      en: "Gore",
+      ru: "Жестокие сцены"
+    },
+    nudity: {
+      en: "Nudity",
+      ru: "Обнажённость"
+    },
+    risque: {
+      en: "Risqué humor",
+      ru: "Пикантный юмор"
+    },
+    sex: {
+      en: "Sexual content",
+      ru: "Сексуальный контент"
+    },
+    death: {
+      en: "Death",
+      ru: "Смерть"
+    }
+  };
 
+  const language = getLanguage();
+  const fallback = labels[warning]?.[language] || warning;
 
-  renderMedia(item);
+  return getTranslation(`art.warningLabels.${warning}`, fallback);
+}
 
-  renderInfo(item);
+function getWarningsText(warnings) {
+  if (!Array.isArray(warnings) || warnings.length === 0) {
+    return "";
+  }
 
-  updateNavigation();
+  const title = getLabel(
+    "contentWarning",
+    "Content warning",
+    "Предупреждение о содержании"
+  );
 
+  return `${title}: ${warnings.map(getWarningLabel).join(", ")}`;
 }
 
 
 // ========================================
-// Медиа
+// ОТОБРАЖЕНИЕ МЕДИА
 // ========================================
 
 function renderMedia(item) {
+  viewerMedia.replaceChildren();
+  viewerMedia.classList.remove("is_blurred");
 
-  viewerMedia.innerHTML = '';
+  const isVideo = item.type === "video" || Boolean(item.video);
 
+  const mediaPath = getLocalizedPath(
+    isVideo ? item.video : item.image
+  );
 
-  let media;
-
-
-  // Видео
-  if (item.type === 'video' || item.video) {
-
-    media =
-      document.createElement('video');
-
-
-    media.className =
-      'viewer_video';
-
-
-    media.src =
-      item.video;
-
-
-    media.controls = true;
-
-    media.playsInline = true;
-
-    media.preload = 'metadata';
-
-
-  }
-
-  // Картинка
-  else if (item.image) {
-
-    media =
-      document.createElement('img');
-
-
-    media.className =
-      'viewer_image';
-
-
-    media.src =
-      item.image;
-
-
-    media.alt =
-      item.characters?.join(', ') || '';
-
-  }
-
-  else {
-
-    console.error(
-      'No media found for item:',
-      item
+  if (!mediaPath) {
+    viewerMedia.textContent = getLabel(
+      "mediaMissing",
+      "Media file not specified.",
+      "Файл изображения или видео не указан."
     );
 
     return;
   }
 
+  const mediaUrl = getMediaUrl(mediaPath);
 
-  viewerMedia.appendChild(media);
+  const media = document.createElement(isVideo ? "video" : "img");
 
+  media.className = "viewer_media_content";
 
-  // Blur
-  if (item.blur) {
+  if (isVideo) {
+    media.controls = true;
+    media.preload = "metadata";
+    media.playsInline = true;
 
-    viewerMedia.classList.add(
-      'is_blurred'
-    );
+    const posterPath = getLocalizedPath(item.poster);
 
-    renderRevealButton(item);
-
+    if (posterPath) {
+      media.poster = getMediaUrl(posterPath);
+    }
   } else {
-
-    viewerMedia.classList.remove(
-      'is_blurred'
-    );
-
+    media.alt = getCharactersText(item.characters);
+    media.decoding = "async";
   }
 
+  media.addEventListener("error", () => {
+    if (!media.isConnected) {
+      return;
+    }
+
+    console.error("Не удалось загрузить медиа:", mediaUrl);
+
+    viewerMedia.classList.remove("is_blurred");
+
+    viewerMedia.replaceChildren(
+      createTextElement(
+        "p",
+        "viewer_media_error",
+        getLabel(
+          "mediaError",
+          "Failed to load media.",
+          "Не удалось загрузить файл."
+        )
+      )
+    );
+  });
+
+  media.src = mediaUrl;
+  viewerMedia.appendChild(media);
+
+  if (item.blur) {
+    viewerMedia.classList.add("is_blurred");
+    renderRevealButton(item);
+  }
 }
 
 
 // ========================================
-// Кнопка раскрытия
+// РАСКРЫТИЕ РАБОТЫ
 // ========================================
 
 function renderRevealButton(item) {
+  const button = document.createElement("button");
 
-  const revealButton =
-    document.createElement('button');
+  button.type = "button";
+  button.className = "viewer_reveal";
 
-
-  revealButton.className =
-    'viewer_reveal';
-
-
-  revealButton.type =
-    'button';
-
-
-  revealButton.innerHTML = `
-
-${renderWarningHtml(item.warnings)}
-
-<span class="viewer_reveal_action">
-  Click to reveal
-</span>
-
-  `;
-
-
-  revealButton.addEventListener(
-    'click',
-    () => {
-
-      viewerMedia.classList.remove(
-        'is_blurred'
-      );
-
-      revealButton.remove();
-
-    }
+  button.setAttribute(
+    "aria-label",
+    getLabel("reveal", "Reveal media", "Показать изображение")
   );
 
+  const warningsText = getWarningsText(item.warnings);
 
-  viewerMedia.appendChild(
-    revealButton
+  if (warningsText) {
+    button.appendChild(
+      createTextElement(
+        "span",
+        "viewer_reveal_warning",
+        warningsText
+      )
+    );
+  }
+
+  button.appendChild(
+    createTextElement(
+      "span",
+      "viewer_reveal_action",
+      getTranslation(
+        "art.reveal",
+        getLabel(
+          "revealAction",
+          "Click to reveal",
+          "Нажмите, чтобы открыть"
+        )
+      )
+    )
   );
 
+  button.addEventListener("click", () => {
+    viewerMedia.classList.remove("is_blurred");
+    button.remove();
+  });
+
+  viewerMedia.appendChild(button);
 }
 
 
 // ========================================
-// Информация
+// ИНФОРМАЦИЯ О РАБОТЕ
 // ========================================
+
+function setDetail(element, value) {
+  element.textContent = value || "";
+
+  const row = element.closest(".viewer_detail");
+
+  if (row) {
+    row.hidden = !value;
+  }
+}
 
 function renderInfo(item) {
+  const author = getLocalizedValue(item.author, "");
+  const title = getLocalizedValue(item.title, "");
 
-  // Author
-  if (item.author) {
+  viewerAuthor.textContent = author;
+  viewerAuthor.hidden = !author;
 
-    viewerAuthor.textContent =
-      item.author;
+  viewerTitle.textContent = title;
+  viewerTitle.hidden = !title;
 
-    viewerAuthor.hidden =
-      false;
+  setDetail(
+    viewerCharacters,
+    getCharactersText(item.characters)
+  );
 
-  } else {
+  setDetail(
+    viewerFandom,
+    getFandomName(item.fandom)
+  );
 
-    viewerAuthor.hidden =
-      true;
+  setDetail(
+    viewerYear,
+    item.year != null ? String(item.year) : ""
+  );
 
-  }
+  // Локализуем подписи к полям.
+  const labels = {
+    viewer_characters: getLabel(
+      "characters",
+      "Characters",
+      "Персонажи"
+    ),
+    viewer_fandom: getLabel(
+      "fandom",
+      "Fandom",
+      "Фандом"
+    ),
+    viewer_year: getLabel(
+      "year",
+      "Year",
+      "Год"
+    )
+  };
 
+  viewer.querySelectorAll(".viewer_detail").forEach(row => {
+    const label = row.querySelector("dt");
+    const value = row.querySelector("dd");
 
-  // Title
-  if (item.title) {
+    if (!label || !value) {
+      return;
+    }
 
-    viewerTitle.textContent =
-      item.title;
+    for (const [className, text] of Object.entries(labels)) {
+      if (value.classList.contains(className)) {
+        label.textContent = text;
+        break;
+      }
+    }
+  });
 
-    viewerTitle.hidden =
-      false;
+  closeButton.setAttribute(
+    "aria-label",
+    getLabel("close", "Close", "Закрыть")
+  );
 
-  } else {
+  prevButton.setAttribute(
+    "aria-label",
+    getLabel("previous", "Previous", "Предыдущая работа")
+  );
 
-    viewerTitle.hidden =
-      true;
-
-  }
-
-
-  // Characters
-  const charactersRow =
-    viewerCharacters.closest(
-      '.viewer_detail'
-    );
-
-
-  if (
-    item.characters &&
-    item.characters.length > 0
-  ) {
-
-    viewerCharacters.textContent =
-      item.characters.join(', ');
-
-    charactersRow.hidden =
-      false;
-
-  } else {
-
-    charactersRow.hidden =
-      true;
-
-  }
-
-
-  // Fandom
-  const fandomRow =
-    viewerFandom.closest(
-      '.viewer_detail'
-    );
-
-
-  if (item.fandom) {
-
-    viewerFandom.textContent =
-      item.fandom;
-
-  } else {
-
-    viewerFandom.textContent =
-      'Original';
-
-  }
-
-  fandomRow.hidden =
-    false;
-
-
-  // Year
-  const hasYear =
-    item.year !== undefined &&
-    item.year !== null &&
-    item.year !== '';
-
-  if (hasYear) {
-
-    viewerYear.textContent =
-      item.year;
-
-    viewerYearRow.hidden =
-      false;
-
-  } else {
-
-    viewerYear.textContent =
-      '';
-
-    viewerYearRow.hidden =
-      true;
-
-  }
-
+  nextButton.setAttribute(
+    "aria-label",
+    getLabel("next", "Next", "Следующая работа")
+  );
 }
 
 
 // ========================================
-// Предупреждения
-// ========================================
-
-function renderWarnings(warnings) {
-
-  if (
-    !warnings ||
-    warnings.length === 0
-  ) {
-
-    viewerWarnings.innerHTML = '';
-
-    return;
-
-  }
-
-
-  viewerWarnings.innerHTML =
-    renderWarningHtml(warnings);
-
-}
-
-
-function renderWarningHtml(warnings) {
-
-  if (
-    !warnings ||
-    warnings.length === 0
-  ) {
-
-    return '';
-
-  }
-
-
-  const warningText =
-    warnings
-      .map(
-        warning =>
-          warningLabels[warning] ?? warning
-      )
-      .join(', ');
-
-
-  return `
-<div class="viewer_warning">
-      ⚠ Content warning: ${warningText}
-  </div>
-`;
-
-}
-
-
-// ========================================
-// Навигация
+// НАВИГАЦИЯ
 // ========================================
 
 function updateNavigation() {
-
-  prevButton.disabled =
-    currentIndex <= 0;
-
+  prevButton.disabled = isLoading || currentIndex <= 0;
 
   nextButton.disabled =
-    currentIndex >= items.length - 1;
-
+    isLoading ||
+    currentIndex < 0 ||
+    currentIndex >= currentItems.length - 1;
 }
 
-
-function showNext() {
-
-  if (
-    currentIndex >=
-    items.length - 1
-  ) {
-
+function updateUrl() {
+  if (!currentItem) {
     return;
-
   }
 
+  const url = new URL(window.location.href);
 
-  currentIndex++;
+  url.searchParams.set("source", currentSource);
+  url.searchParams.set("id", currentItem.id);
 
-  const item =
-    items[currentIndex];
-
-
-  renderItem();
-
-  updateUrl(item.id);
-
+  history.replaceState({}, "", url);
 }
 
+function renderItem() {
+  if (!currentItem) {
+    return;
+  }
+
+  renderMedia(currentItem);
+  renderInfo(currentItem);
+  updateNavigation();
+  updateUrl();
+}
 
 function showPrevious() {
-
-  if (currentIndex <= 0) {
-
+  if (isLoading || currentIndex <= 0) {
     return;
-
   }
 
-
   currentIndex--;
-
-  const item =
-    items[currentIndex];
-
+  currentItem = currentItems[currentIndex];
 
   renderItem();
+}
 
-  updateUrl(item.id);
+function showNext() {
+  if (
+    isLoading ||
+    currentIndex < 0 ||
+    currentIndex >= currentItems.length - 1
+  ) {
+    return;
+  }
 
+  currentIndex++;
+  currentItem = currentItems[currentIndex];
+
+  renderItem();
 }
 
 
 // ========================================
-// URL
+// ЗАГРУЗКА ДАННЫХ
 // ========================================
 
-function updateUrl(id) {
+async function loadData() {
+  const params = new URLSearchParams(window.location.search);
 
-  const url =
-    `viewer.html?source=${currentSource}&id=${id}`;
+  const requestedSource = params.get("source") || "artworks";
+  const requestedId = params.get("id");
 
+  currentSource = Object.hasOwn(dataSources, requestedSource)
+    ? requestedSource
+    : "artworks";
 
-  history.replaceState(
-    {
-      source: currentSource,
-      id: id
-    },
-    '',
-    url
-  );
+  isLoading = true;
+  updateNavigation();
 
+  try {
+    const [response] = await Promise.all([
+      fetch(dataSources[currentSource]),
+      loadCharacterNames()
+    ]);
+
+    if (!response.ok) {
+      throw new Error(
+        `Не удалось загрузить ${dataSources[currentSource]}: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("JSON должен содержать массив объектов.");
+    }
+
+    currentItems = data.filter(item => item && item.id != null);
+
+    currentIndex = currentItems.findIndex(
+      item => String(item.id) === String(requestedId)
+    );
+
+    if (currentIndex === -1) {
+      throw new Error(
+        `Работа с id "${requestedId}" не найдена в источнике "${currentSource}".`
+      );
+    }
+
+    currentItem = currentItems[currentIndex];
+
+    renderItem();
+  } catch (error) {
+    console.error("Ошибка загрузки viewer:", error);
+
+    viewerMedia.classList.remove("is_blurred");
+
+    viewerMedia.replaceChildren(
+      createTextElement(
+        "p",
+        "viewer_error",
+        getLabel(
+          "loadError",
+          "Unable to load this item. Check the data files and try again.",
+          "Не удалось загрузить работу. Проверьте JSON и попробуйте ещё раз."
+        )
+      )
+    );
+
+    viewerAuthor.textContent = "";
+    viewerTitle.textContent = "";
+    viewerCharacters.textContent = "";
+    viewerFandom.textContent = "";
+    viewerYear.textContent = "";
+    viewerWarnings.textContent = "";
+
+    viewer.querySelectorAll(".viewer_detail").forEach(row => {
+      row.hidden = true;
+    });
+  } finally {
+    isLoading = false;
+    updateNavigation();
+  }
 }
 
 
 // ========================================
-// Закрытие
+// ЗАКРЫТИЕ ПРОСМОТРЩИКА
 // ========================================
 
 function closeViewer() {
-
-  window.history.back();
-
+  if (history.length > 1) {
+    history.back();
+  } else {
+    window.location.href = "art.html";
+  }
 }
 
 
 // ========================================
-// Browser Back / Forward
+// СОБЫТИЯ
 // ========================================
 
-function handlePopState() {
+closeButton.addEventListener("click", closeViewer);
+prevButton.addEventListener("click", showPrevious);
+nextButton.addEventListener("click", showNext);
 
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-
-  const newSource =
-    params.get('source');
-
-  const newId =
-    params.get('id');
-
-
-  if (
-    newSource !== currentSource ||
-    !newId
-  ) {
-
+document.addEventListener("keydown", event => {
+  // Не перехватываем клавиши при управлении видео.
+  if (event.target instanceof HTMLVideoElement) {
     return;
-
   }
 
-
-  const index =
-    items.findIndex(
-      item => item.id === newId
-    );
-
-
-  if (index === -1) {
-
-    return;
-
-  }
-
-
-  currentIndex =
-    index;
-
-
-  renderItem();
-
-}
-
-
-// ========================================
-// События
-// ========================================
-
-function setupViewer() {
-
-  prevButton.addEventListener(
-    'click',
-    showPrevious
-  );
-
-
-  nextButton.addEventListener(
-    'click',
-    showNext
-  );
-
-
-  closeButton.addEventListener(
-    'click',
-    closeViewer
-  );
-
-
-  document.addEventListener(
-    'keydown',
-    handleKeyboard
-  );
-
-
-  window.addEventListener(
-    'popstate',
-    handlePopState
-  );
-
-
-  document.body.classList.add(
-    'viewer_open'
-  );
-
-}
-
-
-// ========================================
-// Клавиатура
-// ========================================
-
-function handleKeyboard(event) {
-
-  if (event.key === 'Escape') {
-
+  if (event.key === "Escape") {
     closeViewer();
-
-    return;
-
   }
 
-
-  if (event.key === 'ArrowLeft') {
-
+  if (event.key === "ArrowLeft") {
     showPrevious();
-
-    return;
-
   }
 
-
-  if (event.key === 'ArrowRight') {
-
+  if (event.key === "ArrowRight") {
     showNext();
-
   }
+});
 
-}
+// Перерисовываем работу при смене языка.
+document.addEventListener("languageChanged", () => {
+  if (currentItem) {
+    renderItem();
+  }
+});
+
+
+// ========================================
+// ЗАПУСК
+// ========================================
+
+loadData();
