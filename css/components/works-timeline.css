@@ -1,0 +1,353 @@
+/* ========================================
+   Таймлайн произведений
+======================================== */
+
+.works-timeline {
+  position: relative;
+  padding-left: 60px;
+}
+
+/* Вертикальная линия таймлайна */
+
+.works-timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 21px;
+  width: 2px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background: var(--primary);
+}
+
+/* ========================================
+   Секция года
+======================================== */
+
+.works-year {
+  position: relative;
+  width: 100%;
+}
+
+/* Точка на линии напротив года */
+
+.works-year::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -47px;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  background: var(--background);
+  transition: background 0.25s ease;
+}
+
+.works-year:not(.collapsed)::before {
+  background: var(--primary);
+}
+
+/* ========================================
+   Плашка года
+======================================== */
+
+.works-year__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 0 0 20px;
+  border: 1px solid var(--card);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+.works-year__header:hover {
+  color: var(--primary);
+}
+
+.works-year__title {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* Стрелка раскрытия */
+
+.works-year__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.works-year__chevron {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+}
+
+.works-year:not(.collapsed) .works-year__toggle {
+  transform: rotate(180deg);
+}
+
+.works-year:not(.collapsed) .works-year__header {
+  color: var(--primary);
+}
+
+/* ========================================
+   Контент года
+======================================== */
+
+.works-year__content {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  opacity: 1;
+  transition:
+    grid-template-rows 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.works-year__content-inner {
+  min-height: 0;
+  padding-bottom: 20px;
+}
+
+/* Свёрнутая секция */
+
+.works-year.collapsed .works-year__content {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.works-year.collapsed .works-year__content-inner {
+  padding-bottom: 0;
+}
+
+/* ========================================
+   Карточки произведений
+======================================== */
+
+.works-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Вся карточка */
+
+.story_card {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--card);
+  border-radius: 20px;
+  background: var(--card);
+  color: var(--primary_text);
+  text-decoration: none;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.story_card:hover {
+  border-color: var(--primary);
+}
+
+/* ========================================
+   Горизонтальная обложка
+======================================== */
+
+.story_card_cover {
+  position: relative;
+  flex: 0 0 36%;
+  min-width: 0;
+  overflow: hidden;
+  align-self: stretch;
+  aspect-ratio: auto;
+  background: var(--background);
+}
+
+.story_card_cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ========================================
+   Информация о произведении
+======================================== */
+
+
+.story_card_info {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 18px 22px;
+  box-sizing: border-box;
+}
+
+.story_card_title {
+  margin: 0;
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   Жанровые чипсины
+======================================== */
+
+.story_card_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.story_card_tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  color: var(--primary);
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ========================================
+   Статус и количество глав
+======================================== */
+
+.story_card_meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.story_status {
+  position: static;
+  left: auto;
+  bottom: auto;
+
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.story_card_chapters {
+  color: var(--primary_text);
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ========================================
+   Адаптация под мобильные экраны
+======================================== */
+
+@media (max-width: 600px) {
+  .works-timeline {
+    padding-left: 38px;
+  }
+
+  .works-timeline::before {
+    left: 12px;
+  }
+
+  .works-year::before {
+    left: -33px;
+  }
+
+  .works-year__header {
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 15px;
+    font-size: 18px;
+  }
+
+  .works-grid {
+    gap: 12px;
+  }
+
+
+  .story_card_cover {
+    position: relative;
+    flex: 0 0 36%;
+    min-width: 0;
+    align-self: stretch;
+    overflow: hidden;
+    aspect-ratio: auto;
+    background: var(--background);
+  }
+
+  .story_card_info {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .story_card_title {
+    font-size: 16px;
+  }
+
+  .story_card_tags {
+    gap: 4px;
+  }
+
+  .story_card_tags span {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .story_card_meta {
+    gap: 6px;
+  }
+
+  .story_status {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .story_card_chapters {
+    font-size: 12px;
+  }
+}

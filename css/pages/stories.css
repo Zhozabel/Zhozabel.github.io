@@ -66,22 +66,22 @@
   object-fit: cover;
 }
 
-.story_status {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
+/*.story_status {*/
+/*  position: absolute;*/
+/*  left: 12px;*/
+/*  bottom: 12px;*/
 
-  padding: 6px 12px;
+/*  padding: 6px 12px;*/
 
-  border-radius: 999px;
+/*  border-radius: 999px;*/
 
-  font-family: "Nunito", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+/*  font-family: "Nunito", sans-serif;*/
+/*  font-size: 13px;*/
+/*  font-weight: 700;*/
 
-  background: var(--card);
-  color: var(--primary_text);
-}
+/*  background: var(--card);*/
+/*  color: var(--primary_text);*/
+/*}*/
 
 .story_status--completed {
   background: var(--success);

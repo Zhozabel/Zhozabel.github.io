@@ -70,7 +70,6 @@
     "loadError": "Unable to load gifts. Please refresh the page.",
     "openGift": "Open gift"
   },
-
   "story": {
     "chapters": "Chapters",
     "genres": "Genres",
@@ -95,14 +94,28 @@
       "Hurt/Comfort": "Hurt/Comfort"
     }
   },
+  "works": {
+    "comicsTitle": "Comics",
+    "comicsDescription": "Comics, illustrated stories and visual adventures.",
+    "chaptersCount": "{count} chapters",
+    "chapterCount": "{count} chapter",
+    "empty": "No works to display yet.",
+    "loadError": "Could not load works. Please refresh the page.",
+    "status": {
+      "in-progress": "In progress",
+      "completed": "Completed",
+      "hiatus": "On hiatus",
+      "abandoned": "Abandoned"
+    }
+  },
 
-  "comics": {
-    "contents": "Contents",
-    "noPages": "There are no pages in this chapter yet.",
-    "loadError": "Unable to load comics. Please refresh the page.",
-    "missingId": "No comic was specified.",
-    "notFound": "Comic not found.",
-    "chapterLoadError": "Unable to load this comic chapter."
+    "comics": {
+      "contents": "Contents",
+      "noPages": "There are no pages in this chapter yet.",
+      "loadError": "Unable to load comics. Please refresh the page.",
+      "missingId": "No comic was specified.",
+      "notFound": "Comic not found.",
+      "chapterLoadError": "Unable to load this comic chapter."
+    }
   }
-}
 
