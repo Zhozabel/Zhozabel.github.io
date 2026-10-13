@@ -295,7 +295,7 @@
   // Создаём секцию одного года.
   function createYearSection(year, works) {
     const section = document.createElement("section");
-    section.className = "works-year collapsed";
+    section.className = "works-year";
 
     const header = document.createElement("button");
     header.className = "works-year__header";
@@ -308,7 +308,6 @@
         "works-year__title",
         String(year)
       ),
-      createChevron()
     );
 
     const content = document.createElement("div");

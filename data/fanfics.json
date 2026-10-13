@@ -1,0 +1,41 @@
+[
+  {
+    "id": "oblaan",
+    "type": "fanfic",
+    "title": {
+      "en": "Oblaan",
+      "ru": "Oblaan"
+    },
+    "fandom": {
+      "en": "The Elder Scrolls V: Skyrim",
+      "ru": "The Elder Scrolls V: Skyrim"
+    },
+    "characters": [
+      "dovahkiin",
+      "paarthurnax"
+    ],
+    "pairings": [],
+    "date": "2015-07-17",
+    "cover": {
+      "en": "",
+      "ru": ""
+    },
+    "banner": "",
+    "description": {
+      "en": "The old dragon sank to the ground. Slowly, with dignity. The snow scattered to the sides beneath his paws. His body was covered in scars, but there was neither fury nor threat in his gaze.",
+      "ru": "Старый дракон опустился на землю. Медленно, с достоинством. Снег под его лапами разлетелся в стороны. Его тело было покрыто шрамами, но во взгляде не было ни ярости, ни угрозы."
+    },
+    "genres": [
+      "Gen",
+      "Fantasy",
+      "Drama",
+      "Psychology"
+    ],
+    "status": "completed",
+    "chapters": 1,
+    "rating": "PG",
+    "warnings": [],
+    "file": "data/stories/oblaan/chapters/chapter-01.md",
+    "chaptersFile": "data/stories/oblaan/chapters.json"
+  }
+]

@@ -39,43 +39,29 @@
       >
 
       <ul class="header_list">
-
         <li class="header_list-item">
-          <a
-            class="header_list-link"
-            href="../../index.html"
-          >
-            About
-          </a>
+          <a class="header_list-link active"
+             href="../../index.html"
+             data-i18n="nav.about">About</a>
         </li>
 
         <li class="header_list-item">
-          <a
-            class="header_list-link"
-            href="../.."
-          >
-            Wiki
-          </a>
+          <a class="header_list-link"
+             href="../../pages/wiki.html"
+             data-i18n="nav.wiki">Wiki</a>
         </li>
 
         <li class="header_list-item">
-          <a
-            class="header_list-link"
-            href="../.."
-          >
-            Contact
-          </a>
+          <a class="header_list-link"
+             href="../../"
+             data-i18n="nav.contact">Contact</a>
         </li>
 
         <li class="header_list-item">
-          <a
-            class="header_button"
-            href="../.."
-          >
-            Commissions
-          </a>
+          <a class="header_button"
+             href="../../pages/commissions.html"
+             data-i18n="nav.commissions">Commissions</a>
         </li>
-
       </ul>
 
     </nav>
@@ -115,9 +101,9 @@
 
       <a
         class="chapter_navigation-link chapter_navigation-center"
-        href="story.html"
+        href="../story.html"
       >
-        Contents
+        <span data-i18n="chapter.contents">Contents</span>
       </a>
 
       <a
@@ -153,9 +139,9 @@
 
       <a
         class="chapter_navigation-link chapter_navigation-center"
-        href="story.html"
+        href="../story.html"
       >
-        Contents
+        <span data-i18n="chapter.contents">Contents</span>
       </a>
 
       <a
@@ -170,9 +156,46 @@
 
 </main>
 
+<footer>
+  <div class="footer_container">
+    <div class="footer_content">
+      <div class="footer_copyright">
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
+      </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN</button>
+
+      <span class="footer_language-divider" aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU</button>
+    </div>
+  </div>
+</footer>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../../js/i18n.js"></script>
 <script src="../../js/chapter.js"></script>
+
 
 </body>
 

@@ -66,7 +66,7 @@ css
   border-radius: 999px;
 
   background: var(--card);
-  color: var(--secondary_text);
+  color: var(--primary_text);
 
   font-family: "Nunito", sans-serif;
   font-size: 14px;
@@ -110,7 +110,7 @@ css
 .chapter_content p {
   margin: 0;
 
-  color: var(--primary_text);
+  color: var(--secondary_text);
 
   font-family: "Nunito", sans-serif;
   font-size: 17px;
@@ -177,26 +177,38 @@ css
   font-style: italic;
 }
 
+     /* ========================================
+        ILLUSTRATIONS
+     ======================================== */
 
-/* ========================================
-   ILLUSTRATIONS
-======================================== */
+   .chapter_illustration {
+     width: 100%;
+     margin: 35px auto;
 
-.chapter_illustration {
-  margin: 35px auto;
+     text-align: center;
+   }
 
-  text-align: center;
+/* Обычный размер */
+.chapter_illustration--normal {
+  max-width: 1000px;
+}
+
+/* Большой размер */
+.chapter_illustration--large {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .chapter_illustration img {
   display: block;
 
-  width: auto;
-  max-width: 100%;
-  max-height: 700px;
+  width: 100%;
+  height: auto;
+  //max-height: 700px;
 
   margin: 0 auto;
 
+  object-fit: contain;
   border-radius: 16px;
 }
 
@@ -285,10 +297,14 @@ css
   }
 
 
-  /* ILLUSTRATION */
+    /* ILLUSTRATION */
 
   .chapter_illustration {
-    margin: 28px auto;
+  margin: 28px auto;
+}
+
+  .chapter_illustration--normal {
+    max-width: 100%;
   }
 
   .chapter_illustration img {

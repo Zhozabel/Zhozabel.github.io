@@ -1,0 +1,15 @@
+[
+  {
+    "id": "chapter-01",
+    "title": {
+      "en": "Oblaan",
+      "ru": "Oblaan"
+    },
+    "date": "2015-07-17",
+    "files": {
+      "en": "data/stories/oblaan/chapters/chapter-01-en.md",
+      "ru": "data/stories/oblaan/chapters/chapter-01-ru.md"
+    },
+    "illustrations": []
+  }
+]

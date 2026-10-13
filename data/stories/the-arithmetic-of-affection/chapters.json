@@ -1,0 +1,75 @@
+[
+  {
+    "id": "chapter-01",
+    "title": {
+      "en": "Chapter 1: October in Oakridge",
+      "ru": "Глава 1: Октябрь в Оукридже"
+    },
+    "date": "2015-07-17",
+    "files": {
+      "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-01-en.md",
+      "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-01-ru.md"
+    },
+    "illustrations": [
+    ]
+  },
+  {
+    "id": "chapter-02",
+    "title": {
+      "en": "Chapter 2: ",
+      "ru": "Глава 2: "
+    },
+    "date": "2015-07-17",
+    "files": {
+      "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-02-en.md",
+      "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-02-ru.md"
+    },
+    "illustrations": []
+  },
+  {
+    "id": "chapter-03",
+    "title": {
+      "en": "Chapter 3: ",
+      "ru": "Глава 3: "
+    },
+    "date": "2015-07-17",
+    "files": {
+      "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-03-en.md",
+      "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-03-ru.md"
+    },
+    "illustrations": [
+      {
+        "position": 3,
+        "src": {
+          "en": "images/illustrations/illustration/KakashiHajoka.png",
+          "ru": "images/illustrations/illustration/KakashiHajoka.png"
+        },
+        "alt": {
+          "en": "Autumn trees along the road to Oakridge",
+          "ru": "Осенние деревья вдоль дороги в Оукридж"
+        },
+        "caption": {
+          "en": "The road to Oakridge in October",
+          "ru": "Дорога в Оукридж в октябре"
+        },
+        "size": "large"
+      },
+      {
+        "position": 8,
+        "src": {
+          "en": "images/illustrations/illustration/MashleZhozabel.png",
+          "ru": "images/illustrations/illustration/KakashiHajoka.png"
+        },
+        "alt": {
+          "en": "A handwritten letter on a wooden desk",
+          "ru": "Рукописное письмо на деревянном столе"
+        },
+        "caption": {
+          "en": "",
+          "ru": ""
+        },
+        "size": "normal"
+      }
+    ]
+  }
+]

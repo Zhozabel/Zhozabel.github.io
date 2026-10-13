@@ -1300,6 +1300,19 @@
     "file": ""
   },
   {
+    "id": "paarthurnax",
+    "name": {
+      "en": "Paarthurnax",
+      "ru": "Партурнакс"
+    },
+    "fandom": {
+      "en": "The Elder Scrolls V: Skyrim",
+      "ru": "The Elder Scrolls V: Skyrim"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
     "id": "kopa",
     "name": {
       "en": "Kopa",

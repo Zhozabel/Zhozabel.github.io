@@ -1,0 +1,45 @@
+[
+  {
+    "id": "the-arithmetic-of-affection",
+    "type": "original",
+    "title": {
+      "en": "The Arithmetic of Affection",
+      "ru": "Простая математика чувств"
+    },
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "characters": [
+      "isabella-rodriguez",
+      "theodore-moore",
+      "simon-williams",
+      "ginger-wood",
+      "adrian-moore",
+      "rosalyn-evans"
+    ],
+    "pairings": [],
+    "date": "2012-10-22",
+    "cover": {
+      "en": "",
+      "ru": ""
+    },
+    "banner": "",
+    "description": {
+      "en": "",
+      "ru": ""
+    },
+    "genres": [
+      "Gen",
+      "Fantasy",
+      "Drama",
+      "Psychology"
+    ],
+    "status": "completed",
+    "chapters": 2,
+    "rating": "PG",
+    "warnings": [],
+    "file": "data/stories/the-arithmetic-of-affection/chapters/chapter-01.md",
+    "chaptersFile": "data/stories/the-arithmetic-of-affection/chapters.json"
+  }
+]

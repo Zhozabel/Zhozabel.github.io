@@ -531,5 +531,96 @@
     },
     "portrait": "",
     "file": ""
+  },
+  {
+    "id": "isabella-rodriguez",
+    "name": {
+      "en": "Isabella Rodriguez",
+      "ru": "Изабелла Родригез"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "theodore-moore",
+    "name": {
+      "en": "Theodore Moore",
+      "ru": "Теодор Мур"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "adrian-moore",
+    "name": {
+      "en": "Adrian Moore",
+      "ru": "Адриан Мур"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "simon-williams",
+    "name": {
+      "en": "Simon Williams",
+      "ru": "Саймон Уильямс"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "ginger-wood",
+    "name": {
+      "en": "Ginger Wood",
+      "ru": "Джинджер Вуд"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rosalyn-evans",
+    "name": {
+      "en": "Rosalyn Evans",
+      "ru": "Розалин Эванс"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "jackie-brown",
+    "name": {
+      "en": "Jackie Brown",
+      "ru": "Джеки Браун"
+    },
+    "fandom": {
+      "en": "The Arithmetic of Affection © Zhozabel",
+      "ru": "Простая математика чувств © Zhozabel"
+    },
+    "portrait": "",
+    "file": ""
   }
 ]

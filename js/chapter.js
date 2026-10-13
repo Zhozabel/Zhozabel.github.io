@@ -17,46 +17,149 @@ const navigationBlocks = document.querySelectorAll(
 
 
 /* ========================================
-   LOAD CHAPTERS
+   URL PARAMETERS
 ======================================== */
 
-async function loadChapters() {
-  try {
-    const response = await fetch("../data/stories/keep-the-promise/keep-the-promise.json");
+function getPageParams() {
+  const params = new URLSearchParams(window.location.search);
 
-    if (!response.ok) {
-      throw new Error(
-        `Could not load chapters.json: ${response.status}`
-      );
-    }
-
-    return await response.json();
-
-  } catch (error) {
-
-    console.error("CHAPTERS ERROR:", error);
-
-    chapterContent.innerHTML = `
-      <p>
-        Не удалось загрузить список глав.
-      </p>
-    `;
-
-    return null;
-  }
+  return {
+    type: params.get("type"),
+    id: params.get("id"),
+    chapterId: params.get("chapter")
+  };
 }
 
 
 /* ========================================
-   GET CHAPTER ID
+   LANGUAGE
 ======================================== */
 
-function getChapterId() {
+function getLanguage() {
+  const language = document.documentElement.lang
+    .toLowerCase()
+    .split("-")[0];
 
-  const params =
-    new URLSearchParams(window.location.search);
+  return language === "en" ? "en" : "ru";
+}
 
-  return params.get("chapter");
+
+function getLocalizedText(value) {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (!value || typeof value !== "object") {
+    return "";
+  }
+
+  const language = getLanguage();
+
+  return value[language] || value.ru || value.en || "";
+}
+
+
+/* ========================================
+   PROJECT PATHS
+======================================== */
+
+/*
+  chapter.html is located in /pages/stories/.
+
+  Data and Markdown paths in JSON are relative
+  to the project root.
+*/
+
+function getProjectUrl(path) {
+  const cleanPath = path.replace(/^\/+/, "");
+
+  return new URL(`../../${cleanPath}`, window.location.href).href;
+}
+
+
+/* ========================================
+   LOAD JSON
+======================================== */
+
+async function loadJSON(path) {
+  const response = await fetch(getProjectUrl(path));
+
+  if (!response.ok) {
+    throw new Error(
+      `Could not load ${path}: ${response.status}`
+    );
+  }
+
+  return await response.json();
+}
+
+
+/* ========================================
+   LOAD WORK
+======================================== */
+
+/*
+  The URL contains the work type and ID.
+
+  Example:
+  chapter.html?type=fanfic&id=oblaan&chapter=chapter-01
+*/
+
+function getCatalogPath(type) {
+  const catalogs = {
+    fanfic: "data/fanfics.json",
+    original: "data/originals.json"
+  };
+
+  return catalogs[type] || null;
+}
+
+
+async function loadWork(type, id) {
+  const catalogPath = getCatalogPath(type);
+
+  if (!catalogPath) {
+    throw new Error(
+      `Unsupported work type: ${type}`
+    );
+  }
+
+  const catalog = await loadJSON(catalogPath);
+
+  const work = catalog.find(
+    item => item.id === id
+  );
+
+  if (!work) {
+    throw new Error(
+      `Work not found: ${id}`
+    );
+  }
+
+  return work;
+}
+
+
+/* ========================================
+   LOAD CHAPTERS
+======================================== */
+
+async function loadChapters(work) {
+  if (!work.chaptersFile) {
+    throw new Error(
+      "The work has no chaptersFile property."
+    );
+  }
+
+  const chapters = await loadJSON(work.chaptersFile);
+
+  if (!Array.isArray(chapters)) {
+    throw new Error(
+      "The chapters file must contain an array."
+    );
+  }
+
+  return chapters;
 }
 
 
@@ -65,10 +168,22 @@ function getChapterId() {
 ======================================== */
 
 function formatDate(dateString) {
+  if (!dateString) {
+    return "";
+  }
 
-  const date = new Date(dateString);
+  // Use a fixed time to avoid timezone shifts.
+  const date = new Date(`${dateString}T12:00:00`);
 
-  return date.toLocaleDateString("en-US", {
+  if (Number.isNaN(date.getTime())) {
+    return dateString;
+  }
+
+  const locale = getLanguage() === "en"
+    ? "en-US"
+    : "ru-RU";
+
+  return date.toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric"
@@ -80,25 +195,35 @@ function formatDate(dateString) {
    LOAD MARKDOWN
 ======================================== */
 
-async function loadMarkdown(file) {
-
-  /*
-    chapters.json stores paths relative
-    to the project root.
-
-    chapter.html is inside /stories/,
-    so we need ../ here.
-  */
-
-  const response = await fetch(`../${file}`);
-
-  if (!response.ok) {
-    throw new Error(
-      `Could not load chapter file: ${file}`
-    );
+async function loadMarkdown(files) {
+  if (!files || typeof files !== "object") {
+    throw new Error("The chapter has no language files.");
   }
 
-  return await response.text();
+  const language = getLanguage();
+  const fallbackLanguage = language === "ru" ? "en" : "ru";
+
+  const languagesToTry = [language, fallbackLanguage];
+
+  for (const lang of languagesToTry) {
+    const file = files[lang];
+
+    // Если путь для языка не указан — пробуем следующий
+    if (!file) continue;
+
+    try {
+      const response = await fetch(getProjectUrl(file));
+
+      // Если файл не найден — пробуем следующий язык
+      if (!response.ok) continue;
+
+      return await response.text();
+    } catch (error) {
+      console.warn(`Could not load ${lang} chapter file:`, file);
+    }
+  }
+
+  throw new Error("No available Markdown file could be loaded.");
 }
 
 
@@ -106,79 +231,97 @@ async function loadMarkdown(file) {
    INSERT ILLUSTRATIONS
 ======================================== */
 
-function insertIllustrations(
-  content,
-  illustrations
-) {
+/*
+  Inserts illustrations after the specified
+  paragraph in the rendered Markdown.
 
-  if (
-    !illustrations ||
-    illustrations.length === 0
-  ) {
+  Example:
+  {
+    "position": 3,
+    "src": "images/stories/example/image.png",
+    "caption": {
+      "en": "Illustration",
+      "ru": "Иллюстрация"
+    }
+  }
+*/
+
+function insertIllustrations(content, illustrations) {
+  if (!Array.isArray(illustrations) || illustrations.length === 0) {
     return;
   }
 
+  const language = getLanguage();
 
-  const paragraphs =
-    content.querySelectorAll("p");
+  // Select the current language, then fall back to the other version.
+  function getIllustrationValue(value) {
+    if (typeof value === "string") {
+      return value;
+    }
 
+    if (!value || typeof value !== "object") {
+      return "";
+    }
 
-  illustrations.forEach(illustration => {
+    return (
+      value[language] ||
+      value.en ||
+      value.ru ||
+      ""
+    );
+  }
 
-    const position =
-      Number(illustration.position);
+  // Insert in descending order so paragraph positions remain stable.
+  const sortedIllustrations = [...illustrations].sort(
+    (a, b) => Number(b.position) - Number(a.position)
+  );
 
-    const paragraph =
-      paragraphs[position - 1];
+  sortedIllustrations.forEach(illustration => {
+    const position = Number(illustration.position);
 
+    const paragraphs = content.querySelectorAll("p");
+    const paragraph = paragraphs[position - 1];
 
-    if (!paragraph) {
+    const imageSrc = getIllustrationValue(illustration.src);
 
+    if (
+      !Number.isInteger(position) ||
+      position < 1 ||
+      !paragraph ||
+      !imageSrc
+    ) {
       console.warn(
-        `Illustration position ${position} does not exist.`
+        `Could not insert illustration at paragraph ${position}.`
       );
-
       return;
     }
 
+    const figure = document.createElement("figure");
 
-    const figure =
-      document.createElement("figure");
+    const size = illustration.size === "large" ? "large" : "normal";
 
-    figure.className =
-      "chapter_illustration";
+    figure.className = `chapter_illustration chapter_illustration--${size}`;
 
+    const image = document.createElement("img");
 
-    /* Image */
-
-    const image =
-      document.createElement("img");
-
-    image.src =
-      `../${illustration.src}`;
-
+    image.src = getProjectUrl(imageSrc);
     image.alt =
-      illustration.caption || "";
+      getIllustrationValue(illustration.alt) ||
+      getIllustrationValue(illustration.caption);
 
+    image.loading = "lazy";
 
     figure.appendChild(image);
 
+    const captionText = getLocalizedText(illustration.caption);
 
-    /* Caption */
+    if (captionText) {
+      const caption = document.createElement("figcaption");
 
-    if (illustration.caption) {
-
-      const caption =
-        document.createElement("figcaption");
-
-      caption.textContent =
-        illustration.caption;
+      caption.textContent = captionText;
 
       figure.appendChild(caption);
     }
-
-
-    /* Insert */
 
     paragraph.after(figure);
   });
@@ -191,81 +334,74 @@ function insertIllustrations(
 
 function setupNavigation(
   currentIndex,
-  chapters
+  chapters,
+  workType,
+  workId
 ) {
+  const contentsUrl =
+    `../story.html?type=${encodeURIComponent(workType)}` +
+  `&id=${encodeURIComponent(workId)}`;
 
-  navigationBlocks.forEach(
-    navigation => {
-
-      const links =
-        navigation.querySelectorAll(
-          ".chapter_navigation-link"
-        );
-
-      const previousLink = links[0];
-      const contentsLink = links[1];
-      const nextLink = links[2];
-
-
-      /* Previous */
-
-      if (currentIndex > 0) {
-
-        const previousChapter =
-          chapters[currentIndex - 1];
-
-        previousLink.href =
-          `chapter.html?chapter=${previousChapter.id}`;
-
-        previousLink.textContent =
-          `← ${previousChapter.title}`;
-
-        previousLink.style.visibility =
-          "visible";
-
-      } else {
-
-        previousLink.removeAttribute("href");
-        previousLink.textContent = "";
-        previousLink.style.visibility =
-          "hidden";
-      }
-
-
-      /* Contents */
-
-      contentsLink.href =
-        "../story.html";
-
-
-      /* Next */
-
-      if (
-        currentIndex <
-        chapters.length - 1
-      ) {
-
-        const nextChapter =
-          chapters[currentIndex + 1];
-
-        nextLink.href =
-          `chapter.html?chapter=${nextChapter.id}`;
-
-        nextLink.textContent =
-          `${nextChapter.title} →`;
-
-        nextLink.style.visibility =
-          "visible";
-
-      } else {
-
-        nextLink.removeAttribute("href");
-        nextLink.textContent = "";
-        nextLink.style.visibility =
-          "hidden";
-      }
-    }
+navigationBlocks.forEach(navigation => {
+  const links = navigation.querySelectorAll(
+    ".chapter_navigation-link"
   );
+
+  const previousLink = links[0];
+  const contentsLink = links[1];
+  const nextLink = links[2];
+
+  if (!previousLink || !contentsLink || !nextLink) {
+    return;
+  }
+
+  function setChapterLink(link, chapter, direction) {
+    const params = new URLSearchParams({
+      type: workType,
+      id: workId,
+      chapter: chapter.id
+    });
+
+    link.href = `chapter.html?${params.toString()}`;
+
+    const title = getLocalizedText(chapter.title);
+
+    link.textContent = direction === "previous"
+      ? `${title}`
+      : `${title}`;
+
+    link.style.visibility = "visible";
+  }
+
+  // Previous chapter
+  if (currentIndex > 0) {
+    setChapterLink(
+      previousLink,
+      chapters[currentIndex - 1],
+      "previous"
+    );
+  } else {
+    previousLink.removeAttribute("href");
+    previousLink.textContent = "";
+    previousLink.style.visibility = "hidden";
+  }
+
+  // Contents
+  contentsLink.href = contentsUrl;
+
+  // Next chapter
+  if (currentIndex < chapters.length - 1) {
+    setChapterLink(
+      nextLink,
+      chapters[currentIndex + 1],
+      "next"
+    );
+  } else {
+    nextLink.removeAttribute("href");
+    nextLink.textContent = "";
+    nextLink.style.visibility = "hidden";
+  }
+});
 }
 
 
@@ -276,75 +412,47 @@ function setupNavigation(
 async function displayChapter(
   chapter,
   chapterIndex,
-  chapters
+  chapters,
+  workType,
+  workId
 ) {
+  // Header
+  const title = getLocalizedText(chapter.title);
 
-  try {
+  chapterTitle.textContent = title;
 
-    /* Header */
+  chapterDate.textContent = formatDate(chapter.date);
+  chapterDate.dateTime = chapter.date || "";
 
-    chapterTitle.textContent =
-      chapter.title;
+  // Markdown
+  const markdown = await loadMarkdown(chapter.files);
 
-    chapterDate.textContent =
-      formatDate(chapter.date);
-
-    chapterDate.dateTime =
-      chapter.date;
-
-
-    /* Markdown */
-
-    const markdown =
-      await loadMarkdown(chapter.file);
-
-
-    /* Markdown → HTML */
-
-    chapterContent.innerHTML =
-      marked.parse(markdown);
-
-
-    /* Illustrations */
-
-    insertIllustrations(
-      chapterContent,
-      chapter.illustrations
+  if (typeof marked === "undefined") {
+    throw new Error(
+      "Marked library is not loaded."
     );
-
-
-    /* Navigation */
-
-    setupNavigation(
-      chapterIndex,
-      chapters
-    );
-
-
-    /* Page title */
-
-    document.title =
-      `${chapter.title} — Zhozabel`;
-
-
-    console.log(
-      "CHAPTER LOADED:",
-      chapter
-    );
-
-  } catch (error) {
-
-    console.error(
-      "CHAPTER ERROR:",
-      error
-    );
-
-    chapterContent.innerHTML = `
-      <p>
-        Не удалось загрузить главу.
-      </p>
-    `;
   }
+
+  chapterContent.innerHTML = marked.parse(markdown);
+
+  // Inline illustrations
+  insertIllustrations(
+    chapterContent,
+    chapter.illustrations
+  );
+
+  // Navigation
+  setupNavigation(
+    chapterIndex,
+    chapters,
+    workType,
+    workId
+  );
+
+  // Page title
+  document.title = `${title} — Zhozabel`;
+
+  console.log("CHAPTER LOADED:", chapter);
 }
 
 
@@ -353,77 +461,55 @@ async function displayChapter(
 ======================================== */
 
 async function initChapterPage() {
+  console.log("CHAPTER JS STARTED");
 
-  console.log(
-    "CHAPTER JS STARTED"
-  );
+  const { type, id, chapterId } = getPageParams();
 
+  try {
+    if (!type || !id || !chapterId) {
+      throw new Error(
+        "The URL must contain type, id and chapter parameters."
+      );
+    }
 
-  const chapters =
-    await loadChapters();
+    // Find the work in the appropriate catalog.
+    const work = await loadWork(type, id);
 
+    // Load the work's chapter list.
+    const chapters = await loadChapters(work);
 
-  if (!chapters) {
-    return;
-  }
+    console.log("WORK LOADED:", work);
+    console.log("CHAPTERS LOADED:", chapters);
 
-
-  console.log(
-    "CHAPTERS LOADED:",
-    chapters
-  );
-
-
-  const chapterId =
-    getChapterId();
-
-
-  if (!chapterId) {
-
-    chapterContent.innerHTML = `
-      <p>
-        Глава не указана.
-      </p>
-    `;
-
-    return;
-  }
-
-
-  console.log(
-    "REQUESTED CHAPTER:",
-    chapterId
-  );
-
-
-  const chapterIndex =
-    chapters.findIndex(
-      chapter =>
-        chapter.id === chapterId
+    // Find the requested chapter.
+    const chapterIndex = chapters.findIndex(
+      chapter => chapter.id === chapterId
     );
 
+    if (chapterIndex === -1) {
+      throw new Error(
+        `Chapter not found: ${chapterId}`
+      );
+    }
 
-  if (chapterIndex === -1) {
+    const chapter = chapters[chapterIndex];
 
-    chapterContent.innerHTML = `
-      <p>
-        Глава не найдена.
-      </p>
-    `;
+    await displayChapter(
+      chapter,
+      chapterIndex,
+      chapters,
+      type,
+      id
+    );
 
-    return;
+  } catch (error) {
+    console.error("CHAPTER ERROR:", error);
+
+    chapterContent.textContent =
+      getLanguage() === "en"
+        ? "Unable to load this chapter. Please check the URL and chapter data."
+        : "Не удалось загрузить главу. Проверь URL и данные произведения.";
   }
-
-
-  const chapter =
-    chapters[chapterIndex];
-
-
-  await displayChapter(
-    chapter,
-    chapterIndex,
-    chapters
-  );
 }
 
 
@@ -432,3 +518,10 @@ async function initChapterPage() {
 ======================================== */
 
 initChapterPage();
+
+
+/* UPDATE CHAPTER WHEN LANGUAGE CHANGES */
+document.addEventListener("languageChanged", () => {
+  initChapterPage();
+});
+

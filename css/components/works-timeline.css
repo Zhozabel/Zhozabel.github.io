@@ -236,7 +236,6 @@
   display: inline-flex;
   align-items: center;
   padding: 5px 10px;
-  border: 1px solid var(--primary);
   border-radius: 999px;
   color: var(--primary);
   font-family: "Nunito", sans-serif;

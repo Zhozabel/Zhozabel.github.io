@@ -234,14 +234,18 @@ function renderChapters(chapters) {
     const chapterElement = document.createElement("a");
     chapterElement.className = "story_chapter";
 
+
     if (storyType === "comic") {
       chapterElement.href =
         `comic.html?comic=${encodeURIComponent(storyId)}`;
     } else {
-      chapterElement.href = "#";
-      chapterElement.addEventListener("click", event => {
-        event.preventDefault();
+      const chapterParams = new URLSearchParams({
+        type: storyType,
+        id: storyId,
+        chapter: chapter.id
       });
+
+      chapterElement.href = `stories/chapter.html?${chapterParams.toString()}`;
     }
 
     const coverContainer = document.createElement("div");
