@@ -191,8 +191,8 @@
       "en": "Naruto",
       "ru": "Наруто"
     },
-    "portrait": "",
-    "file": ""
+    "portrait": "images/illustrations/illustration-KakashiHajoka.png",
+    "file": "data/characters/original-characters/hajoka-butsukaru.json"
   },
   {
     "id": "joshiko-butsukaru",

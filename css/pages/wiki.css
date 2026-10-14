@@ -3,8 +3,7 @@
 ======================================== */
 
 .wiki_page {
-  width: min(100% - 40px, 1100px);
-  margin: 60px auto 80px;
+  margin: 20px 0 80px;
 }
 
 
@@ -61,10 +60,11 @@
   box-sizing: border-box;
 
   background: var(--card);
-  border-radius: 16px;
+  border-radius: 20px;
 
   color: var(--primary_text);
 
+  font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 700;
 
@@ -147,6 +147,7 @@
 
   color: var(--primary_text);
 
+  font-family: "Nunito", sans-serif;
   font-size: 19px;
   font-weight: 700;
 }

@@ -172,6 +172,16 @@
       "missingId": "No comic was specified.",
       "notFound": "Comic not found.",
       "chapterLoadError": "Unable to load this comic chapter."
-    }
+    },
+
+
+  "wiki": {
+    "category": "Wiki",
+    "title": "Characters",
+    "description": "Characters from my stories and worlds.",
+    "empty": "No characters to display yet.",
+    "loadError": "Unable to load characters."
   }
+
+}
 
