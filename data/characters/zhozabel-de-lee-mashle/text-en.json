@@ -1,0 +1,95 @@
+
+{
+  "basic": {
+    "gender": "Female",
+    "status": "Alive",
+    "hairColor": "Caramel",
+    "eyeColor": "Green",
+    "affiliation": "Easton Magic Academy",
+    "occupation": "Second-year student",
+    "magic": {
+      "constellation-magic": "Constellation Magic"
+    }
+  },
+  "connections": {
+    "team": {
+      "adler-team": "Adler Team"
+    },
+    "relations": {
+      "father": "Father",
+      "mother": "Mother",
+      "cousin": "Cousin"
+    },
+    "roles": {
+      "team-captain": "Team captain",
+      "forward": "Forward",
+      "setter": "Setter",
+      "goalkeeper": "Goalkeeper",
+      "defender": "Defender"
+    }
+  },
+  "forms": {
+    "season-1": {
+      "name": "Season One",
+      "basic": {
+        "residence": "Residence",
+        "occupation": "Occupation",
+        "rank": "Rank"
+      },
+      "appearance": [],
+      "personality": [],
+      "story": {
+        "past": {
+          "title": "Past",
+          "paragraphs": [
+            "Past events"
+          ]
+        },
+        "divine-visionary-selection-exam": {
+          "title": "Divine Visionary Selection Exam",
+          "paragraphs": [
+            "Arc events"
+          ]
+        },
+        "tri-magic-athalon-final-exam": {
+          "title": "Tri-Magic-Athalon Final Exam",
+          "paragraphs": [
+            "Arc events"
+          ]
+        },
+        "invasion-of-the-magic-capital": {
+          "title": "Invasion of the Magic Capital",
+          "paragraphs": [
+            "Arc events"
+          ]
+        }
+      },
+      "equipment": {
+        "main-equipment": {
+          "name": "Equipment",
+          "description": [
+            "Description of weapons and equipment."
+          ]
+        }
+      },
+      "abilities": {
+        "main-abilities": {
+          "name": "Abilities",
+          "description": [
+            "Description of abilities."
+          ]
+        }
+      }
+    }
+  },
+  "relationships": {
+    "dot-barret": {
+      "name": "Dot Barret",
+      "description": "Description of their relationship."
+    },
+    "mash-burnedead": {
+      "name": "Mash Burnedead",
+      "description": "Description of their relationship."
+    }
+  }
+}

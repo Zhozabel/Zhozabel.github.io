@@ -49,7 +49,7 @@
     "title": "Иллюстрации",
     "description": "Фанарт, оригинальные персонажи, эскизы и завершённые работы.",
     "contentWarning": "Предупреждение",
-    "reveal": "Нажмите, чтобы открыть",
+    "reveal": "Открыть",
     "warningLabels": {
       "ambiguity": "Неоднозначность",
       "problematic": "Проблемные темы",
@@ -177,14 +177,45 @@
     "chapterLoadError": "Не удалось загрузить главу комикса."
   },
 
-
   "wiki": {
     "category": "Wiki",
     "title": "Персонажи",
     "description": "Персонажи моих историй и миров.",
     "empty": "Пока нет персонажей для отображения.",
     "loadError": "Не удалось загрузить персонажей."
+  },
+
+  "character": {
+    "pageNavigation": "Навигация",
+    "personality": "Личность",
+    "appearance": "Внешность",
+    "story": "История",
+    "abilities": "Способности",
+    "relationships": "Отношения",
+    "gallery": "Галерея",
+    "fields": {
+      "gender": "Пол",
+      "birthDate": "Дата рождения",
+      "birthPlace": "Место рождения",
+      "age": "Возраст",
+      "height": "Рост",
+      "weight": "Вес",
+      "status": "Статус",
+      "hairColor": "Цвет волос",
+      "eyeColor": "Цвет глаз",
+      "bloodType": "Группа крови",
+      "residence": "Место жительства",
+      "clan": "Клан",
+      "affiliation": "Принадлежность",
+      "occupation": "Род деятельности",
+      "rank": "Ранг",
+      "natureElements": "Стихии",
+      "kekkeiGenkai": "Кеккей Генкай",
+      "summoning": "Призыв",
+      "magic": "Магия"
+    }
   }
+
 
 
 }

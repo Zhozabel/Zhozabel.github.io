@@ -377,6 +377,84 @@
     "file": ""
   },
   {
+    "id": "zhozabel-de-lee-phineas-and-ferb",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Phineas & Ferb",
+      "ru": "Финес и Ферб"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zhozabel-de-lee-my-little-pony",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "My Little Pony: Friendship is Magic",
+      "ru": "Мой маленький пони: Дружба — это чудо"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zhozabel-de-lee-minecraft",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Minecraft",
+      "ru": "Minecraft"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zhozabel-de-lee-mashle",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "images/illustrations/illustration-MashleZhozabel.png",
+    "file": "data/characters/zhozabel-de-lee-mashle/character.json"
+  },
+  {
+    "id": "zhozabel-de-lee-winx",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Naruto x Winx club",
+      "ru": "Наруто x Клуб Winx"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "zhozabel-de-lee-sailor-moon",
+    "name": {
+      "en": "Zhozabel' de'Lee",
+      "ru": "Жозабель де Ли"
+    },
+    "fandom": {
+      "en": "Pretty Guardian Sailor Moon",
+      "ru": "Красавица-воин Сейлор Мун"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
     "id": "venomancer",
     "name": {
       "en": "Venomancer",

@@ -1,0 +1,96 @@
+
+{
+  "basic": {
+    "gender": "Женщина",
+    "status": "Жива",
+    "hairColor": "Карамельный",
+    "eyeColor": "Зелёный",
+    "affiliation": "Академия магии Истона",
+    "occupation": "Ученица второго курса",
+    "magic": {
+      "constellation-magic": "Магия созвездий"
+    }
+  },
+  "connections": {
+    "team": {
+      "adler-team": "Команда Адлера"
+    },
+    "relations": {
+      "father": "Отец",
+      "mother": "Мать",
+      "cousin": "Кузен",
+      "cousin-feminine": "Кузина"
+    },
+    "roles": {
+      "team-captain": "Капитан команды",
+      "forward": "Нападающий",
+      "setter": "Связующий",
+      "goalkeeper": "Вратарь",
+      "defender": "Защитник"
+    }
+  },
+  "forms": {
+    "season-1": {
+      "name": "Первый сезон",
+      "basic": {
+        "residence": "Место жительства",
+        "occupation": "Профессия",
+        "rank": "Ранг"
+      },
+      "appearance": [],
+      "personality": [],
+      "story": {
+        "past": {
+          "title": "Прошлое",
+          "paragraphs": [
+            "События прошлого"
+          ]
+        },
+        "divine-visionary-selection-exam": {
+          "title": "Экзамен на звание Божественного провидца",
+          "paragraphs": [
+            "События арки"
+          ]
+        },
+        "tri-magic-athalon-final-exam": {
+          "title": "Финальный экзамен Трёхмагического турнира",
+          "paragraphs": [
+            "События арки"
+          ]
+        },
+        "invasion-of-the-magic-capital": {
+          "title": "Вторжение в магическую столицу",
+          "paragraphs": [
+            "События арки"
+          ]
+        }
+      },
+      "equipment": {
+        "main-equipment": {
+          "name": "Снаряжение",
+          "description": [
+            "Описание оружия и снаряжения."
+          ]
+        }
+      },
+      "abilities": {
+        "main-abilities": {
+          "name": "Способности",
+          "description": [
+            "Описание способностей."
+          ]
+        }
+      }
+    }
+  },
+  "relationships": {
+    "dot-barret": {
+      "name": "Дот Баррет",
+      "description": "Описание их отношений."
+    },
+    "mash-burnedead": {
+      "name": "Мэш Бёрндэд",
+      "description": "Описание их отношений."
+    }
+  }
+}

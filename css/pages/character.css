@@ -4,7 +4,6 @@
 
 .character_page {
   width: min(100% - 40px, 1050px);
-
   margin: 60px auto 100px;
 }
 
@@ -15,27 +14,21 @@
 
 .character_header {
   text-align: center;
-
   margin-bottom: 35px;
 }
 
 .character_fandom {
   margin: 0 0 8px;
-
   color: var(--secondary_text);
-
   font-size: 13px;
   font-weight: 700;
-
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .character_title {
   margin: 0;
-
   color: var(--primary_text);
-
   font-size: 42px;
   font-weight: 700;
 }
@@ -47,29 +40,19 @@
 
 .character_forms {
   display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-
   margin-bottom: 30px;
 }
 
 .character_form {
   display: block;
-
   padding: 0;
-
   overflow: hidden;
-
   background: var(--card);
-
   border: 2px solid transparent;
   border-radius: 18px;
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     background 0.2s ease,
@@ -78,7 +61,6 @@
 
 .character_form:hover {
   background: var(--card_hover);
-
   transform: translateY(-3px);
 }
 
@@ -88,25 +70,18 @@
 
 .character_form-image {
   display: block;
-
   width: 100%;
-
   aspect-ratio: 4 / 3;
-
   object-fit: cover;
   object-position: center top;
 }
 
 .character_form-name {
   display: block;
-
   padding: 11px 8px 13px;
-
   color: var(--primary_text);
-
   font-size: 13px;
   font-weight: 700;
-
   text-align: center;
 }
 
@@ -117,13 +92,8 @@
 
 .character_overview {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(300px, 0.8fr);
-
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
   gap: 25px;
-
   margin-bottom: 30px;
 }
 
@@ -132,24 +102,26 @@
    PORTRAIT
 ======================================== */
 
+
 .character_portrait {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 2 / 3;
+  margin: 0 auto;
   overflow: hidden;
-
-  background: var(--card);
-
   border-radius: 24px;
 }
 
 .character_portrait img {
   display: block;
-
   width: 100%;
-
-  aspect-ratio: 4 / 5;
-
+  height: 100%;
   object-fit: cover;
   object-position: center top;
+  border-radius: 24px;
 }
+
+
 
 
 /* ========================================
@@ -159,7 +131,6 @@
 .character_overview-side {
   display: flex;
   flex-direction: column;
-
   gap: 20px;
 }
 
@@ -170,20 +141,17 @@
 
 .character_card {
   padding: 25px;
-
   background: var(--card);
-
   border-radius: 22px;
 }
 
 .character_card-title {
   margin: 0 0 20px;
-
   color: var(--primary_text);
-
   font-size: 19px;
   font-weight: 700;
 }
+
 
 
 /* ========================================
@@ -193,19 +161,15 @@
 .character_details {
   display: flex;
   flex-direction: column;
-
   margin: 0;
+  white-space: pre-line;
 }
 
 .character_details > div {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 15px;
-
   padding: 10px 0;
-
   border-bottom: 1px solid
   color-mix(
     in srgb,
@@ -220,24 +184,19 @@
 
 .character_details > div:last-child {
   padding-bottom: 0;
-
   border-bottom: none;
 }
 
 .character_details dt {
   color: var(--secondary_text);
-
   font-size: 12px;
 }
 
 .character_details dd {
   margin: 0;
-
   color: var(--primary_text);
-
   font-size: 13px;
   font-weight: 600;
-
   text-align: right;
 }
 
@@ -249,28 +208,19 @@
 .character_nav {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
-
   gap: 8px;
-
   margin-bottom: 60px;
 }
 
 .character_nav a {
   padding: 9px 15px;
-
   background: var(--card);
-
   border-radius: 999px;
-
   color: var(--secondary_text);
-
   font-size: 13px;
   font-weight: 600;
-
   text-decoration: none;
-
   transition:
     background 0.2s ease,
     color 0.2s ease;
@@ -278,7 +228,6 @@
 
 .character_nav a:hover {
   background: var(--card_hover);
-
   color: var(--primary_text);
 }
 
@@ -289,18 +238,43 @@
 
 .character_section {
   margin-bottom: 60px;
-
   scroll-margin-top: 30px;
 }
 
 .character_section-title {
   margin: 0 0 25px;
-
   color: var(--primary_text);
-
   font-size: 28px;
   font-weight: 700;
 }
+
+
+/* ========================================
+   CHARACTER TEXT COLORS
+======================================== */
+
+.character_section-text,
+.character_article-text {
+  color: var(--secondary_text);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.character_section-text p,
+.character_article-text p {
+  color: inherit;
+}
+
+.character_section-text p:last-child,
+.character_article-text p:last-child {
+  margin-bottom: 0;
+}
+
+.character_section-text a,
+.character_article-text a {
+  color: var(--primary);
+}
+
 
 
 /* ========================================
@@ -317,16 +291,13 @@
 
 .character_article-title {
   margin: 0 0 15px;
-
   color: var(--primary_text);
-
   font-size: 20px;
   font-weight: 700;
 }
 
 .character_article-text {
   color: var(--secondary_text);
-
   font-size: 15px;
   line-height: 1.8;
 }
@@ -346,27 +317,18 @@
 
 .character_relationships {
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 15px;
 }
 
 .character_relationship {
   display: flex;
   align-items: center;
-
   gap: 15px;
-
   padding: 14px;
-
   background: var(--card);
-
   border-radius: 18px;
-
   text-decoration: none;
-
   transition:
     transform 0.2s ease,
     background 0.2s ease;
@@ -374,18 +336,14 @@
 
 .character_relationship:hover {
   background: var(--card_hover);
-
   transform: translateY(-3px);
 }
 
 .character_relationship-image {
   width: 65px;
   height: 65px;
-
   flex-shrink: 0;
-
   border-radius: 13px;
-
   object-fit: cover;
 }
 
@@ -393,46 +351,107 @@
   min-width: 0;
 }
 
+
+/* ========================================
+   RELATIONSHIPS
+======================================== */
+
+.character_relationships {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.character_relationship {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 22px;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.character_relationship:hover {
+  background: var(--card_hover);
+  transform: translateY(-3px);
+}
+
+.character_relationship-image {
+  width: 200px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.character_relationship-info {
+  min-width: 0;
+  flex: 1;
+}
+
 .character_relationship-name {
-  margin: 0 0 4px;
-
+  margin: 0 0 6px;
   color: var(--primary_text);
-
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .character_relationship-rating {
   color: var(--primary);
-
   font-size: 14px;
-
   letter-spacing: 2px;
 }
 
-.character_relationship-description {
-  margin: 5px 0 0;
 
-  color: var(--secondary_text);
-
-  font-size: 12px;
-  line-height: 1.5;
+.character_relationship-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
 }
+
+.character_relationship-rating svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.character_relationship-rating .empty {
+  color: var(--primary);
+  opacity: 0.65;
+}
+
+
+.character_relationship-description {
+  margin: 8px 0 0;
+  color: var(--secondary_text);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
 
 
 /* ========================================
    GALLERY
 ======================================== */
 
+/* Слайдер */
+
 .character_gallery-slider {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 18px;
+  min-width: 0;
 }
 
-
-/* Область с работами */
+/* Сетка работ */
 
 .character_gallery-track {
   display: grid;
@@ -441,8 +460,66 @@
   min-width: 0;
 }
 
+/* Карточки одинакового размера.
+   Центр-кроп изображений выполняется через object-fit. */
 
-/* Если на последней странице меньше 4 работ */
+.character_gallery-item {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Поддержка общего класса карточки контента */
+
+.character_gallery-item.art_card {
+  width: 100%;
+}
+
+/* Изображения и видео */
+
+.character_gallery-item img,
+.character_gallery-item video,
+.character_gallery-item .art_card_image,
+.character_gallery-item .art_card_video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.25s ease;
+}
+
+/* Если изображение является ссылкой */
+
+.character_gallery-item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Эффект при наведении */
+
+.character_gallery-item img,
+.character_gallery-item video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* На карточках с предупреждением не увеличиваем
+   размытое изображение при наведении */
+
+.character_gallery-item.is_blurred:hover img,
+.character_gallery-item.is_blurred:hover video {
+  transform: scale(1.05);
+}
+
+/* Страница галереи, где меньше четырёх работ */
 
 .character_gallery-track--short {
   display: flex;
@@ -451,44 +528,8 @@
 
 .character_gallery-track--short .character_gallery-item {
   width: calc((100% - 45px) / 4);
+  flex: 0 1 calc((100% - 45px) / 4);
 }
-
-
-/* Карточка работы */
-
-.character_gallery-item {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  background: var(--card);
-  border-radius: 18px;
-  aspect-ratio: 1 / 1;
-  text-decoration: none;
-}
-
-
-/* Изображение */
-
-.character_gallery-item img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-
-/* Наведение */
-
-.character_gallery-item:hover img {
-  transform: scale(1.04);
-}
-
 
 /* Стрелки */
 
@@ -496,26 +537,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   width: 44px;
   height: 44px;
-
   padding: 0;
-
   border: none;
   border-radius: 50%;
-
   background: var(--card);
   color: var(--primary_text);
-
   font-family: inherit;
   font-size: 22px;
   line-height: 1;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     transform 0.2s ease,
@@ -524,6 +557,7 @@
 
 .character_gallery-arrow:hover:not(:disabled) {
   background: var(--card_hover);
+  color: var(--primary);
   transform: scale(1.05);
 }
 
@@ -532,118 +566,61 @@
   cursor: default;
 }
 
-
-/* Если галерея пустая */
+/* Пустая галерея */
 
 .character_gallery-empty {
   grid-column: 1 / -1;
-
   margin: 0;
   padding: 30px;
-
   text-align: center;
   color: var(--secondary_text);
 }
 
+
 /* ========================================
-   Gallery content warning
+   GALLERY CONTENT WARNING
 ======================================== */
 
-.character_gallery-item.is_blurred img {
+/* Блюр использует существующую систему предупреждений.
+   Кнопка раскрытия — .art_reveal,
+   предупреждение — .art_warning,
+   действие — .art_reveal_action. */
+
+.character_gallery-item.is_blurred img,
+.character_gallery-item.is_blurred video {
   filter: blur(20px);
-  transform: scale(1.05);
 }
 
-.character_gallery-item.is_blurred:hover img {
-  transform: scale(1.05);
+/* Затемнение поверх размытой работы */
+
+.character_gallery-item.is_blurred .art_reveal {
+  background: rgba(0, 0, 0, 0.2);
 }
 
+/* Кнопка раскрытия занимает всю карточку */
 
-.character_gallery-reveal {
+.character_gallery-item .art_reveal {
   position: absolute;
   inset: 0;
-
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 12px;
-
+  width: 100%;
+  height: 100%;
   padding: 15px;
-
-  border-radius: 18px;
-
-  background: rgba(0, 0, 0, 0.2);
-
+  border: none;
+  border-radius: inherit;
+  background: transparent;
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
-
   cursor: pointer;
 }
 
-
-.character_gallery-warning {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 8px;
-
-  text-align: center;
-}
-
-
-.character_gallery-warning-title {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-
-.character_gallery-warning-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  gap: 6px;
-}
-
-
-.character_gallery-warning-list span {
-  padding: 4px 10px;
-
-  border-radius: 999px;
-
-  background: var(--card);
-
-  color: var(--primary_text);
-
-  font-size: 12px;
-}
-
-
-.character_gallery-reveal-action {
-  padding: 7px 12px;
-
-  border-radius: 999px;
-
-  background: var(--card);
-
-  color: var(--primary_text);
-
-  font-size: 12px;
-  font-weight: 500;
-
-  transition: 0.3s;
-}
-
-
-.character_gallery-reveal:hover
-.character_gallery-reveal-action {
-  background: var(--card_hover);
-  color: var(--secondary_text);
-}
+/* У карточек, где используется ссылка,
+   кнопка предупреждения располагается над медиа */
 
 
 /* ========================================
@@ -657,16 +634,13 @@
   }
 
   .character_portrait {
-    max-width: 600px;
-
     width: 100%;
-
+    max-width: 600px;
     margin: 0 auto;
   }
 
   .character_forms {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .character_gallery-slider {
@@ -674,28 +648,26 @@
   }
 
   .character_gallery-track {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
   .character_gallery-track--short {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .character_gallery-track--short
-  .character_gallery-item {
-    width: auto;
+  .character_gallery-track--short .character_gallery-item {
+    width: calc((100% - 12px) / 2);
+    flex: 0 1 calc((100% - 12px) / 2);
   }
 
   .character_gallery-arrow {
     width: 40px;
     height: 40px;
-
     font-size: 20px;
   }
-
 }
 
 
@@ -707,7 +679,6 @@
 
   .character_page {
     width: min(100% - 30px, 500px);
-
     margin-top: 40px;
     margin-bottom: 70px;
   }
@@ -722,7 +693,6 @@
 
   .character_forms {
     gap: 8px;
-
     margin-bottom: 20px;
   }
 
@@ -732,13 +702,11 @@
 
   .character_form-name {
     padding: 9px 5px 11px;
-
     font-size: 11px;
   }
 
   .character_overview {
     gap: 15px;
-
     margin-bottom: 25px;
   }
 
@@ -748,7 +716,6 @@
 
   .character_card {
     padding: 20px;
-
     border-radius: 18px;
   }
 
@@ -758,7 +725,6 @@
 
   .character_nav {
     justify-content: flex-start;
-
     margin-bottom: 45px;
   }
 
@@ -797,7 +763,6 @@
   .character_gallery-arrow {
     width: 34px;
     height: 34px;
-
     font-size: 18px;
   }
 
@@ -805,6 +770,10 @@
     border-radius: 14px;
   }
 
+  .character_gallery-track--short .character_gallery-item {
+    width: calc((100% - 10px) / 2);
+    flex-basis: calc((100% - 10px) / 2);
+  }
 }
 
 
@@ -815,13 +784,25 @@
 @media (max-width: 400px) {
 
   .character_forms {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .character_details > div {
-    grid-template-columns:
-      1fr 1.2fr;
+    grid-template-columns: 1fr 1.2fr;
   }
 
+  .character_gallery-slider {
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    gap: 5px;
+  }
+
+  .character_gallery-track {
+    gap: 8px;
+  }
+
+  .character_gallery-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
 }

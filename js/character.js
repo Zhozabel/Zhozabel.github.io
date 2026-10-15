@@ -1,3 +1,8 @@
+
+// ========================================
+// CHARACTER PAGE
+// ========================================
+
 const characterFandom = document.querySelector("#characterFandom");
 const characterTitle = document.querySelector("#characterTitle");
 
@@ -10,6 +15,14 @@ const characterConnections = document.querySelector("#characterConnections");
 const characterPersonality = document.querySelector("#characterPersonality");
 const characterAppearance = document.querySelector("#characterAppearance");
 
+// Новые динамические контейнеры из character.html.
+// Старые элементы истории и способностей оставлены как fallback.
+const characterStorySections =
+  document.querySelector("#characterStorySections");
+
+const characterAbilitiesSections =
+  document.querySelector("#characterAbilitiesSections");
+
 const characterPast = document.querySelector("#characterPast");
 const characterSeason1 = document.querySelector("#characterSeason1");
 const characterSeason2 = document.querySelector("#characterSeason2");
@@ -20,26 +33,23 @@ const characterAbilities = document.querySelector("#characterAbilities");
 const characterWeapons = document.querySelector("#characterWeapons");
 
 const characterRelationships = document.querySelector("#characterRelationships");
-
 const characterGallery = document.querySelector("#characterGallery");
 
 const GALLERY_PAGE_SIZE = 4;
 
-const warningLabels = {
-  ambiguity: "Ambiguity",
-  problematic: "Problematic",
-  kissing: "Passionate kiss",
-  blood: "Blood",
-  violence: "Violence",
-  gore: "Gore",
-  nudity: "Nudity",
-  risque: "Risqué humor",
-  sex: "Sexual content",
-  death: "Death"
-};
+const CHARACTER_FILES = [
+  "../data/canon-characters.json",
+  "../data/original-characters.json",
+  "../data/other-characters.json"
+];
 
 let currentCharacter = null;
+let currentCharacterData = null;
+let currentTextData = null;
+let currentCharacters = [];
+
 let currentForm = null;
+let currentForms = [];
 
 let galleryWorks = [];
 let galleryPage = 0;
@@ -47,398 +57,811 @@ let galleryPage = 0;
 let galleryPreviousButton = null;
 let galleryNextButton = null;
 
-/* =========================
-   Загрузка данных
-========================= */
+let initializationId = 0;
 
-async function loadCharacters() {
-  const response = await fetch("../data/characters.json");
 
-  if (!response.ok) {
-    throw new Error("Не удалось загрузить characters.json");
+// ========================================
+// LANGUAGE
+// ========================================
+
+function getCurrentLanguage() {
+  return document.documentElement.lang === "ru" ? "ru" : "en";
+}
+
+
+function getCharacterTranslation(key) {
+  const translations = window.siteTranslations || {};
+
+  return key.split(".").reduce(
+    (value, part) => value?.[part],
+    translations
+  );
+}
+
+
+function getLocalizedText(value) {
+  if (typeof value === "string" || typeof value === "number") {
+    return String(value);
   }
 
-  return await response.json();
-}
-
-
-async function loadCharacterFile(file) {
-  const response = await fetch(`../data/${file}`);
-
-  if (!response.ok) {
-    throw new Error(`Не удалось загрузить файл персонажа: ${file}`);
-  }
-
-  return await response.json();
-}
-
-
-async function loadWorks(file, type) {
-  const response = await fetch(`../data/${file}`);
-
-  if (!response.ok) {
-    throw new Error(`Не удалось загрузить ${file}`);
-  }
-
-  const data = await response.json();
-
-  return data.map(work => ({
-    ...work,
-    type
-  }));
-}
-
-
-/* =========================
-   URL
-========================= */
-
-function getCharacterId() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("character");
-}
-
-
-/* =========================
-   Поиск персонажа
-========================= */
-
-function findCharacter(characters, characterId) {
-  return characters.find(character => {
-    return character.id === characterId;
-  });
-}
-
-
-/* =========================
-   Изображения
-========================= */
-
-function getImagePath(path) {
-  if (!path) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
     return "";
   }
 
-  if (
-    path.startsWith("http://") ||
-    path.startsWith("https://")
-  ) {
+  const language = getCurrentLanguage();
+
+  return value[language] ?? value.en ?? value.ru ?? "";
+}
+
+
+function getLabel(key, fallback = "") {
+  const value = getCharacterTranslation(`character.fields.${key}`);
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  return fallback;
+}
+
+
+// ========================================
+// URLS AND IMAGES
+// ========================================
+
+function getCharacterId() {
+  return new URLSearchParams(window.location.search).get("character");
+}
+
+
+function getImagePath(path) {
+  if (!path || typeof path !== "string") {
+    return "";
+  }
+
+  if (/^(https?:\/\/|data:|blob:)/i.test(path)) {
     return path;
   }
 
-  // В JSON путь начинается с image/,
-  // а фактическая папка на сайте называется images/
   path = path.replace(/^image\//, "images/");
 
-  return `../${path}`;
+  return `../${path.replace(/^\/+/, "")}`;
 }
 
-function renderWarnings(warnings) {
-  if (!warnings || warnings.length === 0) {
-    return "";
+
+function getTextFilePath(file, language) {
+  return `../${file
+    .replace(/^\/+/, "")
+    .replace(/character\.json$/, `text-${language}.json`)}`;
+}
+
+
+// ========================================
+// DATA LOADING
+// ========================================
+
+async function fetchJSON(path) {
+  const response = await fetch(path);
+
+  if (!response.ok) {
+    throw new Error(`Не удалось загрузить файл: ${path}`);
   }
 
-  const warningText = warnings
-    .map(warning => warningLabels[warning] ?? warning)
-    .join(", ");
-
-  return `
-    <span class="character_gallery-warning">
-      ⚠ Content warning: ${warningText}
-    </span>
-  `;
+  return response.json();
 }
 
-/* =========================
-   Текст
-========================= */
+
+async function loadCharacters() {
+  const catalogues = await Promise.all(
+    CHARACTER_FILES.map(fetchJSON)
+  );
+
+  return catalogues
+    .flat()
+    .filter(character =>
+      character &&
+      typeof character.id === "string" &&
+      character.id.trim() !== ""
+    );
+}
+
+
+
+async function loadCharacterFile(file) {
+  return fetchJSON(`../${file.replace(/^\/+/, "")}`);
+}
+
+
+async function loadCharacterTexts(file, language) {
+  return fetchJSON(getTextFilePath(file, language));
+}
+
+
+
+function findCharacter(characters, characterId) {
+  return characters.find(character =>
+    character.id === characterId &&
+    typeof character.file === "string" &&
+    character.file.trim() !== ""
+  );
+}
+
+
+
+function findCatalogCharacter(characterId) {
+  return currentCharacters.find(character => character.id === characterId);
+}
+
+
+// ========================================
+// GENERAL HELPERS
+// ========================================
+
+function hasContent(value) {
+  if (Array.isArray(value)) {
+    return value.some(hasContent);
+  }
+
+  if (value && typeof value === "object") {
+    return Object.values(value).some(hasContent);
+  }
+
+  return value !== null &&
+    value !== undefined &&
+    String(value).trim() !== "";
+}
+
 
 function renderText(element, value) {
   if (!element) {
     return;
   }
 
-  element.innerHTML = "";
+  element.replaceChildren();
 
-  if (!value) {
-    return;
-  }
+  const values = Array.isArray(value)
+    ? value
+    : value !== null && value !== undefined
+      ? [value]
+      : [];
 
-  if (Array.isArray(value)) {
-    value.forEach(paragraph => {
-      const p = document.createElement("p");
-      p.textContent = paragraph;
-      element.appendChild(p);
-    });
+  values.forEach(item => {
+    const text = getLocalizedText(item);
 
-    return;
-  }
+    if (!text) {
+      return;
+    }
 
-  const p = document.createElement("p");
-  p.textContent = value;
-  element.appendChild(p);
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+
+    element.appendChild(paragraph);
+  });
 }
 
 
-/* =========================
-   Форматирование значений
-========================= */
+function renderParagraphs(element, paragraphs) {
+  renderText(element, paragraphs);
+}
 
-function formatValue(value) {
+
+function appendDetailRow(container, label, value) {
+  if (!container || !hasContent(value)) {
+    return;
+  }
+
+  const row = document.createElement("div");
+  row.className = "character_detail";
+
+  const term = document.createElement("dt");
+  term.textContent = label;
+
+  const description = document.createElement("dd");
+  description.textContent = value;
+
+  row.append(term, description);
+  container.appendChild(row);
+}
+
+
+// ========================================
+// LOCALIZED DATA VALUES
+// ========================================
+
+// Преобразует коды из character.json в подписи из text-ru/en.json.
+// Поддерживает строки, массивы кодов и словари переводов.
+
+
+function resolveDataValue(value, dictionary) {
   if (value === null || value === undefined || value === "") {
-    return "—";
+    return "";
   }
 
   if (Array.isArray(value)) {
-    if (value.length === 0) {
-      return "—";
-    }
-
-    return value.join(", ");
+    return value
+      .map(item => resolveDataValue(item, dictionary))
+      .filter(Boolean)
+      .join(", ");
   }
 
-  return value;
+  if (typeof value === "object") {
+    return getLocalizedText(value);
+  }
+
+  // В языковом JSON может быть уже готовый перевод:
+  // gender: "Female", hairColor: "Caramel".
+  if (typeof dictionary === "string") {
+    return dictionary;
+  }
+
+  // Или словарь кодов:
+  // magic: { "constellation-magic": "Constellation Magic" }.
+  if (
+    dictionary &&
+    typeof dictionary === "object" &&
+    Object.prototype.hasOwnProperty.call(dictionary, String(value))
+  ) {
+    return resolveDataValue(dictionary[String(value)]);
+  }
+
+  // Если перевода нет, показываем исходное значение.
+  return String(value);
 }
 
 
-/* =========================
-   Основная информация
-========================= */
 
-function renderDetails(basic) {
-  characterDetails.innerHTML = "";
+// ========================================
+// BASIC INFORMATION
+// ========================================
 
-  const details = [
-    ["Пол", basic.gender],
-    ["Дата рождения", basic.birthDate],
-    ["Место рождения", basic.birthPlace],
-    ["Возраст", basic.age],
-    ["Рост", basic.height],
-    ["Вес", basic.weight],
-    ["Статус", basic.status],
-    ["Место жительства", basic.residence],
-    ["Клан", basic.clan],
-    ["Принадлежность", basic.affiliation],
-    ["Профессия", basic.occupation],
-    ["Ранг", basic.rank],
-    ["Стихии природы", basic.natureElements],
-    ["Кеккей генкай", basic.kekkeiGenkai],
-    ["Призыв", basic.summoning]
-  ];
+const DETAIL_FIELDS = [
+  ["gender", "Пол", "Gender"],
+  ["birthDate", "Дата рождения", "Date of birth"],
+  ["birthPlace", "Место рождения", "Place of birth"],
+  ["age", "Возраст", "Age"],
+  ["height", "Рост", "Height"],
+  ["weight", "Вес", "Weight"],
+  ["status", "Статус", "Status"],
+  ["hairColor", "Цвет волос", "Hair color"],
+  ["eyeColor", "Цвет глаз", "Eye color"],
+  ["bloodType", "Группа крови", "Blood type"],
+  ["residence", "Место жительства", "Residence"],
+  ["clan", "Клан", "Clan"],
+  ["affiliation", "Принадлежность", "Affiliation"],
+  ["occupation", "Профессия", "Occupation"],
+  ["rank", "Ранг", "Rank"],
+  ["natureElements", "Стихии природы", "Nature types"],
+  ["kekkeiGenkai", "Кеккей генкай", "Kekkei genkai"],
+  ["summoning", "Призыв", "Summoning"],
+  ["magic", "Магия", "Magic"]
+];
 
-  details.forEach(([label, value]) => {
-    if (
-      value === undefined ||
-      value === null ||
-      value === "" ||
-      (Array.isArray(value) && value.length === 0)
-    ) {
-      return;
-    }
 
-    const row = document.createElement("div");
-    row.className = "character_detail";
+function formatBirthDate(value) {
+  if (!value || typeof value !== "object") {
+    return getLocalizedText(value);
+  }
 
-    const term = document.createElement("dt");
-    term.textContent = label;
+  const {day, month, year} = value;
 
-    const description = document.createElement("dd");
-    description.textContent = formatValue(value);
+  const monthNames = {
+    ru: [
+      "января", "февраля", "марта", "апреля",
+      "мая", "июня", "июля", "августа",
+      "сентября", "октября", "ноября", "декабря"
+    ],
+    en: [
+      "January", "February", "March", "April",
+      "May", "June", "July", "August",
+      "September", "October", "November", "December"
+    ]
+  };
 
-    row.appendChild(term);
-    row.appendChild(description);
+  const language = getCurrentLanguage();
+  const monthName = monthNames[language][Number(month) - 1];
 
-    characterDetails.appendChild(row);
-  });
+  if (!day && !monthName && !year) {
+    return "";
+  }
+
+  if (language === "ru") {
+    return [
+      day ? `${day}${monthName ? " " : ""}` : "",
+      monthName || "",
+      year || ""
+    ].filter(Boolean).join(" ").trim();
+  }
+
+  return [
+    monthName || "",
+    day ? `${day}${year ? "," : ""}` : "",
+    year || ""
+  ].filter(Boolean).join(" ").trim();
 }
 
 
-/* =========================
-   Связи
-========================= */
-
-function renderConnections(connections) {
-  characterConnections.innerHTML = "";
-
-  if (!connections) {
+function renderDetails() {
+  if (!characterDetails || !currentCharacterData) {
     return;
   }
 
-  const details = [
-    ["Команда", connections.team],
-    ["Товарищи", connections.comrades],
-    ["Клан", connections.clan],
-    ["Родственники", connections.relatives]
-  ];
+  characterDetails.replaceChildren();
 
-  details.forEach(([label, value]) => {
-    if (
-      value === undefined ||
-      value === null ||
-      value === "" ||
-      (Array.isArray(value) && value.length === 0)
-    ) {
+  const language = getCurrentLanguage();
+  const mainBasic = currentCharacterData.basic || {};
+  const formBasic = currentForm?.basic || {};
+  const dictionaries = currentTextData?.basic || {};
+  const formLabels = currentTextData?.forms?.[currentForm?.id]?.basic || {};
+
+  DETAIL_FIELDS.forEach(([key, ruLabel, enLabel]) => {
+    // null в форме означает «использовать основное значение».
+    const formValue = formBasic[key];
+    const mainValue = mainBasic[key];
+
+    const value = formValue !== null && formValue !== undefined
+      ? formValue
+      : mainValue;
+
+    if (!hasContent(value)) {
       return;
     }
 
-    const row = document.createElement("div");
-    row.className = "character_detail";
+    let formattedValue;
 
-    const term = document.createElement("dt");
-    term.textContent = label;
+    if (key === "birthDate") {
+      formattedValue = formatBirthDate(value);
+    } else {
+      formattedValue = resolveDataValue(value, dictionaries[key]);
+    }
 
-    const description = document.createElement("dd");
-    description.textContent = formatValue(value);
+    const label = formLabels[key] ||
+      getLabel(key, language === "ru" ? ruLabel : enLabel);
 
-    row.appendChild(term);
-    row.appendChild(description);
-
-    characterConnections.appendChild(row);
+    appendDetailRow(characterDetails, label, formattedValue);
   });
 }
 
 
-/* =========================
-   Карточка формы / эпохи
-========================= */
+// ========================================
+// CONNECTIONS
+// ========================================
+
+function getCatalogName(characterId) {
+  const character = findCatalogCharacter(characterId);
+
+  return character ? getLocalizedText(character.name) : characterId;
+}
+
+
+function renderConnectionList(items, getText) {
+  if (!Array.isArray(items)) {
+    return "";
+  }
+
+  return items
+    .map(item => {
+      const text = getText(item);
+      return text ? String(text) : "";
+    })
+    .filter(Boolean)
+    .join(",\n");
+}
+
+
+function renderConnections(connections = {}) {
+  if (!characterConnections) {
+    return;
+  }
+
+  characterConnections.replaceChildren();
+
+  const language = getCurrentLanguage();
+  const dictionaries = currentTextData?.connections || {};
+
+  const labels = {
+    team: language === "ru" ? "Команда" : "Team",
+    comrades: language === "ru" ? "Товарищи" : "Teammates",
+    clan: language === "ru" ? "Клан" : "Clan",
+    relatives: language === "ru" ? "Родственники" : "Relatives"
+  };
+
+  const team = connections.team
+    ? resolveDataValue(connections.team, dictionaries.team)
+    : "";
+
+  appendDetailRow(characterConnections, labels.team, team);
+
+  const relatives = renderConnectionList(
+    connections.relatives,
+    item => {
+      if (!item || typeof item !== "object") {
+        return getLocalizedText(item);
+      }
+
+      const name = getCatalogName(item.id);
+      const relation = resolveDataValue(item.relation, dictionaries.relations);
+
+      return relation ? `${name} (${relation})` : name;
+    }
+  );
+
+  appendDetailRow(characterConnections, labels.relatives, relatives);
+
+  const comrades = renderConnectionList(
+    connections.comrades,
+    item => {
+      if (!item || typeof item !== "object") {
+        return getLocalizedText(item);
+      }
+
+      const name = getCatalogName(item.id);
+      const role = resolveDataValue(item.role, dictionaries.roles);
+
+      return role ? `${name} (${role})` : name;
+    }
+  );
+
+  appendDetailRow(characterConnections, labels.comrades, comrades);
+
+  const clan = resolveDataValue(connections.clan);
+  appendDetailRow(characterConnections, labels.clan, clan);
+}
+
+
+// ========================================
+// FORM SWITCHER
+// ========================================
+
+function getFormTextData(form) {
+  return currentTextData?.forms?.[form?.id] || {};
+}
+
+
+function getFormName(form) {
+  return getLocalizedText(getFormTextData(form).name) ||
+    getLocalizedText(form?.name) ||
+    form?.id ||
+    "";
+}
+
 
 function createFormButton(form, index) {
   const button = document.createElement("button");
 
   button.type = "button";
   button.className = "character_form";
+  button.setAttribute("aria-pressed", String(form.id === currentForm?.id));
 
-  if (index === 0) {
+  if (form.id === currentForm?.id || (!currentForm && index === 0)) {
     button.classList.add("active");
   }
 
   const image = document.createElement("img");
   image.className = "character_form-image";
-  image.src = getImagePath(form.portrait);
-  image.alt = form.name || "";
+
+  const portrait = form.portrait || currentCharacter?.portrait;
+
+  if (portrait) {
+    image.src = getImagePath(portrait);
+  }
+
+  image.alt = getFormName(form);
+  image.loading = "lazy";
 
   const name = document.createElement("span");
   name.className = "character_form-name";
-  name.textContent = form.name || "";
+  name.textContent = getFormName(form);
 
-  button.appendChild(image);
-  button.appendChild(name);
+  button.append(image, name);
 
   button.addEventListener("click", () => {
-    selectForm(form, button);
+    selectForm(form);
   });
 
   return button;
 }
 
 
-/* =========================
-   Формы / эпохи
-========================= */
-
-function renderForms(forms) {
-  characterForms.innerHTML = "";
-
-  /*
-   * Если форм нет или есть только одна,
-   * переключатель вообще не показываем.
-   */
-  if (!Array.isArray(forms) || forms.length <= 1) {
-    characterForms.style.display = "none";
+function renderForms() {
+  if (!characterForms) {
     return;
   }
 
-  characterForms.style.display = "";
+  characterForms.replaceChildren();
 
-  forms.forEach((form, index) => {
-    characterForms.appendChild(
-      createFormButton(form, index)
-    );
+  if (currentForms.length <= 1) {
+    characterForms.hidden = true;
+    return;
+  }
+
+  characterForms.hidden = false;
+
+  currentForms.forEach((form, index) => {
+    characterForms.appendChild(createFormButton(form, index));
   });
 }
 
 
-function selectForm(form, button) {
-  document
-    .querySelectorAll(".character_form")
-    .forEach(item => {
-      item.classList.remove("active");
-    });
-
-  button.classList.add("active");
-
+function selectForm(form) {
   currentForm = form;
 
-  updateCharacter();
+  renderForms();
+  updatePortrait();
+  renderDetails();
 }
 
 
-/* =========================
-   Обновление страницы
-========================= */
-
-function updateCharacter() {
-  if (!currentCharacter || !currentForm) {
+function updatePortrait() {
+  if (!characterPortrait || !currentCharacter) {
     return;
   }
 
-  const basic = {
-    ...(currentCharacter.basic || {}),
-    ...(currentForm.basic || {})
-  };
+  const portrait = currentForm?.portrait || currentCharacter.portrait;
 
-  /*
-   * Портрет
-   */
-  characterPortrait.src = getImagePath(
-    currentForm.portrait || currentCharacter.portrait
-  );
+  if (portrait) {
+    characterPortrait.src = getImagePath(portrait);
+  } else {
+    characterPortrait.removeAttribute("src");
+  }
 
-  characterPortrait.alt = currentCharacter.name;
-
-  /*
-   * Основная информация
-   */
-  renderDetails(basic);
-
-  /*
-   * Личность и внешность могут зависеть от эпохи
-   */
-  renderText(
-    characterPersonality,
-    currentForm.personality || currentCharacter.personality
-  );
-
-  renderText(
-    characterAppearance,
-    currentForm.appearance || currentCharacter.appearance
-  );
+  characterPortrait.alt = getLocalizedText(currentCharacter.name);
 }
 
 
-/* =========================
-   Отношения
-========================= */
+// ========================================
+// PERSONALITY AND APPEARANCE
+// ========================================
+
+function renderFormText(key, target) {
+  if (!target) {
+    return;
+  }
+
+  target.replaceChildren();
+
+  currentForms.forEach(form => {
+    const formText = getFormTextData(form);
+    const paragraphs = formText[key];
+
+    if (!hasContent(paragraphs)) {
+      return;
+    }
+
+    const values = Array.isArray(paragraphs) ? paragraphs : [paragraphs];
+
+    values.forEach(value => {
+      const text = getLocalizedText(value);
+
+      if (!text) {
+        return;
+      }
+
+      const paragraph = document.createElement("p");
+
+      if (currentForms.length > 1) {
+        const strong = document.createElement("strong");
+        strong.textContent = `${getFormName(form)}: `;
+        paragraph.appendChild(strong);
+      }
+
+      paragraph.appendChild(document.createTextNode(text));
+      target.appendChild(paragraph);
+    });
+  });
+}
+
+
+// ========================================
+// DYNAMIC STORY SECTIONS
+// ========================================
+
+function createCharacterArticle(title, paragraphs, className = "character_article") {
+  if (!hasContent(paragraphs)) {
+    return null;
+  }
+
+  const article = document.createElement("article");
+  article.className = className;
+
+  const heading = document.createElement("h3");
+  heading.className = "character_article-title";
+  heading.textContent = title;
+
+  const textContainer = document.createElement("div");
+  textContainer.className = "character_article-text";
+
+  renderParagraphs(textContainer, paragraphs);
+
+  article.append(heading, textContainer);
+
+  return article;
+}
+
+
+function renderDynamicStory() {
+  if (!characterStorySections) {
+    return false;
+  }
+
+  characterStorySections.replaceChildren();
+
+  // Порядок ID задаётся в character.json через form.storySections.
+  // Повторяющиеся ID показываем один раз.
+  const seen = new Set();
+
+  currentForms.forEach(form => {
+    const formText = getFormTextData(form);
+    const story = formText.story || {};
+    const sectionIds = Array.isArray(form.storySections)
+      ? form.storySections
+      : Object.keys(story);
+
+    sectionIds.forEach(id => {
+      if (seen.has(id)) {
+        return;
+      }
+
+      const section = story[id];
+
+      if (!section || !hasContent(section.paragraphs)) {
+        return;
+      }
+
+      seen.add(id);
+
+      const article = createCharacterArticle(
+        getLocalizedText(section.title) || id,
+        section.paragraphs
+      );
+
+      if (article) {
+        characterStorySections.appendChild(article);
+      }
+    });
+  });
+
+  return true;
+}
+
+
+function renderLegacyStory() {
+  const legacySections = [
+    ["past", characterPast],
+    ["season1", characterSeason1],
+    ["season2", characterSeason2],
+    ["blankPeriod", characterBlankPeriod],
+    ["boruto", characterBoruto]
+  ];
+
+  legacySections.forEach(([key, element]) => {
+    if (!element) {
+      return;
+    }
+
+    element.replaceChildren();
+
+    currentForms.forEach(form => {
+      const section = getFormTextData(form).story?.[key];
+
+      if (section) {
+        renderParagraphs(element, section.paragraphs ?? section);
+      }
+    });
+  });
+}
+
+
+// ========================================
+// DYNAMIC ABILITIES AND EQUIPMENT
+// ========================================
+
+function renderNamedSections(container, idsKey, dataKey) {
+  if (!container) {
+    return false;
+  }
+
+  container.replaceChildren();
+
+  currentForms.forEach(form => {
+    const formText = getFormTextData(form);
+    const dictionary = formText[dataKey] || {};
+
+    const ids = Array.isArray(form[idsKey])
+      ? form[idsKey]
+      : Object.keys(dictionary);
+
+    ids.forEach(id => {
+      const section = dictionary[id];
+
+      if (!section || !hasContent(section.description)) {
+        return;
+      }
+
+      const article = createCharacterArticle(
+        getLocalizedText(section.name) || id,
+        section.description
+      );
+
+      if (article) {
+        container.appendChild(article);
+      }
+    });
+  });
+
+  return true;
+}
+
+
+function renderLegacyNamedSections(container, idsKey, dataKey) {
+  if (!container) {
+    return;
+  }
+
+  container.replaceChildren();
+
+  currentForms.forEach(form => {
+    const formText = getFormTextData(form);
+    const dictionary = formText[dataKey] || {};
+
+    const ids = Array.isArray(form[idsKey])
+      ? form[idsKey]
+      : Object.keys(dictionary);
+
+    ids.forEach(id => {
+      const section = dictionary[id];
+
+      if (section) {
+        const article = createCharacterArticle(
+          getLocalizedText(section.name) || id,
+          section.description
+        );
+
+        if (article) {
+          container.appendChild(article);
+        }
+      }
+    });
+  });
+}
+
+
+function renderBiography() {
+  renderFormText("personality", characterPersonality);
+  renderFormText("appearance", characterAppearance);
+
+  if (!renderDynamicStory()) {
+    renderLegacyStory();
+  }
+
+  if (!renderNamedSections(characterAbilitiesSections, "abilities", "abilities")) {
+    renderLegacyNamedSections(characterAbilities, "abilities", "abilities");
+  }
+
+  renderLegacyNamedSections(characterWeapons, "equipment", "equipment");
+}
+
+
+// ========================================
+// RELATIONSHIPS
+// ========================================
 
 function createHeartRating(rating) {
   const container = document.createElement("div");
-
   container.className = "character_relationship-rating";
 
   const total = 6;
-  const value = Math.max(
-    0,
-    Math.min(total, Number(rating) || 0)
-  );
+  const value = Math.max(0, Math.min(total, Number(rating) || 0));
 
-  for (let i = 1; i <= total; i++) {
+  for (let index = 1; index <= total; index++) {
     const heart = document.createElement("span");
+    const filled = index <= value;
 
-    heart.className = i <= value
-      ? "filled"
-      : "empty";
-
-    heart.textContent = i <= value ? "♥" : "♡";
+    heart.className = filled ? "filled" : "empty";
+    heart.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <use href="#${filled ? "heart_fill" : "heart_empty"}"></use>
+      </svg>
+    `;
 
     container.appendChild(heart);
   }
@@ -448,584 +871,476 @@ function createHeartRating(rating) {
 
 
 function renderRelationships(relationships) {
-  characterRelationships.innerHTML = "";
+  if (!characterRelationships) {
+    return;
+  }
+
+  characterRelationships.replaceChildren();
 
   if (!Array.isArray(relationships)) {
     return;
   }
 
-  relationships.forEach(relationship => {
-    const card = document.createElement("a");
+  const textRelationships = currentTextData?.relationships || {};
 
+  relationships.forEach(relationship => {
+    const characterId = relationship.character;
+    const catalogCharacter = findCatalogCharacter(characterId);
+    const localizedRelationship = textRelationships[characterId] || {};
+
+    const card = document.createElement("a");
     card.className = "character_relationship";
 
-    if (relationship.character) {
+    if (catalogCharacter) {
       card.href =
-        `character.html?character=${relationship.character}`;
+        `character.html?character=${encodeURIComponent(characterId)}`;
     } else {
-      card.href = "#";
+      card.removeAttribute("href");
     }
 
-    /*
-     * Изображение
-     */
-    if (relationship.portrait) {
+    const portrait = catalogCharacter?.portrait ||
+      localizedRelationship.portrait ||
+      relationship.portrait;
+
+    if (portrait) {
       const image = document.createElement("img");
 
       image.className = "character_relationship-image";
-
-      image.src = getImagePath(
-        relationship.portrait
-      );
-
-      image.alt = relationship.name || "";
+      image.src = getImagePath(portrait);
+      image.alt = getLocalizedText(catalogCharacter?.name) ||
+        getLocalizedText(localizedRelationship.name) ||
+        characterId;
+      image.loading = "lazy";
 
       card.appendChild(image);
     }
 
-    /*
-     * Информация
-     */
     const info = document.createElement("div");
-
     info.className = "character_relationship-info";
 
     const name = document.createElement("h3");
-
     name.className = "character_relationship-name";
-
     name.textContent =
-      relationship.name || "Без имени";
+      getLocalizedText(catalogCharacter?.name) ||
+      getLocalizedText(localizedRelationship.name) ||
+      characterId ||
+      "—";
 
     info.appendChild(name);
 
     if (relationship.rating !== undefined) {
-      info.appendChild(
-        createHeartRating(relationship.rating)
-      );
+      info.appendChild(createHeartRating(relationship.rating));
     }
 
-    if (relationship.description) {
+    if (hasContent(localizedRelationship.description)) {
       const description = document.createElement("p");
-
-      description.className =
-        "character_relationship-description";
-
-      description.textContent =
-        relationship.description;
+      description.className = "character_relationship-description";
+      description.textContent = getLocalizedText(localizedRelationship.description);
 
       info.appendChild(description);
     }
 
     card.appendChild(info);
-
     characterRelationships.appendChild(card);
   });
 }
 
 
-/* =========================
-   Галерея
-========================= */
+// ========================================
+// GALLERY
+// ========================================
 
 function createGalleryLayout() {
   if (!characterGallery) {
     return;
   }
 
-  characterGallery.innerHTML = "";
+  characterGallery.replaceChildren();
 
   const slider = document.createElement("div");
-
   slider.className = "character_gallery-slider";
 
-  /*
-   * Левая кнопка
-   */
   galleryPreviousButton = document.createElement("button");
-
   galleryPreviousButton.type = "button";
   galleryPreviousButton.className =
     "character_gallery-arrow character_gallery-arrow-prev";
 
   galleryPreviousButton.setAttribute(
     "aria-label",
-    "Предыдущие работы"
+    getCurrentLanguage() === "ru"
+      ? "Предыдущие работы"
+      : "Previous works"
   );
 
-  galleryPreviousButton.textContent = "←";
+  galleryPreviousButton.innerHTML = `
+    <svg
+      class="leftchevron"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      aria-hidden="true"
+    >
+      <use href="../images/icons/navigation.svg#chevron_left"></use>
+    </svg>
+  `;
 
-  /*
-   * Центральная область
-   */
   const track = document.createElement("div");
-
   track.className = "character_gallery-track";
   track.id = "characterGalleryTrack";
 
-  /*
-   * Правая кнопка
-   */
   galleryNextButton = document.createElement("button");
-
   galleryNextButton.type = "button";
   galleryNextButton.className =
     "character_gallery-arrow character_gallery-arrow-next";
 
   galleryNextButton.setAttribute(
     "aria-label",
-    "Следующие работы"
+    getCurrentLanguage() === "ru"
+      ? "Следующие работы"
+      : "Next works"
   );
 
-  galleryNextButton.textContent = "→";
+  galleryNextButton.innerHTML = `
+    <svg
+      class="rightchevron"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      aria-hidden="true"
+    >
+      <use href="../images/icons/navigation.svg#chevron_right"></use>
+    </svg>
+  `;
 
-  slider.appendChild(galleryPreviousButton);
-  slider.appendChild(track);
-  slider.appendChild(galleryNextButton);
-
+  slider.append(galleryPreviousButton, track, galleryNextButton);
   characterGallery.appendChild(slider);
 
-  galleryPreviousButton.addEventListener(
-    "click",
-    () => {
-      if (galleryPage > 0) {
-        galleryPage--;
-        renderGalleryPage();
-      }
+  galleryPreviousButton.addEventListener("click", () => {
+    if (galleryPage > 0) {
+      galleryPage--;
+      renderGalleryPage();
     }
-  );
+  });
 
-  galleryNextButton.addEventListener(
-    "click",
-    () => {
-      const totalPages = Math.ceil(
-        galleryWorks.length / GALLERY_PAGE_SIZE
-      );
+  galleryNextButton.addEventListener("click", () => {
+    const totalPages = Math.ceil(galleryWorks.length / GALLERY_PAGE_SIZE);
 
-      if (galleryPage < totalPages - 1) {
-        galleryPage++;
-        renderGalleryPage();
-      }
+    if (galleryPage < totalPages - 1) {
+      galleryPage++;
+      renderGalleryPage();
     }
-  );
+  });
 }
 
-
-/* =========================
-   Карточка работы
-========================= */
 
 function createGalleryItem(work) {
+  const card = document.createElement("article");
+  card.className = "art_card character_gallery-item";
+  card.dataset.id = work.id || "";
+
   const link = document.createElement("a");
+  link.className = "art_card_link";
 
-  link.className = "character_gallery-item";
+  const imagePath = getLocalizedText(work.image || work.src || work.path);
 
-  link.href =
-    `../viewer.html?type=${encodeURIComponent(work.type)}&id=${encodeURIComponent(work.id)}`;
+  const viewerUrl = new URL("viewer.html", window.location.href);
+  viewerUrl.searchParams.set("source", work.viewerSource);
+  viewerUrl.searchParams.set("id", work.id);
+
+  link.href = viewerUrl.href;
 
   const image = document.createElement("img");
-
-  image.src = getImagePath(work.image);
-  image.alt = "";
+  image.className = "art_card_image";
+  image.src = getImagePath(imagePath);
+  image.alt = getLocalizedText(currentCharacter?.name);
   image.loading = "lazy";
+  image.decoding = "async";
 
   link.appendChild(image);
+  card.appendChild(link);
 
   if (work.blur) {
-    link.classList.add("is_blurred");
+    card.classList.add("is_blurred");
 
-    const revealButton = document.createElement("button");
+    const button = document.createElement("button");
+    button.className = "art_reveal";
+    button.type = "button";
 
-    revealButton.className = "character_gallery-reveal";
-    revealButton.type = "button";
+    const language = getCurrentLanguage();
 
-    revealButton.innerHTML = `
-      ${renderWarnings(work.warnings)}
+    const revealText =
+      getCharacterTranslation("art.reveal") ||
+      (language === "ru" ? "Нажмите, чтобы открыть" : "Click to reveal");
 
-      <span class="character_gallery-reveal-action">
-        Click to reveal
-      </span>
-    `;
+    button.setAttribute("aria-label", revealText);
 
-    revealButton.addEventListener("click", event => {
-      event.preventDefault();
-      event.stopPropagation();
+    if (Array.isArray(work.warnings) && work.warnings.length > 0) {
+      const warning = document.createElement("div");
+      warning.className = "art_warning";
 
-      link.classList.remove("is_blurred");
-      revealButton.remove();
+      const title = getCharacterTranslation("art.contentWarning") ||
+        (language === "ru" ? "Предупреждение" : "Content warning");
+
+      const labels = work.warnings.map(item => {
+        const translation = getCharacterTranslation(`art.warningLabels.${item}`);
+        return typeof translation === "string" ? translation : item;
+      });
+
+      warning.textContent = `${title}: ${labels.join(", ")}`;
+      button.appendChild(warning);
+    }
+
+    const action = document.createElement("span");
+    action.className = "art_reveal_action";
+    action.textContent = revealText;
+    button.appendChild(action);
+
+    button.addEventListener("click", () => {
+      card.classList.remove("is_blurred");
+      button.remove();
     });
 
-    link.appendChild(revealButton);
+    card.appendChild(button);
   }
 
-  return link;
+  return card;
 }
 
 
-/* =========================
-   Страница галереи
-========================= */
-
 function renderGalleryPage() {
-  const track = document.querySelector(
-    "#characterGalleryTrack"
-  );
+  const track = document.querySelector("#characterGalleryTrack");
 
   if (!track) {
     return;
   }
 
-  track.innerHTML = "";
+  track.replaceChildren();
 
-  const start =
-    galleryPage * GALLERY_PAGE_SIZE;
-
-  const end =
-    start + GALLERY_PAGE_SIZE;
-
-  const pageWorks =
-    galleryWorks.slice(start, end);
+  const start = galleryPage * GALLERY_PAGE_SIZE;
+  const pageWorks = galleryWorks.slice(start, start + GALLERY_PAGE_SIZE);
 
   pageWorks.forEach(work => {
-    track.appendChild(
-      createGalleryItem(work)
-    );
+    track.appendChild(createGalleryItem(work));
   });
 
-  const totalPages = Math.ceil(
-    galleryWorks.length / GALLERY_PAGE_SIZE
+  track.classList.toggle(
+    "character_gallery-track--short",
+    pageWorks.length > 0 && pageWorks.length < GALLERY_PAGE_SIZE
   );
 
-  /*
-   * Если страница последняя и на ней
-   * меньше четырёх работ — центрируем их.
-   */
-  if (pageWorks.length < GALLERY_PAGE_SIZE) {
-    track.classList.add(
-      "character_gallery-track--short"
-    );
-  } else {
-    track.classList.remove(
-      "character_gallery-track--short"
-    );
-  }
+  const totalPages = Math.ceil(galleryWorks.length / GALLERY_PAGE_SIZE);
 
-  /*
-   * Состояние стрелок
-   */
-  galleryPreviousButton.disabled =
-    galleryPage === 0;
+  galleryPreviousButton.disabled = galleryPage === 0;
+  galleryNextButton.disabled = galleryPage >= totalPages - 1;
 
-  galleryNextButton.disabled =
-    galleryPage === totalPages - 1;
-
-  /*
-   * Если всего одна страница,
-   * стрелки не нужны.
-   */
   const showArrows = totalPages > 1;
 
-  galleryPreviousButton.style.display =
-    showArrows ? "" : "none";
-
-  galleryNextButton.style.display =
-    showArrows ? "" : "none";
+  galleryPreviousButton.hidden = !showArrows;
+  galleryNextButton.hidden = !showArrows;
 }
 
 
-/* =========================
-   Загрузка галереи персонажа
-========================= */
-
-async function loadCharacterGallery(characterName) {
-  const [artworks, gifts] = await Promise.all([
-    loadWorks("artworks.json", "art"),
-    loadWorks("gifts.json", "gift")
-  ]);
-
-  const allWorks = [
-    ...artworks,
-    ...gifts
-  ];
-
-  /*
-   * Сравниваем имя персонажа
-   * с именами в characters у работы.
-   *
-   * Регистр не имеет значения.
-   */
-  const normalizedName =
-    characterName.trim().toLowerCase();
-
-  galleryWorks = allWorks.filter(work => {
-    return (
-      Array.isArray(work.characters) &&
-      work.characters.some(name => {
-        return (
-          typeof name === "string" &&
-          name.trim().toLowerCase() === normalizedName
-        );
-      })
-    );
-  });
-
-  galleryPage = 0;
-
-  createGalleryLayout();
-
-  /*
-   * Если работ нет
-   */
-  if (galleryWorks.length === 0) {
-    const track = document.querySelector(
-      "#characterGalleryTrack"
-    );
-
-    if (track) {
-      const message = document.createElement("p");
-
-      message.className =
-        "character_gallery-empty";
-
-      message.textContent =
-        "В галерее пока ничего нет.";
-
-      track.appendChild(message);
-    }
-
-    galleryPreviousButton.style.display = "none";
-    galleryNextButton.style.display = "none";
-
+function renderGallery(gallery, resetPage = true) {
+  if (!characterGallery) {
     return;
   }
 
+  galleryWorks = Array.isArray(gallery) ? gallery : [];
+
+  if (resetPage) {
+    galleryPage = 0;
+  }
+
+  const totalPages = Math.ceil(galleryWorks.length / GALLERY_PAGE_SIZE);
+
+  if (totalPages > 0) {
+    galleryPage = Math.min(galleryPage, totalPages - 1);
+  } else {
+    galleryPage = 0;
+  }
+
+  if (galleryWorks.length === 0) {
+    characterGallery.replaceChildren();
+
+    const message = document.createElement("p");
+    message.className = "character_gallery-empty";
+    message.textContent = getCurrentLanguage() === "ru"
+      ? "Работ пока нет."
+      : "No works yet.";
+
+    characterGallery.appendChild(message);
+    return;
+  }
+
+  createGalleryLayout();
   renderGalleryPage();
 }
 
 
-/* =========================
-   Заполнение страницы
-========================= */
+// ========================================
+// LOAD ARTWORKS AND GIFTS
+// ========================================
 
-async function displayCharacter(character, characterData) {
-  currentCharacter = {
-    ...character,
-    ...characterData
-  };
+async function loadGalleryWorks(characterId) {
+  const files = [
+    {path: "../data/artworks.json", source: "artworks"},
+    {path: "../data/gifts.json", source: "gifts"}
+  ];
 
-  /*
-   * Заголовок
-   */
-  characterFandom.textContent =
-    character.fandom || "";
+  const results = await Promise.allSettled(
+    files.map(file => fetchJSON(file.path))
+  );
 
-  characterTitle.textContent =
-    character.name || "";
+  const allWorks = results.flatMap((result, index) => {
+    if (result.status !== "fulfilled") {
+      console.warn(
+        `Не удалось загрузить ${files[index].path}:`,
+        result.reason
+      );
+      return [];
+    }
 
+    return Array.isArray(result.value)
+      ? result.value.map(work => ({
+        ...work,
+        viewerSource: files[index].source
+      }))
+      : [];
+  });
 
-  /*
-   * Формы / эпохи
-   */
-  const forms = currentCharacter.forms || [];
+  const characterWorks = allWorks.filter(work =>
+    Array.isArray(work.characters) &&
+    work.characters.includes(characterId) &&
+    work.type !== "video"
+  );
 
-  renderForms(forms);
+  // Перемешиваем один раз при первой загрузке.
+  for (let i = characterWorks.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
 
-
-  /*
-   * Выбираем первую форму.
-   *
-   * Если forms отсутствует,
-   * используем данные самого персонажа.
-   */
-  if (forms.length > 0) {
-    currentForm = forms[0];
-  } else {
-    currentForm = {
-      basic: {},
-      portrait: currentCharacter.portrait,
-      personality: currentCharacter.personality,
-      appearance: currentCharacter.appearance
-    };
+    [characterWorks[i], characterWorks[j]] =
+      [characterWorks[j], characterWorks[i]];
   }
 
-
-  /*
-   * Общие данные
-   */
-  const basic = {
-    ...(currentCharacter.basic || {}),
-    ...(currentForm.basic || {})
-  };
-
-  renderDetails(basic);
-
-  renderConnections(
-    currentCharacter.connections
-  );
-
-
-  /*
-   * Текстовые разделы
-   */
-  renderText(
-    characterPersonality,
-    currentForm.personality ||
-    currentCharacter.personality
-  );
-
-  renderText(
-    characterAppearance,
-    currentForm.appearance ||
-    currentCharacter.appearance
-  );
-
-
-  /*
-   * История
-   */
-  const story =
-    currentCharacter.story || {};
-
-  renderText(
-    characterPast,
-    story.past
-  );
-
-  renderText(
-    characterSeason1,
-    story.season1
-  );
-
-  renderText(
-    characterSeason2,
-    story.season2
-  );
-
-  renderText(
-    characterBlankPeriod,
-    story.blankPeriod
-  );
-
-  renderText(
-    characterBoruto,
-    story.boruto
-  );
-
-
-  /*
-   * Способности
-   */
-  renderText(
-    characterAbilities,
-    currentCharacter.abilities
-  );
-
-  renderText(
-    characterWeapons,
-    currentCharacter.weapons
-  );
-
-
-  /*
-   * Отношения
-   */
-  renderRelationships(
-    currentCharacter.relationships
-  );
-
-
-  /*
-   * Галерея
-   *
-   * Используем NAME персонажа,
-   * потому что artworks/gifts хранят имена,
-   * а не ID.
-   */
-  await loadCharacterGallery(
-    currentCharacter.name
-  );
-
-
-  /*
-   * Обновляем портрет и данные формы
-   */
-  updateCharacter();
+  return characterWorks;
 }
 
 
-/* =========================
-   Инициализация
-========================= */
+// ========================================
+// PAGE RENDERING
+// ========================================
 
-async function initCharacterPage() {
+function updateCharacterPage(character, characterData, textData) {
+  currentCharacter = character;
+  currentCharacterData = characterData;
+  currentTextData = textData;
+
+  currentForms = Array.isArray(characterData.forms)
+    ? characterData.forms
+    : [];
+
+  const previousFormId = currentForm?.id;
+
+  currentForm =
+    currentForms.find(form => form.id === previousFormId) ||
+    currentForms[0] ||
+    null;
+
+  if (characterFandom) {
+    characterFandom.textContent = getLocalizedText(character.fandom);
+  }
+
+  if (characterTitle) {
+    characterTitle.textContent = getLocalizedText(character.name);
+  }
+
+  renderForms();
+  updatePortrait();
+  renderDetails();
+
+  renderConnections(characterData.connections || {});
+  renderBiography();
+  renderRelationships(characterData.relationships || []);
+}
+
+
+// ========================================
+// INITIALIZATION
+// ========================================
+
+async function initCharacterPage({reloadBase = false} = {}) {
+  const thisInitialization = ++initializationId;
+
   try {
-    const characterId =
-      getCharacterId();
+    const characterId = getCharacterId();
 
     if (!characterId) {
-      characterTitle.textContent =
-        "Персонаж не выбран";
+      throw new Error("Не указан ID персонажа в URL.");
+    }
 
-      characterFandom.textContent = "";
+    // Каталоги, основная анкета и галерея загружаются только один раз.
+    if (reloadBase || !currentCharacter || !currentCharacterData) {
+      currentCharacters = await loadCharacters();
 
+      const character = findCharacter(currentCharacters, characterId);
+
+      if (!character) {
+        throw new Error(`Персонаж "${characterId}" не найден в каталогах.`);
+      }
+
+      const characterData = await loadCharacterFile(character.file);
+      const works = await loadGalleryWorks(character.id);
+
+      if (thisInitialization !== initializationId) {
+        return;
+      }
+
+      currentCharacter = character;
+      currentCharacterData = characterData;
+      galleryWorks = works;
+      galleryPage = 0;
+    }
+
+    const character = currentCharacter;
+    const characterData = currentCharacterData;
+
+    const textData = await loadCharacterTexts(
+      character.file,
+      getCurrentLanguage()
+    );
+
+    if (thisInitialization !== initializationId) {
       return;
     }
 
-
-    /*
-     * Загружаем список персонажей
-     */
-    const characters =
-      await loadCharacters();
-
-
-    /*
-     * Ищем персонажа по ID из URL
-     */
-    const character =
-      findCharacter(
-        characters,
-        characterId
-      );
-
-
-    if (!character) {
-      throw new Error(
-        `Персонаж "${characterId}" не найден`
-      );
-    }
-
-
-    /*
-     * Загружаем подробный JSON
-     */
-    const characterData =
-      await loadCharacterFile(
-        character.file
-      );
-
-
-    /*
-     * Отображаем страницу
-     */
-    await displayCharacter(
-      character,
-      characterData
-    );
+    updateCharacterPage(character, characterData, textData);
+    renderGallery(galleryWorks, false);
 
   } catch (error) {
-    console.error(error);
+    console.error("Ошибка загрузки страницы персонажа:", error);
 
-    characterTitle.textContent =
-      "Не удалось загрузить персонажа";
+    if (characterTitle) {
+      characterTitle.textContent = getCurrentLanguage() === "ru"
+        ? "Не удалось загрузить персонажа"
+        : "Unable to load character";
+    }
 
-    characterFandom.textContent = "";
+    if (characterFandom) {
+      characterFandom.textContent = "";
+    }
 
     if (characterForms) {
-      characterForms.innerHTML = "";
+      characterForms.replaceChildren();
+      characterForms.hidden = true;
     }
   }
 }
 
 
 initCharacterPage();
+
+document.addEventListener("languageChanged", () => {
+  // Повторно загружаем только языковые тексты.
+  // Каталоги и галерея остаются прежними.
+  initCharacterPage();
+});

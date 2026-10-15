@@ -1,0 +1,104 @@
+
+{
+  "id": "zhozabel-de-lee-mashle",
+  "basic": {
+    "gender": "female",
+    "age": 17,
+    "status": "alive",
+    "birthDate": {
+      "day": 7,
+      "month": 7
+    },
+    "hairColor": "caramel",
+    "eyeColor": "green",
+    "height": 156,
+    "weight": 45,
+    "bloodType": "O",
+    "affiliation": "easton-magic-academy",
+    "occupation": "second-year-student",
+    "magic": [
+      "constellation-magic"
+    ]
+  },
+  "connections": {
+    "relatives": [
+      {
+        "id": "philippe-de-lee",
+        "relation": "father"
+      },
+      {
+        "id": "josephine-barrett",
+        "relation": "mother"
+      },
+      {
+        "id": "malta-barrett",
+        "relation": "cousin"
+      },
+      {
+        "id": "dot-barret",
+        "relation": "cousin"
+      }
+    ],
+    "team": "adler-team",
+    "comrades": [
+      {
+        "id": "tom-knowles",
+        "role": "team-captain"
+      },
+      {
+        "id": "kaden-ashford",
+        "role": "forward"
+      },
+      {
+        "id": "lucial-whitmore",
+        "role": "setter"
+      },
+      {
+        "id": "mathias-brooks",
+        "role": "goalkeeper"
+      },
+      {
+        "id": "silas-redford",
+        "role": "defender"
+      }
+    ]
+  },
+  "forms": [
+    {
+      "id": "season-1",
+      "portrait": "",
+      "basic": {
+        "age": null,
+        "height": null,
+        "weight": null,
+        "status": null,
+        "residence": null,
+        "occupation": null,
+        "rank": null
+      },
+      "storySections": [
+        "past",
+        "divine-visionary-selection-exam",
+        "tri-magic-athalon-final-exam",
+        "invasion-of-the-magic-capital"
+      ],
+      "equipment": [
+        "main-equipment"
+      ],
+      "abilities": [
+        "main-abilities"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "character": "dot-barret",
+      "rating": 5
+    },
+    {
+      "character": "mash-burnedead",
+      "rating": 6
+    }
+  ],
+  "gallery": []
+}

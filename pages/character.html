@@ -26,6 +26,36 @@
 
 <body>
 
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden">
+
+  <symbol id="heart_empty" viewBox="0 0 24 24">
+    <path
+      d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+  <symbol id="heart_fill" viewBox="0 0 24 24">
+    <path
+      d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001 12 20.5001 21 15.4999 21 9.49991 21 3.49988 14 2.99988 12 7.69431Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+</svg>
+
+
 <header class="header">
   <div class="container">
 
@@ -182,36 +212,39 @@
        ARTICLE NAVIGATION
   ====================================== -->
 
+
   <nav
     class="character_nav"
-    aria-label="Навигация по странице"
+    aria-label="Page navigation"
+    data-i18n-aria-label="character.pageNavigation"
   >
 
-    <a href="#personality">
+    <a href="#personality" data-i18n="character.personality">
       Личность
     </a>
 
-    <a href="#appearance">
+    <a href="#appearance" data-i18n="character.appearance">
       Внешность
     </a>
 
-    <a href="#story">
+    <a href="#story" data-i18n="character.story">
       История
     </a>
 
-    <a href="#abilities">
+    <a href="#abilities" data-i18n="character.abilities">
       Способности
     </a>
 
-    <a href="#relationships">
+    <a href="#relationships" data-i18n="character.relationships">
       Отношения
     </a>
 
-    <a href="#gallery">
+    <a href="#gallery" data-i18n="character.gallery">
       Галерея
     </a>
 
   </nav>
+
 
 
   <!-- ======================================
@@ -223,7 +256,8 @@
     id="personality"
   >
 
-    <h2 class="character_section-title">
+    <h2 class="character_section-title"
+        data-i18n="character.personality">
       Личность
     </h2>
 
@@ -244,7 +278,8 @@
     id="appearance"
   >
 
-    <h2 class="character_section-title">
+    <h2 class="character_section-title"
+    data-i18n="character.appearance">
       Внешность
     </h2>
 
@@ -265,92 +300,18 @@
     id="story"
   >
 
-    <h2 class="character_section-title">
+    <h2
+      class="character_section-title"
+      data-i18n="character.story"
+    >
       История
     </h2>
 
-
-    <!-- Past -->
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Прошлое
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterPast"
-      ></div>
-
-    </article>
-
-
-    <!-- Season 1 -->
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Первый сезон
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterSeason1"
-      ></div>
-
-    </article>
-
-
-    <!-- Season 2 -->
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Второй сезон
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterSeason2"
-      ></div>
-
-    </article>
-
-
-    <!-- Blank Period -->
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Пустой период
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterBlankPeriod"
-      ></div>
-
-    </article>
-
-
-    <!-- Boruto -->
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Эпоха Боруто
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterBoruto"
-      ></div>
-
-    </article>
+    <div id="characterStorySections">
+      <!-- Сюжетные арки создаются через JS -->
+    </div>
 
   </section>
-
 
   <!-- ======================================
        ABILITIES
@@ -361,39 +322,19 @@
     id="abilities"
   >
 
-    <h2 class="character_section-title">
+    <h2
+      class="character_section-title"
+      data-i18n="character.abilities"
+    >
       Способности
     </h2>
 
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Способности и техники
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterAbilities"
-      ></div>
-
-    </article>
-
-
-    <article class="character_article">
-
-      <h3 class="character_article-title">
-        Оружие
-      </h3>
-
-      <div
-        class="character_article-text"
-        id="characterWeapons"
-      ></div>
-
-    </article>
+    <div id="characterAbilitiesSections">
+      <!-- Разделы способностей создаются через JS -->
+    </div>
 
   </section>
+
 
 
   <!-- ======================================
@@ -405,7 +346,8 @@
     id="relationships"
   >
 
-    <h2 class="character_section-title">
+    <h2 class="character_section-title"
+    data-i18n="character.relationships">
       Отношения
     </h2>
 
@@ -426,7 +368,8 @@
     id="gallery"
   >
 
-    <h2 class="character_section-title">
+    <h2 class="character_section-title"
+    data-i18n="character.gallery">
       Галерея
     </h2>
 
@@ -441,6 +384,41 @@
 </main>
 
 
+<footer>
+  <div class="footer_container">
+    <div class="footer_content">
+      <div class="footer_copyright">
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
+      </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN</button>
+
+      <span class="footer_language-divider" aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU</button>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
 <script src="../js/character.js"></script>
 
 </body>

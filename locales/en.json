@@ -181,7 +181,39 @@
     "description": "Characters from my stories and worlds.",
     "empty": "No characters to display yet.",
     "loadError": "Unable to load characters."
+  },
+
+  "character": {
+    "pageNavigation": "Character navigation",
+    "personality": "Personality",
+    "appearance": "Appearance",
+    "story": "Story",
+    "abilities": "Abilities",
+    "relationships": "Relationships",
+    "gallery": "Gallery",
+    "fields": {
+      "gender": "Gender",
+      "birthDate": "Date of birth",
+      "birthPlace": "Place of birth",
+      "age": "Age",
+      "height": "Height",
+      "weight": "Weight",
+      "status": "Status",
+      "hairColor": "Hair color",
+      "eyeColor": "Eye color",
+      "bloodType": "Blood type",
+      "residence": "Residence",
+      "clan": "Clan",
+      "affiliation": "Affiliation",
+      "occupation": "Occupation",
+      "rank": "Rank",
+      "natureElements": "Nature types",
+      "kekkeiGenkai": "Kekkei genkai",
+      "summoning": "Summoning",
+      "magic": "Magic"
+    }
   }
+
 
 }
 
