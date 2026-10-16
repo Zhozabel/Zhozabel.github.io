@@ -2,6 +2,8 @@
    COMMISSIONS
    ========================= */
 
+/* Main container */
+
 .commissions {
   width: min(100% - 40px, 1200px);
   margin: 0 auto 80px;
@@ -35,15 +37,15 @@
 }
 
 
-/* Card */
+/* Commission cards */
 
 .commission_card {
   overflow: hidden;
   background: var(--card);
   border-radius: 22px;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.25s ease,
+  background 0.25s ease;
 }
 
 .commission_card:hover {
@@ -51,8 +53,13 @@
   transform: translateY(-4px);
 }
 
+.commission_card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
 
-/* Image */
+
+/* Images */
 
 .commission_image {
   width: 100%;
@@ -73,7 +80,7 @@
 }
 
 
-/* Info */
+/* Card information */
 
 .commission_info {
   padding: 18px 18px 20px;
@@ -109,20 +116,191 @@
 
 
 /* =========================
-   Responsive
+   COMMISSION MODAL
    ========================= */
 
-@media (max-width: 900px) {
+/* Hidden state */
 
-  .commissions_grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+.commission_modal[hidden] {
+  display: none;
 }
 
 
-@media (max-width: 600px) {
+/* Modal overlay */
 
+.commission_modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.commission_modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 55%);
+}
+
+
+/* Modal dialog */
+
+.commission_modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 30px;
+  border-radius: 22px;
+  background: var(--card);
+  color: var(--primary_text);
+  box-shadow: 0 15px 50px rgb(0 0 0 / 20%);
+}
+
+
+/* Close button */
+
+.commission_modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: var(--secondary_text);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+/* Modal text */
+
+.commission_modal-title {
+  margin: 0 28px 18px 0;
+  font-size: 24px;
+}
+
+.commission_modal-format {
+  margin: 0 0 8px;
+  color: var(--secondary_text);
+}
+
+.commission_modal-price {
+  margin: 0 0 16px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.commission_modal-description {
+  color: var(--secondary_text);
+  line-height: 1.6;
+}
+
+
+/* Terms of Service checkbox */
+
+.commission_tos {
+  margin: 20px 0;
+}
+
+.commission_tos-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--secondary_text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.commission_tos-label input {
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: var(--primary);
+}
+
+.commission_tos-label a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
+/* Modal action buttons */
+
+.commission_modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.commission_modal-cancel,
+.commission_modal-confirm {
+  flex: 1;
+  min-width: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.commission_modal-cancel {
+  background: var(--card_hover);
+  color: var(--primary_text);
+}
+
+.commission_modal-confirm {
+  background: var(--primary);
+  color: white;
+}
+
+
+/* Disabled confirmation button */
+
+#commission-modal-confirm[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* Keyboard focus */
+
+.commission_modal button:focus-visible,
+.commission_modal a:focus-visible,
+.commission_tos-label input:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Tablets */
+
+@media (max-width: 900px) {
+  .commissions_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* Mobile devices */
+
+@media (max-width: 600px) {
   .commissions {
     width: min(100% - 30px, 500px);
     margin-bottom: 60px;
@@ -152,5 +330,46 @@
   .commission_title {
     font-size: 17px;
   }
+}
 
+
+/* Compact modal */
+
+@media (max-width: 420px) {
+  .commission_modal {
+    padding: 12px;
+  }
+
+  .commission_modal-dialog {
+    padding: 24px 20px;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .commission_modal-actions {
+    flex-direction: column;
+  }
+
+  .commission_modal-cancel,
+  .commission_modal-confirm {
+    width: 100%;
+  }
+}
+
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .commission_card,
+  .commission_image img {
+    transition: none;
+  }
+
+  .commission_card:hover {
+    transform: none;
+  }
+
+  .commission_card:hover .commission_image img {
+    transform: none;
+  }
 }

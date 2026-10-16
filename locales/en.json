@@ -212,8 +212,45 @@
       "summoning": "Summoning",
       "magic": "Magic"
     }
-  }
+  },
 
+  "commissions": {
+    "title": "Commissions",
+    "description": "Choose the format that works best for your character.",
+    "formats": {
+      "headshot": {
+        "title": "Headshot",
+        "description": "A portrait showing the face and shoulders."
+      },
+      "halfBody": {
+        "title": "Half body",
+        "description": "The character shown from the waist or chest up, with more room for posing."
+      },
+      "thighUp": {
+        "title": "Thigh-up",
+        "description": "The character shown down to the thighs, with more room for posing, styling, and details."
+      },
+      "fullBody": {
+        "title": "Full body",
+        "description": "The entire character, with room for pose, costume details, and accessories."
+      }
+    },
+    "confirm": {
+      "title": "Place an order?",
+      "description": "You will be redirected to Google Forms to complete your order.",
+      "cancel": "Cancel",
+      "proceed": "Continue to order",
+      "tosPrefix": "I have read and agree to the"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "category": "COMMISSIONS · INFORMATION",
+    "description": "Please read these terms before placing a commission order.",
+    "loading": "Loading terms...",
+    "error": "Unable to load the terms. Please try again later.",
+    "empty": "The terms document is empty."
+  }
 
 }
 

@@ -1,0 +1,195 @@
+
+/* =========================
+   TERMS OF SERVICE
+   ========================= */
+
+.terms {
+  margin-bottom: 80px;
+}
+
+.terms .archive_content {
+  margin-bottom: 30px;
+}
+
+.terms_content {
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  padding: 35px 40px;
+  border-radius: 22px;
+  background: var(--card);
+  color: var(--primary_text);
+  overflow-wrap: anywhere;
+}
+
+/* Headings */
+
+.terms_content h1,
+.terms_content h2,
+.terms_content h3,
+.terms_content h4 {
+  color: var(--primary_text);
+  line-height: 1.4;
+}
+
+.terms_content h1 {
+  margin: 0 0 24px;
+  font-size: 30px;
+}
+
+.terms_content h2 {
+  margin: 36px 0 14px;
+  font-size: 23px;
+}
+
+.terms_content h3 {
+  margin: 26px 0 10px;
+  font-size: 19px;
+}
+
+.terms_content h4 {
+  margin: 22px 0 8px;
+  font-size: 16px;
+}
+
+/* Text */
+
+.terms_content p {
+  margin: 0 0 16px;
+  color: var(--secondary_text);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.terms_content strong {
+  color: var(--primary_text);
+  font-weight: 700;
+}
+
+/* Lists */
+
+.terms_content ul,
+.terms_content ol {
+  margin: 0 0 22px;
+  padding-left: 26px;
+  color: var(--secondary_text);
+}
+
+.terms_content li {
+  padding-left: 4px;
+  margin-bottom: 9px;
+  line-height: 1.7;
+}
+
+.terms_content li::marker {
+  color: var(--primary);
+}
+
+.terms_content li > ul,
+.terms_content li > ol {
+  margin-top: 10px;
+}
+
+/* Links */
+
+.terms_content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.terms_content a:hover {
+  opacity: 0.8;
+}
+
+.terms_content a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Separators and quotations */
+
+.terms_content hr {
+  margin: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--card_hover);
+}
+
+.terms_content blockquote {
+  margin: 22px 0;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--primary);
+}
+
+.terms_content blockquote p {
+  margin-bottom: 8px;
+}
+
+/* Tables */
+
+.terms_content table {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.terms_content th,
+.terms_content td {
+  padding: 12px;
+  border: 1px solid var(--card_hover);
+  text-align: left;
+  line-height: 1.6;
+}
+
+.terms_content th {
+  color: var(--primary_text);
+}
+
+.terms_content td {
+  color: var(--secondary_text);
+}
+
+/* Loading and error messages */
+
+.terms_content .terms_status {
+  margin: 0;
+  text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .terms {
+    margin-bottom: 60px;
+  }
+
+  .terms .archive_content {
+    margin-bottom: 22px;
+  }
+
+  .terms_content {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .terms_content h1 {
+    font-size: 25px;
+  }
+
+  .terms_content h2 {
+    margin-top: 30px;
+    font-size: 21px;
+  }
+
+  .terms_content h3 {
+    font-size: 18px;
+  }
+
+  .terms_content p,
+  .terms_content li {
+    font-size: 14px;
+  }
+}
