@@ -1,3 +1,4 @@
+/* Таймлайн */
 .timeline {
   position: relative;
   padding-left: 60px;
@@ -23,6 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 15px;
   margin: 0 0 20px;
   border: solid 1px var(--card);
@@ -43,19 +45,12 @@
 }
 
 .year_toggle {
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
 .year:not(.collapsed) .year_toggle {
   transform: rotate(180deg);
-}
-
-.year_chevron,
-.close_cross {
-  display: block;
-  width: 24px;
-  height: 24px;
-  fill: none;
 }
 
 .year:not(.collapsed)::before {
@@ -98,11 +93,79 @@
   grid-template-rows: 0fr;
   opacity: 0;
 }
+
 .year.collapsed .year_gallery {
   margin-bottom: 0;
 }
+
+/* Галерея */
 .year_gallery {
   columns: 4 260px;
   column-gap: 18px;
   margin-bottom: 20px;
+}
+
+/* Планшеты */
+@media (max-width: 900px) {
+  .timeline {
+    padding-left: 48px;
+  }
+
+  .year::before {
+    left: -35px;
+  }
+
+  .year_gallery {
+    columns: 3 220px;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 34px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .year::before {
+    left: -31px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .year_header {
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
+
+  .year_gallery {
+    columns: 2 140px;
+    column-gap: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Узкие телефоны */
+@media (max-width: 360px) {
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 7px;
+  }
+
+  .year::before {
+    left: -27px;
+  }
+
+  .year_gallery {
+    columns: 1;
+  }
 }

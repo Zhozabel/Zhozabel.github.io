@@ -1,10 +1,10 @@
-
 /* =========================
    TERMS OF SERVICE
    ========================= */
 
 .terms {
   margin-bottom: 80px;
+  min-width: 0;
 }
 
 .terms .archive_content {
@@ -13,6 +13,8 @@
 
 .terms_content {
   width: min(100%, 1500px);
+  box-sizing: border-box;
+  min-width: 0;
   margin: 0 auto;
   padding: 35px 40px;
   border-radius: 22px;
@@ -29,6 +31,7 @@
 .terms_content h4 {
   color: var(--primary_text);
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .terms_content h1 {
@@ -78,6 +81,7 @@
   padding-left: 4px;
   margin-bottom: 9px;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .terms_content li::marker {
@@ -131,9 +135,11 @@
 .terms_content table {
   display: block;
   width: 100%;
+  max-width: 100%;
   margin: 20px 0;
   overflow-x: auto;
   border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
 }
 
 .terms_content th,
@@ -142,6 +148,7 @@
   border: 1px solid var(--card_hover);
   text-align: left;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .terms_content th {
@@ -150,6 +157,28 @@
 
 .terms_content td {
   color: var(--secondary_text);
+}
+
+/* Images and code */
+
+.terms_content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.terms_content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--background);
+  -webkit-overflow-scrolling: touch;
+}
+
+.terms_content code {
+  overflow-wrap: anywhere;
 }
 
 /* Loading and error messages */
@@ -191,5 +220,14 @@
   .terms_content p,
   .terms_content li {
     font-size: 14px;
+  }
+
+  .terms_content th,
+  .terms_content td {
+    padding: 9px;
+  }
+
+  .terms_content blockquote {
+    padding-left: 14px;
   }
 }

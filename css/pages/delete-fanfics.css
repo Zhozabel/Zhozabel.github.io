@@ -1,12 +1,17 @@
-.story_timeline .year_header {
-  width: 700px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
+/* =========================
+   FANFICS / STORY TIMELINE
+   ========================= */
 
 .story_timeline {
-  width: 700px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 700px;
+  min-width: 0;
+}
+
+.story_timeline .year_header {
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
 }
 
 .story_list {
@@ -14,14 +19,21 @@
   flex-direction: column;
   gap: 18px;
   width: 100%;
+  min-width: 0;
   margin-bottom: 20px;
 }
+
+
+/* =========================
+   STORY CARD
+   ========================= */
 
 .story_card {
   display: flex;
   align-items: stretch;
-  width: 700px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 700px;
+  min-width: 0;
   gap: 20px;
   padding: 15px;
   box-sizing: border-box;
@@ -37,6 +49,11 @@
     transform 0.2s ease;
 }
 
+.story_card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
 .story_card_cover {
   display: block;
   width: 140px;
@@ -48,6 +65,7 @@
 
 .story_card_info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   min-width: 0;
@@ -55,14 +73,18 @@
 }
 
 
+/* =========================
+   STORY TEXT
+   ========================= */
+
 .story_card_title {
   margin: 0 0 8px;
 
   font-family: "Nunito", sans-serif;
   font-size: 24px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
 
 .story_card_meta {
   margin-bottom: 12px;
@@ -72,60 +94,116 @@
   font-family: "Nunito", sans-serif;
   font-size: 15px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
 
 .story_card_tags {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-
+  min-width: 0;
   margin-bottom: 14px;
 }
 
-
 .story_card_tags span {
+  max-width: 100%;
   padding: 5px 11px;
+  box-sizing: border-box;
 
   border-radius: 999px;
-
   background: var(--background);
-
   color: var(--secondary_text);
 
   font-family: "Nunito", sans-serif;
   font-size: 13px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
 
 .story_card_status {
   color: var(--secondary_text);
 
   font-family: "Nunito", sans-serif;
   font-size: 14px;
+  overflow-wrap: anywhere;
 }
 
-@media (max-width: 600px) {
 
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
   .story_card {
     gap: 15px;
     padding: 12px;
   }
 
-
   .story_card_cover {
     width: 100px;
+    height: 150px;
+    flex-basis: 100px;
   }
 
+  .story_card_info {
+    padding: 2px 0;
+  }
 
   .story_card_title {
     font-size: 20px;
   }
 
+  .story_card_meta {
+    font-size: 14px;
+  }
 
   .story_card_tags {
     gap: 5px;
   }
+}
 
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+  .story_card {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .story_card_cover {
+    width: 85px;
+    height: 128px;
+    flex-basis: 85px;
+  }
+
+  .story_card_title {
+    font-size: 18px;
+  }
+
+  .story_card_meta {
+    font-size: 13px;
+  }
+
+  .story_card_tags span {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .story_card_status {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .story_card {
+    transition: none;
+  }
 }

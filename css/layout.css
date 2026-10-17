@@ -1,8 +1,18 @@
+/* Настройки границ страниц */
 .container {
+  box-sizing: border-box;
+  width: calc(100% - 80px);
   max-width: 1500px;
   margin-inline: auto;
 }
 
 .hero_container {
   position: relative;
+}
+
+/* Отступы на мобильных */
+@media (max-width: 650px) {
+  .container {
+    width: calc(100% - 30px);
+  }
 }

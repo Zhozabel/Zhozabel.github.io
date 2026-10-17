@@ -1,6 +1,6 @@
-/* ========================================
-   VIEWER
-======================================== */
+ /* ========================================
+     VIEWER
+  ======================================== */
 
 .viewer {
   position: fixed;
@@ -103,6 +103,8 @@
   color: var(--secondary_text);
   font-family: "Nunito", sans-serif;
   text-align: center;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -138,15 +140,16 @@
 }
 
 .viewer_reveal_warning {
-  color: white;
   max-width: 100%;
   padding: 8px 14px;
 
   border-radius: 999px;
 
+  color: white;
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+
   overflow-wrap: anywhere;
 }
 
@@ -154,17 +157,18 @@
   max-width: 100%;
   padding: 8px 14px;
 
+  border: none;
   border-radius: 999px;
 
   background: var(--card);
+  color: var(--primary_text);
 
   font-size: 14px;
   font-weight: 700;
   text-align: center;
-  overflow-wrap: anywhere;
-}
 
-.viewer_reveal_action {
+  overflow-wrap: anywhere;
+
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
@@ -177,10 +181,9 @@
 .viewer_reveal_action:hover {
   background: var(--card_hover);
   color: var(--secondary_text);
-  //transform: translateY(-3px);
+  /* transform: translateY(-3px); */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
-
 
 .viewer_reveal:focus-visible {
   outline: 2px solid var(--primary);
@@ -451,7 +454,7 @@ body.viewer_open {
   }
 
   .viewer_info {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 
     width: 100%;
     max-height: 40%;
@@ -527,5 +530,9 @@ body.viewer_open {
 
   .viewer_reveal {
     padding: 16px;
+  }
+
+  .viewer_reveal_warning {
+    font-size: 16px;
   }
 }

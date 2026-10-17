@@ -1,3 +1,4 @@
+ /* Карточки категорий */
 .category_grid {
   display: flex;
   flex-direction: column;
@@ -5,8 +6,6 @@
   min-height: 210px;
   position: relative;
   overflow: hidden;
-
-
   border-radius: 20px;
   background-color: var(--card);
   padding: 25px;
@@ -27,6 +26,7 @@
   font-size: 27px;
   font-weight: 700;
   color: var(--primary_text);
+  overflow-wrap: anywhere;
 }
 
 .category_desc {
@@ -41,4 +41,43 @@
   font-size: 20px;
   color: var(--primary);
   font-weight: 900;
+}
+
+/* Планшеты */
+@media (max-width: 768px) {
+  .category_grid {
+    padding: 20px;
+  }
+
+  .category_title {
+    font-size: 24px;
+  }
+
+  .category_desc {
+    font-size: 18px;
+    padding-block: 12px;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .category_grid {
+    min-height: 180px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .category_no {
+    font-size: 15px;
+  }
+
+  .category_title {
+    font-size: 22px;
+  }
+
+  .category_desc {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-block: 10px;
+  }
 }

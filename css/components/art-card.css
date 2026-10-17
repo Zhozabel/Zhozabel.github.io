@@ -1,3 +1,4 @@
+ /* Карточки артов */
 .art_card {
   position: relative;
   break-inside: avoid;
@@ -23,4 +24,13 @@
   width: 100%;
   height: auto;
   border-radius: 20px;
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .art_card,
+  .art_card img,
+  .art_card_video {
+    border-radius: 14px;
+  }
 }

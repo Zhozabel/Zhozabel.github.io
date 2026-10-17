@@ -3,6 +3,7 @@
 ======================================== */
 
 .wiki_page {
+  min-width: 0;
   margin: 20px 0 80px;
 }
 
@@ -12,8 +13,8 @@
 ======================================== */
 
 .wiki_header {
-  text-align: center;
   margin-bottom: 55px;
+  text-align: center;
 }
 
 .wiki_title {
@@ -21,12 +22,15 @@
   color: var(--primary_text);
   font-size: 36px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .wiki_description {
   margin: 10px 0 0;
   color: var(--secondary_text);
   font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 
@@ -35,6 +39,7 @@
 ======================================== */
 
 .wiki_fandom {
+  min-width: 0;
   margin-bottom: 55px;
 }
 
@@ -51,13 +56,13 @@
   display: flex;
   align-items: center;
 
+  box-sizing: border-box;
   width: 100%;
+  min-width: 0;
   min-height: 58px;
 
   margin: 0 0 25px;
-  padding: 0 25px;
-
-  box-sizing: border-box;
+  padding: 12px 25px;
 
   background: var(--card);
   border-radius: 20px;
@@ -67,8 +72,10 @@
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 700;
-
+  line-height: 1.4;
   letter-spacing: 0.02em;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -78,11 +85,10 @@
 
 .wiki_characters {
   display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 25px;
+
+  min-width: 0;
 }
 
 
@@ -94,6 +100,7 @@
   display: flex;
   flex-direction: column;
 
+  min-width: 0;
   overflow: hidden;
 
   background: var(--card);
@@ -109,11 +116,14 @@
 
 .wiki_character:hover {
   background: var(--card_hover);
-
   transform: translateY(-5px);
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.wiki_character:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 
@@ -125,6 +135,7 @@
   display: block;
 
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
 
   object-fit: cover;
@@ -137,6 +148,7 @@
 ======================================== */
 
 .wiki_character-info {
+  min-width: 0;
   padding: 18px 20px 20px;
 
   text-align: center;
@@ -150,6 +162,9 @@
   font-family: "Nunito", sans-serif;
   font-size: 19px;
   font-weight: 700;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
 }
 
 .wiki_character-description {
@@ -159,6 +174,8 @@
 
   font-size: 13px;
   line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -167,12 +184,10 @@
 ======================================== */
 
 @media (max-width: 900px) {
-
   .wiki_characters {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
   }
-
 }
 
 
@@ -181,11 +196,9 @@
 ======================================== */
 
 @media (max-width: 650px) {
-
   .wiki_page {
     width: min(100% - 30px, 500px);
-
-    margin-top: 40px;
+    margin: 40px auto 60px;
   }
 
   .wiki_header {
@@ -202,19 +215,15 @@
 
   .wiki_fandom-title {
     min-height: 52px;
-
     margin-bottom: 18px;
-    padding: 0 18px;
+    padding: 10px 18px;
 
     border-radius: 14px;
-
     font-size: 18px;
   }
 
   .wiki_characters {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
   }
 
@@ -233,7 +242,6 @@
   .wiki_character-description {
     font-size: 12px;
   }
-
 }
 
 
@@ -242,13 +250,31 @@
 ======================================== */
 
 @media (max-width: 400px) {
-
   .wiki_characters {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .wiki_character-image {
     aspect-ratio: 4 / 5;
   }
 
+  .wiki_character-info {
+    padding: 14px 16px 18px;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .wiki_character {
+    transition: none;
+  }
+
+  .wiki_character:hover {
+    transform: none;
+  }
 }

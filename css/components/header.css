@@ -1,9 +1,14 @@
-/*Настройки хэдера*/
+ /* Настройки хедера */
 .header {
   padding-block: 30px;
 }
 
-.container, header_container, .hero_container, .navigation_container, .footer_container, .archive_container {
+.container,
+.header_container,
+.hero_container,
+.navigation_container,
+.footer_container,
+.archive_container {
   max-width: 1500px;
   margin-inline: auto;
 }
@@ -12,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
 }
 
 .header_list {
@@ -49,4 +55,54 @@
 
 .header_button:hover {
   color: white;
+}
+
+/* Планшеты */
+@media (max-width: 1024px) {
+  .header_nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+
+  .header_list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 28px;
+  }
+
+  .header_button {
+    padding: 14px 32px;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+  .header {
+    padding-block: 20px;
+  }
+
+  .header_nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .header_list {
+    justify-content: center;
+    gap: 12px 20px;
+    padding: 0;
+  }
+
+  .header_list-link {
+    font-size: 16px;
+  }
+
+  .header_list-link.active {
+    padding-bottom: 4px;
+  }
+
+  .header_button {
+    font-size: 16px;
+    padding: 12px 28px;
+  }
 }

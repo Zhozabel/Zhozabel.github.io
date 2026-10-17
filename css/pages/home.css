@@ -1,3 +1,8 @@
+
+/* =========================
+   HOME — HERO
+   ========================= */
+
 .hero {
   padding: 0;
 }
@@ -60,6 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 20px;
   margin-top: -2px;
@@ -69,17 +75,21 @@
 
 .hero_panel-link {
   color: var(--primary_text);
+  transition: color 0.3s;
 }
 
 .hero_panel-link:hover {
   color: var(--primary);
-  transform: translateY(-7%)
 }
 
 .hero_panel-icon {
   fill: currentColor;
   transition: color 0.3s;
 }
+
+/* =========================
+   HOME — NAVIGATION
+   ========================= */
 
 .navigation_header {
   padding-top: 216px;
@@ -114,4 +124,151 @@
   line-height: 30px;
   color: var(--secondary_text);
   margin-top: 15px;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 1000px) {
+  .hero_title {
+    font-size: 64px;
+    letter-spacing: -2px;
+  }
+
+  .hero_visual {
+    max-width: 60%;
+  }
+
+  .hero_image {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero_description {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .navigation_header {
+    padding-top: 160px;
+  }
+
+  .navigation_title {
+    font-size: 42px;
+  }
+
+  .navigation_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+  .hero_content {
+    max-width: 100%;
+  }
+
+  .hero_title {
+    font-size: clamp(42px, 10vw, 64px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero_description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero_visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero_image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .hero_panel {
+    gap: 18px;
+    padding: 16px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .hero_panel-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navigation_header {
+    padding-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .navigation_kicker {
+    font-size: 16px;
+  }
+
+  .navigation_title {
+    font-size: clamp(32px, 8vw, 42px);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .navigation_grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+  .hero_title {
+    font-size: 40px;
+  }
+
+  .hero_panel {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .hero_panel-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .navigation_title {
+    font-size: 30px;
+  }
+
+  .navigation_grid {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero_panel-link,
+  .hero_panel-icon {
+    transition: none;
+  }
 }

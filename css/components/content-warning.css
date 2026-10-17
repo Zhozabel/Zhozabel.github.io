@@ -1,11 +1,10 @@
-.art_card.is_blurred img {
-  filter: blur(20px);
-}
-
+ /* Размытие изображений и видео */
+.art_card.is_blurred img,
 .art_card.is_blurred video {
   filter: blur(20px);
 }
 
+/* Кнопка раскрытия */
 .art_reveal {
   position: absolute;
   inset: 0;
@@ -27,6 +26,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* Предупреждение */
 .art_warning {
   padding: 8px 14px;
   border-radius: 999px;
@@ -59,6 +59,7 @@
   font-size: 14px;
 }
 
+/* Кнопка показа */
 .art_reveal_action {
   padding: 8px 14px;
   border-radius: 999px;
@@ -72,4 +73,35 @@
 .art_reveal_action:hover {
   background: var(--card_hover);
   color: var(--secondary_text);
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .art_reveal {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .art_warning {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .art_warning_title {
+    font-size: 14px;
+  }
+
+  .art_warning_list {
+    gap: 4px;
+  }
+
+  .art_warning_list li {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+
+  .art_reveal_action {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }

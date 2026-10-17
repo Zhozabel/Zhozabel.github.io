@@ -1,4 +1,14 @@
 .gifts_gallery {
-  columns: 4 260px;
+  columns: 260px;
   column-gap: 18px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Pinterest-style gallery on mobile */
+@media (max-width: 650px) {
+  .gifts_gallery {
+    columns: 2;
+    column-gap: 12px;
+  }
 }

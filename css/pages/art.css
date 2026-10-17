@@ -1,3 +1,4 @@
+/* Заголовки архивов */
 .archive_category {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
@@ -9,8 +10,9 @@
   font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 50px;
-  letter-spacing: -2.5px;
+  letter-spacing: normal;
   color: var(--primary_text);
+  overflow-wrap: anywhere;
 }
 
 .archive_desc {
@@ -20,4 +22,34 @@
   line-height: 30px;
   color: var(--secondary_text);
   margin-bottom: 30px;
+}
+
+/* Планшеты */
+@media (max-width: 768px) {
+  .archive_title {
+    font-size: 42px;
+  }
+
+  .archive_desc {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .archive_category {
+    font-size: 16px;
+  }
+
+  .archive_title {
+    font-size: 34px;
+  }
+
+  .archive_desc {
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: normal;
+    margin-bottom: 24px;
+  }
 }

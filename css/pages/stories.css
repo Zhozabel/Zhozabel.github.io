@@ -5,6 +5,7 @@
 .story_timeline {
   width: min(100% - 40px, 1100px);
   margin-inline: auto;
+  min-width: 0;
 }
 
 
@@ -16,7 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-
+  min-width: 0;
   margin-bottom: 30px;
 }
 
@@ -28,22 +29,26 @@
 .story_card {
   display: flex;
   width: 100%;
+  min-width: 0;
   min-height: 220px;
-
   overflow: hidden;
-
   border-radius: 20px;
-
   background: var(--card);
   color: inherit;
+  text-decoration: none;
 
-  transition: background-color 0.3s ease,
-  transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .story_card:hover {
   background-color: var(--card_hover);
-  /*transform: translateY(-2px);*/
+}
+
+.story_card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
 }
 
 
@@ -55,7 +60,7 @@
   position: relative;
   width: 280px;
   height: 220px;
-  flex-shrink: 0;
+  flex: 0 0 350px;
   overflow: hidden;
 }
 
@@ -66,23 +71,6 @@
   object-fit: cover;
 }
 
-/*.story_status {*/
-/*  position: absolute;*/
-/*  left: 12px;*/
-/*  bottom: 12px;*/
-
-/*  padding: 6px 12px;*/
-
-/*  border-radius: 999px;*/
-
-/*  font-family: "Nunito", sans-serif;*/
-/*  font-size: 13px;*/
-/*  font-weight: 700;*/
-
-/*  background: var(--card);*/
-/*  color: var(--primary_text);*/
-/*}*/
-
 .story_status--completed {
   background: var(--success);
   color: var(--background);
@@ -90,143 +78,101 @@
 
 .story_status--in-progress {
   background: var(--warning);
-  color: var(--background);;
+  color: var(--background);
 }
 
 .story_status--hiatus {
   background: var(--info);
-  color: var(--background);;
+  color: var(--background);
 }
 
 .story_status--abandoned {
   background: var(--error);
-  color: var(--background);;
+  color: var(--background);
 }
 
 
 /* ========================================
-   INFO
+   STORY CARD INFO
 ======================================== */
 
 .story_card_info {
   display: flex;
+  flex: 1;
   flex-direction: column;
-
+  min-width: 0;
   padding: 25px 30px;
 }
 
-
 .story_card_title {
   margin: 0 0 8px;
-
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
-
 
 .story_card_meta {
   margin-bottom: 18px;
-
   color: var(--primary);
-
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
 
 .story_card_tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-
+  min-width: 0;
   margin-bottom: auto;
 }
 
-
 .story_card_tags span {
+  max-width: 100%;
   padding: 6px 12px;
-
+  box-sizing: border-box;
   border-radius: 999px;
-
   background: var(--background);
-
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .story_card_chapters {
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .story_card_status {
   margin-top: 20px;
-
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 
 /* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 700px) {
-  .story_timeline {
-    width: min(100% - 30px, 1100px);
-  }
-
-  .story_card {
-    min-height: 0;
-  }
-
-  .story_card_cover {
-    width: 140px;
-    height: 180px;
-  }
-
-  .story_card_cover-image {
-    width: 100%;
-    height: 100%;
-  }
-
-  .story_card_info {
-    padding: 20px;
-  }
-
-  .story_card_title {
-    font-size: 22px;
-  }
-
-  .story_card_meta {
-    margin-bottom: 12px;
-  }
-}
-/* ========================================
-   STORY PAGE
+   STORY PAGE LAYOUT
 ======================================== */
 
 .story_page {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
   gap: 40px;
-
-  max-width: 1200px;
+  width: min(100% - 40px, 1200px);
   margin: 40px auto;
+  min-width: 0;
 }
 
 
@@ -245,21 +191,16 @@
 
 .story_banner {
   position: relative;
-
   width: 100%;
   height: 260px;
-
   overflow: hidden;
-
   border-radius: 20px;
 }
 
 .story_banner-image {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -268,25 +209,24 @@
   left: 225px;
   right: 20px;
   bottom: 20px;
-
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-
-  z-index: 3;
+  min-width: 0;
 }
 
 .story_banner-genres span {
+  max-width: 100%;
   padding: 7px 14px;
-
+  box-sizing: border-box;
   border-radius: 999px;
-
   background: var(--card);
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 
@@ -296,34 +236,29 @@
 
 .story_cover {
   display: block;
-
   position: relative;
   z-index: 2;
-
   width: 180px;
   height: 270px;
-
   margin-top: -135px;
   margin-left: 25px;
-
   padding: 0;
   border: 0;
-
   overflow: hidden;
-
   border-radius: 16px;
-
   background: var(--card);
-
   cursor: pointer;
+}
+
+.story_cover:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
 }
 
 .story_cover-image {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -333,37 +268,35 @@
 ======================================== */
 
 .story_chapters {
+  min-width: 0;
   margin-top: 40px;
 }
 
 .story_section-title {
   margin-bottom: 18px;
-
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 24px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .story_chapter-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
 }
 
 .story_chapter {
   display: flex;
-
+  min-width: 0;
   min-height: 90px;
-
   overflow: hidden;
-
   border-radius: 14px;
-
   background: var(--card);
   color: inherit;
-
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
@@ -371,47 +304,48 @@
   background: var(--card_hover);
 }
 
+.story_chapter:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .story_chapter-cover {
   width: 90px;
   height: 90px;
-
-  flex-shrink: 0;
-
+  flex: 0 0 90px;
   overflow: hidden;
 }
 
 .story_chapter-cover img {
   display: block;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
 .story_chapter-info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-
+  min-width: 0;
   padding: 12px 18px;
 }
 
 .story_chapter-title {
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 17px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .story_chapter-date {
   margin-top: 5px;
-
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 13px;
+  overflow-wrap: anywhere;
 }
 
 
@@ -424,30 +358,28 @@
 }
 
 .story_description {
+  min-width: 0;
   padding: 25px;
-
   border-radius: 20px;
-
   background: var(--card);
 }
 
 .story_title {
-  margin-bottom: 18px;
-
+  margin: 0 0 18px;
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .story_description-text {
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .story_description-text p + p {
@@ -460,14 +392,13 @@
 ======================================== */
 
 .story_meta {
+  min-width: 0;
   margin-top: 25px;
 }
 
 .story_meta-title {
   margin-bottom: 10px;
-
   color: var(--primary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -475,31 +406,32 @@
 
 .story_genres,
 .story_warnings {
-  color: var(--card);
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  min-width: 0;
 }
 
 .story_genres span,
 .story_warnings span {
+  max-width: 100%;
   padding: 6px 12px;
-
+  box-sizing: border-box;
   border-radius: 999px;
-
   background: var(--card);
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .story_rating {
   display: inline-block;
+  max-width: 100%;
   padding: 6px 12px;
+  box-sizing: border-box;
   border-radius: 999px;
-
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 800;
@@ -537,15 +469,39 @@
 
 
 /* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+  .story_page {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    gap: 25px;
+  }
+
+  .story_banner-genres {
+    left: 200px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .story_description {
+    padding: 22px;
+  }
+
+  .story_title {
+    font-size: 28px;
+  }
+}
+
+
+/* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 800px) {
-
   .story_page {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
-
     width: min(100% - 30px, 700px);
     margin: 30px auto;
   }
@@ -554,12 +510,191 @@
     height: 220px;
   }
 
+  .story_banner-genres {
+    left: 175px;
+    right: 12px;
+    bottom: 12px;
+    gap: 6px;
+  }
+
+  .story_banner-genres span {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
   .story_cover {
     width: 140px;
     height: 210px;
-
     margin-top: -105px;
     margin-left: 20px;
   }
 
+  .story_description {
+    padding: 22px;
+  }
+
+  .story_title {
+    font-size: 28px;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .story_timeline {
+    width: min(100% - 30px, 1100px);
+  }
+
+  .story_card {
+    min-height: 0;
+  }
+
+  .story_card_cover {
+    width: 140px;
+    height: 180px;
+    flex-basis: 140px;
+  }
+
+  .story_card_info {
+    padding: 16px;
+  }
+
+  .story_card_title {
+    font-size: 22px;
+  }
+
+  .story_card_meta {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .story_card_tags {
+    gap: 6px;
+  }
+
+  .story_card_tags span {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .story_banner {
+    height: 180px;
+  }
+
+  .story_banner-genres {
+    left: 12px;
+    right: 12px;
+    bottom: 10px;
+  }
+
+  .story_cover {
+    width: 120px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: 15px;
+  }
+
+  .story_chapters {
+    margin-top: 30px;
+  }
+
+  .story_section-title {
+    font-size: 22px;
+  }
+
+  .story_chapter-cover {
+    width: 75px;
+    height: 75px;
+    flex-basis: 75px;
+  }
+
+  .story_chapter-info {
+    padding: 10px 12px;
+  }
+
+  .story_chapter-title {
+    font-size: 15px;
+  }
+
+  .story_description {
+    padding: 18px;
+  }
+
+  .story_title {
+    font-size: 25px;
+  }
+
+  .story_description-text {
+    font-size: 15px;
+  }
+}
+
+
+/* ========================================
+   VERY SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .story_card_cover {
+    width: 105px;
+    height: 150px;
+    flex-basis: 105px;
+  }
+
+  .story_card_info {
+    padding: 12px;
+  }
+
+  .story_card_title {
+    font-size: 19px;
+  }
+
+  .story_card_meta {
+    font-size: 13px;
+  }
+
+  .story_card_tags span {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .story_banner {
+    height: 160px;
+  }
+
+  .story_cover {
+    width: 105px;
+    height: 158px;
+    margin-top: -79px;
+    margin-left: 12px;
+  }
+
+  .story_chapter-cover {
+    width: 65px;
+    height: 65px;
+    flex-basis: 65px;
+  }
+
+  .story_chapter-info {
+    padding: 8px 10px;
+  }
+
+  .story_description {
+    padding: 15px;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .story_card,
+  .story_chapter {
+    transition: none;
+  }
 }

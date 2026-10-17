@@ -1,6 +1,6 @@
-/* ========================================
-   Таймлайн произведений
-======================================== */
+ /* ========================================
+     Таймлайн произведений
+  ======================================== */
 
 .works-timeline {
   position: relative;
@@ -16,8 +16,7 @@
   bottom: 10px;
   left: 21px;
   width: 2px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-block: 16px;
   background: var(--primary);
 }
 
@@ -28,6 +27,7 @@
 .works-year {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 /* Точка на линии напротив года */
@@ -58,18 +58,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
   margin: 0 0 20px;
+
   border: 1px solid var(--card);
   border-radius: 20px;
+
   background: var(--card);
   color: var(--primary_text);
+
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-align: left;
+
   transition: color 0.3s;
 }
 
@@ -78,9 +84,11 @@
 }
 
 .works-year__title {
+  min-width: 0;
   margin: 0;
   font: inherit;
   color: inherit;
+  overflow-wrap: anywhere;
 }
 
 /* Стрелка раскрытия */
@@ -117,6 +125,7 @@
   grid-template-rows: 1fr;
   overflow: hidden;
   opacity: 1;
+
   transition:
     grid-template-rows 0.35s ease,
     opacity 0.25s ease;
@@ -147,6 +156,7 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  min-width: 0;
 }
 
 /* Вся карточка */
@@ -154,15 +164,19 @@
 .story_card {
   display: flex;
   align-items: stretch;
+
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
   overflow: hidden;
+
   border: 1px solid var(--card);
   border-radius: 20px;
+
   background: var(--card);
   color: var(--primary_text);
   text-decoration: none;
+
   transition:
     border-color 0.25s ease,
     transform 0.25s ease;
@@ -179,10 +193,11 @@
 .story_card_cover {
   position: relative;
   flex: 0 0 36%;
+
   min-width: 0;
-  overflow: hidden;
   align-self: stretch;
-  aspect-ratio: auto;
+  overflow: hidden;
+
   background: var(--background);
 }
 
@@ -198,7 +213,6 @@
    Информация о произведении
 ======================================== */
 
-
 .story_card_info {
   display: flex;
   flex: 1 1 0;
@@ -206,6 +220,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 12px;
+
   min-width: 0;
   padding: 18px 22px;
   box-sizing: border-box;
@@ -213,16 +228,19 @@
 
 .story_card_title {
   margin: 0;
+
   color: var(--primary_text);
+
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 1.3;
+
   overflow-wrap: anywhere;
 }
 
 /* ========================================
-   Жанровые чипсины
+   Жанровые чипсы
 ======================================== */
 
 .story_card_tags {
@@ -235,13 +253,18 @@
 .story_card_tags span {
   display: inline-flex;
   align-items: center;
+
   padding: 5px 10px;
   border-radius: 999px;
+
   color: var(--primary);
+
   font-family: "Nunito", sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 1.2;
+
+  overflow-wrap: anywhere;
 }
 
 /* ========================================
@@ -253,19 +276,21 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .story_status {
   position: static;
-  left: auto;
-  bottom: auto;
 
   display: inline-flex;
   align-items: center;
+
   padding: 5px 10px;
   border-radius: 999px;
+
   background: var(--background);
   color: var(--primary_text);
+
   font-family: "Nunito", sans-serif;
   font-size: 12px;
   font-weight: 800;
@@ -274,14 +299,16 @@
 
 .story_card_chapters {
   color: var(--primary_text);
+
   font-family: "Nunito", sans-serif;
   font-size: 13px;
   font-weight: 600;
+
+  overflow-wrap: anywhere;
 }
 
-
 /* ========================================
-   Адаптация под мобильные экраны
+   Планшеты и мобильные экраны
 ======================================== */
 
 @media (max-width: 600px) {
@@ -306,17 +333,6 @@
 
   .works-grid {
     gap: 12px;
-  }
-
-
-  .story_card_cover {
-    position: relative;
-    flex: 0 0 36%;
-    min-width: 0;
-    align-self: stretch;
-    overflow: hidden;
-    aspect-ratio: auto;
-    background: var(--background);
   }
 
   .story_card_info {
@@ -348,5 +364,54 @@
 
   .story_card_chapters {
     font-size: 12px;
+  }
+}
+
+/* ========================================
+   Узкие мобильные экраны
+======================================== */
+
+@media (max-width: 380px) {
+  .works-timeline {
+    padding-left: 30px;
+  }
+
+  .works-timeline::before {
+    left: 8px;
+  }
+
+  .works-year::before {
+    left: -27px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .works-year__header {
+    gap: 8px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .story_card_cover {
+    flex-basis: 32%;
+  }
+
+  .story_card_info {
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .story_card_title {
+    font-size: 14px;
+  }
+
+  .story_card_tags span,
+  .story_status {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+
+  .story_card_chapters {
+    font-size: 11px;
   }
 }

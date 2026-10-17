@@ -3,8 +3,10 @@
 ======================================== */
 
 .character_page {
-  width: min(100% - 40px, 1050px);
-  margin: 60px auto 100px;
+  /*width: min(100% - 40px, 1050px);*/
+  width: min(100% - 40px, 1500px);
+  margin: 60px auto 0px;
+  min-width: 0;
 }
 
 
@@ -13,8 +15,8 @@
 ======================================== */
 
 .character_header {
-  text-align: center;
   margin-bottom: 35px;
+  text-align: center;
 }
 
 .character_fandom {
@@ -31,6 +33,8 @@
   color: var(--primary_text);
   font-size: 42px;
   font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 
@@ -47,16 +51,19 @@
 
 .character_form {
   display: block;
+  min-width: 0;
   padding: 0;
   overflow: hidden;
+
   background: var(--card);
   border: 2px solid transparent;
   border-radius: 18px;
+
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
+
+  transition: transform 0.2s ease,
+  background 0.2s ease,
+  border-color 0.2s ease;
 }
 
 .character_form:hover {
@@ -79,10 +86,13 @@
 .character_form-name {
   display: block;
   padding: 11px 8px 13px;
+
   color: var(--primary_text);
   font-size: 13px;
   font-weight: 700;
   text-align: center;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -90,11 +100,18 @@
    OVERVIEW
 ======================================== */
 
+/*.character_overview {*/
+/*  display: grid;*/
+/*  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);*/
+/*  gap: 25px;*/
+/*  margin-bottom: 30px;*/
+/*}*/
 .character_overview {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
-  gap: 25px;
-  margin-bottom: 30px;
+  grid-template-columns: minmax(0, 600px) minmax(300px, 1fr);
+  gap: 30px;
+  align-items: stretch;
+  margin-bottom: 60px;
 }
 
 
@@ -102,13 +119,22 @@
    PORTRAIT
 ======================================== */
 
+/*.character_portrait {*/
+/*  width: 100%;*/
+/*  max-width: 600px;*/
+/*  aspect-ratio: 2 / 3;*/
+/*  margin: 0 auto;*/
+/*  overflow: hidden;*/
+/*  border-radius: 24px;*/
+/*}*/
 
 .character_portrait {
   width: 100%;
-  max-width: 600px;
-  aspect-ratio: 2 / 3;
-  margin: 0 auto;
-  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
   border-radius: 24px;
 }
 
@@ -118,10 +144,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 24px;
+  border-radius: inherit;
 }
-
-
 
 
 /* ========================================
@@ -132,6 +156,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
 
@@ -140,6 +165,7 @@
 ======================================== */
 
 .character_card {
+  min-width: 0;
   padding: 25px;
   background: var(--card);
   border-radius: 22px;
@@ -150,8 +176,8 @@
   color: var(--primary_text);
   font-size: 19px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
 
 
 /* ========================================
@@ -167,15 +193,11 @@
 
 .character_details > div {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 15px;
   padding: 10px 0;
-  border-bottom: 1px solid
-  color-mix(
-    in srgb,
-    var(--secondary_text) 18%,
-    transparent
-  );
+
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary_text) 18%, transparent);
 }
 
 .character_details > div:first-child {
@@ -188,16 +210,22 @@
 }
 
 .character_details dt {
+  min-width: 0;
   color: var(--secondary_text);
   font-size: 12px;
+  overflow-wrap: anywhere;
 }
 
 .character_details dd {
+  min-width: 0;
   margin: 0;
+
   color: var(--primary_text);
   font-size: 13px;
   font-weight: 600;
   text-align: right;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -215,15 +243,17 @@
 
 .character_nav a {
   padding: 9px 15px;
+
   background: var(--card);
   border-radius: 999px;
+
   color: var(--secondary_text);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+
+  transition: background 0.2s ease,
+  color 0.2s ease;
 }
 
 .character_nav a:hover {
@@ -246,6 +276,7 @@
   color: var(--primary_text);
   font-size: 28px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 
@@ -276,7 +307,6 @@
 }
 
 
-
 /* ========================================
    ARTICLE
 ======================================== */
@@ -294,6 +324,7 @@
   color: var(--primary_text);
   font-size: 20px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .character_article-text {
@@ -318,47 +349,6 @@
 .character_relationships {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.character_relationship {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 14px;
-  background: var(--card);
-  border-radius: 18px;
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.character_relationship:hover {
-  background: var(--card_hover);
-  transform: translateY(-3px);
-}
-
-.character_relationship-image {
-  width: 65px;
-  height: 65px;
-  flex-shrink: 0;
-  border-radius: 13px;
-  object-fit: cover;
-}
-
-.character_relationship-info {
-  min-width: 0;
-}
-
-
-/* ========================================
-   RELATIONSHIPS
-======================================== */
-
-.character_relationships {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -366,14 +356,17 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
+
   min-width: 0;
   padding: 20px;
+
   background: var(--card);
   border-radius: 22px;
+
   text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+
+  transition: transform 0.2s ease,
+  background 0.2s ease;
 }
 
 .character_relationship:hover {
@@ -382,16 +375,19 @@
 }
 
 .character_relationship-image {
+  display: block;
   width: 200px;
   height: 300px;
   flex-shrink: 0;
+
   border-radius: 16px;
   object-fit: cover;
+  object-position: center;
 }
 
 .character_relationship-info {
-  min-width: 0;
   flex: 1;
+  min-width: 0;
 }
 
 .character_relationship-name {
@@ -399,20 +395,17 @@
   color: var(--primary_text);
   font-size: 20px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
-
-.character_relationship-rating {
-  color: var(--primary);
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-
 
 .character_relationship-rating {
   display: flex;
   align-items: center;
   gap: 4px;
+
   color: var(--primary);
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
 .character_relationship-rating svg {
@@ -427,14 +420,13 @@
   opacity: 0.65;
 }
 
-
 .character_relationship-description {
   margin: 8px 0 0;
   color: var(--secondary_text);
   font-size: 13px;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
-
 
 
 /* ========================================
@@ -460,14 +452,13 @@
   min-width: 0;
 }
 
-/* Карточки одинакового размера.
-   Центр-кроп изображений выполняется через object-fit. */
+/* Карточки одинакового размера */
 
 .character_gallery-item {
+  position: relative;
   width: 100%;
   min-width: 0;
   aspect-ratio: 3 / 4;
-  position: relative;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -500,26 +491,14 @@
   height: 100%;
 }
 
-/* Эффект при наведении */
-
-.character_gallery-item img,
-.character_gallery-item video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* На карточках с предупреждением не увеличиваем
-   размытое изображение при наведении */
+/* Карточки с предупреждением не увеличиваем при наведении */
 
 .character_gallery-item.is_blurred:hover img,
 .character_gallery-item.is_blurred:hover video {
-  transform: scale(1.05);
+  transform: none;
 }
 
-/* Страница галереи, где меньше четырёх работ */
+/* Сетка, когда работ меньше четырёх */
 
 .character_gallery-track--short {
   display: flex;
@@ -538,21 +517,26 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
   width: 44px;
   height: 44px;
   padding: 0;
+
   border: none;
   border-radius: 50%;
+
   background: var(--card);
   color: var(--primary_text);
+
   font-family: inherit;
   font-size: 22px;
   line-height: 1;
+
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    opacity 0.2s ease;
+
+  transition: background 0.2s ease,
+  transform 0.2s ease,
+  opacity 0.2s ease;
 }
 
 .character_gallery-arrow:hover:not(:disabled) {
@@ -572,8 +556,9 @@
   grid-column: 1 / -1;
   margin: 0;
   padding: 30px;
-  text-align: center;
+
   color: var(--secondary_text);
+  text-align: center;
 }
 
 
@@ -581,17 +566,12 @@
    GALLERY CONTENT WARNING
 ======================================== */
 
-/* Блюр использует существующую систему предупреждений.
-   Кнопка раскрытия — .art_reveal,
-   предупреждение — .art_warning,
-   действие — .art_reveal_action. */
+/* Используется общая система предупреждений */
 
 .character_gallery-item.is_blurred img,
 .character_gallery-item.is_blurred video {
   filter: blur(20px);
 }
-
-/* Затемнение поверх размытой работы */
 
 .character_gallery-item.is_blurred .art_reveal {
   background: rgba(0, 0, 0, 0.2);
@@ -603,24 +583,26 @@
   position: absolute;
   inset: 0;
   z-index: 2;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
+
   width: 100%;
   height: 100%;
   padding: 15px;
+
   border: none;
   border-radius: inherit;
+
   background: transparent;
   color: var(--primary_text);
+
   font-family: "Nunito", sans-serif;
   cursor: pointer;
 }
-
-/* У карточек, где используется ссылка,
-   кнопка предупреждения располагается над медиа */
 
 
 /* ========================================
@@ -628,9 +610,8 @@
 ======================================== */
 
 @media (max-width: 800px) {
-
   .character_overview {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .character_portrait {
@@ -676,7 +657,6 @@
 ======================================== */
 
 @media (max-width: 600px) {
-
   .character_page {
     width: min(100% - 30px, 500px);
     margin-top: 40px;
@@ -749,7 +729,27 @@
   }
 
   .character_relationships {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .character_relationship {
+    gap: 14px;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .character_relationship-image {
+    width: 110px;
+    height: 165px;
+    border-radius: 12px;
+  }
+
+  .character_relationship-name {
+    font-size: 17px;
+  }
+
+  .character_relationship-description {
+    font-size: 12px;
   }
 
   .character_gallery-slider {
@@ -782,13 +782,17 @@
 ======================================== */
 
 @media (max-width: 400px) {
+  .character_title {
+    font-size: 28px;
+  }
 
-  .character_forms {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .character_card {
+    padding: 16px;
   }
 
   .character_details > div {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 10px;
   }
 
   .character_gallery-slider {

@@ -1,4 +1,4 @@
-/*Основные цвета*/
+ /* Основные цвета */
 :root {
   --background: #2B2022;
   --surface: #332529;
@@ -16,7 +16,7 @@
   --info: #88B7C4;
 }
 
-/*Основные стили*/
+/* Основные стили */
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +32,7 @@ body {
 
 main {
   flex: 1;
+  min-width: 0;
 }
 
 ul {
@@ -40,4 +41,5 @@ ul {
 
 a {
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
