@@ -3,7 +3,7 @@
   ======================================== */
 
 .chapter_page {
-  width: min(100% - 40px, 780px);
+  width: min(100% - 40px, 1500px);
   margin: 50px auto 70px;
   min-width: 0;
 }

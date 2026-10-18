@@ -700,5 +700,83 @@
     },
     "portrait": "",
     "file": ""
+  },
+  {
+    "id": "josephine-barrett",
+    "name": {
+      "en": "Josephine Barrett",
+      "ru": "Жозефина Баррет"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "philippe-de-lee",
+    "name": {
+      "en": "Philippe de'Lee",
+      "ru": "Филипп де Ли"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "kaden-ashford",
+    "name": {
+      "en": "Kaden Ashford",
+      "ru": "Кейдан Эшфорд"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lucial-whitmore",
+    "name": {
+      "en": "Lucial Whitmore",
+      "ru": "Люциан Уитмор"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "mathias-brooks",
+    "name": {
+      "en": "Mathias Brooks",
+      "ru": "Матиас Брукс"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "silas-redford",
+    "name": {
+      "en": "Silas Redford",
+      "ru": "Сайлас Редфорд"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
   }
 ]

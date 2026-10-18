@@ -186,6 +186,8 @@
   },
 
   "character": {
+    "basicInfo": "Основная информация",
+    "connections": "Связи",
     "pageNavigation": "Навигация",
     "personality": "Личность",
     "appearance": "Внешность",

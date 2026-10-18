@@ -184,6 +184,8 @@
   },
 
   "character": {
+    "basicInfo": "Characteristics",
+    "connections": "Connections",
     "pageNavigation": "Character navigation",
     "personality": "Personality",
     "appearance": "Appearance",

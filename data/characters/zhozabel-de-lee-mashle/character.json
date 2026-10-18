@@ -1,4 +1,3 @@
-
 {
   "id": "zhozabel-de-lee-mashle",
   "basic": {
@@ -18,9 +17,34 @@
     "occupation": "second-year-student",
     "magic": [
       "constellation-magic"
-    ]
+    ],
+    "species": null,
+    "favoriteFood": null
   },
   "connections": {
+    "team": "adler-team",
+    "comrades": [
+      {
+        "id": "tom-knowles",
+        "role": "team-captain"
+      },
+      {
+        "id": "kaden-ashford",
+        "role": "forward"
+      },
+      {
+        "id": "lucial-whitmore",
+        "role": "defender"
+      },
+      {
+        "id": "mathias-brooks",
+        "role": "goalkeeper"
+      },
+      {
+        "id": "silas-redford",
+        "role": "defender"
+      }
+    ],
     "relatives": [
       {
         "id": "philippe-de-lee",
@@ -35,70 +59,114 @@
         "relation": "cousin"
       },
       {
-        "id": "dot-barret",
+        "id": "dot-barrett",
         "relation": "cousin"
-      }
-    ],
-    "team": "adler-team",
-    "comrades": [
-      {
-        "id": "tom-knowles",
-        "role": "team-captain"
-      },
-      {
-        "id": "kaden-ashford",
-        "role": "forward"
-      },
-      {
-        "id": "lucial-whitmore",
-        "role": "setter"
-      },
-      {
-        "id": "mathias-brooks",
-        "role": "goalkeeper"
-      },
-      {
-        "id": "silas-redford",
-        "role": "defender"
       }
     ]
   },
   "forms": [
     {
-      "id": "season-1",
-      "portrait": "",
+      "id": "eastons-academy",
+      "portrait": null,
       "basic": {
-        "age": null,
-        "height": null,
-        "weight": null,
-        "status": null,
-        "residence": null,
-        "occupation": null,
-        "rank": null
+        "age": 17,
+        "height": 156,
+        "weight": 45,
+        "status": "alive"
       },
       "storySections": [
-        "past",
-        "divine-visionary-selection-exam",
-        "tri-magic-athalon-final-exam",
-        "invasion-of-the-magic-capital"
+        {
+          "id": "past",
+          "arcs": [
+            "family-and-childhood",
+            "admission-to-easton",
+            "divine-visionary-selection-exam"
+          ]
+        },
+        {
+          "id": "studying-in-easton",
+          "arcs": [
+            "divine-visionary-selection-exam",
+            "encounter-with-orter-madl",
+            "secret",
+            "shadow-of-the-family",
+            "tri-magic-athalon",
+            "preparation-for-the-eclipse",
+            "eclipse",
+            "face-to-face-with-innocent-zero",
+            "end-of-the-eclipse"
+          ]
+        }
       ],
-      "equipment": [
-        "main-equipment"
-      ],
-      "abilities": [
-        "main-abilities"
+      "abilityIds": [
+        "aries",
+        "taurus",
+        "gemini",
+        "cancer",
+        "leo",
+        "virgo",
+        "libra",
+        "scorpius",
+        "sagittarius",
+        "capricornus",
+        "aquarius",
+        "pisces",
+        "crux-irae",
+        "astral-vanguard",
+        "event-horizon",
+        "supernova-burst"
       ]
     }
   ],
   "relationships": [
     {
-      "character": "dot-barret",
+      "character": "philippe-de-lee",
+      "rating": 0
+    },
+    {
+      "character": "josephine-barrett",
+      "rating": 3
+    },
+    {
+      "character": "dot-barrett",
+      "rating": 6
+    },
+    {
+      "character": "malta-barrett",
       "rating": 5
     },
     {
       "character": "mash-burnedead",
       "rating": 6
+    },
+    {
+      "character": "beatrice-by-shavurrr",
+      "rating": 5
+    },
+    {
+      "character": "kaden-ashford",
+      "rating": 5
+    },
+    {
+      "character": "tom-knowles",
+      "rating": 4
+    },
+    {
+      "character": "max-land",
+      "rating": 3
+    },
+    {
+      "character": "rayne-ames",
+      "rating": 2
+    },
+    {
+      "character": "orter-madl",
+      "rating": 1
+    },
+    {
+      "character": "lemon-irvine",
+      "rating": 1
     }
-  ],
-  "gallery": []
+  ]
 }
+

@@ -75,7 +75,7 @@
         </li>
 
         <li class="header_list-item">
-          <a class="header_list-link" href="/">
+          <a class="header_list-link active" href="../pages/wiki.html">
             Wiki
           </a>
         </li>
@@ -87,7 +87,7 @@
         </li>
 
         <li class="header_list-item">
-          <a class="header_button" href="/">
+          <a class="header_button" href="../pages/commissions.html">
             Commissions
           </a>
         </li>
@@ -116,16 +116,12 @@
     <p
       class="character_fandom"
       id="characterFandom"
-    >
-      Naruto
-    </p>
+    ></p>
 
     <h1
       class="character_title"
       id="characterTitle"
-    >
-      Хадзёка
-    </h1>
+    ></h1>
 
   </header>
 
@@ -171,7 +167,8 @@
 
       <section class="character_card">
 
-        <h2 class="character_card-title">
+        <h2 class="character_card-title"
+            data-i18n="character.basicInfo">
           Основная информация
         </h2>
 
@@ -189,7 +186,8 @@
 
       <section class="character_card">
 
-        <h2 class="character_card-title">
+        <h2 class="character_card-title"
+        data-i18n="character.connections">
           Связи
         </h2>
 
@@ -213,18 +211,19 @@
   ====================================== -->
 
 
+
   <nav
     class="character_nav"
     aria-label="Page navigation"
     data-i18n-aria-label="character.pageNavigation"
   >
 
-    <a href="#personality" data-i18n="character.personality">
-      Личность
-    </a>
-
     <a href="#appearance" data-i18n="character.appearance">
       Внешность
+    </a>
+
+    <a href="#personality" data-i18n="character.personality">
+      Личность
     </a>
 
     <a href="#story" data-i18n="character.story">
@@ -242,31 +241,8 @@
     <a href="#gallery" data-i18n="character.gallery">
       Галерея
     </a>
-
   </nav>
 
-
-
-  <!-- ======================================
-       PERSONALITY
-  ====================================== -->
-
-  <section
-    class="character_section"
-    id="personality"
-  >
-
-    <h2 class="character_section-title"
-        data-i18n="character.personality">
-      Личность
-    </h2>
-
-    <div
-      class="character_section-text"
-      id="characterPersonality"
-    ></div>
-
-  </section>
 
 
   <!-- ======================================
@@ -286,6 +262,27 @@
     <div
       class="character_section-text"
       id="characterAppearance"
+    ></div>
+
+  </section>
+
+  <!-- ======================================
+       PERSONALITY
+  ====================================== -->
+
+  <section
+    class="character_section"
+    id="personality"
+  >
+
+    <h2 class="character_section-title"
+        data-i18n="character.personality">
+      Личность
+    </h2>
+
+    <div
+      class="character_section-text"
+      id="characterPersonality"
     ></div>
 
   </section>

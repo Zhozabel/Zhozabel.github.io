@@ -481,9 +481,22 @@
     "file": ""
   },
   {
-    "id": "dot-barret",
+    "id": "malta-barrett",
     "name": {
-      "en": "Dot Barret",
+      "en": "Malta Barrett",
+      "ru": "Мальта Баррет"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "dot-barrett",
+    "name": {
+      "en": "Dot Barrett",
       "ru": "Дот Баррет"
     },
     "fandom": {
@@ -498,6 +511,19 @@
     "name": {
       "en": "Mash Burnedead",
       "ru": "Мэш Бёрндэд"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "tom-knowles",
+    "name": {
+      "en": "Tom Knowles",
+      "ru": "Том Ноулс"
     },
     "fandom": {
       "en": "Mashle: Magic and Muscles",
@@ -524,6 +550,45 @@
     "name": {
       "en": "Rayne Ames",
       "ru": "Рэйн Эймс"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "max-land",
+    "name": {
+      "en": "Max Land",
+      "ru": "Макс Лэнд"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "rayne-ames",
+    "name": {
+      "en": "Rayne Ames",
+      "ru": "Рэйн Эймс"
+    },
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "lemon-irvine",
+    "name": {
+      "en": "Lemon Irvine",
+      "ru": "Лемон Ирвин"
     },
     "fandom": {
       "en": "Mashle: Magic and Muscles",

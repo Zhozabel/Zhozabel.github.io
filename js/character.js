@@ -285,28 +285,49 @@ function resolveDataValue(value, dictionary) {
   }
 
   if (typeof value === "object") {
-    return getLocalizedText(value);
+    const language = getCurrentLanguage();
+
+    // Поддержка объекта с готовыми переводами.
+    if (
+      Object.prototype.hasOwnProperty.call(value, language) ||
+      Object.prototype.hasOwnProperty.call(value, "en") ||
+      Object.prototype.hasOwnProperty.call(value, "ru")
+    ) {
+      return getLocalizedText(value);
+    }
+
+    // Поддержка составных значений и словарей кодов.
+    return Object.entries(value)
+      .map(([key, item]) => {
+        const resolved = resolveDataValue(item, dictionary?.[key]);
+
+        if (!resolved) {
+          return "";
+        }
+
+        return resolved;
+      })
+      .filter(Boolean)
+      .join(", ");
   }
 
-  // В языковом JSON может быть уже готовый перевод:
-  // gender: "Female", hairColor: "Caramel".
-  if (typeof dictionary === "string") {
-    return dictionary;
+  if (dictionary && typeof dictionary === "object") {
+    if (
+      Object.prototype.hasOwnProperty.call(
+        dictionary,
+        String(value)
+      )
+    ) {
+      return resolveDataValue(dictionary[String(value)]);
+    }
   }
 
-  // Или словарь кодов:
-  // magic: { "constellation-magic": "Constellation Magic" }.
-  if (
-    dictionary &&
-    typeof dictionary === "object" &&
-    Object.prototype.hasOwnProperty.call(dictionary, String(value))
-  ) {
-    return resolveDataValue(dictionary[String(value)]);
-  }
-
-  // Если перевода нет, показываем исходное значение.
+  // Поддержка старого формата, где в языковом JSON
+  // уже хранится готовая строка вместо словаря.
   return String(value);
 }
+
+
 
 
 
@@ -314,35 +335,38 @@ function resolveDataValue(value, dictionary) {
 // BASIC INFORMATION
 // ========================================
 
-const DETAIL_FIELDS = [
-  ["gender", "Пол", "Gender"],
-  ["birthDate", "Дата рождения", "Date of birth"],
-  ["birthPlace", "Место рождения", "Place of birth"],
-  ["age", "Возраст", "Age"],
-  ["height", "Рост", "Height"],
-  ["weight", "Вес", "Weight"],
-  ["status", "Статус", "Status"],
-  ["hairColor", "Цвет волос", "Hair color"],
-  ["eyeColor", "Цвет глаз", "Eye color"],
-  ["bloodType", "Группа крови", "Blood type"],
-  ["residence", "Место жительства", "Residence"],
-  ["clan", "Клан", "Clan"],
-  ["affiliation", "Принадлежность", "Affiliation"],
-  ["occupation", "Профессия", "Occupation"],
-  ["rank", "Ранг", "Rank"],
-  ["natureElements", "Стихии природы", "Nature types"],
-  ["kekkeiGenkai", "Кеккей генкай", "Kekkei genkai"],
-  ["summoning", "Призыв", "Summoning"],
-  ["magic", "Магия", "Magic"]
-];
+// Резервные подписи для старых данных.
+// Новые поля добавляются через fieldLabels в text-ru.json / text-en.json.
+
+const LEGACY_DETAIL_FIELDS = {
+  gender: ["Пол", "Gender"],
+  birthDate: ["Дата рождения", "Date of birth"],
+  birthPlace: ["Место рождения", "Place of birth"],
+  age: ["Возраст", "Age"],
+  height: ["Рост", "Height"],
+  weight: ["Вес", "Weight"],
+  status: ["Статус", "Status"],
+  hairColor: ["Цвет волос", "Hair color"],
+  eyeColor: ["Цвет глаз", "Eye color"],
+  bloodType: ["Группа крови", "Blood type"],
+  residence: ["Место жительства", "Residence"],
+  clan: ["Клан", "Clan"],
+  affiliation: ["Принадлежность", "Affiliation"],
+  occupation: ["Профессия", "Occupation"],
+  rank: ["Ранг", "Rank"],
+  natureElements: ["Стихии природы", "Nature types"],
+  kekkeiGenkai: ["Кеккей генкай", "Kekkei genkai"],
+  summoning: ["Призыв", "Summoning"],
+  magic: ["Магия", "Magic"]
+};
 
 
 function formatBirthDate(value) {
-  if (!value || typeof value !== "object") {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
     return getLocalizedText(value);
   }
 
-  const {day, month, year} = value;
+  const { day, month, year } = value;
 
   const monthNames = {
     ru: [
@@ -358,7 +382,11 @@ function formatBirthDate(value) {
   };
 
   const language = getCurrentLanguage();
-  const monthName = monthNames[language][Number(month) - 1];
+  const monthNumber = Number(month);
+  const monthName =
+    monthNumber >= 1 && monthNumber <= 12
+      ? monthNames[language][monthNumber - 1]
+      : "";
 
   if (!day && !monthName && !year) {
     return "";
@@ -367,17 +395,19 @@ function formatBirthDate(value) {
   if (language === "ru") {
     return [
       day ? `${day}${monthName ? " " : ""}` : "",
-      monthName || "",
+      monthName,
       year || ""
     ].filter(Boolean).join(" ").trim();
   }
 
   return [
-    monthName || "",
+    monthName,
     day ? `${day}${year ? "," : ""}` : "",
     year || ""
   ].filter(Boolean).join(" ").trim();
 }
+
+
 
 
 function renderDetails() {
@@ -391,35 +421,58 @@ function renderDetails() {
   const mainBasic = currentCharacterData.basic || {};
   const formBasic = currentForm?.basic || {};
   const dictionaries = currentTextData?.basic || {};
+  const fieldLabels = currentTextData?.fieldLabels || {};
   const formLabels = currentTextData?.forms?.[currentForm?.id]?.basic || {};
 
-  DETAIL_FIELDS.forEach(([key, ruLabel, enLabel]) => {
-    // null в форме означает «использовать основное значение».
-    const formValue = formBasic[key];
-    const mainValue = mainBasic[key];
+  // Сначала основные поля, затем дополнительные поля формы.
+  // Порядок сохраняется, если поле уже присутствует.
+  const fieldKeys = [
+    ...new Set([
+      ...Object.keys(mainBasic),
+      ...Object.keys(formBasic)
+    ])
+  ];
 
-    const value = formValue !== null && formValue !== undefined
-      ? formValue
-      : mainValue;
+  fieldKeys.forEach(key => {
+    // null в форме означает использование основного значения.
+    const formValue = formBasic[key];
+
+    const value =
+      formValue !== null && formValue !== undefined
+        ? formValue
+        : mainBasic[key];
 
     if (!hasContent(value)) {
       return;
     }
 
-    let formattedValue;
+    const formattedValue = key === "birthDate"
+      ? formatBirthDate(value)
+      : resolveDataValue(value, dictionaries[key]);
 
-    if (key === "birthDate") {
-      formattedValue = formatBirthDate(value);
-    } else {
-      formattedValue = resolveDataValue(value, dictionaries[key]);
+    if (!hasContent(formattedValue)) {
+      return;
     }
 
-    const label = formLabels[key] ||
-      getLabel(key, language === "ru" ? ruLabel : enLabel);
+    const legacyLabels = LEGACY_DETAIL_FIELDS[key] || [];
+    const fallbackLabel = language === "ru"
+      ? legacyLabels[0] || key
+      : legacyLabels[1] || key;
 
-    appendDetailRow(characterDetails, label, formattedValue);
+    const label =
+      getLocalizedText(formLabels[key]) ||
+      getLocalizedText(fieldLabels[key]) ||
+      getLabel(key, fallbackLabel) ||
+      fallbackLabel;
+
+    appendDetailRow(
+      characterDetails,
+      label,
+      formattedValue
+    );
   });
 }
+
 
 
 // ========================================
@@ -460,9 +513,9 @@ function renderConnections(connections = {}) {
 
   const labels = {
     team: language === "ru" ? "Команда" : "Team",
-    comrades: language === "ru" ? "Товарищи" : "Teammates",
-    clan: language === "ru" ? "Клан" : "Clan",
-    relatives: language === "ru" ? "Родственники" : "Relatives"
+    comrades: language === "ru" ? "Товарищи" : "Comrades",
+    relatives: language === "ru" ? "Родственники" : "Relatives",
+    clan: language === "ru" ? "Клан" : "Clan"
   };
 
   const team = connections.team
@@ -470,22 +523,6 @@ function renderConnections(connections = {}) {
     : "";
 
   appendDetailRow(characterConnections, labels.team, team);
-
-  const relatives = renderConnectionList(
-    connections.relatives,
-    item => {
-      if (!item || typeof item !== "object") {
-        return getLocalizedText(item);
-      }
-
-      const name = getCatalogName(item.id);
-      const relation = resolveDataValue(item.relation, dictionaries.relations);
-
-      return relation ? `${name} (${relation})` : name;
-    }
-  );
-
-  appendDetailRow(characterConnections, labels.relatives, relatives);
 
   const comrades = renderConnectionList(
     connections.comrades,
@@ -497,11 +534,27 @@ function renderConnections(connections = {}) {
       const name = getCatalogName(item.id);
       const role = resolveDataValue(item.role, dictionaries.roles);
 
-      return role ? `${name} (${role})` : name;
+      return role ? `${name} · ${role}` : name;
     }
   );
 
   appendDetailRow(characterConnections, labels.comrades, comrades);
+
+  const relatives = renderConnectionList(
+    connections.relatives,
+    item => {
+      if (!item || typeof item !== "object") {
+        return getLocalizedText(item);
+      }
+
+      const name = getCatalogName(item.id);
+      const relation = resolveDataValue(item.relation, dictionaries.relations);
+
+      return relation ? `${name} · ${relation}` : name;
+    }
+  );
+
+  appendDetailRow(characterConnections, labels.relatives, relatives);
 
   const clan = resolveDataValue(connections.clan);
   appendDetailRow(characterConnections, labels.clan, clan);
@@ -581,13 +634,13 @@ function renderForms() {
   });
 }
 
-
 function selectForm(form) {
   currentForm = form;
 
   renderForms();
   updatePortrait();
   renderDetails();
+  renderBiography();
 }
 
 
@@ -612,6 +665,7 @@ function updatePortrait() {
 // PERSONALITY AND APPEARANCE
 // ========================================
 
+
 function renderFormText(key, target) {
   if (!target) {
     return;
@@ -619,34 +673,31 @@ function renderFormText(key, target) {
 
   target.replaceChildren();
 
-  currentForms.forEach(form => {
-    const formText = getFormTextData(form);
-    const paragraphs = formText[key];
+  if (!currentForm) {
+    return;
+  }
 
-    if (!hasContent(paragraphs)) {
+  const formText = getFormTextData(currentForm);
+  const paragraphs = formText[key];
+
+  if (!hasContent(paragraphs)) {
+    return;
+  }
+
+  const values = Array.isArray(paragraphs)
+    ? paragraphs
+    : [paragraphs];
+
+  values.forEach(value => {
+    const text = getLocalizedText(value);
+
+    if (!text) {
       return;
     }
 
-    const values = Array.isArray(paragraphs) ? paragraphs : [paragraphs];
-
-    values.forEach(value => {
-      const text = getLocalizedText(value);
-
-      if (!text) {
-        return;
-      }
-
-      const paragraph = document.createElement("p");
-
-      if (currentForms.length > 1) {
-        const strong = document.createElement("strong");
-        strong.textContent = `${getFormName(form)}: `;
-        paragraph.appendChild(strong);
-      }
-
-      paragraph.appendChild(document.createTextNode(text));
-      target.appendChild(paragraph);
-    });
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    target.appendChild(paragraph);
   });
 }
 
@@ -678,6 +729,7 @@ function createCharacterArticle(title, paragraphs, className = "character_articl
 }
 
 
+
 function renderDynamicStory() {
   if (!characterStorySections) {
     return false;
@@ -685,43 +737,73 @@ function renderDynamicStory() {
 
   characterStorySections.replaceChildren();
 
-  // Порядок ID задаётся в character.json через form.storySections.
-  // Повторяющиеся ID показываем один раз.
+  // Не показываем повторяющиеся разделы несколько раз.
   const seen = new Set();
 
   currentForms.forEach(form => {
     const formText = getFormTextData(form);
     const story = formText.story || {};
+
     const sectionIds = Array.isArray(form.storySections)
       ? form.storySections
-      : Object.keys(story);
+      : Object.keys(story).map(id => ({ id }));
 
-    sectionIds.forEach(id => {
-      if (seen.has(id)) {
+    sectionIds.forEach(sectionConfig => {
+      const sectionId =
+        typeof sectionConfig === "string"
+          ? sectionConfig
+          : sectionConfig.id;
+
+      if (!sectionId || seen.has(sectionId)) {
         return;
       }
 
-      const section = story[id];
+      const section = story[sectionId];
 
-      if (!section || !hasContent(section.paragraphs)) {
+      if (!section) {
         return;
       }
 
-      seen.add(id);
+      seen.add(sectionId);
 
-      const article = createCharacterArticle(
-        getLocalizedText(section.title) || id,
-        section.paragraphs
-      );
+      // Большой заголовок сезона.
+      const seasonHeading = document.createElement("h2");
+      seasonHeading.className = "character_story-season";
+      seasonHeading.textContent =
+        getLocalizedText(section.title) || sectionId;
 
-      if (article) {
-        characterStorySections.appendChild(article);
-      }
+      characterStorySections.appendChild(seasonHeading);
+
+      const arcs = section.arcs || {};
+      const configuredArcIds =
+        typeof sectionConfig === "object" &&
+        Array.isArray(sectionConfig.arcs)
+          ? sectionConfig.arcs
+          : Object.keys(arcs);
+
+      configuredArcIds.forEach(arcId => {
+        const arc = arcs[arcId];
+
+        if (!arc || !hasContent(arc.paragraphs)) {
+          return;
+        }
+
+        // Подзаголовок арки и её текст.
+        const article = createCharacterArticle(
+          getLocalizedText(arc.title) || arcId,
+          arc.paragraphs
+        );
+
+        if (article) {
+          characterStorySections.appendChild(article);
+        }
+      });
     });
   });
 
   return true;
 }
+
 
 
 function renderLegacyStory() {
@@ -826,8 +908,8 @@ function renderLegacyNamedSections(container, idsKey, dataKey) {
 
 
 function renderBiography() {
-  renderFormText("personality", characterPersonality);
   renderFormText("appearance", characterAppearance);
+  renderFormText("personality", characterPersonality);
 
   if (!renderDynamicStory()) {
     renderLegacyStory();

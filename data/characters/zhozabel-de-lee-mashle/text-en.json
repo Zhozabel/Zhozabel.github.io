@@ -1,95 +1,350 @@
-
 {
+  "fieldLabels": {
+    "gender": "Gender",
+    "age": "Age",
+    "status": "Status",
+    "birthDate": "Birth date",
+    "hairColor": "Hair color",
+    "eyeColor": "Eye color",
+    "height": "Height",
+    "weight": "Weight",
+    "bloodType": "Blood type",
+    "affiliation": "Affiliation",
+    "occupation": "Occupation",
+    "magic": "Magic",
+    "species": "Species",
+    "favoriteFood": "Favorite Food"
+  },
   "basic": {
-    "gender": "Female",
-    "status": "Alive",
-    "hairColor": "Caramel",
-    "eyeColor": "Green",
-    "affiliation": "Easton Magic Academy",
-    "occupation": "Second-year student",
+    "gender": {
+      "female": "Female"
+    },
+    "status": {
+      "alive": "Alive"
+    },
+    "hairColor": {
+      "caramel": "Caramel"
+    },
+    "eyeColor": {
+      "green": "Green"
+    },
+    "affiliation": {
+      "easton-magic-academy": "Easton Magic Academy"
+    },
+    "occupation": {
+      "second-year-student": "Second Year Student"
+    },
     "magic": {
       "constellation-magic": "Constellation Magic"
     }
   },
   "connections": {
     "team": {
-      "adler-team": "Adler Team"
+      "adler-team": "Adler Faculty Duelo Team"
     },
     "relations": {
       "father": "Father",
       "mother": "Mother",
-      "cousin": "Cousin"
+      "cousin": "Cousin",
+      "cousin-feminine": "Cousin"
     },
     "roles": {
-      "team-captain": "Team captain",
+      "team-captain": "Captain",
       "forward": "Forward",
       "setter": "Setter",
       "goalkeeper": "Goalkeeper",
       "defender": "Defender"
     }
   },
+  "relationships": {
+    "mash-burnedead": {
+      "description": "Zhozabel' is deeply in love with Mash. Around him, she loses her usual boldness and becomes shy. She was initially attracted to his incredible strength, but over time, she came to admire his kindness and disarming straightforwardness, qualities so unfamiliar in a world of aristocratic intrigue. Believing that Mash was in a relationship with Lemon, Zhozabel' kept her feelings to herself, considering them her own problem to deal with. Rather than expressing her feelings through sweet words or confessions, Zhozabel' shows her affection through actions. After Mash accidentally discovers her feelings for him, he begins showing his care for her in his own way — quietly helping her with little things, such as reaching books on the top shelves for her, even when she doesn't ask."
+    },
+    "beatrice-by-shavurrr": {
+      "description": "Beatrice is Zhozabel's one and only best friend. Their friendship began when they were assigned to share a dorm room: the calm and composed Beatrice found herself rooming with a loud, hot-tempered girl, whom she accepted with unruffled composure. Despite their contrasting personalities, the two grew very close. Beatrice knows about Zhozabel's complicated relationship with her family and is one of the few people around whom Zhozabel' can be herself without hiding her feelings. Even in the most chaotic moments of her friend's life, Beatrice manages to keep a level head and tries to bring her back down to earth. Their friendship is built on trust and mutual acceptance, with Beatrice's calm nature balancing out Zhozabel's impulsiveness."
+    },
+    "dot-barrett": {
+      "description": "Zhozabel' and Dot are cousins who have spent a great deal of time together since childhood. Their relationship is full of constant teasing, bickering, and even physical fights, but beneath their fiery tempers lies a deep affection and trust. Dot often calls Zhozabel' \"Belle,\" a nickname inspired by the similarity to her name. He has seen her through some of the darkest periods of her life, and his family has always welcomed her as one of their own. Dot and Malta's parents have provided Zhozabel' with the warmth and emotional support she lacked in her own family. Despite her gratitude and the closeness they share, Zhozabel' sometimes feels reluctant to ask them for help, believing they have already done too much for her."
+    },
+    "malta-barrett": {
+      "description": "Being older than Zhozabel', Malta has become something of a mentor to her. She told her cousin about Easton, shared gossip, and introduced her to aspects of girlhood that Zhozabel' rarely took an interest in herself. Through her conversations with Malta, Zhozabel' gradually developed her own understanding of femininity. The cousins share a warm and trusting relationship, and Zhozabel' feels comfortable confiding in Malta about almost anything. The one exception is her feelings for Mash, which Malta learned about from Dot. Like Dot, Malta calls her cousin \"Belle.\" Although Zhozabel' finds the nickname far too sweet and completely at odds with her personality, she makes an exception for her cousins."
+    },
+    "tom-knowles": {
+      "description": "To Zhozabel', Tom is first and foremost her captain and a respected fellow team member. She has never been one to stand by when her teammates get into a fight and is always ready to stand up for her team. Over time, the team has become a true second family to her, and Tom deserves much of the credit for that. He treats Zhozabel' as an equal combatant, valuing her skills rather than her gender or background. This means a great deal to her: around her teammates, she doesn't have to live up to anyone else's expectations to earn their respect. She deeply respects her captain and cherishes the team that has become a place where she can truly be herself."
+    },
+    "kaden-ashford": {
+      "description": "Kaidan is one of Zhozabel's closest friends and a fellow team member. Playing in the same position, they spent a lot of time together, quickly hit it off, and learned to rely on each other on the field. Over time, however, Kaidan realized that his feelings for Zhozabel' had grown beyond friendship. Zhozabel', on the other hand, is far from thrilled that Kaidan has started seeing her as a girl rather than simply as an equal member of the team. Despite her irritation, she genuinely cares about him and considers him a close friend. Fortunately for their relationship, Kaidan respects her boundaries and doesn't try to force his feelings on her."
+    },
+    "max-land": {
+      "description": "Max Land is part of the friend group that Zhozabel' often hangs out with alongside Beatrice and Rain. Their interactions consist mostly of playful teasing and shared mischief. While Rain and Beatrice are busy with each other, Max and Zhozabel' often find ways to entertain themselves, especially by trying to get Rain and Beatrice to talk about their relationship, which both stubbornly deny exists. The harder the two try to hide the obvious, the more amused Max and Zhozabel' become. In this respect, they make the perfect partners in chaos, effortlessly building on each other's ideas. Zhozabel' sees Max as a fun friend she can fool around and laugh with, although their relationship hasn't developed much depth just yet."
+    },
+    "rayne-ames": {
+      "description": "Zhozabel' respects Rain Ames as a powerful mage and a Divine Visionary, acknowledging his abilities and accomplishments. However, his status doesn't particularly intimidate or impress her, and her personal attitude toward Rain is fairly neutral. They share a friend group, and Rain's relationship with Beatrice gives them a connection, but Zhozabel' has no particular desire to grow closer to him. In her eyes, he is first and foremost a respected mage and a member of their unusual circle of friends."
+    },
+    "lemon-irvine": {
+      "description": "Zhozabel' has never met Lemon personally and has no direct interactions with her. However, thanks to Dot, who has repeatedly confided in his cousin about his crush, Zhozabel' has heard quite a bit about the girl. She harbors no ill will toward Lemon and doesn't consider her a rival. She is simply a little envious of how freely Lemon can be around Mash."
+    },
+    "orter-madl": {
+      "description": "Zhozabel' sees Orter as the embodiment of the laws governing magical society, principles she vehemently rejects. She isn't particularly afraid of him and is willing to fight him again if he threatens Mash. However, her animosity is directed primarily at Orter's beliefs rather than at the man himself. When he acknowledges Mash and steps away from his former principles, Zhozabel' develops a reserved respect for his ability to reconsider his own views. She recognizes Orter's strength and respects him as a Divine Visionary, but his status won't make her abandon her own convictions. Her determination to protect Mash remains stronger than her fear of the consequences."
+    },
+    "philippe-de-lee": {
+      "description": "Zhozabel's relationship with her father, Phillip, is deeply strained and cold. Determined to preserve the family's prestige, he raised his daughter to become the perfect wife for a man of noble birth, subjecting her to strict control and physical punishment whenever she made mistakes. After Phillip brutally beat Zhozabel', he stopped laying a hand on her, not out of remorse, but because he was displeased with her now-damaged appearance. From that moment on, their relationship descended into complete emotional estrangement. Zhozabel' sees her father as little more than a stranger and is afraid of him. His treatment of her became one of the main reasons she strives so desperately for independence and freedom."
+    },
+    "josephine-barrett": {
+      "description": "Zhozabel' loves her mother and cherishes her tenderness and care, yet she is deeply hurt by Josephine's inability to protect her own daughter from her father's cruelty. Josephine would comfort Zhozabel' after her punishments, but she rarely dared to stand up to her husband, leaving Zhozabel' unable to feel safe around her. Their relationship remains warm, but her mother's love could not spare Zhozabel' the sense of helplessness she experienced throughout her childhood."
+    }
+  },
   "forms": {
-    "season-1": {
-      "name": "Season One",
-      "basic": {
-        "residence": "Residence",
-        "occupation": "Occupation",
-        "rank": "Rank"
-      },
-      "appearance": [],
-      "personality": [],
+    "eastons-academy": {
+      "name": "Easton Magic Academy",
+      "appearance": [
+        "Zhozabel' is a petite girl of short stature with an athletic, toned physique built through regular Duelo training and yoga. She has tanned skin from spending a lot of time outdoors, vivid green eyes, and messy caramel-colored hair. She wears signature green feather-shaped earrings in her ears.",
+        "On her left cheek is a single mark shaped like a small star with a streak extending toward her jawline, resembling the tail of a comet.",
+        "Unlike most female students, Zhozabel' prefers wearing trousers instead of a skirt and white sneakers instead of formal shoes as part of her Easton uniform. Outside of class, she dresses in a casual, tomboyish style — usually comfortable jeans and loose-fitting shirts.",
+        "Distinctive Features: On Zhozabel's back is a deep scar left by her father's physical abuse, which even the finest magical healers could not erase."
+      ],
+      "personality": [
+        "Zhozabel' is known for her hot-headedness, boldness, and fierce stubbornness. She reacts extremely poorly to any attempts to restrict her freedom or impose rules upon her. Emotionally, she is quite similar to her cousin Dot: she is quick to anger, blunt in her speech, and prone to impulsive actions—not hesitating to jump into a conflict if she witnesses an injustice.",
+        "Behind her facade of rudeness and sarcasm lies a deeply vulnerable and sensitive nature. Due to childhood trauma, Zhozabel' struggles with openly expressing her emotions, finding it much easier to show affection through actions and care. Her habit of relying entirely on herself drives her to mask any vulnerability behind her habitual defiance.",
+        "Zhozabel' categorically rejects aristocratic conventions and the hypocritical norms of \"polite wizarding society.\" At the same time, she harbors a panicky fear of thunderstorms, which she carefully hides from everyone around her.",
+        "Duelo holds a special place in her heart. She considers her team to be a true chosen family, and her loyalty to her teammates means everything to her."
+      ],
       "story": {
         "past": {
-          "title": "Past",
-          "paragraphs": [
-            "Past events"
-          ]
+          "title": "The Past",
+          "arcs": {
+            "family-and-childhood": {
+              "title": "Family and childhood",
+              "paragraphs": [
+                "Zhozabel' was born into the noble family of Phillip de Lee and Josephine de Lee (née Barrett). Due to her mother’s frail health, Zhozabel' remained their only child. Having anticipated a male heir, her father was deeply disappointed by the birth of a daughter. However, he soon set a new goal: to mold Zhozabel' into an \"ideal aristocrat\" — a submissive, refined, and convenient match for a high-status political marriage.",
+                "\n",
+                "Her training in etiquette, proper manners, and penmanship began unusually early under harsh discipline. Phillip demanded absolute perfection: even minor mistakes, such as uneven handwriting or holding utensils incorrectly, resulted in painful strikes to her hands.",
+                "\n",
+                "While visiting her aunt and uncle, Zhozabel' witnessed a completely different atmosphere in the Barrett household — warm, lively, and free, where her cousins Malta and Dot were treated with genuine love rather than as instruments. Realizing the injustice of her own home life, seven-year-old Zhozabel' acted on a sudden impulse and ran away from home: without a plan or a destination, she simply jumped out of a window and wandered the city streets, observing ordinary people with curiosity.",
+                "\n",
+                "When servants finally tracked her down and brought her back, her father flew into a rage and severely beat her, leaving deep, permanent scars across her back. Her frightened mother secretly called her brother — Malta and Dot's father — for help. He arrived immediately, forcefully intervened, and took his injured niece away.",
+                "\n",
+                "Zhozabel' spent about two weeks with the Barrett family, recovering under medical care. To prevent a public scandal and legal conflict, the Barretts insisted on an agreement: Zhozabel' would return to her parents, but her father lost all rights to inflict physical punishment, and her relatives retained the right to visit her regularly and monitor her condition. Realizing he had nearly crossed a line and lost his only child, Phillip emotionally distanced himself entirely. Physical abuse ceased, replaced by cold detachment and strict expectations."
+              ]
+            },
+            "admission-to-easton": {
+              "title": "Admission to Easton",
+              "paragraphs": [
+                "Upon reaching school age, Zhozabel' was enrolled in Easton Magic Academy, as expected for a young aristocrat. While her father took pride in the academy’s prestige, he strongly opposed her living in the dormitories. It was only through her mother’s gentle but persistent intervention — persuading her husband that social integration was essential for Zhozabel’s future status — that she was allowed to live on campus and gain her long-awaited independence.",
+                "\n",
+                "Zhozabel' was invited to join the future Duelo squad back in middle school after instructors recognized her exceptional flying skills. By high school, she became the only female player on Adler’s main roster. Being treated as an equal purely for her talent — rather than her lineage — profoundly shaped her character and tomboyish style. The team became her true chosen family."
+              ]
+            }
+          }
         },
-        "divine-visionary-selection-exam": {
-          "title": "Divine Visionary Selection Exam",
-          "paragraphs": [
-            "Arc events"
-          ]
-        },
-        "tri-magic-athalon-final-exam": {
-          "title": "Tri-Magic-Athalon Final Exam",
-          "paragraphs": [
-            "Arc events"
-          ]
-        },
-        "invasion-of-the-magic-capital": {
-          "title": "Invasion of the Magic Capital",
-          "paragraphs": [
-            "Arc events"
-          ]
-        }
-      },
-      "equipment": {
-        "main-equipment": {
-          "name": "Equipment",
-          "description": [
-            "Description of weapons and equipment."
-          ]
+        "studying-in-easton": {
+          "title": "Studying in Easton",
+          "arcs": {
+            "divine-visionary-selection-exam": {
+              "title": "Divine Visionary Selection Exam",
+              "paragraphs": [
+                "During the preliminary stage of the Divine Visionary Selection Exam, when a giant magic-resistant monster attacks the academy, Zhozabel' personally watches Mash single-handedly hold it back and save the school through sheer inhuman strength. At that moment, her heart begins to beat faster than usual. Being completely inexperienced in romance, Zhozabel' tries to explain her erratic breathing, rapid pulse, and sudden warmth through pure physiology, attributing it all to tachycardia, a blood pressure spike, and an adrenaline rush caused by the surrounding chaos. However, soon after the incident, she catches herself constantly searching for Mash with her eyes wherever he goes. At the same time, Zhozabel' deliberately refrains from getting closer to him, assuming that Mash and Lemon are in a relationship — one she has no intention of intruding upon."
+              ]
+            },
+            "encounter-with-orter-madl": {
+              "title": "Clash with Orter Madl",
+              "paragraphs": [
+                "Upon learning from Beatrice that Divine Visionary Orter Madl holds extreme views against Mash and is actively trying to eliminate him, Zhozabel' decides to act. When a discontented mob of mages gathers around the school, having somehow learned that a markless student is enrolled at the academy, Zhozabel' quickly connects the event to Orter's influence. Unwilling to let him harm Mash, she intercepts Orter — who is watching the mob's actions — in a grove near the academy. She directly tells him that she intends to protect Mash from his schemes and engages him in an uneven battle.",
+                "\n",
+                "Knowing the massive power gap, Zhozabel' pushes herself to the limit, trying to use not only magic but also clever tactics. However, Orter effortlessly suppresses her attacks. Having exhausted a vast amount of mana, Zhozabel' loses consciousness, and Orter leaves her behind, stating: \"Extracurricular lesson is over.\"",
+                "\n",
+                "The flashes of magic over the grove, accompanying the battle between Zhozabel' and Orter, are spotted by a few students. Mash goes to investigate what is happening. He finds an unconscious Zhozabel' and carries her to the infirmary."
+              ]
+            },
+            "secret": {
+              "title": "The Secret",
+              "paragraphs": [
+                "Upon waking up, Zhozabel' is immediately faced with an emotional interrogation from Dot, who is furious over her recklessness. To his scolding, Zhozabel' bluntly replies: \"If Orter wanted to kill someone who matters to you, would you have done differently?\" Dot instantly grasps the true subtext of her words and yells in shock across the entire infirmary: \"Are you in love with Mash?!\" At that exact moment, standing outside the door of the ward is Mash, who had come to check on Zhozabel', and he accidentally overhears the entire confession from start to finish."
+              ]
+            },
+            "shadow-of-the-family": {
+              "title": "Shadow of the Family",
+              "paragraphs": [
+                "Following a meeting at the Magic Bureau, Orter contacts Phillip de Lee and dryly notes his daughter's courage and talent without going into details. Suspicious, Zhozabel's father travels to Easton to find out what happened and how Orter came to know about her. Discovering that Zhozabel' attacked a Divine Visionary, Phillip publicly slaps her across the face in front of several students for violating ancient traditions and \"meddling in the affairs of the upper mages.\"",
+                "\n",
+                "Zhozabel' maintains her usual defiant facade in public and silently retreats to a secluded spot, deeply shaken by a relapse of her childhood trauma. Mash, who witnessed the scene, finds her sitting on a tree branch. He climbs up and sits beside her. Knowing her feelings and how much she risked for him, Mash asks no questions and silently allows Zhozabel' to cry her heart out on his shoulder. This marks their first step toward genuine emotional closeness."
+              ]
+            },
+            "tri-magic-athalon": {
+              "title": "Tri-Magic-Athalon Divine Visionary Exam",
+              "paragraphs": [
+                "Aware of the scale of the upcoming trial in the mansion and the formidable forces the candidates are set to encounter, Zhozabel' is deeply worried about Mash's safety. She understands that the tournament could prove fatal for him for numerous reasons: on one hand, Orter Madl’s dangerous scrutiny remains fixed upon him; on the other, a impending threat looms from the henchmen of Innocent Zero.",
+                "\n",
+                "Zhozabel' desperately wants to see Mash before he sets off for the exam, yet she feels overwhelmed with embarrassment for having shown him her vulnerable side that day. Caught in this inner turmoil, she begins irrationally avoiding him. Observing his cousin's inner conflict, Dot easily sees right through her. With a smirk, he reminds Zhozabel' that Mash \"doesn't bite\" and nudges her to take a step forward. Predictably, Zhozabel' fumes and threatens Dot over his teasing, but she ultimately takes his advice to heart.",
+                "\n",
+                "Overcoming her hesitation, Zhozabel' approaches Mash just before the trials begin. Having previously looked up his birthday, she presents him with a handmade astrological luck talisman. Into this amulet, Zhozabel' pours all her unspoken care and a genuine desire to protect him from harm. Mash accepts the talisman and dryly thanks her. Although he might not fully grasp the profound personal weight behind the gesture, Mash carries the charm with him into the tournament — serving as another quiet testament to their growing emotional connection."
+              ]
+            },
+            "preparation-for-the-eclipse": {
+              "title": "Preparation for the Eclipse",
+              "paragraphs": [
+                "Several weeks pass since the conclusion of the mansion trial, and the shadow of the looming eclipse hangs heavily over the magical world. Mash temporarily leaves the academy to undergo grueling training under the guidance of Lady Melliadoul, leaving Zhozabel' restless with worry and uncertainty about his safety.",
+                "\n",
+                "Refusing to remain helpless in the face of the approaching end of the world, Zhozabel' immerses herself in exhaustive training. Determined to push past her limits and perfect her constellation magic, she trains from dawn till dusk, honing her spell combinations and reaction speed alongside her Duelo teammates and Beatrice.",
+                "\n",
+                "Meanwhile, Dot and Lance endure absolute hell during their training sessions under Orter Madl. Returning exhausted, Dot shares unexpected realizations with his cousin: beneath the cold and harsh facade of the Divine Visionary lies a man genuinely devoted to order and protecting the world. For Zhozabel', who still vividly remembers their fierce clash in the grove, this becomes a chance to reevaluate Orter’s motives and let go of her past resentment.",
+                "\n",
+                "Every evening, looking up at the darkening sky, Zhozabel' finds comfort in the stars, sincerely hoping that the talisman she gave Mash is keeping him safe wherever he is now, and giving him the strength to return alive."
+              ]
+            },
+            "eclipse": {
+              "title": "The Eclipse",
+              "paragraphs": [
+                "During the full-scale invasion by Innocent Zero's forces, Zhozabel' alongside senior students and the Duelo team stands to defend the academy. Fighting side by side with her comrades, she protects the younger students and holds back the waves of giants and monsters.",
+                "\n",
+                "However, the enemies themselves do not frighten Zhozabel'. The true breaking point for Zhozabel' comes when Dot, Finn, and Lance return from the flying fortress. At first, she is shocked to see a heavily wounded Dot, but when her gaze lands on the completely unconscious Mash being carried by him, Zhozabel' plunges into profound agony. Innocent Zero tore out his heart, and the artificial one Melliadoul transplanted into him, by her own admission, will only buy him a single week before Mash dies in agony.",
+                "\n",
+                "Given her painful past and severed ties with her family, Zhozabel' realizes there is very little left in her life that she truly holds dear. Understanding that the person for whom she harbors deep feelings is doomed to die anyway strips away all her fear. Knowing full well she stands no chance alone against the mastermind of the enemy, Zhozabel' nevertheless heads straight into the epicenter of battle, ready to throw her life away."
+              ]
+            },
+            "face-to-face-with-innocent-zero": {
+              "title": "Face-to-Face with Innocent Zero",
+              "paragraphs": [
+                "Driven by an overwhelming surge of emotions and the agony of seeing Mash on the brink of death, Zhozabel' awakens her Ira Kreuz. As Innocent Zero descends upon the academy grounds and heads toward the infirmary to finish Mash off, a battered Zhozabel' steps into his path. Despite the astronomical power gap, she launches attack after attack, desperately trying to buy even a few precious seconds for Mash, who has just received an artificial heart from Melliadoul that requires time to take hold.",
+                "\n",
+                "Innocent Zero effortlessly neutralizes all her spells. He coldly comments on the absurdity of a noble mage sacrificing her life for \"markless trash.\" To his mockery of her foolishness, Zhozabel' — barely standing on her feet — retorts with a defiant smirk: \"Mash is the kindest, most empathetic, and most genuine person I have ever known. A monster like you could never understand that.\" Without another word, Innocent Zero ruthlessly disposes of her as nothing more than a minor nuisance in his way."
+              ]
+            },
+            "end-of-the-eclipse": {
+              "title": "End of the Eclipse",
+              "paragraphs": [
+                "When an awakened Mash defeats Innocent Zero during the final battle and forces him to use time-reversal magic, all the fallen are brought back to life, and their wounds vanish without a trace.",
+                "\n",
+                "Zhozabel' snaps back to consciousness lying on the grass outside the academy, gasping for air and not immediately realizing that she is alive. At that exact moment, Mash walks up to her, calmly chewing on a cream puff. Extending a hand toward her, he plainly asks: \"Are you okay?\"",
+                "\n",
+                "Seeing him alive, unharmed, and absurdly calm, Zhozabel's first instinct is to scream at her for all the horrors and agonizing terror she had just been put through. But instead, all the words vanish. Her lips tremble, quiet tears of sheer relief stream down her face, and burying her wet face in her hands, she silently weeps, no longer able to hold back the overwhelming emotional weight. Mash freezes in confusion for a moment before awkwardly yet gently offering her half of his cream puff."
+              ]
+            }
+          }
         }
       },
       "abilities": {
-        "main-abilities": {
-          "name": "Abilities",
+        "aries": {
+          "name": "Aries: Aries Flare",
           "description": [
-            "Description of abilities."
+            "Zhozabel' puts her wand away and covers her fists in concentrated starlight plasma, entering a fierce close-range brawl.",
+            "\n",
+            "Weakness: Long-range combat and water suppression. If the opponent keeps her at a distance or uses heavy water currents, the flame on her fists goes out, leaving her vulnerable at a distance without her wand."
+          ]
+        },
+        "taurus": {
+          "name": "Taurus: Bull’s Bastion",
+          "description": [
+            "Summons a durable shield made of compressed earth and stone shaped like a massive bull's head.",
+            "\n",
+            "Weakness: Precision piercing spells capable of finding microscopic cracks in the stone structure and bypassing its raw durability."
+          ]
+        },
+        "gemini": {
+          "name": "Gemini: Twin Star Illusion",
+          "description": [
+            "Gemini magic allows Zhozabel' to create a perfect light copy (phantom) of herself to disorient the enemy. While the opponent attacks the decoy, the real Zhozabel' strikes from a completely unexpected angle.",
+            "\n",
+            "Weakness: Massive AoE attacks or magic scanning (if an opponent relies on tracking auras or mana flow rather than sight, the illusion is instantly exposed)"
+          ]
+        },
+        "cancer": {
+          "name": "Cancer: Cosmic Shell",
+          "description": [
+            "Zhozabel' summons a massive, shimmering hemispherical shield made of dense starlight. Two giant translucent claws of cosmic energy materialize along its edge. This shield doesn't just absorb damage passively: if an enemy strikes it with too much force, the claws can snap shut, blocking the spell or physically catching and deflecting the enemy’s weapon or strike.",
+            "\n",
+            "Weakness: Heavy physical or massive raw impacts. If the pressure exceeds the critical threshold all at once, the light matrix cracks before the claws can react."
+          ]
+        },
+        "leo": {
+          "name": "Leo: Regulus Dominion",
+          "description": [
+            "Creates a massive floating \"sun\" from the Leo constellation over the battlefield, casting a blinding golden light that simultaneously blinds and disorients enemies.",
+            "\n",
+            "Weakness: Darkness, shadows, or deep underground cover (in enclosed or dark spaces, the light scatters or gets entirely absorbed)."
+          ]
+        },
+        "virgo": {
+          "name": "Virgo: Virgo’s Sanction",
+          "description": [
+            "Zhozabel' projects the delicate geometry of the Virgo constellation beneath the enemy's feet or around herself. The spell instantly \"freezes\" and locks the flow of the opponent's mana in that zone, disrupting spellcasting and binding their movements with glowing stellar threads.",
+            "\n",
+            "Weakness: Pure physical strength (the spell is designed to suppress mana). If an opponent fights purely through bodily muscle power — like Mash himself — Virgo's geometry is completely useless against them."
+          ]
+        },
+        "libra": {
+          "name": "Libra: Law of the Scales",
+          "description": [
+            "The ability to invert the weight of an object or an opponent—suddenly pinning an enemy to the ground with immense mass or making them helplessly float up into the air.",
+            "\n",
+            "Weakness: Hyper-fast momentum and instant adaptation (if the target moves at extreme speed or possesses a heavy built-in anchor, like the magic of gravity, the weight shift can be overpowered with raw impulse)."
+          ]
+        },
+        "scorpius": {
+          "name": "Scorpio: Antares Needle",
+          "description": [
+            "Zhozabel' fires a thin, needle-like crimson ray of starlight with massive piercing power. Instead of breaking an outer shield, the \"Sting\" ignores magic barrier density and strikes directly at the enemy's vulnerable points, causing severe magical shock.",
+            "\n",
+            "Weakness: Airborne and high-speed targets. It is extremely difficult to hit a fast-moving or flying target with this spell."
+          ]
+        },
+        "sagittarius": {
+          "name": "Sagittarius: Chiron’s Arrows",
+          "description": [
+            "Creates a multitude of energetic arrows made of starlight that rain down upon the enemy, covering a wide area in a massive barrage.",
+            "\n",
+            "Dense monolithic barriers or close-range combat (ineffective at point-blank range, as the caster risks catching the crossfire)."
+          ]
+        },
+        "capricornus": {
+          "name": "Capricorn: Gravitational Anchor",
+          "description": [
+            "Condenses starlight into super-dense matter (resembling neutron star material), sharply increasing gravity in a selected area and pressing opponents down to the ground.",
+            "\n",
+            "Weakness: Instant spatial mobility / Dashes. If the target has high movement speed and manages to leap out of the area before the pressure locks in, the spell misses entirely."
+          ]
+        },
+        "aquarius": {
+          "name": "Aquarius: Aquarius Stream",
+          "description": [
+            "Water and starlight manifest as a continuous vortex or a powerful stream. It works as a forceful washing-away current, capable of knocking an enemy off their feet, breaking enemy formations, or creating a protective water-and-star vortex around Zhozabel'.",
+            "\n",
+            "Weakness: Lightning/Electricity magic. Wwater is a great conductor, meaning a powerful electric shock from an opponent can travel straight through the stream and hit Zhozabel'."
+          ]
+        },
+        "pisces": {
+          "name": "Pisces: Pisces Tide",
+          "description": [
+            "Wave-like light distortions created by the Pisces constellation generate a shimmering cosmic haze around Zhozabel', causing enemies to see multiple distorted, shifted silhouettes of her. This allows her to maneuver silently and invisibly on the battlefield.",
+            "\n",
+            "Weakness: Powerful light flashes or scattering shockwaves can instantly burn away the cosmic haze, scattering the illusions and giving away her position."
+          ]
+        },
+        "crux-irae": {
+          "name": "Ira Kreuz mode: Celestial Crucifixion",
+          "description": [
+            "Belle brings her hands together, causing four giant luminous axes to materialize in the sky from constellation coordinates, intersecting to form a colossal glowing cross. This cross locks the target in an absolute spatial trap, immobilizing them and completely sealing their magic. All accumulated energy then condenses into a single point, crashing down on the enemy as a concentrated laser beam of catastrophic power. Used only as a desperate, devastating last resort."
+          ]
+        },
+        "astral-vanguard": {
+          "name": "Ira Kreuz mode: Astral Vanguard",
+          "description": [
+            "When pushed to her absolute emotional limit, Belle's starlight condenses directly onto her body, forming semi-transparent energy armor and razor-sharp plasma wings. This allows her to parry lethal blows hand-to-hand, ignore physical pain, and move at supersonic speeds on the battlefield."
+          ]
+        },
+        "event-horizon": {
+          "name": "Ira Kreuz mode: Event Horizon",
+          "description": [
+            "A field forms around Belle and her opponent, replicating the gravitational pull of a collapsing star. Inside this sphere, the laws of physics break down: any enemy spells slow down, warp, and are literally sucked into the center, stripping away their destructive momentum. It serves as an ultimate defense and crowd-control technique to halt an overwhelmingly powerful foe."
+          ]
+        },
+        "supernova-burst": {
+          "name": "Ira Kreuz mode: Последняя вспышка сверхновой",
+          "description": [
+            "Belle’s most desperate and high-risk move. She unleashes all her remaining mana in a devastating, all-directional wave of blinding stellar light. It obliterates nearby barriers and pushes back formidable enemies, but completely drains her physical body, leaving her completely exhausted and unconscious."
           ]
         }
       }
-    }
-  },
-  "relationships": {
-    "dot-barret": {
-      "name": "Dot Barret",
-      "description": "Description of their relationship."
-    },
-    "mash-burnedead": {
-      "name": "Mash Burnedead",
-      "description": "Description of their relationship."
     }
   }
 }
