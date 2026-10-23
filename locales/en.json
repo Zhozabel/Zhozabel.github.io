@@ -252,7 +252,11 @@
     "loading": "Loading terms...",
     "error": "Unable to load the terms. Please try again later.",
     "empty": "The terms document is empty."
+  },
+  "contacts": {
+    "title": "Get in touch",
+    "intro": "Have a question, a suggestion, or just want to chat? I'd love to hear from you!",
+    "platforms": "Contact platforms",
+    "note": "Have a question, a suggestion, or just feel like chatting? Feel free to message me on any of the platforms above! Choose whichever is most convenient for you 💌"
   }
-
 }
-

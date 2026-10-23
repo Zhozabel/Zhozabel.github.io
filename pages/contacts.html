@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zhozabel</title>
+
+  <link rel="stylesheet" href="../css/main.css">
+
+  <link
+    rel="shortcut icon"
+    href="../images/icons/brandicons/icon-peach.svg"
+    type="image/x-icon"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden">
+
+  <symbol id="heart_empty" viewBox="0 0 24 24">
+    <path
+      d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+  <symbol id="heart_fill" viewBox="0 0 24 24">
+    <path
+      d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001 12 20.5001 21 15.4999 21 9.49991 21 3.49988 14 2.99988 12 7.69431Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </symbol>
+
+</svg>
+
+
+<header class="header">
+  <div class="container">
+
+    <nav class="header_nav">
+
+      <img
+        src="../images/logos/logo_color_horizontal_without_outline.svg"
+        alt="Zhozabel"
+      >
+
+      <ul class="header_list">
+
+        <li class="header_list-item">
+          <a class="header_list-link" href="../index.html">
+            About
+          </a>
+        </li>
+
+        <li class="header_list-item">
+          <a class="header_list-link" href="../pages/wiki.html">
+            Wiki
+          </a>
+        </li>
+
+        <li class="header_list-item">
+          <a class="header_list-link active" href="/pages/contacts.html">
+            Contact
+          </a>
+        </li>
+
+        <li class="header_list-item">
+          <a class="header_button" href="../pages/commissions.html">
+            Commissions
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+</header>
+
+<body>
+
+<main class="contacts">
+
+  <header class="contacts_header">
+    <h1 class="contacts_title"
+        data-i18n="contacts.title">
+      Связаться со мной
+    </h1>
+
+    <p class="contacts_description"
+       data-i18n="contacts.intro">
+      Есть вопросы, предложения или просто хочется пообщаться?
+      Буду рада твоему сообщению!
+    </p>
+  </header>
+
+  <section class="contacts_grid"
+           aria-label="Contact platforms"
+           data-i18n-aria-label="contacts.platforms">
+
+    <a
+      class="contact_card"
+      href="YOUR_DISCORD_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Discord"
+    >
+      <div class="contact_image">
+        <img
+          src="../images/contacts/discord-avatar.png"
+          alt=""
+        >
+      </div>
+      <div class="contact_info">
+        <h2 class="contact_title">Discord</h2>
+      </div>
+    </a>
+
+    <a
+      class="contact_card"
+      href="YOUR_TELEGRAM_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Telegram"
+    >
+      <div class="contact_image">
+        <img
+          src="../images/contacts/telegram-avatar.png"
+          alt=""
+        >
+      </div>
+      <div class="contact_info">
+        <h2 class="contact_title">Telegram</h2>
+      </div>
+    </a>
+
+    <a
+      class="contact_card"
+      href="YOUR_KAKAOTALK_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="KakaoTalk"
+    >
+      <div class="contact_image">
+        <img
+          src="../images/contacts/kakaotalk-avatar.png"
+          alt=""
+        >
+      </div>
+      <div class="contact_info">
+        <h2 class="contact_title">KakaoTalk</h2>
+      </div>
+    </a>
+
+  </section>
+
+  <p class="contacts_note"
+     data-i18n="contacts.note">
+    По всем вопросам, не связанным с комиссиями, можешь
+    написать мне в любой из мессенджеров ниже.
+    Выбирай тот, который тебе удобнее!
+  </p>
+
+</main>
+
+<footer>
+  <div class="container footer_container">
+    <div class="footer_content">
+      <div class="footer_copyright">
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
+      </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN
+      </button>
+
+      <span class="footer_language-divider"
+            aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+
+</body>
+
+</html>
