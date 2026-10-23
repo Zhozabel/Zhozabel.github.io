@@ -5,27 +5,27 @@ read and agreed to the terms below.
 
 ## 1. GENERAL INFORMATION
 
-- I accept commissions for original characters (OCs), fan art, portraits, character illustrations, and ship art,
+- · I accept commissions for original characters (OCs), fan art, portraits, character illustrations, and ship art,
   including OC × canon pairings.
-- I primarily create fully rendered illustrations.
-- I may accept a full-body character illustration for a simple character profile, but I do not create full
+- · I primarily create fully rendered illustrations.
+- · I may accept a full-body character illustration for a simple character profile, but I do not create full
   reference sheets.
-- I reserve the right to decline any commission without providing a reason.
-- Please provide clear references and a detailed description of your request. Any special requirements must be discussed
+- · I reserve the right to decline any commission without providing a reason.
+- · Please provide clear references and a detailed description of your request. Any special requirements must be discussed
   before the commission begins.
 
 ## 2. PRICING
 
-- All base commission prices are calculated per character.
-- Each additional character is charged separately according to the applicable base commission price.
-- Backgrounds are priced separately and charged **once per illustration**, regardless of the number of characters.
+- · All base commission prices are calculated per character.
+- · Each additional character is charged separately according to the applicable base commission price.
+- · Backgrounds are priced separately and charged **once per illustration**, regardless of the number of characters.
 
 ### Background pricing
 
-- **No background:** Free.
-- **Geometric background or solid-color fill:** Free.
-- **Simple illustrated background:** $5.
-- **Complex illustrated background:** $10.
+- · **No background:** Free.
+- · **Geometric background or solid-color fill:** Free.
+- · **Simple illustrated background:** $5.
+- · **Complex illustrated background:** $10.
 
 Background complexity and pricing will be discussed and agreed upon before work begins. If the requested background
 turns out to be significantly more complex than initially described, the price may be adjusted after discussion and with
@@ -42,14 +42,14 @@ All prices, additional fees, and the final scope of the commission must be agree
 
 ## 3. PAYMENT
 
-- I accept payments through PayPal, Hipolink, Boosty, and Ko-fi. Bank transfers are also available for clients in
+- · I accept payments through **PayPal**, **Ko-fi**, **Hipolink** and **Boosty**. Bank transfers are also available for clients in
   Kazakhstan and Russia.
-- Full payment is due after the sketch has been approved and before I begin the line art.
-- I will not proceed to the line art stage until payment has been received.
-- The commission scope and total price must be agreed upon before work begins.
-- Any additional fees must be discussed and approved in advance.
-- Before payment, the client may cancel the commission without being charged the full commission price.
-- Unpaid sketches are for review purposes only. They may not be used, published, redistributed, or presented as the
+- · Full payment is due after the sketch has been approved and before I begin the line art.
+- · I will not proceed to the line art stage until payment has been received.
+- · The commission scope and total price must be agreed upon before work begins.
+- · Any additional fees must be discussed and approved in advance.
+- · Before payment, the client may cancel the commission without being charged the full commission price.
+- · Unpaid sketches are for review purposes only. They may not be used, published, redistributed, or presented as the
   client's own work without my permission.
 
 ## 4. WORKFLOW AND APPROVAL
@@ -82,9 +82,9 @@ changes requested after an earlier revised element has already been approved.
 
 Additional revision rounds are charged as follows:
 
-- During the sketch stage: **5% of the original commission price per additional round**.
-- After the line art has begun: **10% of the original commission price per additional round**.
-- After coloring has begun: **15% of the original commission price per additional round**.
+- · During the sketch stage: **5% of the original commission price per additional round**.
+- · After the line art has begun: **10% of the original commission price per additional round**.
+- · After coloring has begun: **15% of the original commission price per additional round**.
 
 Minor adjustments, such as small color changes or minor details, are not automatically considered substantial revisions.
 
@@ -103,9 +103,9 @@ If the client cancels after payment, the refund may be calculated by deducting t
 
 As a general guideline, the commission price may be allocated as follows:
 
-- Sketch and composition: **25%**.
-- Line art: **25%**.
-- Coloring and final rendering: **50%**.
+- · Sketch and composition: **25%**.
+- · Line art: **25%**.
+- · Coloring and final rendering: **50%**.
 
 These percentages are estimates for calculating refunds, not an automatic guarantee of a particular refund amount. If a
 stage is only partially completed, its value will be assessed based on the work actually done.
@@ -177,13 +177,13 @@ I may retain commission files and correspondence for record-keeping purposes.
 
 I do not accept commissions involving:
 
-- NSFW content.
-- Guro or graphic gore.
-- Fetish content.
-- Realism or photorealism.
-- Mecha.
-- Furry characters.
-- Architecture.
+- · NSFW content.
+- · Guro or graphic gore.
+- · Fetish content.
+- · Realism or photorealism.
+- · Mecha.
+- · Furry characters.
+- · Architecture.
 
 I may decline requests that fall outside my skills, comfort level, or artistic preferences.
 

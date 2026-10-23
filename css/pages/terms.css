@@ -3,7 +3,7 @@
    ========================= */
 
 .terms {
-  margin-bottom: 80px;
+  margin-bottom: 30px;
   min-width: 0;
 }
 
@@ -29,6 +29,8 @@
 .terms_content h2,
 .terms_content h3,
 .terms_content h4 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
   color: var(--primary_text);
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -41,30 +43,31 @@
 
 .terms_content h2 {
   margin: 36px 0 14px;
-  font-size: 23px;
+  font-size: 22px;
 }
 
 .terms_content h3 {
   margin: 26px 0 10px;
-  font-size: 19px;
+  font-size: 20px;
 }
 
 .terms_content h4 {
   margin: 22px 0 8px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /* Text */
 
 .terms_content p {
   margin: 0 0 16px;
+  font-family: "Nunito", sans-serif;
   color: var(--secondary_text);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
 }
 
 .terms_content strong {
-  color: var(--primary_text);
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -78,13 +81,16 @@
 }
 
 .terms_content li {
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
   padding-left: 4px;
   margin-bottom: 9px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
 }
 
 .terms_content li::marker {
+  font-weight: 700;
   color: var(--primary);
 }
 

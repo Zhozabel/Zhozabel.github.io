@@ -1,4 +1,4 @@
- /* Настройки хедера */
+/* Настройки хедера */
 .header {
   padding-block: 30px;
 }
@@ -18,6 +18,15 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+}
+
+.header_nav > a {
+  display: block;
+  line-height: 0;
+}
+
+.header_nav > a img {
+  display: block;
 }
 
 .header_list {
@@ -51,6 +60,7 @@
   padding: 19px 59px;
   background: linear-gradient(to right, var(--primary), var(--primary_text));
   border-radius: 50px;
+  transition: color 0.3s;
 }
 
 .header_button:hover {

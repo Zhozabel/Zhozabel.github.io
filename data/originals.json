@@ -20,11 +20,12 @@
     ],
     "pairings": [],
     "date": "2012-10-22",
+    "previewCover": "",
     "cover": {
-      "en": "",
-      "ru": ""
+      "en": "data/system/empty-picture.png",
+      "ru": "data/system/empty-picture.png"
     },
-    "banner": "",
+    "banner": "data/system/empty-picture.png",
     "description": {
       "en": "",
       "ru": ""

@@ -3,8 +3,8 @@
 ======================================== */
 
 .comic_page {
-  width: min(100% - 30px, 1000px);
-  margin: 50px auto 70px;
+  width: min(100% - 40px, 1000px);
+  margin: 50px auto 45px;
   min-width: 0;
 }
 
@@ -15,22 +15,30 @@
 
 .comic_header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .comic_title {
   margin: 0;
   color: var(--primary_text);
-  font-size: 32px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 34px;
   font-weight: 700;
+  line-height: 1.2;
+
   overflow-wrap: anywhere;
 }
 
 .comic_date {
   display: block;
   margin-top: 8px;
+
   color: var(--secondary_text);
+
+  font-family: "Nunito", sans-serif;
   font-size: 14px;
+  font-weight: 600;
 }
 
 
@@ -73,21 +81,32 @@
 }
 
 .comic_navigation-contents {
-  padding: 10px 18px;
+  display: block;
+  min-width: 0;
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
   background: var(--card);
-  border-radius: 12px;
-  text-align: center !important;
-  white-space: nowrap;
+  color: var(--primary_text);
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-align: center;
+  text-decoration: none;
+
+  overflow-wrap: anywhere;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .comic_navigation-contents:hover {
   background: var(--card_hover);
   color: var(--primary_text);
-  transform: translateY(-1px);
 }
 
 

@@ -6,6 +6,7 @@
       "ru": "Глава 1: Октябрь в Оукридже"
     },
     "date": "2015-07-17",
+    "cover": "data/system/empty-picture.png",
     "files": {
       "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-01-en.md",
       "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-01-ru.md"
@@ -20,6 +21,7 @@
       "ru": "Глава 2: "
     },
     "date": "2015-07-17",
+    "cover": "data/system/empty-picture.png",
     "files": {
       "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-02-en.md",
       "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-02-ru.md"
@@ -33,6 +35,7 @@
       "ru": "Глава 3: "
     },
     "date": "2015-07-17",
+    "cover": "data/system/empty-picture.png",
     "files": {
       "en": "data/stories/the-arithmetic-of-affection/chapters/chapter-03-en.md",
       "ru": "data/stories/the-arithmetic-of-affection/chapters/chapter-03-ru.md"

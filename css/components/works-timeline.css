@@ -178,12 +178,12 @@
   text-decoration: none;
 
   transition:
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .story_card:hover {
-  border-color: var(--primary);
+  /*border-color: var(--primary);*/
 }
 
 /* ========================================

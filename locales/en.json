@@ -76,7 +76,7 @@
     "rating": "Rating",
     "warnings": "Warnings",
     "warningsList": {
-      "No Archive Warnings Apply": "No Archive Warnings Apply",
+      "No Warnings Apply": "No Warnings Apply",
       "OOC": "Out of Character",
       "OMC": "Original Male Character",
       "OFC": "Original Female Character",
@@ -226,7 +226,7 @@
       },
       "halfBody": {
         "title": "Half body",
-        "description": "The character shown from the waist or chest up, with more room for posing."
+        "description": "The character is shown from the waist up, with more room for posing."
       },
       "thighUp": {
         "title": "Thigh-up",
@@ -247,7 +247,7 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "category": "COMMISSIONS · INFORMATION",
+    "category": "Commissions",
     "description": "Please read these terms before placing a commission order.",
     "loading": "Loading terms...",
     "error": "Unable to load the terms. Please try again later.",
@@ -257,6 +257,9 @@
     "title": "Get in touch",
     "intro": "Have a question, a suggestion, or just want to chat? I'd love to hear from you!",
     "platforms": "Contact platforms",
-    "note": "Have a question, a suggestion, or just feel like chatting? Feel free to message me on any of the platforms above! Choose whichever is most convenient for you 💌"
+    "note": "Feel free to message me on any of the platforms above! Choose whichever is most convenient for you 💌"
+  },
+  "links": {
+    "commissionForm": "https://forms.gle/YN3u2g5637LYv5ei6"
   }
 }

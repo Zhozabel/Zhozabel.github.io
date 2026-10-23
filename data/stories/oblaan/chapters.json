@@ -6,6 +6,7 @@
       "ru": "Oblaan"
     },
     "date": "2015-07-17",
+    "cover": "data/system/empty-picture.png",
     "files": {
       "en": "data/stories/oblaan/chapters/chapter-01-en.md",
       "ru": "data/stories/oblaan/chapters/chapter-01-ru.md"

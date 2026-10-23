@@ -46,10 +46,13 @@
     return typeof value === "string" ? value : fallback;
   }
 
-  // Путь к локализованной обложке.
+
+  // Обложка для витрины.
+  // Если отдельная обложка не задана, используем основную.
   function getCover(work) {
-    return localize(work.cover);
+    return localize(work.previewCover) || localize(work.cover);
   }
+
 
   // Преобразуем путь от корня сайта в URL.
   function getAssetUrl(path) {

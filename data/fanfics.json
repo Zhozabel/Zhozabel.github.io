@@ -16,11 +16,12 @@
     ],
     "pairings": [],
     "date": "2015-07-17",
+    "previewCover": "",
     "cover": {
-      "en": "",
-      "ru": ""
+      "en": "data/system/empty-picture.png",
+      "ru": "data/system/empty-picture.png"
     },
-    "banner": "",
+    "banner": "data/system/empty-picture.png",
     "description": {
       "en": "The old dragon sank to the ground. Slowly, with dignity. The snow scattered to the sides beneath his paws. His body was covered in scars, but there was neither fury nor threat in his gaze.",
       "ru": "Старый дракон опустился на землю. Медленно, с достоинством. Снег под его лапами разлетелся в стороны. Его тело было покрыто шрамами, но во взгляде не было ни ярости, ни угрозы."
@@ -34,7 +35,9 @@
     "status": "completed",
     "chapters": 1,
     "rating": "PG",
-    "warnings": [],
+    "warnings": [
+      "No Warnings Apply"
+    ],
     "file": "data/stories/oblaan/chapters/chapter-01.md",
     "chaptersFile": "data/stories/oblaan/chapters.json"
   }

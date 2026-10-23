@@ -9,7 +9,7 @@
   border-radius: 20px;
   background-color: var(--card);
   padding: 25px;
-  transition: background-color 1s;
+  transition: background-color 0.2s;
 }
 
 .category_grid:hover {

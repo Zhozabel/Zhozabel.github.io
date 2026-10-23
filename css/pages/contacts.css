@@ -1,4 +1,3 @@
-
 /* ========================================
    CONTACTS
 ======================================== */
@@ -6,7 +5,7 @@
 .contacts {
   width: min(100% - 40px, 1000px);
   min-width: 0;
-  margin: 60px auto 80px;
+  margin: 30px auto 30px;
 }
 
 .contacts_header {
@@ -15,10 +14,10 @@
 }
 
 .contacts_title {
-  margin: 0 0 12px;
+  margin: 0 0 15px;
   color: var(--primary_text);
   font-family: "Nunito", sans-serif;
-  font-size: 32px;
+  font-size: 42px;
   font-weight: 700;
   overflow-wrap: anywhere;
 }
@@ -27,7 +26,8 @@
   max-width: 650px;
   margin: 0 auto;
   color: var(--secondary_text);
-  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -43,13 +43,12 @@
   display: block;
   min-width: 0;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: 20px;
   background: var(--card);
   text-decoration: none;
 
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+  transition: transform 0.2s ease,
+  background 0.2s ease;
 }
 
 .contact_card:hover {
@@ -75,7 +74,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .contact_card:hover .contact_image img {
@@ -104,35 +103,30 @@
   max-width: 700px;
   margin: 35px auto 0;
   color: var(--secondary_text);
-  font-size: 14px;
-  line-height: 1.8;
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
   text-align: center;
 }
+
 
 /* ========================================
    RESPONSIVE
 ======================================== */
 
-@media (max-width: 700px) {
+/* Tablets */
+
+@media (max-width: 900px) {
   .contacts_grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-  }
-
-  .contact_card {
-    border-radius: 18px;
-  }
-
-  .contact_info {
-    padding: 15px 10px 17px;
-  }
-
-  .contact_title {
-    font-size: 18px;
+    gap: 18px;
   }
 }
 
-@media (max-width: 420px) {
+
+/* Mobile devices */
+
+@media (max-width: 600px) {
   .contacts {
     width: min(100% - 30px, 500px);
     margin-top: 40px;
@@ -140,11 +134,15 @@
   }
 
   .contacts_header {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
 
   .contacts_title {
     font-size: 28px;
+  }
+
+  .contacts_description {
+    font-size: 16px;
   }
 
   .contacts_grid {
@@ -153,26 +151,121 @@
   }
 
   .contact_card {
+    border-radius: 18px;
+  }
+
+  .contact_info {
+    padding: 16px;
+  }
+
+  .contact_title {
+    font-size: 17px;
+  }
+
+  .contacts_note {
+    margin-top: 28px;
+    font-size: 16px;
+  }
+}
+
+
+/* Compact mobile */
+
+@media (max-width: 420px) {
+  .contacts {
+    width: min(100% - 30px, 500px);
+  }
+
+  .contacts_title {
+    font-size: 26px;
+  }
+
+  .contact_card:not(.contact_card--flip) {
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 12px;
   }
 
-  .contact_image {
+  .contact_card:not(.contact_card--flip) .contact_image {
     width: 90px;
     flex-shrink: 0;
     border-radius: 12px;
   }
 
-  .contact_info {
+  .contact_card:not(.contact_card--flip) .contact_info {
     flex: 1;
     padding: 10px;
     text-align: left;
   }
 
-  .contacts_note {
-    margin-top: 25px;
+  /* KakaoTalk flip card */
+  /* Компактная лицевая сторона KakaoTalk */
+
+  .contact_card--flip .contact_face-front {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border-radius: 18px;
+    min-height: 114px;
+    box-sizing: border-box;
+  }
+
+  .contact_card--flip .contact_face-front .contact_image {
+    width: 90px;
+    height: 90px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 12px;
+  }
+
+  .contact_card--flip .contact_face-front .contact_info {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .contact_card--flip .contact_face-front .contact_title {
+    font-size: 17px;
+  }
+
+  .contact_card--flip .contact_face-back {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .contact_card--flip .contact_face-back .contact_qr-image {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact_card,
+  .contact_image img,
+  .contact_card--flip,
+  .contact_flip-inner,
+  .contact_card--flip .contact_face {
+    transition: none;
+  }
+
+  .contact_card:hover {
+    transform: none;
+  }
+
+  .contact_card:hover .contact_image img {
+    transform: none;
+  }
+
+  .contact_card--flip:hover {
+    transform: none;
   }
 }
 
@@ -190,3 +283,255 @@
     transform: none;
   }
 }
+
+  /* ========================================
+     KAKAOTALK FLIP CARD
+  ======================================== */
+  .contact_card--flip {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1000px;
+    text-align: left;
+    font: inherit;
+  }
+
+.contact_card--flip {
+  transition: transform 0.2s ease;
+}
+
+.contact_card--flip:hover {
+  background: transparent;
+  transform: translateY(-4px);
+}
+
+.contact_card--flip .contact_face {
+  transition: background 0.2s ease;
+}
+
+.contact_card--flip:hover .contact_face {
+  background: var(--card_hover);
+}
+
+  .contact_flip-inner {
+    display: grid;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+
+  .contact_card--flip.is-flipped .contact_flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .contact_face {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    background: var(--card);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .contact_face-front {
+    transform: rotateY(0deg);
+  }
+
+  .contact_face-back {
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+  }
+
+  .contact_card--flip .contact_qr-image {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 10px;
+  }
+
+  .contact_card--flip:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 420px) {
+    .contact_card--flip .contact_face {
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      border-radius: 18px;
+    }
+
+    .contact_card--flip .contact_face-back {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact_card--flip .contact_face-back .contact_qr-image {
+      width: 100%;
+      max-width: 220px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact_flip-inner {
+      transition: none;
+    }
+  }
+
+
+/* ========================================
+   KAKAOTALK: MOBILE EXPANDABLE QR
+======================================== */
+
+@media (max-width: 600px) {
+
+  /* Отключаем 3D-переворот на мобильных */
+  .contact_card--flip {
+    width: 100%;
+    overflow: visible;
+    perspective: none;
+  }
+
+  .contact_card--flip .contact_flip-inner {
+    display: block;
+    width: 100%;
+    transform: none !important;
+    transform-style: flat;
+    transition: none;
+  }
+
+  /* Возвращаем стороны в обычный поток */
+  .contact_card--flip .contact_face {
+    grid-area: auto;
+    position: static;
+    width: 100%;
+    box-sizing: border-box;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transform: none;
+  }
+
+  /* Компактная закрытая карточка */
+  .contact_card--flip .contact_face-front {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .contact_card--flip .contact_face-front .contact_image {
+    width:90px;
+    height: 90px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 12px;
+  }
+
+  .contact_card--flip .contact_face-front .contact_info {
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .contact_card--flip .contact_face-front .contact_title {
+    font-size: 16px;
+  }
+
+  /* QR-код скрыт, пока карточка закрыта */
+  .contact_card--flip .contact_face-back {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 18px;
+    transform: none;
+  }
+
+  /* По нажатию раскрываем QR-код ниже */
+  .contact_card--flip.is-flipped .contact_face-back {
+    display: flex;
+  }
+
+  .contact_card--flip .contact_face-back .contact_qr-image {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: white;
+    border-radius: 10px;
+  }
+
+  /* Сохраняем эффект наведения */
+  .contact_card--flip:hover {
+    transform: translateY(-3px);
+  }
+}
+/* Chevron: mobile only */
+
+
+.contact_chevron {
+  display: none;
+}
+
+.contact_chevron svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: var(--primary_text);
+  stroke: var(--secondary_text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 600px) {
+  .contact_card--flip .contact_chevron {
+    display: block;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  .contact_card--flip.is-flipped .contact_chevron {
+    transform: rotate(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact_card--flip .contact_chevron {
+    transition: none;
+  }
+}
+
+
+

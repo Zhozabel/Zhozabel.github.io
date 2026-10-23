@@ -1,5 +1,12 @@
+const GOOGLE_FORM_URLS = {
+  en: "https://forms.gle/GuWmGryJTrmNF64W9",
+  ru: "https://forms.gle/q2jG2zj3GMh4TVkv9"
+};
 
-const GOOGLE_FORM_URL = "https://forms.gle/GuWmGryJTrmNF64W9";
+function getGoogleFormUrl() {
+  const language = document.documentElement.lang;
+  return GOOGLE_FORM_URLS[language] || GOOGLE_FORM_URLS.en;
+}
 
 const commissionCards = document.querySelectorAll(".commission_card");
 const modal = document.getElementById("commission-modal");
@@ -116,13 +123,11 @@ function updateModalContent(card) {
 // Кнопка активна только при согласии с условиями
 // и наличии настоящей ссылки на Google Forms.
 function updateConfirmButton() {
-  const hasFormUrl =
-    GOOGLE_FORM_URL !== "PASTE_YOUR_GOOGLE_FORM_URL_HERE";
-
-  const canProceed = tosCheckbox.checked && hasFormUrl;
+  const formUrl = getGoogleFormUrl();
+  const canProceed = tosCheckbox.checked && Boolean(formUrl);
 
   if (canProceed) {
-    modalConfirm.href = GOOGLE_FORM_URL;
+    modalConfirm.href = formUrl;
     modalConfirm.removeAttribute("aria-disabled");
     modalConfirm.removeAttribute("tabindex");
   } else {
@@ -185,16 +190,14 @@ document.addEventListener("keydown", (event) => {
 
 // Пересчёт цены при смене языка
 document.addEventListener("languageChanged", updatePrices);
+document.addEventListener("languageChanged", updateConfirmButton);
 
 // Обновление доступности кнопки при изменении чекбокса
 tosCheckbox.addEventListener("change", updateConfirmButton);
 
 // Дополнительная защита от перехода без согласия
 modalConfirm.addEventListener("click", (event) => {
-  if (
-    !tosCheckbox.checked ||
-    GOOGLE_FORM_URL === "PASTE_YOUR_GOOGLE_FORM_URL_HERE"
-  ) {
+  if (!tosCheckbox.checked || !getGoogleFormUrl()) {
     event.preventDefault();
   }
 });

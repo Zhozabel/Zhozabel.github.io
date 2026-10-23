@@ -38,8 +38,8 @@
   text-decoration: none;
 
   transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .story_card:hover {
@@ -247,7 +247,7 @@
   overflow: hidden;
   border-radius: 16px;
   background: var(--card);
-  cursor: pointer;
+  cursor: default;
 }
 
 .story_cover:focus-visible {

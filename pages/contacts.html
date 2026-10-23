@@ -69,25 +69,37 @@
       <ul class="header_list">
 
         <li class="header_list-item">
-          <a class="header_list-link" href="../index.html">
+          <a class="header_list-link"
+             href="../index.html"
+             data-i18n="nav.about"
+          >
             About
           </a>
         </li>
 
         <li class="header_list-item">
-          <a class="header_list-link" href="../pages/wiki.html">
+          <a class="header_list-link"
+             href="../pages/wiki.html"
+             data-i18n="nav.wiki"
+          >
             Wiki
           </a>
         </li>
 
         <li class="header_list-item">
-          <a class="header_list-link active" href="/pages/contacts.html">
+          <a class="header_list-link active"
+             href="../pages/contacts.html"
+             data-i18n="nav.contact"
+          >
             Contact
           </a>
         </li>
 
         <li class="header_list-item">
-          <a class="header_button" href="../pages/commissions.html">
+          <a class="header_button"
+             href="../pages/commissions.html"
+             data-i18n="nav.commissions"
+          >
             Commissions
           </a>
         </li>
@@ -99,20 +111,18 @@
   </div>
 </header>
 
-<body>
-
 <main class="contacts">
 
   <header class="contacts_header">
     <h1 class="contacts_title"
         data-i18n="contacts.title">
-      Связаться со мной
+      Get in touch
     </h1>
 
     <p class="contacts_description"
        data-i18n="contacts.intro">
-      Есть вопросы, предложения или просто хочется пообщаться?
-      Буду рада твоему сообщению!
+      Have a question, a suggestion, or just want to chat?
+      I'd love to hear from you!
     </p>
   </header>
 
@@ -122,14 +132,14 @@
 
     <a
       class="contact_card"
-      href="YOUR_DISCORD_LINK"
+      href="https://discord.com/users/1138376230660481025"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Discord"
     >
       <div class="contact_image">
         <img
-          src="../images/contacts/discord-avatar.png"
+          src="../images/contacts/zhozabel_avatar.png"
           alt=""
         >
       </div>
@@ -140,14 +150,14 @@
 
     <a
       class="contact_card"
-      href="YOUR_TELEGRAM_LINK"
+      href="http://t.me/zhozabel"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Telegram"
     >
       <div class="contact_image">
         <img
-          src="../images/contacts/telegram-avatar.png"
+          src="../images/contacts/yuri_avatar.png"
           alt=""
         >
       </div>
@@ -156,31 +166,52 @@
       </div>
     </a>
 
-    <a
-      class="contact_card"
-      href="YOUR_KAKAOTALK_LINK"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="KakaoTalk"
+    <button
+      class="contact_card contact_card--flip"
+      type="button"
+      aria-label="Show KakaoTalk QR code"
+      aria-pressed="false"
     >
-      <div class="contact_image">
+  <span class="contact_flip-inner">
+
+    <span class="contact_face contact_face-front">
+      <span class="contact_image">
         <img
-          src="../images/contacts/kakaotalk-avatar.png"
+          src="../images/contacts/zhozabel_avatar.png"
           alt=""
         >
-      </div>
-      <div class="contact_info">
-        <h2 class="contact_title">KakaoTalk</h2>
-      </div>
-    </a>
+      </span>
+
+      <span class="contact_info">
+        <span class="contact_title">KakaoTalk</span>
+      </span>
+
+<span class="contact_chevron" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <use href="../images/icons/navigation.svg#chevron_down"></use>
+  </svg>
+</span>
+
+    </span>
+
+    <span class="contact_face contact_face-back" aria-hidden="true">
+      <img
+        class="contact_qr-image"
+        src="../images/contacts/kakao.JPG"
+        alt=""
+      >
+      <span class="contact_title">KakaoTalk QR</span>
+    </span>
+
+  </span>
+    </button>
 
   </section>
 
   <p class="contacts_note"
      data-i18n="contacts.note">
-    По всем вопросам, не связанным с комиссиями, можешь
-    написать мне в любой из мессенджеров ниже.
-    Выбирай тот, который тебе удобнее!
+    Feel free to message me on any of the platforms above!
+    Choose whichever is most convenient for you 💌
   </p>
 
 </main>
@@ -223,6 +254,7 @@
 </footer>
 
 <script src="../js/i18n.js"></script>
+<script src="../js/contacts.js"></script>
 
 </body>
 

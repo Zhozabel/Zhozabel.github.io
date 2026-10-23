@@ -5986,7 +5986,10 @@
   },
   {
     "id": "2021-54",
-    "image": "images/artworks/2021/2021-54.png",
+    "image": {
+      "en": "images/artworks/2021/2021-54.png",
+      "ru": "images/artworks/2021/2021-54-ru.png"
+    },
     "characters": [
       "massao-yamaguchi",
       "murasaki-yamaguchi"
@@ -6037,7 +6040,10 @@
   },
   {
     "id": "2021-51",
-    "image": "images/artworks/2021/2021-51.png",
+    "image": {
+      "en": "images/artworks/2021/2021-51.png",
+      "ru": "images/artworks/2021/2021-51-ru.png"
+    },
     "characters": [
       "murasaki-yamaguchi",
       "takashi-mitsuya"
@@ -6071,7 +6077,10 @@
   },
   {
     "id": "2021-49",
-    "image": "images/artworks/2021/2021-49.png",
+    "image": {
+      "en": "images/artworks/2021/2021-49.png",
+      "ru": "images/artworks/2021/2021-49-ru.png"
+    },
     "characters": [
       "massao-yamaguchi",
       "murasaki-yamaguchi"
@@ -6105,7 +6114,10 @@
   },
   {
     "id": "2021-47",
-    "image": "images/artworks/2021/2021-47.png",
+    "image": {
+      "en": "images/artworks/2021/2021-47.png",
+      "ru": "images/artworks/2021/2021-47-ru.png"
+    },
     "characters": [
       "murasaki-yamaguchi",
       "takashi-mitsuya"
@@ -6348,7 +6360,10 @@
   },
   {
     "id": "2021-32",
-    "image": "images/artworks/2021/2021-32.png",
+    "image": {
+      "en": "images/artworks/2021/2021-32.png",
+      "ru": "images/artworks/2021/2021-32-ru.png"
+    },
     "characters": [
       "julia-yuri"
     ],
@@ -6413,7 +6428,10 @@
   },
   {
     "id": "2021-28",
-    "image": "images/artworks/2021/2021-28.png",
+    "image": {
+      "en": "images/artworks/2021/2021-28.png",
+      "ru": "images/artworks/2021/2021-28-ru.png"
+    },
     "characters": [
       "hoki-taketori",
       "serishi-butsukaru"
@@ -6478,7 +6496,10 @@
   },
   {
     "id": "2021-24",
-    "image": "images/artworks/2021/2021-24.png",
+    "image": {
+      "en": "images/artworks/2021/2021-24.png",
+      "ru": "images/artworks/2021/2021-24-ru.png"
+    },
     "characters": [
       "hoki-taketori",
       "kizunari-sarutobi"
@@ -6577,7 +6598,10 @@
   },
   {
     "id": "2021-18",
-    "image": "images/artworks/2021/2021-18.jpg",
+    "image": {
+      "en": "images/artworks/2021/2021-18.jpg",
+      "ru": "images/artworks/2021/2021-18-ru.jpg"
+    },
     "characters": [
       "chanoi-sevazuki",
       "kizunari-sarutobi"
@@ -6610,7 +6634,10 @@
   },
   {
     "id": "2021-16",
-    "image": "images/artworks/2021/2021-16.png",
+    "image": {
+      "en": "images/artworks/2021/2021-16.png",
+      "ru": "images/artworks/2021/2021-16-ru.png"
+    },
     "characters": [
       "dovahkiin",
       "sheogorath"
@@ -6693,7 +6720,10 @@
   },
   {
     "id": "2021-11",
-    "image": "images/artworks/2021/2021-11.jpg",
+    "image": {
+      "en": "images/artworks/2021/2021-11.jpg",
+      "ru": "images/artworks/2021/2021-11-ru.jpg"
+    },
     "characters": [
       "serishi-butsukaru",
       "kizunari-sarutobi",
@@ -6711,7 +6741,10 @@
   },
   {
     "id": "2021-10",
-    "image": "images/artworks/2021/2021-10.jpg",
+    "image": {
+      "en": "images/artworks/2021/2021-10.jpg",
+      "ru": "images/artworks/2021/2021-10-ru.jpg"
+    },
     "characters": [
       "serishi-butsukaru",
       "kizunari-sarutobi"
@@ -6843,7 +6876,10 @@
   },
   {
     "id": "2021-02",
-    "image": "images/artworks/2021/2021-02.jpg",
+    "image": {
+      "en": "images/artworks/2021/2021-02.jpg",
+      "ru": "images/artworks/2021/2021-02-ru.jpg"
+    },
     "characters": [
       "joshiko-butsukaru",
       "kakashi-hatake",
@@ -7567,7 +7603,10 @@
   },
   {
     "id": "2024-11",
-    "image": "images/artworks/2024/2024-11.png",
+    "image": {
+      "en": "images/artworks/2024/2024-11.png",
+      "ru": "images/artworks/2024/2024-11-ru.png"
+    },
     "characters": [
       "customer-oc"
     ],
@@ -7728,7 +7767,10 @@
   },
   {
     "id": "2024-01",
-    "image": "images/artworks/2024/2024-01.png",
+    "image": {
+      "en": "images/artworks/2024/2024-01.png",
+      "ru": "images/artworks/2024/2024-01-ru.png"
+    },
     "characters": [
       "yoko-yogan",
       "satoru-gojo"
@@ -7764,7 +7806,7 @@
     "id": "2025-27",
     "image": "images/artworks/2025/2025-27.png",
     "characters": [
-      "dot-barret",
+      "dot-barrett",
       "zhozabel-de-lee-mashle",
       "mash-burnedead",
       "beatrice-by-shavurrr",
@@ -7817,7 +7859,7 @@
     "id": "2025-24",
     "image": "images/artworks/2025/2025-24.png",
     "characters": [
-      "dot-barret",
+      "dot-barrett",
       "mash-burnedead"
     ],
     "fandom": {
@@ -7952,7 +7994,7 @@
     "characters": [
       "zhozabel-de-lee-mashle",
       "beatrice-by-shavurrr",
-      "dot-barret",
+      "dot-barrett",
       "mash-burnedead"
     ],
     "fandom": {

@@ -161,7 +161,7 @@
   border-radius: 999px;
 
   background: var(--card);
-  color: var(--primary_text);
+  color: var(--secondary_text);
 
   font-size: 14px;
   font-weight: 700;
@@ -170,17 +170,17 @@
   overflow-wrap: anywhere;
 
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Эффект при наведении */
 
 .viewer_reveal_action:hover {
   background: var(--card_hover);
-  color: var(--secondary_text);
+  color: var(--primary_text);
   /* transform: translateY(-3px); */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
@@ -214,7 +214,7 @@
   color: var(--primary);
 
   font-family: "Nunito", sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
 
   overflow-wrap: anywhere;
@@ -253,7 +253,7 @@
   color: var(--secondary_text);
 
   font-family: "Nunito", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -263,7 +263,7 @@
   color: var(--primary_text);
 
   font-family: "Nunito", sans-serif;
-  font-size: 16px;
+  font-size: 17px;
 
   overflow-wrap: anywhere;
 }
