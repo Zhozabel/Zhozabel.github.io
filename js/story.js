@@ -114,7 +114,7 @@ function renderStory() {
 
   const title = getLocalized(currentStory.title);
 
-  document.title = title ? `${title} — Zhozabel` : "Zhozabel";
+  document.title = title ? `${title}` : "Zhozabel";
   document.querySelector(".story_title").textContent = title;
 
   // Баннер

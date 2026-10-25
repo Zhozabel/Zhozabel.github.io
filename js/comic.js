@@ -327,7 +327,7 @@ function renderComicInfo() {
   }
 
   document.title = title
-    ? `${title} — Zhozabel`
+    ? `${title}`
     : "Zhozabel";
 
   if (currentComicData) {

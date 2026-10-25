@@ -450,7 +450,7 @@ async function displayChapter(
   );
 
   // Page title
-  document.title = `${title} — Zhozabel`;
+  document.title = `${title}`;
 
   console.log("CHAPTER LOADED:", chapter);
 }
