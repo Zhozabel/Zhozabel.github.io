@@ -6,8 +6,8 @@
   "nav": {
     "about": "Обо мне",
     "wiki": "Wiki",
-    "contact": "Связь со мной",
-    "commissions": "Заказать рисунок"
+    "contact": "Контакты",
+    "commissions": "Заказы"
   },
   "hero": {
     "eyebrow": "Художник · Рассказчик · Создатель",
@@ -229,7 +229,7 @@
       },
       "halfBody": {
         "title": "Half body",
-        "description": "Персонаж, изображённый по пояс."
+        "description": "Персонаж, изображённый по пояс или по грудь."
       },
       "thighUp": {
         "title": "Thigh-up",
