@@ -198,7 +198,7 @@
 @media (max-width: 650px) {
   .wiki_page {
     width: min(100% - 30px, 500px);
-    margin: 40px auto 60px;
+    margin: 40px auto 30px;
   }
 
   .wiki_header {
