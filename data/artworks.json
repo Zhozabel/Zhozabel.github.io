@@ -7802,76 +7802,9 @@
     "warnings": [],
     "blur": false
   },
-  {
-    "id": "2025-27",
-    "image": "images/artworks/2025/2025-27.png",
-    "characters": [
-      "dot-barrett",
-      "zhozabel-de-lee-mashle",
-      "mash-burnedead",
-      "beatrice-by-shavurrr",
-      "rayne-ames"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "G",
-    "warnings": [],
-    "blur": false
-  },
-  {
-    "id": "2025-26",
-    "image": "images/artworks/2025/2025-26.png",
-    "characters": [
-      "zhozabel-de-lee-mashle"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "G",
-    "warnings": [],
-    "blur": false
-  },
-  {
-    "id": "2025-25",
-    "image": "images/artworks/2025/2025-25.png",
-    "characters": [
-      "zhozabel-de-lee-mashle",
-      "mash-burnedead"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "G",
-    "warnings": [],
-    "blur": false
-  },
-  {
-    "id": "2025-24",
-    "image": "images/artworks/2025/2025-24.png",
-    "characters": [
-      "dot-barrett",
-      "mash-burnedead"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "G",
-    "warnings": [],
-    "blur": false
-  },
+
+
+
   {
     "id": "2025-23",
     "image": "images/artworks/2025/2025-23.png",
@@ -7888,40 +7821,7 @@
     "warnings": [],
     "blur": false
   },
-  {
-    "id": "2025-22",
-    "image": "images/artworks/2025/2025-22.png",
-    "characters": [
-      "zhozabel-de-lee-mashle",
-      "orter-madl"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "PG-13",
-    "warnings": ["violence"],
-    "blur": true
-  },
-  {
-    "id": "2025-21",
-    "image": "images/artworks/2025/2025-21.png",
-    "characters": [
-      "zhozabel-de-lee-mashle",
-      "orter-madl"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "G",
-    "warnings": [],
-    "blur": false
-  },
+
   {
     "id": "2025-20",
     "image": "images/artworks/2025/2025-20.png",
@@ -7957,7 +7857,10 @@
   },
   {
     "id": "2025-18",
-    "image": "images/artworks/2025/2025-18.png",
+    "image": {
+      "en": "images/artworks/2025/2025-18.png",
+      "ru": "images/artworks/2025/2025-18-ru.png"
+    },
     "characters": [
       "zhozabel-de-lee-mashle",
       "beatrice-by-shavurrr"
@@ -7988,25 +7891,7 @@
     "warnings": [],
     "blur": false
   },
-  {
-    "id": "2025-16",
-    "image": "images/artworks/2025/2025-16.png",
-    "characters": [
-      "zhozabel-de-lee-mashle",
-      "beatrice-by-shavurrr",
-      "dot-barrett",
-      "mash-burnedead"
-    ],
-    "fandom": {
-      "en": "Mashle: Magic and Muscles",
-      "ru": "Магия и Мускулы"
-    },
-    "author": null,
-    "year": 2025,
-    "rating": "PG-13",
-    "warnings": ["blood"],
-    "blur": true
-  },
+
   {
     "id": "2025-15",
     "image": "images/artworks/2025/2025-15.png",
