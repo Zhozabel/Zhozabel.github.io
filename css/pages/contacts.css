@@ -168,10 +168,9 @@
   }
 }
 
+/* Compact mobile and small tablets */
 
-/* Compact mobile */
-
-@media (max-width: 420px) {
+@media (max-width: 600px) {
   .contacts {
     width: min(100% - 30px, 500px);
   }
@@ -180,24 +179,73 @@
     font-size: 26px;
   }
 
+  /* Discord and Telegram */
+
   .contact_card:not(.contact_card--flip) {
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 12px;
+    border-radius: 18px;
   }
 
   .contact_card:not(.contact_card--flip) .contact_image {
     width: 90px;
+    height: 90px;
     flex-shrink: 0;
     border-radius: 12px;
   }
 
   .contact_card:not(.contact_card--flip) .contact_info {
     flex: 1;
+    min-width: 0;
     padding: 10px;
     text-align: left;
   }
+
+  /* KakaoTalk */
+
+  .contact_card--flip .contact_face-front {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border-radius: 18px;
+    min-height: 114px;
+    box-sizing: border-box;
+  }
+
+  .contact_card--flip .contact_face-front .contact_image {
+    width: 90px;
+    height: 90px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 12px;
+  }
+
+  .contact_card--flip .contact_face-front .contact_info {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .contact_card--flip .contact_face-front .contact_title {
+    font-size: 17px;
+  }
+
+  .contact_card--flip .contact_face-back {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .contact_card--flip .contact_face-back .contact_qr-image {
+    width: 100%;
+    max-width: 220px;
+  }
+}
 
   /* KakaoTalk flip card */
   /* Компактная лицевая сторона KakaoTalk */
@@ -242,7 +290,6 @@
     width: 100%;
     max-width: 220px;
   }
-}
 
 
 /* Reduced motion accessibility */
