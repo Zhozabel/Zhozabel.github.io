@@ -53,7 +53,7 @@
   gap: 15px;
 
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 0;
 }
 
 .chapter_navigation-link {
@@ -252,7 +252,7 @@
   .chapter_page {
     width: min(100% - 30px, 780px);
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
   }
 
   /* HEADER */
@@ -281,11 +281,13 @@
   .chapter_navigation-link:first-child {
     grid-column: 1;
     grid-row: 2;
+    text-align: left;
   }
 
   .chapter_navigation-link:last-child {
     grid-column: 2;
     grid-row: 2;
+    text-align: right;
   }
 
   /* CONTENT */
@@ -369,7 +371,7 @@
 
   .chapter_navigation-link {
     padding: 9px 7px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .chapter_illustration img {
