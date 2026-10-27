@@ -814,3 +814,9 @@ body.viewer_open {
      display: block;
    }
  }
+
+ @media (max-width: 800px) {
+   html:has(body.viewer_open) {
+     overscroll-behavior-y: contain;
+   }
+ }
