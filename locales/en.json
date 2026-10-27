@@ -261,5 +261,8 @@
   },
   "links": {
     "commissionForm": "https://forms.gle/YN3u2g5637LYv5ei6"
+  },
+  "viewer": {
+    "swipeHint": "Swipe down to exit fullscreen"
   }
 }

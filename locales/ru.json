@@ -264,5 +264,8 @@
   },
   "links": {
     "commissionForm": "https://forms.gle/FpvT6ur4GS6TBowf6"
+  },
+  "viewer": {
+    "swipeHint": "Смахните вниз, чтобы выйти из полноэкранного режима"
   }
 }

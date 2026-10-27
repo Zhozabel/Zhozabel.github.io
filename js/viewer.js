@@ -36,6 +36,9 @@ let currentItem = null;
 let isLoading = false;
 let isMobileFullscreen = false;
 let lastSwipeAt = 0;
+let hasShownSwipeHint =
+  localStorage.getItem("viewerSwipeHintShown") === "true";
+let touchStartYFullscreen = 0;
 
 let characterNames = new Map();
 
@@ -532,15 +535,22 @@ function updateCounter() {
 // ========================================
 
 function setMobileFullscreen(enabled) {
-  if (!mobileViewerQuery.matches) {
-    return;
-  }
+  if (!mobileViewerQuery.matches) return;
 
   isMobileFullscreen = enabled;
-  viewer.classList.toggle("is_mobile_fullscreen", enabled);
 
-  // При выходе из полноэкранного режима обновляем интерфейс.
+  const showHint = enabled && !hasShownSwipeHint;
+
+  viewer.classList.toggle("is_mobile_fullscreen", enabled);
+  viewer.classList.toggle("show_swipe_hint", showHint);
+
+  if (showHint) {
+    hasShownSwipeHint = true;
+    localStorage.setItem("viewerSwipeHintShown", "true");
+  }
+
   if (!enabled) {
+    viewer.classList.remove("show_swipe_hint");
     updateCounter();
   }
 }
@@ -794,6 +804,7 @@ viewerMedia.addEventListener("touchstart", event => {
 
   touchStartX = touch.clientX;
   touchStartY = touch.clientY;
+  touchStartYFullscreen = touch.clientY;
   touchStarted = true;
 }, { passive: true });
 
@@ -812,6 +823,16 @@ viewerMedia.addEventListener("touchend", event => {
   const touch = event.changedTouches[0];
   const deltaX = touch.clientX - touchStartX;
   const deltaY = touch.clientY - touchStartY;
+
+  // В полноэкранном режиме свайп вниз закрывает изображение.
+  if (
+    isMobileFullscreen &&
+    deltaY > 80 &&
+    deltaY > Math.abs(deltaX) * 1.3
+  ) {
+    setMobileFullscreen(false);
+    return;
+  }
 
   // Не переключаем работу при вертикальном движении.
   if (
