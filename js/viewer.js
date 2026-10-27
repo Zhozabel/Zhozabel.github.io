@@ -348,6 +348,15 @@ function renderMedia(item) {
     viewerMedia.classList.add("is_blurred");
     renderRevealButton(item);
   }
+
+  // Счётчик работ для мобильного просмотрщика.
+  const counter = document.createElement("span");
+  counter.className = "viewer_counter";
+  counter.setAttribute("aria-live", "polite");
+  counter.setAttribute("aria-atomic", "true");
+
+  viewerMedia.appendChild(counter);
+
 }
 
 
@@ -506,6 +515,16 @@ function updateNavigation() {
     currentIndex >= currentItems.length - 1;
 }
 
+function updateCounter() {
+  const counter = viewerMedia.querySelector(".viewer_counter");
+
+  if (!counter || currentIndex < 0 || !currentItems.length) {
+    return;
+  }
+
+  counter.textContent = `${currentIndex + 1} / ${currentItems.length}`;
+}
+
 function updateUrl() {
   if (!currentItem) {
     return;
@@ -527,6 +546,7 @@ function renderItem() {
   renderMedia(currentItem);
   renderInfo(currentItem);
   updateNavigation();
+  updateCounter();
   updateUrl();
 }
 
@@ -680,6 +700,75 @@ document.addEventListener("keydown", event => {
     showNext();
   }
 });
+
+
+/* ========================================
+   MOBILE SWIPE NAVIGATION
+======================================== */
+
+const mobileViewerQuery = window.matchMedia("(max-width: 800px)");
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchStarted = false;
+
+const swipeThreshold = 50;
+
+viewerMedia.addEventListener("touchstart", event => {
+  if (
+    !mobileViewerQuery.matches ||
+    event.touches.length !== 1 ||
+    viewerMedia.classList.contains("is_blurred") ||
+    (
+      event.target instanceof Element &&
+      event.target.closest("button, video")
+    )
+  ) {
+    touchStarted = false;
+    return;
+  }
+
+  const touch = event.touches[0];
+
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+  touchStarted = true;
+}, { passive: true });
+
+viewerMedia.addEventListener("touchend", event => {
+  if (
+    !touchStarted ||
+    !mobileViewerQuery.matches ||
+    event.changedTouches.length !== 1
+  ) {
+    touchStarted = false;
+    return;
+  }
+
+  touchStarted = false;
+
+  const touch = event.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+
+  // Не переключаем работу при вертикальном движении.
+  if (
+    Math.abs(deltaX) < swipeThreshold ||
+    Math.abs(deltaX) <= Math.abs(deltaY) * 1.3
+  ) {
+    return;
+  }
+
+  if (deltaX < 0) {
+    showNext();
+  } else {
+    showPrevious();
+  }
+}, { passive: true });
+
+viewerMedia.addEventListener("touchcancel", () => {
+  touchStarted = false;
+}, { passive: true });
 
 // Перерисовываем работу при смене языка.
 document.addEventListener("languageChanged", () => {

@@ -536,3 +536,110 @@ body.viewer_open {
     font-size: 16px;
   }
 }
+
+ /* ========================================
+    MOBILE VIEWER — SWIPE
+ ======================================== */
+
+ .viewer_counter {
+   display: none;
+ }
+
+ @media (max-width: 800px) {
+   .viewer_media {
+     touch-action: pan-y;
+   }
+
+   .viewer_counter {
+     position: absolute;
+     top: 12px;
+     left: 50%;
+     z-index: 3;
+
+     display: block;
+     transform: translateX(-50%);
+
+     padding: 6px 12px;
+     border-radius: 999px;
+
+     background: rgba(0, 0, 0, 0.55);
+     color: white;
+
+     font-family: "Nunito", sans-serif;
+     font-size: 13px;
+     font-weight: 700;
+
+     pointer-events: none;
+     user-select: none;
+   }
+ }
+
+ /* ========================================
+    MOBILE VIEWER — CLEAN NAVIGATION
+ ======================================== */
+
+ @media (max-width: 800px) {
+   /* Стрелки больше не нужны — листаем свайпами */
+   .viewer_prev,
+   .viewer_next {
+     display: none;
+   }
+
+   /* Компактный крестик без фона и кружка */
+   .viewer_close {
+     top: 24px;
+     right: 24px;
+
+     width: 16px;
+     height: 16px;
+
+     background: transparent;
+     border-radius: 0;
+
+     color: var(--primary_text);
+   }
+
+   .viewer_close:hover {
+     background: transparent;
+     color: var(--primary);
+     transform: none;
+   }
+ }
+
+ /* ========================================
+    MOBILE VIEWER — COMPACT INFO
+ ======================================== */
+
+ @media (max-width: 800px) {
+   .viewer_info {
+     max-height: 38%;
+     padding: 15px 15px;
+   }
+
+   .viewer_author {
+     margin-bottom: 6px;
+     font-size: 12px;
+   }
+
+   .viewer_title {
+     margin-bottom: 14px;
+     font-size: 17px;
+   }
+
+   .viewer_details {
+     gap: 10px;
+   }
+
+   .viewer_detail dt {
+     font-size: 11px;
+   }
+
+   .viewer_detail dd {
+     font-size: 12px;
+   }
+
+   .viewer_warnings {
+     margin-top: 16px;
+     font-size: 12px;
+   }
+ }
