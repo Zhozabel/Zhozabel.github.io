@@ -50,6 +50,18 @@ function getImageUrl(imagePath) {
   return new URL(`../${imagePath}`, document.baseURI).href;
 }
 
+
+// Преобразуем путь оригинала в путь к миниатюре WebP
+function getThumbnailPath(imagePath) {
+  if (!imagePath) {
+    return "";
+  }
+
+  return imagePath
+    .replace(/^images\/artworks\//, "images/artworks-thumbnails/")
+    .replace(/\.(jpe?g|png)$/i, ".webp");
+}
+
 // Создаём текстовый элемент
 function createTextElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -110,7 +122,15 @@ function createArtworkCard(artwork) {
   image.decoding = "async";
 
   if (imagePath) {
-    image.src = getImageUrl(imagePath);
+    const thumbnailPath = getThumbnailPath(imagePath);
+
+    // Если миниатюра не загрузилась, используем оригинал.
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = getImageUrl(imagePath);
+    };
+
+    image.src = getImageUrl(thumbnailPath);
   }
 
   link.appendChild(image);
