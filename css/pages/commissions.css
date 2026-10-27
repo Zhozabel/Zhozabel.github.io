@@ -507,8 +507,16 @@
     flex-direction: column;
   }
 
-  .commission_modal-cancel,
+  .commission_modal-cancel {
+    color: var(--primary_text);
+    background: var(--card_hover);
+    width: 100%;
+    flex: auto;
+  }
+
   .commission_modal-confirm {
+    color: white;
+    background: var(--primary);
     width: 100%;
     flex: auto;
   }
