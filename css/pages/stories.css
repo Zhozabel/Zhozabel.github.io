@@ -311,7 +311,7 @@
 
 .story_chapter-cover {
   width: 90px;
-  height: 90px;
+  align-self: stretch;
   flex: 0 0 90px;
   overflow: hidden;
 }
@@ -321,6 +321,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .story_chapter-info {
@@ -606,9 +607,10 @@
   }
 
   .story_chapter-cover {
-    width: 75px;
-    height: 75px;
-    flex-basis: 75px;
+    width: 70px;
+    flex-basis: 70px;
+    height: auto;
+    align-self: stretch;
   }
 
   .story_chapter-info {
@@ -673,9 +675,8 @@
   }
 
   .story_chapter-cover {
-    width: 65px;
-    height: 65px;
-    flex-basis: 65px;
+    width: 55px;
+    flex-basis: 55px;
   }
 
   .story_chapter-info {
