@@ -129,8 +129,8 @@
 @media (max-width: 600px) {
   .contacts {
     width: min(100% - 30px, 500px);
-    margin-top: 40px;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .contacts_header {
@@ -246,51 +246,6 @@
     max-width: 220px;
   }
 }
-
-  /* KakaoTalk flip card */
-  /* Компактная лицевая сторона KakaoTalk */
-
-  .contact_card--flip .contact_face-front {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    padding: 12px;
-    border-radius: 18px;
-    min-height: 114px;
-    box-sizing: border-box;
-  }
-
-  .contact_card--flip .contact_face-front .contact_image {
-    width: 90px;
-    height: 90px;
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0;
-    border-radius: 12px;
-  }
-
-  .contact_card--flip .contact_face-front .contact_info {
-    flex: 1;
-    min-width: 0;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .contact_card--flip .contact_face-front .contact_title {
-    font-size: 17px;
-  }
-
-  .contact_card--flip .contact_face-back {
-    flex-direction: column;
-    justify-content: center;
-    padding: 16px;
-  }
-
-  .contact_card--flip .contact_face-back .contact_qr-image {
-    width: 100%;
-    max-width: 220px;
-  }
-
 
 /* Reduced motion accessibility */
 
@@ -579,6 +534,92 @@
     transition: none;
   }
 }
+/* ========================================
+   KAKAOTALK QR FULLSCREEN — MOBILE
+======================================== */
 
+.contact_qr_overlay {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: var(--background);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  touch-action: none;
+}
 
+.contact_qr_overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
 
+.contact_qr_fullscreen_image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.contact_qr_overlay.is-open .contact_qr_fullscreen_image {
+  transform: scale(1);
+}
+
+body.qr-fullscreen-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact_qr_overlay,
+  .contact_qr_fullscreen_image {
+    transition: none;
+  }
+}
+
+.contact_qr_swipe_hint {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 28px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact_qr_swipe_hint.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.contact_qr_swipe_hint.is-hidden {
+  opacity: 0;
+  transform: translate(-50%, 8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact_qr_swipe_hint {
+    transition: none;
+  }
+}

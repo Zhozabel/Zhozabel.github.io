@@ -257,7 +257,8 @@
     "title": "Get in touch",
     "intro": "Have a question, a suggestion, or just want to chat? I'd love to hear from you!",
     "platforms": "Contact platforms",
-    "note": "Feel free to message me on any of the platforms above! Choose whichever is most convenient for you 💌"
+    "note": "Feel free to message me on any of the platforms above! Choose whichever is most convenient for you 💌",
+    "qrSwipeHint": "Swipe down to close the QR code"
   },
   "links": {
     "commissionForm": "https://forms.gle/YN3u2g5637LYv5ei6"
