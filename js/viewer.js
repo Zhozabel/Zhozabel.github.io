@@ -34,6 +34,8 @@ let currentItems = [];
 let currentIndex = -1;
 let currentItem = null;
 let isLoading = false;
+let isMobileFullscreen = false;
+let lastSwipeAt = 0;
 
 let characterNames = new Map();
 
@@ -525,6 +527,38 @@ function updateCounter() {
   counter.textContent = `${currentIndex + 1} / ${currentItems.length}`;
 }
 
+// ========================================
+// MOBILE FULLSCREEN
+// ========================================
+
+function setMobileFullscreen(enabled) {
+  if (!mobileViewerQuery.matches) {
+    return;
+  }
+
+  isMobileFullscreen = enabled;
+  viewer.classList.toggle("is_mobile_fullscreen", enabled);
+
+  // При выходе из полноэкранного режима обновляем интерфейс.
+  if (!enabled) {
+    updateCounter();
+  }
+}
+
+function toggleMobileFullscreen() {
+  if (
+    !mobileViewerQuery.matches ||
+    !currentItem ||
+    currentItem.type === "video" ||
+    currentItem.video ||
+    viewerMedia.classList.contains("is_blurred")
+  ) {
+    return;
+  }
+
+  setMobileFullscreen(!isMobileFullscreen);
+}
+
 function updateUrl() {
   if (!currentItem) {
     return;
@@ -678,7 +712,31 @@ function closeViewer() {
 // СОБЫТИЯ
 // ========================================
 
-closeButton.addEventListener("click", closeViewer);
+// Тап по изображению переключает полноэкранный режим.
+viewerMedia.addEventListener("click", event => {
+  if (
+    !mobileViewerQuery.matches ||
+    !(event.target instanceof HTMLImageElement) ||
+    viewerMedia.classList.contains("is_blurred")
+  ) {
+    return;
+  }
+
+  // Не открываем полноэкранный режим после свайпа.
+  if (Date.now() - lastSwipeAt < 500) {
+    return;
+  }
+
+  toggleMobileFullscreen();
+});
+
+closeButton.addEventListener("click", () => {
+  if (isMobileFullscreen) {
+    setMobileFullscreen(false);
+    return;
+  }
+  closeViewer();
+});
 prevButton.addEventListener("click", showPrevious);
 nextButton.addEventListener("click", showNext);
 
@@ -689,7 +747,11 @@ document.addEventListener("keydown", event => {
   }
 
   if (event.key === "Escape") {
-    closeViewer();
+    if (isMobileFullscreen) {
+      setMobileFullscreen(false);
+    } else {
+      closeViewer();
+    }
   }
 
   if (event.key === "ArrowLeft") {
@@ -758,6 +820,8 @@ viewerMedia.addEventListener("touchend", event => {
   ) {
     return;
   }
+
+  lastSwipeAt = Date.now();
 
   if (deltaX < 0) {
     showNext();
