@@ -443,7 +443,8 @@
 @media (max-width: 600px) {
   .commissions {
     width: min(100% - 30px, 500px);
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .commissions_header {
@@ -473,7 +474,7 @@
 
   .commissions_tos {
     width: min(100% - 30px, 500px);
-    margin: 28px auto 16px;
+    margin: 45px auto 15px;
     text-align: center;
   }
 }

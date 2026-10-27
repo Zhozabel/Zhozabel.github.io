@@ -124,6 +124,7 @@
 @media (max-width: 600px) {
   .timeline {
     padding-left: 34px;
+    margin-bottom: 16px;
   }
 
   .timeline::before {
