@@ -128,6 +128,26 @@ function getImagePath(path) {
   return `../${path.replace(/^\/+/, "")}`;
 }
 
+function getThumbnailPath(imagePath) {
+  if (!imagePath) {
+    return "";
+  }
+
+  if (imagePath.includes("images/artworks/")) {
+    return imagePath
+      .replace("images/artworks/", "images/artworks-thumbnails/")
+      .replace(/\.(jpe?g|png)$/i, ".webp");
+  }
+
+  if (imagePath.includes("images/gifts/")) {
+    return imagePath
+      .replace("images/gifts/", "images/gifts-thumbnails/")
+      .replace(/\.(jpe?g|png)$/i, ".webp");
+  }
+
+  return imagePath;
+}
+
 
 function getTextFilePath(file, language) {
   return `../${file
@@ -1133,10 +1153,21 @@ function createGalleryItem(work) {
 
   const image = document.createElement("img");
   image.className = "art_card_image";
-  image.src = getImagePath(imagePath);
   image.alt = getLocalizedText(currentCharacter?.name);
   image.loading = "lazy";
   image.decoding = "async";
+
+  if (imagePath) {
+    const thumbnailPath = getThumbnailPath(imagePath);
+
+    // Если миниатюра не загрузилась, показываем оригинал.
+    image.onerror = () => {
+      image.onerror = null;
+      image.src = getImagePath(imagePath);
+    };
+
+    image.src = getImagePath(thumbnailPath);
+  }
 
   link.appendChild(image);
   card.appendChild(link);
