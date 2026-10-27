@@ -77,20 +77,14 @@
 }
 
 .year_content {
-  display: grid;
-  grid-template-rows: 1fr;
+  display: block;
   overflow: hidden;
-  transition:
-    grid-template-rows 0.35s ease,
-    opacity 0.25s ease;
-}
-
-.year_content > .year_gallery {
-  min-height: 0;
+  opacity: 1;
+  transition: opacity 0.25s ease;
 }
 
 .year.collapsed .year_content {
-  grid-template-rows: 0fr;
+  display: none;
   opacity: 0;
 }
 
