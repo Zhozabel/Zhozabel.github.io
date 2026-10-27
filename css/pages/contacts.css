@@ -166,6 +166,10 @@
     margin-top: 28px;
     font-size: 16px;
   }
+
+  .contact_card:hover {
+    transform: none;
+  }
 }
 
 /* Compact mobile and small tablets */
@@ -493,9 +497,9 @@
     border-radius: 10px;
   }
 
-  /* Сохраняем эффект наведения */
+  /* На мобильных отключаем движение карточки */
   .contact_card--flip:hover {
-    transform: translateY(-3px);
+    transform: none;
   }
 }
 /* Chevron: mobile only */

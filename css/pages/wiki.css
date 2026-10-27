@@ -242,6 +242,11 @@
   .wiki_character-description {
     font-size: 12px;
   }
+
+  .wiki_character:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 

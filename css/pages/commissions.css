@@ -477,6 +477,14 @@
     margin: 45px auto 15px;
     text-align: center;
   }
+
+  .commission_card:hover {
+    transform: none;
+  }
+
+  .commission_card:hover .commission_image img {
+    transform: none;
+  }
 }
 
 
