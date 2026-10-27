@@ -494,7 +494,6 @@
   }
 }
 
-
 /* ========================================
    MOBILE
 ======================================== */
@@ -507,7 +506,13 @@
     margin: 30px auto;
   }
 
+  .story_main,
+  .story_sidebar {
+    display: contents;
+  }
+
   .story_banner {
+    grid-row: 1;
     height: 220px;
   }
 
@@ -524,6 +529,7 @@
   }
 
   .story_cover {
+    grid-row: 2;
     width: 140px;
     height: 210px;
     margin-top: -105px;
@@ -531,14 +537,32 @@
   }
 
   .story_description {
+    grid-row: 3;
     padding: 22px;
+    margin-top: 0;
   }
 
   .story_title {
     font-size: 28px;
   }
-}
 
+  .story_meta--genres {
+    grid-row: 4;
+  }
+
+  .story_meta--rating {
+    grid-row: 5;
+  }
+
+  .story_meta--warnings {
+    grid-row: 6;
+  }
+
+  .story_chapters {
+    grid-row: 7;
+    margin-top: 0;
+  }
+}
 
 /* ========================================
    SMALL MOBILE
@@ -697,5 +721,29 @@
   .story_card,
   .story_chapter {
     transition: none;
+  }
+}
+
+/* ========================================
+   MOBILE SPACING FIX
+======================================== */
+
+@media (max-width: 800px) {
+  .story_page {
+    gap: 18px;
+  }
+
+  .story_meta {
+    margin-top: 0;
+  }
+
+  .story_chapters {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .story_page {
+    gap: 14px;
   }
 }
