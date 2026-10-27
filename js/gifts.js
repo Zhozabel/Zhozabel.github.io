@@ -66,6 +66,20 @@ function getMediaUrl(path) {
   return new URL(relativePath, document.baseURI).href;
 }
 
+function getGiftThumbnailPath(imagePath) {
+  if (!imagePath || typeof imagePath !== "string") {
+    return "";
+  }
+
+  // Внешние URL и другие нестандартные пути не преобразуем.
+  if (/^(https?:|data:|blob:|\/)/i.test(imagePath)) {
+    return imagePath;
+  }
+
+  return imagePath
+    .replace(/^images\/gifts\//, "images/gifts-thumbnails/")
+    .replace(/\.(jpe?g|png)$/i, ".webp");
+}
 
 // ========================================
 // ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
@@ -198,6 +212,7 @@ function renderWarnings(warnings) {
 // МЕДИА
 // ========================================
 
+
 function createGiftMedia(gift) {
   const isVideo = gift.type === "video" || Boolean(gift.video);
 
@@ -240,12 +255,21 @@ function createGiftMedia(gift) {
     media.decoding = "async";
   }
 
+  let triedOriginal = isVideo;
+
   media.addEventListener("error", () => {
     if (!media.isConnected) {
       return;
     }
 
-    console.error("Не удалось загрузить медиа:", mediaUrl);
+    // Если WebP не загрузился, пробуем оригинал.
+    if (!isVideo && !triedOriginal && mediaUrl) {
+      triedOriginal = true;
+      media.src = mediaUrl;
+      return;
+    }
+
+    console.error("Не удалось загрузить медиа:", media.currentSrc || mediaUrl);
 
     const error = createTextElement(
       "span",
@@ -261,11 +285,22 @@ function createGiftMedia(gift) {
     media.replaceWith(error);
   });
 
-  media.src = mediaUrl;
+  if (isVideo) {
+    media.src = mediaUrl;
+  } else {
+    const thumbnailPath = getGiftThumbnailPath(mediaPath);
+    const thumbnailUrl = getMediaUrl(thumbnailPath);
+
+    media.src = thumbnailUrl || mediaUrl;
+
+    // Если миниатюра не сформирована, оригинал уже используется.
+    if (!thumbnailUrl || thumbnailUrl === mediaUrl) {
+      triedOriginal = true;
+    }
+  }
 
   return media;
 }
-
 
 // ========================================
 // РАСКРЫТИЕ РАБОТЫ
