@@ -835,3 +835,57 @@ body.viewer_open {
      overscroll-behavior-y: contain;
    }
  }
+
+ /* ========================================
+    MOBILE VIEWER — IMAGE LOADER
+ ======================================== */
+
+ .viewer_loading_spinner {
+   display: none;
+ }
+
+ @media (max-width: 800px) {
+   .viewer_media {
+     position: relative;
+   }
+
+   .viewer_media.is_loading .viewer_loading_spinner {
+     display: block;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 28px;
+     height: 28px;
+     box-sizing: border-box;
+     margin: -14px 0 0 -14px;
+     border: 2px solid var(--primary_text);
+     border-top-color: var(--secondary_text);
+     border-radius: 50%;
+     animation:
+       viewer_spinner_rotation 1s linear infinite,
+       viewer_spinner_pulse 1.6s ease-in-out infinite alternate;
+     pointer-events: none;
+     z-index: 10;
+   }
+ }
+
+ @keyframes viewer_spinner_rotation {
+   to {
+     transform: rotate(360deg);
+   }
+ }
+
+ @keyframes viewer_spinner_pulse {
+   from {
+     opacity: 1;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+   .viewer_loading_spinner {
+     animation: none;
+   }
+ }

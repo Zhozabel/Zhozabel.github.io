@@ -43,3 +43,25 @@ a {
   text-decoration: none;
   overflow-wrap: anywhere;
 }
+
+ /* Универсальный минималистичный лоадер */
+ .loader {
+   width: 28px;
+   height: 28px;
+   border: 2px solid var(--primary_text);
+   border-top-color: var(--primary_text);
+   border-radius: 50%;
+   animation: loader-spin 0.8s linear infinite;
+ }
+
+ @keyframes loader-spin {
+   to {
+     transform: rotate(360deg);
+   }
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+   .loader {
+     animation-duration: 2s;
+   }
+ }

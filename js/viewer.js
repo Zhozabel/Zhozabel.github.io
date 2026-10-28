@@ -283,9 +283,10 @@ function getWarningsText(warnings) {
 // ОТОБРАЖЕНИЕ МЕДИА
 // ========================================
 
+
 function renderMedia(item) {
   viewerMedia.replaceChildren();
-  viewerMedia.classList.remove("is_blurred");
+  viewerMedia.classList.remove("is_blurred", "is_loading");
 
   const isVideo = item.type === "video" || Boolean(item.video);
 
@@ -304,10 +305,13 @@ function renderMedia(item) {
   }
 
   const mediaUrl = getMediaUrl(mediaPath);
+  const showLoader = !isVideo && mobileViewerQuery.matches;
 
   const media = document.createElement(isVideo ? "video" : "img");
 
   media.className = "viewer_media_content";
+
+  let loader = null;
 
   if (isVideo) {
     media.controls = true;
@@ -324,6 +328,24 @@ function renderMedia(item) {
     media.decoding = "async";
   }
 
+  // Индикатор загрузки только для изображений на мобильных экранах.
+  if (showLoader) {
+    loader = document.createElement("span");
+    loader.className = "viewer_loading_spinner";
+    loader.setAttribute("aria-hidden", "true");
+
+    viewerMedia.classList.add("is_loading");
+  }
+
+  media.addEventListener("load", () => {
+    if (!media.isConnected) {
+      return;
+    }
+
+    viewerMedia.classList.remove("is_loading");
+    loader?.remove();
+  });
+
   media.addEventListener("error", () => {
     if (!media.isConnected) {
       return;
@@ -331,7 +353,7 @@ function renderMedia(item) {
 
     console.error("Не удалось загрузить медиа:", mediaUrl);
 
-    viewerMedia.classList.remove("is_blurred");
+    viewerMedia.classList.remove("is_blurred", "is_loading");
 
     viewerMedia.replaceChildren(
       createTextElement(
@@ -346,7 +368,6 @@ function renderMedia(item) {
     );
   });
 
-  media.src = mediaUrl;
   viewerMedia.appendChild(media);
 
   if (item.blur) {
@@ -362,6 +383,23 @@ function renderMedia(item) {
 
   viewerMedia.appendChild(counter);
 
+  // Добавляем спиннер последним, чтобы он был поверх изображения.
+  if (loader) {
+    viewerMedia.appendChild(loader);
+  }
+
+  // Назначаем src после установки обработчиков событий.
+  media.src = mediaUrl;
+
+  // Если изображение уже есть в кэше, не оставляем спиннер видимым.
+  if (
+    showLoader &&
+    media.complete &&
+    media.naturalWidth > 0
+  ) {
+    viewerMedia.classList.remove("is_loading");
+    loader?.remove();
+  }
 }
 
 
