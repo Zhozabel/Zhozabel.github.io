@@ -674,7 +674,7 @@ body.viewer_open {
      max-height: none;
      border-radius: 0;
 
-     background: var(--background);
+     background: #000000;
    }
 
    .viewer.is_mobile_fullscreen .viewer_info {
