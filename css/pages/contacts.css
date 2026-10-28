@@ -603,7 +603,8 @@ body.qr-fullscreen-open {
   border-radius: 12px;
   background: var(--primary);
   color: #fff;
-  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
   line-height: 1.4;
   text-align: center;
   pointer-events: none;

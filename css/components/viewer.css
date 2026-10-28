@@ -647,20 +647,33 @@ body.viewer_open {
  /* ========================================
     MOBILE VIEWER — FULLSCREEN IMAGE
  ======================================== */
-
  @media (max-width: 800px) {
    .viewer.is_mobile_fullscreen {
+     position: fixed;
+     inset: 0;
+
+     width: 100%;
+     height: 100%;
+     height: 100dvh;
+
      padding: 0;
+     overflow: hidden;
+
      background: var(--background);
    }
 
    .viewer.is_mobile_fullscreen .viewer_content {
+     position: absolute;
+     inset: 0;
+
      width: 100%;
      height: 100%;
+     height: 100dvh;
+
      max-width: none;
      max-height: none;
-
      border-radius: 0;
+
      background: var(--background);
    }
 
@@ -669,16 +682,17 @@ body.viewer_open {
    }
 
    .viewer.is_mobile_fullscreen .viewer_media {
-     position: fixed;
+     position: absolute;
      inset: 0;
      z-index: 1001;
 
      width: 100%;
      height: 100%;
+     height: 100dvh;
 
      padding: 0;
      background: var(--background);
-     touch-action: pan-y;
+     touch-action: none;
    }
 
    .viewer.is_mobile_fullscreen .viewer_media_content {
@@ -695,6 +709,7 @@ body.viewer_open {
      display: none;
    }
  }
+
 
  /* ========================================
     MOBILE VIEWER — FULLSCREEN ANIMATION

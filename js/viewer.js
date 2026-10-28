@@ -824,11 +824,11 @@ viewerMedia.addEventListener("touchend", event => {
   const deltaX = touch.clientX - touchStartX;
   const deltaY = touch.clientY - touchStartY;
 
-  // В полноэкранном режиме свайп вниз закрывает изображение.
+// В полноэкранном режиме свайп вверх закрывает изображение.
   if (
     isMobileFullscreen &&
-    deltaY > 80 &&
-    deltaY > Math.abs(deltaX) * 1.3
+    deltaY < -80 &&
+    Math.abs(deltaY) > Math.abs(deltaX) * 1.3
   ) {
     setMobileFullscreen(false);
     return;
