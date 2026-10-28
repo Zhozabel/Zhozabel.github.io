@@ -691,7 +691,7 @@ body.viewer_open {
      height: 100dvh;
 
      padding: 0;
-     background: var(--background);
+     background: #000000;
      touch-action: none;
    }
 
