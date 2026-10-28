@@ -27,19 +27,23 @@
     },
     "banner": "data/system/empty-picture.png",
     "description": {
-      "en": "",
-      "ru": ""
+      "en": "Isabella is a high school student, and her world consists of simple things: classes, the meticulous care of her doctor-mother, and Theo — her childhood best friend, with whom everything has always felt effortless. But one day, this familiar stability cracks.\nA sudden accident and the attention of Simon Williams, a young, brooding math teacher, bring a new, flattering sense of \"specialness\" into her life. Simon seems to be the only adult who truly sees an equal in her. Yet, where Isabella looks for connection and understanding, a dangerous boundary lies — one that, if crossed, threatens to ruin everything.\nA story about growing up, illusions, and the loss of bearings. It’s about how easy it is to confuse gratitude with something more, and about the quiet, steadfast love that was always right beside you — if you only stop overcomplicating things.",
+      "ru": "Изабелла ученица старшей школы, и её мир состоит из понятных вещей: уроков, поддержки мамы и Тео — лучшего друга, с которым всегда легко и просто. Но однажды эта привычная устойчивость даёт трещину.\nСлучайная травма и внимание молодого, замкнутого учителя математики Саймона Уильямса приносят в её жизнь новое, льстивое ощущение «особенности». Саймон кажется тем единственным взрослым, который видит в ней равного собеседника. Но там, где Изабелла ищет дружбу и понимание, пролегает опасная граница, переступив которую, легко разрушить всё.\nЭто история о взрослении, иллюзиях и потере ориентиров. О том, как легко перепутать благодарность с чем-то большим, и о настоящей, тихой любви, которая всегда была рядом — стоит только перестать усложнять."
     },
     "genres": [
-      "Gen",
-      "Fantasy",
       "Drama",
-      "Psychology"
+      "Romance",
+      "Psychology",
+      "Angst",
+      "Slice of Life"
     ],
     "status": "completed",
     "chapters": 1,
-    "rating": "PG",
-    "warnings": [],
+    "rating": "PG-13",
+    "warnings": [
+      "Teacher/Student",
+      "Trauma"
+    ],
     "file": "data/stories/the-arithmetic-of-affection/chapters/chapter-01.md",
     "chaptersFile": "data/stories/the-arithmetic-of-affection/chapters.json"
   }
