@@ -630,6 +630,7 @@ async function loadData() {
 
   const requestedSource = params.get("source") || "artworks";
   const requestedId = params.get("id");
+  const requestedCharacter = params.get("character");
 
   currentSource = Object.hasOwn(dataSources, requestedSource)
     ? requestedSource
@@ -656,11 +657,28 @@ async function loadData() {
       throw new Error("JSON должен содержать массив объектов.");
     }
 
-    currentItems = data.filter(item => item && item.id != null);
+    currentItems = data.filter(item => {
+      if (!item || item.id == null) {
+        return false;
+      }
+
+      // Если просмотрщик открыт из галереи персонажа,
+      // оставляем только работы этого персонажа.
+      if (requestedCharacter) {
+        return (
+          Array.isArray(item.characters) &&
+          item.characters.includes(requestedCharacter)
+        );
+      }
+
+      // В остальных разделах сохраняем прежнее поведение.
+      return true;
+    });
 
     currentIndex = currentItems.findIndex(
       item => String(item.id) === String(requestedId)
     );
+
 
     if (currentIndex === -1) {
       throw new Error(

@@ -1148,6 +1148,7 @@ function createGalleryItem(work) {
   const viewerUrl = new URL("viewer.html", window.location.href);
   viewerUrl.searchParams.set("source", work.viewerSource);
   viewerUrl.searchParams.set("id", work.id);
+  viewerUrl.searchParams.set("character", currentCharacter.id);
 
   link.href = viewerUrl.href;
 
