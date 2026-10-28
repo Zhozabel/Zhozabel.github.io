@@ -538,6 +538,19 @@
     transition: none;
   }
 }
+
+@media (max-width: 600px) {
+  .contact_card--flip.is-flipped .contact_name,
+  .contact_card--flip.is-flipped .contact_title,
+  .contact_card--flip.is-flipped .contact_chevron svg {
+    color: var(--primary);
+  }
+
+  .contact_card--flip.is-flipped .contact_chevron svg {
+    stroke: var(--primary);
+  }
+}
+
 /* ========================================
    KAKAOTALK QR FULLSCREEN — MOBILE
 ======================================== */
