@@ -845,7 +845,7 @@ viewerMedia.addEventListener("touchend", event => {
 // В полноэкранном режиме свайп вверх закрывает изображение.
   if (
     isMobileFullscreen &&
-    deltaY < -80 &&
+    Math.abs(deltaY) > 80 &&
     Math.abs(deltaY) > Math.abs(deltaX) * 1.3
   ) {
     setMobileFullscreen(false);

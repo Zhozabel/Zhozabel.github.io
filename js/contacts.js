@@ -74,9 +74,20 @@ function openQrFullscreen(image) {
       const deltaX = event.changedTouches[0].clientX - touchStartX;
       const deltaY = event.changedTouches[0].clientY - touchStartY;
 
-      if (deltaY > 80 && deltaY > Math.abs(deltaX) * 1.3) {
-        closeQrFullscreen();
-      }
+      overlay.addEventListener("touchend", (event) => {
+        if (event.changedTouches.length !== 1) return;
+
+        const deltaX = event.changedTouches[0].clientX - touchStartX;
+        const deltaY = event.changedTouches[0].clientY - touchStartY;
+
+        const isVerticalSwipe =
+          Math.abs(deltaY) > 80 &&
+          Math.abs(deltaY) > Math.abs(deltaX) * 1.3;
+
+        if (isVerticalSwipe) {
+          closeQrFullscreen();
+        }
+      }, { passive: true });
     }, { passive: true });
 
     document.body.append(overlay);
