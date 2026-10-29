@@ -45,6 +45,8 @@ hardcover in hand.
 
 “I won't be needing it today!” Isabella called back, vaulting into the open doors of the bus on the run.
 
+<p style="text-align:center">***</p>
+
 It was mid-October. The gloomy, drizzly weather served as a honest warning: November was creeping up. Isabella genuinely
 hated this time of year. The biting slush and heavy, leaden sky seemed to stomp any attempt at a good mood right into
 the mud. During this season, even the most cheerful residents of Oakridge looked somber and distant. All anyone could do
