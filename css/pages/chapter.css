@@ -4,7 +4,7 @@
 
 .chapter_page {
   width: min(100% - 40px, 1500px);
-  margin: 50px auto 30px;
+  margin: 50px auto 5px;
   min-width: 0;
 }
 
