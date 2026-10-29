@@ -859,7 +859,7 @@ body.viewer_open {
      box-sizing: border-box;
      margin: -14px 0 0 -14px;
      border: 2px solid var(--primary_text);
-     border-top-color: var(--secondary_text);
+     border-top-color: var(--background);
      border-radius: 50%;
      animation:
        viewer_spinner_rotation 1s linear infinite,
