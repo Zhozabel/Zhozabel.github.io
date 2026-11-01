@@ -7823,6 +7823,27 @@
   },
 
   {
+    "id": "2025-21",
+    "image": {
+      "en": "images/artworks/2025/2025-21.png",
+      "ru": "images/artworks/2025/2025-21-ru.png"
+    },
+    "characters": [
+      "zhozabel-de-lee-mashle",
+      "orter-madl"
+    ],
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "author": null,
+    "year": 2025,
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+
+  {
     "id": "2025-20",
     "image": "images/artworks/2025/2025-20.png",
     "characters": [
