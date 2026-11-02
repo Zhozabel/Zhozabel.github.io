@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zhozabel</title>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components/icon.css">
+
+  <link
+    rel="shortcut icon"
+    href="../images/icons/brandicons/icon-peach.svg"
+    type="image/svg+xml"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+<header class="header">
+  <div class="container">
+    <nav class="header_nav">
+      <img src="../images/logos/logo_color_horizontal_without_outline.svg" alt="">
+      <ul class="header_list">
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../index.html"
+             data-i18n="nav.about">About</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../pages/wiki.html"
+             data-i18n="nav.wiki">Wiki</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../pages/contacts.html"
+             data-i18n="nav.contact">Contact</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_button"
+             href="../pages/commissions.html"
+             data-i18n="nav.commissions">Commissions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <section class="archive">
+    <div class="container">
+      <div class="archive_content">
+        <div class="archive_text">
+          <span class="archive_category" data-i18n="eventsContests.category">
+            06 · Misc
+          </span>
+
+          <h2 class="archive_title" data-i18n="eventsContests.title">
+            Events & Contests
+          </h2>
+
+          <p class="archive_desc" data-i18n="eventsContests.description">
+            Creative events, art contests and DTIYS challenges.
+          </p>
+        </div>
+      </div>
+
+      <div class="other_menu">
+        <a class="other_card" href="events.html">
+          <div class="other_card-content">
+            <span class="other_card-number">01</span>
+            <div class="other_card-text">
+              <h3 data-i18n="eventsContests.events.title">Events</h3>
+              <p data-i18n="eventsContests.events.description">
+                Creative events and activities.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="other_card" href="contests.html">
+          <div class="other_card-content">
+            <span class="other_card-number">02</span>
+            <div class="other_card-text">
+              <h3 data-i18n="eventsContests.contests.title">Contests</h3>
+              <p data-i18n="eventsContests.contests.description">
+                Art contests and their results.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="other_card" href="dtiys.html">
+          <div class="other_card-content">
+            <span class="other_card-number">03</span>
+            <div class="other_card-text">
+              <h3 data-i18n="eventsContests.dtiys.title">DTIYS</h3>
+              <p data-i18n="eventsContests.dtiys.description">
+                Draw This In Your Style challenges.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer_container">
+    <div class="footer_content">
+      <div class="footer_copyright">
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
+      </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN</button>
+
+      <span class="footer_language-divider" aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("copyright-year").textContent =
+    new Date().getFullYear();
+</script>
+
+<script src="../js/art.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>

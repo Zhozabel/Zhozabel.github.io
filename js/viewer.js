@@ -11,6 +11,7 @@ const viewerCharacters = document.querySelector(".viewer_characters");
 const viewerFandom = document.querySelector(".viewer_fandom");
 const viewerYear = document.querySelector(".viewer_year");
 const viewerWarnings = document.querySelector(".viewer_warnings");
+const viewerDtiys = document.querySelector(".viewer_dtiys");
 
 const closeButton = document.querySelector(".viewer_close");
 const prevButton = document.querySelector(".viewer_prev");
@@ -472,6 +473,9 @@ function renderInfo(item) {
   const author = getLocalizedValue(item.author, "");
   const title = getLocalizedValue(item.title, "");
 
+  viewerDtiys.replaceChildren();
+  viewerDtiys.hidden = true;
+
   viewerAuthor.textContent = author;
   viewerAuthor.hidden = !author;
 
@@ -663,6 +667,65 @@ function showNext() {
 // ЗАГРУЗКА ДАННЫХ
 // ========================================
 
+// ========================================
+// ЗАГРУЗКА DTIYS
+// ========================================
+
+async function loadDtiysItems() {
+  const [dtiysResponse, giftsResponse] = await Promise.all([
+    fetch("../data/dtiys/dtiys-2024.json"),
+    fetch("../data/gifts.json")
+  ]);
+
+  if (!dtiysResponse.ok) {
+    throw new Error(
+      `Не удалось загрузить DTIYS: ${dtiysResponse.status}`
+    );
+  }
+
+  if (!giftsResponse.ok) {
+    throw new Error(
+      `Не удалось загрузить gifts.json: ${giftsResponse.status}`
+    );
+  }
+
+  const [dtiysData, giftsData] = await Promise.all([
+    dtiysResponse.json(),
+    giftsResponse.json()
+  ]);
+
+  if (!Array.isArray(dtiysData.participants)) {
+    throw new Error("DTIYS participants должен быть массивом.");
+  }
+
+  if (!Array.isArray(giftsData)) {
+    throw new Error("gifts.json должен содержать массив.");
+  }
+
+  // Собираем работы в порядке, заданном в DTIYS JSON.
+  return dtiysData.participants
+    .map(participant => {
+      const gift = giftsData.find(
+        item => item.id === participant.giftId
+      );
+
+      if (!gift) {
+        console.warn(
+          `DTIYS: работа не найдена для "${participant.name}"`,
+          participant.giftId
+        );
+
+        return null;
+      }
+
+      return {
+        ...gift,
+        dtiys: participant
+      };
+    })
+    .filter(Boolean);
+}
+
 async function loadData() {
   const params = new URLSearchParams(window.location.search);
 
@@ -670,53 +733,56 @@ async function loadData() {
   const requestedId = params.get("id");
   const requestedCharacter = params.get("character");
 
-  currentSource = Object.hasOwn(dataSources, requestedSource)
-    ? requestedSource
-    : "artworks";
+  currentSource =
+    requestedSource === "dtiys" || Object.hasOwn(dataSources, requestedSource)
+      ? requestedSource
+      : "artworks";
 
   isLoading = true;
   updateNavigation();
 
   try {
-    const [response] = await Promise.all([
-      fetch(dataSources[currentSource]),
-      loadCharacterNames()
-    ]);
+    await loadCharacterNames();
 
-    if (!response.ok) {
-      throw new Error(
-        `Не удалось загрузить ${dataSources[currentSource]}: ${response.status}`
-      );
-    }
+// DTIYS загружается из двух JSON-файлов.
+    if (currentSource === "dtiys") {
+      currentItems = await loadDtiysItems();
 
-    const data = await response.json();
+    } else {
+      // Обычные источники загружаются по прежней схеме.
+      const response = await fetch(dataSources[currentSource]);
 
-    if (!Array.isArray(data)) {
-      throw new Error("JSON должен содержать массив объектов.");
-    }
-
-    currentItems = data.filter(item => {
-      if (!item || item.id == null) {
-        return false;
-      }
-
-      // Если просмотрщик открыт из галереи персонажа,
-      // оставляем только работы этого персонажа.
-      if (requestedCharacter) {
-        return (
-          Array.isArray(item.characters) &&
-          item.characters.includes(requestedCharacter)
+      if (!response.ok) {
+        throw new Error(
+          `Не удалось загрузить ${dataSources[currentSource]}: ${response.status}`
         );
       }
 
-      // В остальных разделах сохраняем прежнее поведение.
-      return true;
-    });
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error("JSON должен содержать массив объектов.");
+      }
+
+      currentItems = data.filter(item => {
+        if (!item || item.id == null) {
+          return false;
+        }
+
+        if (requestedCharacter) {
+          return (
+            Array.isArray(item.characters) &&
+            item.characters.includes(requestedCharacter)
+          );
+        }
+
+        return true;
+      });
+    }
 
     currentIndex = currentItems.findIndex(
       item => String(item.id) === String(requestedId)
     );
-
 
     if (currentIndex === -1) {
       throw new Error(

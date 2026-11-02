@@ -1,0 +1,102 @@
+
+/* ========================================
+   OTHER MENU
+======================================== */
+
+.other_menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.other_card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-width: 0;
+  padding: 28px 30px;
+
+  border-radius: 20px;
+  background: var(--card);
+
+  text-decoration: none;
+  color: inherit;
+
+  transition:
+    background 0.25s ease;
+}
+
+.other_card:hover {
+  background-color: var(--card_hover);
+}
+
+.other_card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  min-width: 0;
+}
+
+.other_card-number {
+  font-family: "Nunito", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+
+.other_card-text {
+  min-width: 0;
+}
+
+.other_card-text h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--primary_text);
+  overflow-wrap: anywhere;
+}
+
+.other_card-text p {
+  margin: 0;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--secondary_text);
+}
+
+/* Планшеты */
+@media (max-width: 768px) {
+  .other_menu {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .other_card {
+    padding: 22px 20px;
+    gap: 12px;
+  }
+
+  .other_card-content {
+    gap: 14px;
+  }
+
+  .other_card-text h3 {
+    font-size: 20px;
+  }
+
+  .other_card-text p {
+    font-size: 14px;
+  }
+
+  .other_card-arrow {
+    font-size: 24px;
+  }
+}

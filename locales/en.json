@@ -268,5 +268,89 @@
   },
   "viewer": {
     "swipeHint": "Swipe up or down to exit fullscreen"
+  },
+  "other": {
+    "category": "06 · Misc",
+    "title": "Other",
+    "description": "A collection of creative projects, events and other activities.",
+    "events": {
+      "title": "Events & Contests",
+      "description": "Creative events, art contests and DTIYS challenges."
+    }
+  },
+  "eventsContests": {
+    "category": "06 · Misc",
+    "title": "Events & Contests",
+    "description": "Creative events, art contests and DTIYS challenges.",
+    "events": {
+      "title": "Events",
+      "description": "Creative events and activities."
+    },
+    "contests": {
+      "title": "Contests",
+      "description": "Art contests and their results."
+    },
+    "dtiys": {
+      "title": "DTIYS",
+      "description": "Draw This In Your Style challenges."
+    }
+  },
+  "dtiys": {
+    "category": "Events & Contests",
+    "title": "DTIYS 2024",
+    "intro": "Explore the participants' artworks, meet the character behind the challenge and discover the results.",
+    "about": {
+      "title": "About the challenge",
+      "duration": "months for submissions",
+      "views": "views of the announcement",
+      "reposts": "reposts",
+      "artists": "participating artists",
+      "description": "The challenge brought together artists with different styles and approaches to the same character."
+    },
+    "character": {
+      "title": "The character",
+      "name": "Kaa-sama (Tsuki Shuuki)",
+      "description": "Kaa-sama is an original character first created in 2020. She is one of the ten members of the Shuuki clan, serving the cyclical beings.",
+      "appearance": "She is a beautiful, slender woman with long white hair, red eyes and numerous golden ornaments. Her rich red layered clothes are decorated with symbols of the Lower Path.",
+      "personality": "Calm, reserved and self-confident, she can also be kind, gentle and caring towards her adopted daughters."
+    },
+    "winners": {
+      "title": "Winners",
+      "description": "Five people evaluated the artworks: four invited judges and the challenge organizer.",
+      "scoring": "Each judge assigned places from first to third. If an artwork did not make a judge's top three, it received no place. Such entries are represented by null and counted as zero when calculating the average score. The lower the average, the higher the final result."
+    },
+    "additional": {
+      "title": "Additional places"
+    },
+    "participants": {
+      "title": "Other participants"
+    },
+    "prizes": {
+      "title": "Prizes",
+      "first": {
+        "title": "1st place",
+        "description": "Telegram Premium and a full commission of any format featuring one or two characters."
+      },
+      "second": {
+        "title": "2nd place",
+        "description": "A full commission of any format featuring one or two characters."
+      },
+      "third": {
+        "title": "3rd place",
+        "description": "A character headshot or icon of the winner’s choice."
+      },
+      "additional": {
+        "title": "Additional places",
+        "description": "Artists receiving additional placements get the opportunity to collaborate on a self-promotion post, event, or giveaway, or to sponsor an interactive activity, event, or giveaway of the organizer’s choice."
+      },
+      "everyone": "Every participant’s artwork was shared on both Telegram and VK, with proper credit given to the artist."
+    },
+    "card": {
+      "open": "Open artwork",
+      "placeSuffix": " place",
+      "average": "Average",
+      "profile": "Artist profile"
+    },
+    "error": "Sorry, the artworks could not be loaded."
   }
 }

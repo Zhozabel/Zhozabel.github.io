@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zhozabel</title>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components/icon.css">
+
+  <link
+    rel="shortcut icon"
+    href="../images/icons/brandicons/icon-peach.svg"
+    type="image/svg+xml"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+<header class="header">
+  <div class="container">
+    <nav class="header_nav">
+      <img src="../images/logos/logo_color_horizontal_without_outline.svg" alt="">
+      <ul class="header_list">
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../index.html"
+             data-i18n="nav.about">About</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../pages/wiki.html"
+             data-i18n="nav.wiki">Wiki</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_list-link"
+             href="../pages/contacts.html"
+             data-i18n="nav.contact">Contact</a>
+        </li>
+        <li class="header_list-item">
+          <a class="header_button"
+             href="../pages/commissions.html"
+             data-i18n="nav.commissions">Commissions</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="archive dtiys">
+    <div class="container">
+
+      <!-- INTRO -->
+      <div class="archive_content">
+        <div class="archive_text">
+          <span class="archive_category" data-i18n="dtiys.category">
+            06 · Misc
+          </span>
+
+          <h2 class="archive_title" data-i18n="dtiys.title">
+            DTIYS 2024
+          </h2>
+
+          <p class="archive_desc" data-i18n="dtiys.intro">
+            Explore the participants' artworks, meet the character behind
+            the challenge and discover the results.
+          </p>
+        </div>
+      </div>
+
+      <!-- GENERAL INFORMATION -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.about.title">
+          About the challenge
+        </h3>
+
+        <div class="dtiys_facts">
+          <div class="dtiys_fact">
+            <span class="dtiys_fact_value">2</span>
+            <span class="dtiys_fact_label" data-i18n="dtiys.about.duration">
+              months for submissions
+            </span>
+          </div>
+
+          <div class="dtiys_fact">
+            <span class="dtiys_fact_value">2.6k</span>
+            <span class="dtiys_fact_label" data-i18n="dtiys.about.views">
+              views of the announcement
+            </span>
+          </div>
+
+          <div class="dtiys_fact">
+            <span class="dtiys_fact_value">108</span>
+            <span class="dtiys_fact_label" data-i18n="dtiys.about.reposts">
+              reposts
+            </span>
+          </div>
+
+          <div class="dtiys_fact">
+            <span class="dtiys_fact_value">19</span>
+            <span class="dtiys_fact_label" data-i18n="dtiys.about.artists">
+              participating artists
+            </span>
+          </div>
+        </div>
+
+        <p class="dtiys_text" data-i18n="dtiys.about.description">
+          The challenge brought together artists with different styles
+          and approaches to the same character.
+        </p>
+      </section>
+
+      <!-- CHARACTER -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.character.title">
+          The character
+        </h3>
+
+        <div class="dtiys_character">
+          <div class="dtiys_character_text">
+            <h4 data-i18n="dtiys.character.name">Matушка (Tsuki Shuuki)</h4>
+
+            <p data-i18n="dtiys.character.description">
+              Matушка is an original character first created in 2020.
+              She is one of the ten members of the Shuuki clan, serving
+              the cyclical beings.
+            </p>
+
+            <p data-i18n="dtiys.character.appearance">
+              She is a beautiful, slender woman with long white hair,
+              red eyes and numerous golden ornaments. Her rich red
+              layered clothes are decorated with symbols of the Lower Path.
+            </p>
+
+            <p data-i18n="dtiys.character.personality">
+              Calm, reserved and self-confident, she can also be kind,
+              gentle and caring towards her adopted daughters.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WINNERS -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.winners.title">
+          Winners
+        </h3>
+
+        <p class="dtiys_text" data-i18n="dtiys.winners.description">
+          Five people evaluated the artworks: four invited judges
+          and the challenge organizer.
+        </p>
+
+        <div class="dtiys_scoring">
+          <p data-i18n="dtiys.winners.scoring">
+            Each judge assigned places from first to third. If an artwork
+            did not make a judge's top three, it received no place.
+            Such entries are represented by null and counted as zero
+            when calculating the average score. The lower the average,
+            the higher the final result.
+          </p>
+        </div>
+
+        <div class="dtiys_gallery" id="dtiys-winners"></div>
+      </section>
+
+      <!-- ADDITIONAL PLACES -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.additional.title">
+          Additional places
+        </h3>
+
+        <div class="dtiys_gallery" id="dtiys-additional"></div>
+      </section>
+
+      <!-- OTHER PARTICIPANTS -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.participants.title">
+          Other participants
+        </h3>
+
+        <div class="dtiys_gallery" id="dtiys-participants"></div>
+      </section>
+
+      <!-- PRIZES -->
+      <section class="dtiys_section">
+        <h3 class="dtiys_section_title" data-i18n="dtiys.prizes.title">
+          Prizes
+        </h3>
+
+        <div class="dtiys_prizes">
+          <div class="dtiys_prize">
+            <h4 data-i18n="dtiys.prizes.first.title">1st place</h4>
+            <p data-i18n="dtiys.prizes.first.description">
+              Telegram Premium and a full commission in any format,
+              featuring one or two characters.
+            </p>
+          </div>
+
+          <div class="dtiys_prize">
+            <h4 data-i18n="dtiys.prizes.second.title">2nd place</h4>
+            <p data-i18n="dtiys.prizes.second.description">
+              A full commission in any format, featuring one or two characters.
+            </p>
+          </div>
+
+          <div class="dtiys_prize">
+            <h4 data-i18n="dtiys.prizes.third.title">3rd place</h4>
+            <p data-i18n="dtiys.prizes.third.description">
+              A headshot or character icon of the artist's choice.
+            </p>
+          </div>
+
+          <div class="dtiys_prize">
+            <h4 data-i18n="dtiys.prizes.additional.title">
+              Additional places
+            </h4>
+            <p data-i18n="dtiys.prizes.additional.description">
+              An opportunity for joint self-promotion, participation
+              in an event or lottery, or sponsorship.
+            </p>
+          </div>
+        </div>
+
+        <p class="dtiys_text" data-i18n="dtiys.prizes.everyone">
+          Every participant also had their artwork reposted with credit
+          on Telegram and VK.
+        </p>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer_container">
+    <div class="footer_content">
+      <div class="footer_copyright">
+        © <span id="copyright-year"></span>
+        <span data-i18n="footer.copyright">Copyright Zhozabel</span>
+      </div>
+    </div>
+
+    <div
+      class="footer_language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="footer.language"
+    >
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="en"
+        aria-pressed="true"
+      >EN</button>
+
+      <span class="footer_language-divider" aria-hidden="true">/</span>
+
+      <button
+        class="footer_language-button"
+        type="button"
+        data-lang-switch="ru"
+        aria-pressed="false"
+      >RU</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("copyright-year").textContent =
+    new Date().getFullYear();
+</script>
+
+<script src="../js/art.js"></script>
+<script src="../js/dtiys.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>
