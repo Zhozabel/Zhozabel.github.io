@@ -8159,6 +8159,23 @@
     "blur": false
   },
   {
+    "id": "2026-03",
+    "image": "images/artworks/2026/2026-03.png",
+    "characters": [
+      "tzenitch-by-untitled-expression",
+      "yren-by-untitled-expression"
+    ],
+    "fandom": {
+      "en": "Original",
+      "ru": "Ориджинал"
+    },
+    "author": null,
+    "year": 2026,
+    "rating": "NC-17",
+    "warnings": ["sex"],
+    "blur": true
+  },
+  {
     "id": "2026-02",
     "image": "images/artworks/2026/2026-02.png",
     "characters": [

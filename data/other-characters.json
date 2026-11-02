@@ -65,6 +65,32 @@
     "file": ""
   },
   {
+    "id": "tzenitch-by-untitled-expression",
+    "name": {
+      "en": "Tze'Nitch © UntitledExpression",
+      "ru": "Тзе'Нич © UntitledExpression"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
+    "id": "yren-by-untitled-expression",
+    "name": {
+      "en": "Yren © UntitledExpression",
+      "ru": "Ирэн © UntitledExpression"
+    },
+    "fandom": {
+      "en": null,
+      "ru": null
+    },
+    "portrait": "",
+    "file": ""
+  },
+  {
     "id": "unknown-oc",
     "name": {
       "en": "Unknown OC",
