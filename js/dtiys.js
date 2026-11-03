@@ -127,10 +127,15 @@ function createReviewsBlock(reviews) {
 
 
 // Создаёт карточку победителя.
+// Создаёт карточку победителя.
 function createWinnerCard(participant, gift, link, imageWrapper, info, profile) {
-  const card = createElement("article", "dtiys_winner_card");
-  const content = createElement("div", "dtiys_winner_content");
+  // Обычная карточка работы из галереи.
+  const artworkCard = createElement(
+    "article",
+    "dtiys_card dtiys_winner_art_card"
+  );
 
+  // Место и средний балл.
   const meta = createElement("div", "dtiys_winner_meta");
 
   const place = createElement(
@@ -147,13 +152,23 @@ function createWinnerCard(participant, gift, link, imageWrapper, info, profile) 
 
   meta.append(place, score);
 
-  const imageInfo = createElement("div", "dtiys_winner_image_info");
-  imageInfo.append(info, meta, profile);
+  // Добавляем информацию о победителе в обычный блок галереи.
+  info.append(meta);
 
+  artworkCard.append(link, info, profile);
+
+  // Отдельная карточка отзывов.
+  const reviewsCard = createElement("div", "dtiys_winner_content");
   const reviews = createReviewsBlock(participant.reviews);
 
-  content.append(reviews);
-  card.append(link, imageInfo, content);
+  if (reviews) {
+    reviewsCard.append(reviews);
+  }
+
+  // Общий контейнер для двух карточек.
+  const card = createElement("div", "dtiys_winner_card");
+
+  card.append(artworkCard, reviewsCard);
 
   return card;
 }
