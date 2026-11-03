@@ -265,7 +265,7 @@
 .dtiys_winner_card {
   display: grid;
   grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
-  align-items: stretch;
+  align-items: start; /* было stretch */
   gap: 24px;
 
   width: 100%;
@@ -289,26 +289,10 @@
 /* Отзывы — отдельная карточка */
 .dtiys_winner_content {
   min-width: 0;
-  padding: 24px;
+  padding: 5px 12px;
   border-radius: 18px;
   background: var(--card);
   box-sizing: border-box;
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-  .dtiys_winner_card {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-  }
-
-  .dtiys_winner_art_card {
-    max-width: 420px;
-  }
-
-  .dtiys_winner_content {
-    padding: 18px 14px;
-  }
 }
 
 /* ========================================
@@ -364,7 +348,7 @@
 .dtiys_review_place {
   font-family: "Nunito", sans-serif;
   color: var(--primary);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .dtiys_review_comment {
@@ -455,11 +439,15 @@
   }
 
   .dtiys_winner_art_card {
+    width: 100%;
     max-width: 420px;
+    justify-self: center;
   }
 
   .dtiys_winner_content {
-    padding: 18px;
+    background-color: var(--background);
+    width: 100%;
+    padding: 0;
   }
 }
 
@@ -547,15 +535,15 @@
 }
 
 /* Отзывы растягиваются на всю высоту карточки работы */
-.dtiys_winner_card {
-  align-items: stretch;
-}
+/*.dtiys_winner_card {*/
+/*  align-items: stretch;*/
+/*}*/
 
 .dtiys_winner_content {
   height: 100%;
   box-sizing: border-box;
 }
 
-.dtiys_winner_art_card .dtiys_card_image {
-  aspect-ratio: 4 / 5;
-}
+/*.dtiys_winner_art_card .dtiys_card_image {*/
+/*  aspect-ratio: 4 / 5;*/
+/*}*/

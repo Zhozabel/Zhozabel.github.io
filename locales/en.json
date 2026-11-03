@@ -300,9 +300,26 @@
       "artists": "participating artists",
       "description": "The challenge brought together artists with different styles and approaches to the same character."
     },
+    "character": {
+      "title": "The character"
+    },
+    "winners": {
+      "title": "Winners",
+      "description": "Five people evaluated the artworks: four invited judges and the challenge organizer."
+    },
+    "additional": {
+      "title": "Additional places"
+    },
+    "participants": {
+      "title": "Other participants"
+    },
+    "prizes": {
+      "title": "Prizes"
+    },
     "card": {
       "placeSuffix": " place",
-      "average": "Average"
+      "average": "Average",
+      "profile": "Artist profile"
     },
     "reviews": {
       "judges": {
