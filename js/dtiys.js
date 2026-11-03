@@ -22,9 +22,28 @@ function getTranslation(key, fallback = "") {
 
   return key.split(".").reduce((value, part) => {
     return value?.[part];
-  }, translations) || fallback;
+  }, translations) ?? fallback;
 }
 
+// Возвращает текущий язык сайта.
+function getCurrentLanguage() {
+  return document.documentElement.lang?.startsWith("en") ? "en" : "ru";
+}
+
+// Возвращает текст на текущем языке из двуязычного объекта.
+function getLocalizedText(value) {
+  if (typeof value === "string" || typeof value === "number") {
+    return String(value);
+  }
+
+  if (!value || typeof value !== "object") {
+    return "";
+  }
+
+  const language = getCurrentLanguage();
+
+  return value[language] ?? value.ru ?? value.en ?? "";
+}
 
 // Формирует путь к миниатюре изображения.
 function getGiftThumbnail(imagePath) {
@@ -37,7 +56,6 @@ function getGiftThumbnail(imagePath) {
     .replace(/\.(jpe?g|png)$/i, ".webp");
 }
 
-
 // Преобразует путь к изображению в полный URL.
 function getImageUrl(imagePath) {
   if (!imagePath) {
@@ -47,7 +65,6 @@ function getImageUrl(imagePath) {
   return new URL("../" + imagePath, document.baseURI).href;
 }
 
-
 // Создаёт HTML-элемент с классом и текстом.
 function createElement(tag, className, text = "") {
   const element = document.createElement(tag);
@@ -56,7 +73,7 @@ function createElement(tag, className, text = "") {
     element.className = className;
   }
 
-  if (text) {
+  if (text !== "" && text !== null && text !== undefined) {
     element.textContent = text;
   }
 
@@ -65,8 +82,49 @@ function createElement(tag, className, text = "") {
 
 
 /* ========================================
-   PARTICIPANT CARD
+   EVENT INFORMATION
 ======================================== */
+
+// Подставляет данные из event.json в HTML.
+function renderEventData(eventData) {
+  if (!eventData || typeof eventData !== "object") {
+    console.error("DTIYS: invalid event data.");
+    return;
+  }
+
+  const fields = document.querySelectorAll("[data-dtiys-field]");
+
+  fields.forEach(element => {
+    const path = element.dataset.dtiysField;
+
+    if (!path) {
+      return;
+    }
+
+    const value = path.split(".").reduce((current, key) => {
+      return current?.[key];
+    }, eventData);
+
+    if (value === undefined || value === null) {
+      console.warn(`DTIYS: event field not found: "${path}"`);
+      return;
+    }
+
+    let text = getLocalizedText(value);
+
+    // Показываем количество просмотров в компактном формате.
+    if (path === "about.views" && typeof value === "number") {
+      text = value >= 1000
+        ? `${(value / 1000).toLocaleString(getCurrentLanguage(), {
+          maximumFractionDigits: 1
+        })}k`
+        : String(value);
+    }
+
+    element.textContent = text;
+  });
+}
+
 
 /* ========================================
    PARTICIPANT CARD
@@ -95,7 +153,10 @@ function createReviewsBlock(reviews) {
     const judge = createElement(
       "h6",
       "dtiys_review_judge",
-      review.judge || getTranslation("dtiys.reviews.unknownJudge", "Judge")
+      getTranslation(
+        `dtiys.reviews.judges.${review.judge}`,
+        review.judge || getTranslation("dtiys.reviews.unknownJudge", "Judge")
+      )
     );
 
     heading.append(judge);
@@ -113,7 +174,7 @@ function createReviewsBlock(reviews) {
     const comment = createElement(
       "p",
       "dtiys_review_comment",
-      review.comment || ""
+      getLocalizedText(review.comment)
     );
 
     reviewCard.append(heading, comment);
@@ -127,15 +188,12 @@ function createReviewsBlock(reviews) {
 
 
 // Создаёт карточку победителя.
-// Создаёт карточку победителя.
-function createWinnerCard(participant, gift, link, imageWrapper, info, profile) {
-  // Обычная карточка работы из галереи.
+function createWinnerCard(participant, link, info, profile) {
   const artworkCard = createElement(
     "article",
     "dtiys_card dtiys_winner_art_card"
   );
 
-  // Место и средний балл.
   const meta = createElement("div", "dtiys_winner_meta");
 
   const place = createElement(
@@ -151,13 +209,9 @@ function createWinnerCard(participant, gift, link, imageWrapper, info, profile) 
   );
 
   meta.append(place, score);
-
-  // Добавляем информацию о победителе в обычный блок галереи.
   info.append(meta);
-
   artworkCard.append(link, info, profile);
 
-  // Отдельная карточка отзывов.
   const reviewsCard = createElement("div", "dtiys_winner_content");
   const reviews = createReviewsBlock(participant.reviews);
 
@@ -165,9 +219,7 @@ function createWinnerCard(participant, gift, link, imageWrapper, info, profile) 
     reviewsCard.append(reviews);
   }
 
-  // Общий контейнер для двух карточек.
   const card = createElement("div", "dtiys_winner_card");
-
   card.append(artworkCard, reviewsCard);
 
   return card;
@@ -248,15 +300,13 @@ function createParticipantCard(participant, gifts) {
   ) {
     return createWinnerCard(
       participant,
-      gift,
       link,
-      imageWrapper,
       info,
       profile
     );
   }
 
-  // Для остальных участников сохраняем прежнюю компактную карточку.
+  // Для остальных участников сохраняем компактную карточку.
   const card = createElement("article", "dtiys_card");
 
   card.append(link, info, profile);
@@ -317,15 +367,27 @@ function renderParticipants(data, gifts) {
 
 async function loadDtiys() {
   try {
-    // Загружаем данные челленджа и изображения участников.
-    const [dtiysResponse, giftsResponse] = await Promise.all([
-      fetch("../data/dtiys/dtiys-2024.json"),
+    // Загружаем информацию о мероприятии, участников и изображения.
+    const [
+      eventResponse,
+      participantsResponse,
+      giftsResponse
+    ] = await Promise.all([
+      fetch("../data/dtiys/dtiys-2024/event.json"),
+      fetch("../data/dtiys/dtiys-2024/participants.json"),
       fetch("../data/gifts.json")
     ]);
 
-    if (!dtiysResponse.ok) {
+    // Проверяем успешность загрузки файлов.
+    if (!eventResponse.ok) {
       throw new Error(
-        `Failed to load dtiys-2024.json: ${dtiysResponse.status}`
+        `Failed to load event.json: ${eventResponse.status}`
+      );
+    }
+
+    if (!participantsResponse.ok) {
+      throw new Error(
+        `Failed to load participants.json: ${participantsResponse.status}`
       );
     }
 
@@ -336,21 +398,33 @@ async function loadDtiys() {
     }
 
     // Преобразуем ответы в JSON.
-    const [dtiysData, giftsData] = await Promise.all([
-      dtiysResponse.json(),
+    const [
+      eventData,
+      participantsData,
+      giftsData
+    ] = await Promise.all([
+      eventResponse.json(),
+      participantsResponse.json(),
       giftsResponse.json()
     ]);
 
+    // Проверяем структуру полученных данных.
     if (!Array.isArray(giftsData)) {
       throw new Error("gifts.json must contain an array.");
     }
 
-    renderParticipants(dtiysData, giftsData);
+    if (!Array.isArray(participantsData.participants)) {
+      throw new Error("participants.json must contain a participants array.");
+    }
+
+    // Отображаем информацию о мероприятии и участниках.
+    renderEventData(eventData);
+    renderParticipants(participantsData, giftsData);
 
   } catch (error) {
     console.error("DTIYS loading error:", error);
 
-    // Показываем сообщение об ошибке во всех разделах.
+    // Показываем сообщение об ошибке в галереях.
     const containers = [
       dtiysWinners,
       dtiysAdditional,

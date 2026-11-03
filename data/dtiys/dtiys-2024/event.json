@@ -1,0 +1,93 @@
+
+{
+  "id": "dtiys-2024",
+  "year": 2024,
+  "title": {
+    "en": "DTIYS 2024",
+    "ru": "DTIYS 2024"
+  },
+  "about": {
+    "duration": 2,
+    "views": 2600,
+    "reposts": 108,
+    "artists": 19,
+    "description": {
+      "en": "The challenge brought together artists with different styles and approaches to the same character.",
+      "ru": "Челлендж объединил художников с разными стилями и подходами к изображению одного персонажа."
+    }
+  },
+  "character": {
+    "name": {
+      "en": "Kaa-sama (Tsuki Shuuki)",
+      "ru": "Матушка (Цуки Шууки)"
+    },
+    "description": {
+      "en": "Kaa-sama is an original character first created in 2020. She is one of the ten members of the Shuuki Clan, who serve the Cyclical Beings.",
+      "ru": "Матушка — оригинальный персонаж, впервые созданный в 2020 году. Она одна из десяти членов клана Шууки, служащих циклическим существам."
+    },
+    "appearance": {
+      "en": "Tsuki is one of the ten members of the Shuuki Clan, which serves the Cyclical Beings. She is the medium of the 10th Cyclical Being of the Lower Path, the patron of passion, lust, and carnal pleasures. She is also the mistress of the Moon Temple, located on Moon Island.\n\nKaa-sama is a beautiful, slender woman with an unusual appearance. She has long, completely colourless white hair, part of which is styled into two large side buns, and red eyes framed by thick, fluffy black eyelashes. Her hair is adorned with numerous golden ornaments. Kaa-sama wears luxurious, layered red garments decorated with symbols of the Cyclical Beings of the Lower Path.",
+      "ru": "Цуки — одна из десяти представительниц клана Шууки, служащего циклическим существам. Она медиум 10-го циклического существа Нижнего Пути — покровителя страсти, похоти и плотских утех. Также она хозяйка Лунного храма, расположенного на Острове Луны.\n\nМатушка — красивая стройная женщина с нестандартной внешностью. У неё длинные, совершенно бесцветные белые волосы, часть которых собрана в два больших пучка по бокам головы, и красные глаза, обрамлённые пушистыми чёрными ресницами. В волосах женщины множество золотых украшений. Матушка носит богатые красные многослойные одежды, украшенные символикой Циклических существ Нижнего Пути."
+    },
+    "personality": {
+      "en": "Tsuki is a reserved, calm, and level-headed woman. She is highly self-assured and stubborn, partly due to the power bestowed upon her. Many respect her, while some fear her and even grovel before her.\n\nDespite this, Tsuki is kind-hearted and welcoming towards her adopted daughters. The nuns speak of her as a kind, gentle, and loving person who looks after them and showers them with affection and gifts.",
+      "ru": "Цуки — сдержанная, спокойная и рассудительная женщина. Она очень самоуверенна и упряма, отчасти из-за дарованной ей силы. Многие её уважают, некоторые побаиваются и даже пресмыкаются перед ней.\n\nНесмотря на это, Цуки добросердечна и открыта со своими приёмными дочерьми. Монахини говорят о ней как о добром, нежном и любящем человеке, который заботится о них и балует."
+    }
+  },
+  "scoring": {
+    "judges": 5,
+    "places": 3,
+    "nullValue": 0,
+    "lowerScoreWins": true,
+    "description": {
+      "en": "Each judge assigned places from first to third. If an artwork did not make a judge's top three, it received no place. Such entries are represented by null and counted as zero when calculating the average score. The lower the average, the higher the final result.",
+      "ru": "Каждый судья присваивал работам места с первого по третье. Если работа не попадала в личную тройку судьи, место ей не присваивалось. Такие оценки обозначаются как null и учитываются при расчёте среднего балла как ноль. Чем ниже средний балл, тем выше итоговое место."
+    }
+  },
+  "prizes": {
+    "first": {
+      "title": {
+        "en": "1st place",
+        "ru": "Первое место"
+      },
+      "description": {
+        "en": "Telegram Premium and a full commission of any format featuring one or two characters.",
+        "ru": "Telegram Premium и полноценная комиссия любого формата на одного или двух персонажей."
+      }
+    },
+    "second": {
+      "title": {
+        "en": "2nd place",
+        "ru": "Второе место"
+      },
+      "description": {
+        "en": "A full commission of any format featuring one or two characters.",
+        "ru": "Полноценная комиссия любого формата на одного или двух персонажей."
+      }
+    },
+    "third": {
+      "title": {
+        "en": "3rd place",
+        "ru": "Третье место"
+      },
+      "description": {
+        "en": "A character headshot or icon of the winner’s choice.",
+        "ru": "Хэдшот или иконка выбранного персонажа."
+      }
+    },
+    "additional": {
+      "title": {
+        "en": "Additional places",
+        "ru": "Дополнительные места"
+      },
+      "description": {
+        "en": "Artists receiving additional placements get the opportunity to collaborate on a self-promotion post, event, or giveaway, or to sponsor an interactive activity, event, or giveaway of the organizer’s choice.",
+        "ru": "Участники, занявшие дополнительные места, получают возможность провести совместный самопиар, ивент или лотерею либо стать спонсорами интерактива, мероприятия или лотереи на выбор организатора."
+      }
+    },
+    "everyone": {
+      "en": "Every participant’s artwork was shared on both Telegram and VK, with proper credit given to the artist.",
+      "ru": "Работа каждого участника была опубликована с указанием авторства в двух сообществах: Telegram и ВКонтакте."
+    }
+  }
+}
