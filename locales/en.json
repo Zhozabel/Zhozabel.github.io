@@ -352,5 +352,9 @@
       "profile": "Artist profile"
     },
     "error": "Sorry, the artworks could not be loaded."
+  },
+  "reviews": {
+    "title": "Jury reviews",
+    "unknownJudge": "Judge"
   }
 }

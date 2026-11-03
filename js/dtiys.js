@@ -68,6 +68,98 @@ function createElement(tag, className, text = "") {
    PARTICIPANT CARD
 ======================================== */
 
+/* ========================================
+   PARTICIPANT CARD
+======================================== */
+
+// Создаёт блок с отзывами жюри.
+function createReviewsBlock(reviews) {
+  if (!Array.isArray(reviews) || reviews.length === 0) {
+    return null;
+  }
+
+  const section = createElement("div", "dtiys_reviews");
+
+  const title = createElement(
+    "h5",
+    "dtiys_reviews_title",
+    getTranslation("dtiys.reviews.title", "Jury reviews")
+  );
+
+  const list = createElement("div", "dtiys_reviews_list");
+
+  reviews.forEach(review => {
+    const reviewCard = createElement("article", "dtiys_review");
+    const heading = createElement("div", "dtiys_review_heading");
+
+    const judge = createElement(
+      "h6",
+      "dtiys_review_judge",
+      review.judge || getTranslation("dtiys.reviews.unknownJudge", "Judge")
+    );
+
+    heading.append(judge);
+
+    if (review.place) {
+      const place = createElement(
+        "span",
+        "dtiys_review_place",
+        `${review.place}${getTranslation("dtiys.card.placeSuffix", " place")}`
+      );
+
+      heading.append(place);
+    }
+
+    const comment = createElement(
+      "p",
+      "dtiys_review_comment",
+      review.comment || ""
+    );
+
+    reviewCard.append(heading, comment);
+    list.append(reviewCard);
+  });
+
+  section.append(title, list);
+
+  return section;
+}
+
+
+// Создаёт карточку победителя.
+function createWinnerCard(participant, gift, link, imageWrapper, info, profile) {
+  const card = createElement("article", "dtiys_winner_card");
+  const content = createElement("div", "dtiys_winner_content");
+
+  const meta = createElement("div", "dtiys_winner_meta");
+
+  const place = createElement(
+    "span",
+    "dtiys_card_place",
+    `${participant.place}${getTranslation("dtiys.card.placeSuffix", " place")}`
+  );
+
+  const score = createElement(
+    "span",
+    "dtiys_card_score",
+    `${getTranslation("dtiys.card.average", "Average")}: ${participant.averageScore.toFixed(1)}`
+  );
+
+  meta.append(place, score);
+
+  const imageInfo = createElement("div", "dtiys_winner_image_info");
+  imageInfo.append(info, meta, profile);
+
+  const reviews = createReviewsBlock(participant.reviews);
+
+  content.append(reviews);
+  card.append(link, imageInfo, content);
+
+  return card;
+}
+
+
+// Создаёт карточку участника.
 function createParticipantCard(participant, gifts) {
   // Находим изображение участника в gifts.json.
   const gift = gifts.find(item => item.id === participant.giftId);
@@ -80,8 +172,6 @@ function createParticipantCard(participant, gifts) {
 
     return null;
   }
-
-  const card = createElement("article", "dtiys_card");
 
   // Ссылка на просмотр работы.
   const link = document.createElement("a");
@@ -123,27 +213,6 @@ function createParticipantCard(participant, gifts) {
 
   info.append(name);
 
-  // Дополнительная информация для победителей.
-  if (participant.category === "winner" && participant.place) {
-    const place = createElement(
-      "span",
-      "dtiys_card_place",
-      `${participant.place}${getTranslation("dtiys.card.placeSuffix", " place")}`
-    );
-
-    info.append(place);
-
-    if (typeof participant.averageScore === "number") {
-      const score = createElement(
-        "span",
-        "dtiys_card_score",
-        `${getTranslation("dtiys.card.average", "Average")}: ${participant.averageScore.toFixed(1)}`
-      );
-
-      info.append(score);
-    }
-  }
-
   // Ссылка на профиль художника.
   const profile = document.createElement("a");
 
@@ -155,6 +224,25 @@ function createParticipantCard(participant, gifts) {
     "dtiys.card.profile",
     "Artist profile"
   );
+
+  // Для победителей используем расширенную карточку с отзывами.
+  if (
+    participant.category === "winner" &&
+    participant.place &&
+    typeof participant.averageScore === "number"
+  ) {
+    return createWinnerCard(
+      participant,
+      gift,
+      link,
+      imageWrapper,
+      info,
+      profile
+    );
+  }
+
+  // Для остальных участников сохраняем прежнюю компактную карточку.
+  const card = createElement("article", "dtiys_card");
 
   card.append(link, info, profile);
 
