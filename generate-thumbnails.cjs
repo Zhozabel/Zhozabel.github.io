@@ -1,4 +1,6 @@
-﻿const fs = require("node:fs");
+﻿//Console: node generate-thumbnails.cjs
+
+const fs = require("node:fs");
 const path = require("node:path");
 const sharp = require("sharp");
 

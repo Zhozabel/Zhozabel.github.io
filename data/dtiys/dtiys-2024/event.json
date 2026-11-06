@@ -40,8 +40,8 @@
     "nullValue": 0,
     "lowerScoreWins": true,
     "description": {
-      "en": "Each judge assigned places from first to third. If an artwork did not make a judge's top three, it received no place. Such entries are represented by null and counted as zero when calculating the average score. The lower the average, the higher the final result.",
-      "ru": "Каждый судья присваивал работам места с первого по третье. Если работа не попадала в личную тройку судьи, место ей не присваивалось. Такие оценки обозначаются как null и учитываются при расчёте среднего балла как ноль. Чем ниже средний балл, тем выше итоговое место."
+      "en": "Each judge assigned places from first to third. If an artwork did not make a judge's top three, it received no place. The lower the average, the higher the final result.",
+      "ru": "Каждый судья присваивал работам места с первого по третье. Если работа не попадала в личную тройку судьи, место ей не присваивалось. Чем ниже средний балл, тем выше итоговое место."
     }
   },
   "prizes": {
