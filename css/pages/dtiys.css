@@ -27,8 +27,8 @@
   text-decoration: none;
 
   transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 a.dtiys_archive-card:hover {
@@ -36,9 +36,26 @@ a.dtiys_archive-card:hover {
   transform: translateY(-3px);
 }
 
-/* ========================================
-   COVER
-======================================== */
+.dtiys_archive-link {
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.dtiys_archive-card:hover .dtiys_archive-link {
+  text-decoration: underline;
+}
+
+  /* ========================================
+     COVER
+  ======================================== */
+
+.dtiys_archive-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
 
 .dtiys_archive-cover {
   display: flex;
@@ -108,13 +125,13 @@ a.dtiys_archive-card:hover {
 }
 
 .dtiys_archive-status-completed {
-  background: #e1f0e4;
-  color: #477653;
+  background: var(--success);
+  color: var(--background);
 }
 
 .dtiys_archive-status-progress {
-  background: #f8edcf;
-  color: #92702d;
+  background: var(--warning);
+  color: var(--background);
 }
 
 .dtiys_archive-info h3 {

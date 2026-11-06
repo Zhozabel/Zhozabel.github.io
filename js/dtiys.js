@@ -62,7 +62,7 @@ function getImageUrl(imagePath) {
     return "";
   }
 
-  return new URL("../" + imagePath, document.baseURI).href;
+  return new URL("../../" + imagePath, document.baseURI).href;
 }
 
 // Создаёт HTML-элемент с классом и текстом.
@@ -244,7 +244,7 @@ function createParticipantCard(participant, gifts) {
   const link = document.createElement("a");
 
   link.className = "dtiys_card_link";
-  link.href = `viewer.html?source=dtiys&id=${encodeURIComponent(participant.giftId)}`;
+  link.href = `../viewer.html?source=dtiys&id=${encodeURIComponent(participant.giftId)}`;
 
   link.setAttribute(
     "aria-label",
@@ -373,9 +373,9 @@ async function loadDtiys() {
       participantsResponse,
       giftsResponse
     ] = await Promise.all([
-      fetch("../data/dtiys/dtiys-2024/event.json"),
-      fetch("../data/dtiys/dtiys-2024/participants.json"),
-      fetch("../data/gifts.json")
+      fetch("../../data/dtiys/dtiys-2024/event.json"),
+      fetch("../../data/dtiys/dtiys-2024/participants.json"),
+      fetch("../../data/gifts.json")
     ]);
 
     // Проверяем успешность загрузки файлов.
