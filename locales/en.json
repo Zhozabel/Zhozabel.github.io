@@ -288,6 +288,24 @@
       "description": "Draw This In Your Style challenges."
     }
   },
+  "dtiysArchive": {
+    "category": "Events & Contests",
+    "title": "Draw This In Your Style",
+    "description": "Art challenges where artists redraw characters in their own style.",
+    "status": {
+      "completed": "Completed",
+      "progress": "In progress"
+    },
+    "event2024": {
+      "title": "DTIYS 2024",
+      "description": "A character drawing challenge with 19 participants."
+    },
+    "event2026": {
+      "title": "DTIYS 2026",
+      "description": "A new drawing challenge is in the works."
+    },
+    "more": "Learn more"
+  },
   "dtiys": {
     "category": "Events & Contests",
     "title": "DTIYS 2024",

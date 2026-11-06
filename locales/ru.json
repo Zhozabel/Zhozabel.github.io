@@ -298,6 +298,24 @@
       "description": "Челленджи Draw This In Your Style."
     }
   },
+  "dtiysArchive": {
+    "category": "Ивенты и конкурсы",
+    "title": "Draw This In Your Style",
+    "description": "Челленджи, в которых художники изображают персонажей в собственном стиле.",
+    "status": {
+      "completed": "Завершён",
+      "progress": "В процессе"
+    },
+    "event2024": {
+      "title": "DTIYS 2024",
+      "description": "Челлендж по рисованию персонажа, объединивший 19 участников."
+    },
+    "event2026": {
+      "title": "DTIYS 2026",
+      "description": "Новый челлендж уже готовится."
+    },
+    "more": "Подробнее"
+  },
   "dtiys": {
     "category": "Ивенты и конкурсы",
     "title": "DTIYS 2024",
