@@ -31,9 +31,15 @@
     transform 0.2s ease;
 }
 
-a.dtiys_archive-card:hover {
-  background: var(--card_hover);
-  transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  a.dtiys_archive-card:hover {
+    background: var(--card_hover);
+    transform: translateY(-3px);
+  }
+
+  .dtiys_archive-card:hover .dtiys_archive-link {
+    text-decoration: underline;
+  }
 }
 
 .dtiys_archive-link {
@@ -389,8 +395,11 @@ a.dtiys_archive-card:hover {
   transition: transform 0.3s ease;
 }
 
-.dtiys_card:hover .dtiys_card_image img {
-  transform: scale(1.035);
+/* Увеличение только на устройствах с мышью */
+@media (hover: hover) and (pointer: fine) {
+  .dtiys_card:hover .dtiys_card_image img {
+    transform: scale(1.035);
+  }
 }
 
 .dtiys_card_info {
