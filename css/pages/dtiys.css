@@ -274,23 +274,46 @@
   line-height: 1.5;
 }
 
-
 /* ========================================
    CHARACTER
 ======================================== */
 
 .dtiys_character {
-  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: stretch;
+  gap: 24px;
 
+  padding: 28px;
   border-radius: 20px;
   background: var(--card);
 }
 
+.dtiys_character_image {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  background: var(--background);
+}
+
+.dtiys_character_image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dtiys_character_text {
+  min-width: 0;
+}
+
 .dtiys_character_text h4 {
   margin: 0 0 16px;
-
   color: var(--primary);
-
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   font-weight: 700;
@@ -298,9 +321,7 @@
 
 .dtiys_character_text p {
   margin: 0 0 14px;
-
   color: var(--secondary_text);
-
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   line-height: 1.8;
@@ -310,6 +331,59 @@
   margin-bottom: 0;
 }
 
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  /* CHARACTER CARD */
+
+  .dtiys_character {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .dtiys_character_image {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .dtiys_character_image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .dtiys_character_text {
+    padding: 13px 13px 14px;
+  }
+
+  .dtiys_character_text h4 {
+    margin-bottom: 7px;
+    font-size: 16px;
+  }
+
+  .dtiys_character_text p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .dtiys_character_text p:last-child {
+    margin-bottom: 0;
+  }
+}
 
 /* ========================================
    SCORING
