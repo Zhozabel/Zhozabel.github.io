@@ -29,6 +29,14 @@
   display: block;
 }
 
+.header_logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
 .header_list {
   display: flex;
   gap: 50px;
