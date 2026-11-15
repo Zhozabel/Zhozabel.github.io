@@ -1,3 +1,4 @@
+//console: node optimize-images.cjs
 
 const fs = require("fs");
 const path = require("path");

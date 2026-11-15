@@ -1,5 +1,71 @@
 [
   {
+    "id": "for-me-133",
+    "type": "image",
+    "image": "images/gifts/for-me-133.webp",
+    "characters": [
+      "zhozabel-de-lee-mashle"
+    ],
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "author": "RUT1RUT",
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
+    "id": "for-me-132",
+    "type": "image",
+    "image": "images/gifts/for-me-132.webp",
+    "characters": [
+      "zhozabel-de-lee-mashle",
+      "mash-burnedead"
+    ],
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "author": "Магическая катастрофа",
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
+    "id": "for-me-131",
+    "type": "image",
+    "image": "images/gifts/for-me-131.webp",
+    "characters": [
+      "zhozabel-de-lee-mashle",
+      "mash-burnedead"
+    ],
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "author": "saharochek",
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
+    "id": "for-me-130",
+    "type": "image",
+    "image": "images/gifts/for-me-130.webp",
+    "characters": [
+      "hajoka-butsukaru"
+    ],
+    "fandom": {
+      "en": "Naruto",
+      "ru": "Наруто"
+    },
+    "author": "ARAII SERA",
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
     "id": "for-me-129",
     "type": "image",
     "image": "images/gifts/for-me-129.webp",

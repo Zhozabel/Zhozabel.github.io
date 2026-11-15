@@ -7825,6 +7825,26 @@
     "blur": false
   },
   {
+    "id": "2025-22",
+    "image": {
+      "en": "images/artworks/2025/2025-22.webp",
+      "ru": "images/artworks/2025/2025-22-ru.webp"
+    },
+    "characters": [
+      "zhozabel-de-lee-mashle",
+      "orter-madl"
+    ],
+    "fandom": {
+      "en": "Mashle: Magic and Muscles",
+      "ru": "Магия и Мускулы"
+    },
+    "author": null,
+    "year": 2025,
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
     "id": "2025-21",
     "image": {
       "en": "images/artworks/2025/2025-21.webp",
@@ -8154,6 +8174,22 @@
     },
     "author": null,
     "year": 2025,
+    "rating": "G",
+    "warnings": [],
+    "blur": false
+  },
+  {
+    "id": "2026-04",
+    "image": "images/artworks/2026/2026-04.webp",
+    "characters": [
+      "xia-feng"
+    ],
+    "fandom": {
+      "en": "Centennial Winter © RUT1RUT",
+      "ru": "Столетняя зима © RUT1RUT"
+    },
+    "author": null,
+    "year": 2026,
     "rating": "G",
     "warnings": [],
     "blur": false
